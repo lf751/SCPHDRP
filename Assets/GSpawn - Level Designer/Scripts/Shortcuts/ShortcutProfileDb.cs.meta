@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c54befb0d0d5729478b3e9076fac7187
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45021
+  packageName: GSpawn - Level Designer
+  packageVersion: 3.2.8.5
+  assetPath: Assets/GSpawn - Level Designer/Scripts/Shortcuts/ShortcutProfileDb.cs
+  uploadId: 643155

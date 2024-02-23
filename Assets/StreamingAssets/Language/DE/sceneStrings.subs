@@ -1,0 +1,658 @@
+{
+    "BeforeDoorOpen": {
+        "subtitle": "Kontrolle, hier spricht Agent Ulgrin. Ich ersuche das \u00d6ffnen der Zelle 3-11.",
+        "delay": 3.0,
+        "duration": 6.0,
+        "nextSubtitle": "BeforeDoorOpen2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "BeforeDoorOpen2": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 9.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": true
+    },
+    "ExitCell": {
+        "subtitle": "Hey, die haben ein bisschen Arbeit f\u00fcr dich. Tu mir 'nen Gefallen und tret aus deiner Zelle.",
+        "delay": 2.5,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "ExitCellRefuse1": {
+        "subtitle": "Bist du irgendwie dumm oder so? Ich habe gesagt tret aus deiner Zelle. Wenn du nichts aus deiner Zelle tritts kriegst du auf's Maul.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "ExitCellRefuse2": {
+        "subtitle": "Komm schon Kumpel, wir haben nicht den ganzen Tag. Ich versuche hier h\u00f6flich zu sein. Wenn du nichts aus deiner Zelle tritts kriegst du auf's Maul.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "CellGas1": {
+        "subtitle": "Huh, du musst echt das d\u00fcmmste Testsubjekt sein das wir jemals hatten. Auch egal, schlie\u00dft die T\u00fcr und \u00f6ffnet das Gasventil.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "CellGas2": {
+        "subtitle": "Huh, ich bin irgendwie entt\u00e4uscht, dass du keinen Stress gemacht hast. Ich hatte gehofft ich k\u00f6nnte dir ins Gesicht schlagen.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortRun": {
+        "subtitle": "Hey, Spast! Das ist der falsche Weg. Komm augenblicklich hier her!",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortRefuse1": {
+        "subtitle": "Beeil dich! Die warten auf dich.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortRefuse2": {
+        "subtitle": "Komm schon Kumpel, ich hasse meinen Job jetzt schon. Wieso machst du ihn mir noch schwerer?",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortPissedOff1": {
+        "subtitle": "Ich hab keinen Bock auf diesen Schei\u00df, ich habe absolut kein Problem damit dir 'ne Kugel in den Kopf zu jagen wenn du nicht anf\u00e4ngst mitzuarbeiten.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortPissedOff2": {
+        "subtitle": "Ich hab keinen Bock auf diesen Schei\u00df, ich habe absolut kein Problem damit dir 'ne Kugel in den Kopf zu jagen wenn du nicht anf\u00e4ngst mitzuarbeiten.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortKill1": {
+        "subtitle": "Okay, wei\u00dft du was? Dann sei so. Wir werden uns einfach jemand anderen holen.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortKill2": {
+        "subtitle": "Okay, wei\u00dft du was? Dann sei so. Wir werden uns einfach jemand anderen holen.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_1": {
+        "subtitle": "Also, uh, wie geht's?",
+        "delay": 0.0,
+        "duration": 3.5,
+        "nextSubtitle": "Intro_Convo1_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_2": {
+        "subtitle": "Uh, r-redest du mit mir?",
+        "delay": 3.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo1_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo1_3": {
+        "subtitle": "Nunja, mit wem denkst du rede ich, dem D-Klasse Fuzzi hier? Klar red ich mit dir.",
+        "delay": 4.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo1_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_4": {
+        "subtitle": "Oh, ich bin nur ein wenig \u00fcberrascht. Ich denke, dass ist das erste Mal, das du mit mir redest.",
+        "delay": 10.0,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo1_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo1_5": {
+        "subtitle": "Naja, es ist dein erster Arbeitstag hier.",
+        "delay": 15.5,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo1_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_6": {
+        "subtitle": "Uh, eigentlich arbeiten wir seit f\u00fcnf Monaten zusammen.",
+        "delay": 19.0,
+        "duration": 7.0,
+        "nextSubtitle": "Intro_Convo1_7",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo1_7": {
+        "subtitle": "Wirklich? Wow. Das ist seltsam.",
+        "delay": 23.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_1": {
+        "subtitle": "Uh, hast du in letzter Zeit irgendwelche guten Filme gesehen?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_2": {
+        "subtitle": "Uh, ich schaue nicht wirklich viele Filme, ich lese B\u00fccher.",
+        "delay": 3.5,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo2_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_3": {
+        "subtitle": "Ja? Was f\u00fcr B\u00fccher?",
+        "delay": 7.5,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_4": {
+        "subtitle": "Uh, Horror, Science-Fiction, sowas halt.",
+        "delay": 9.0,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo2_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_5": {
+        "subtitle": "Du machst Witze.",
+        "delay": 13.5,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo2_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_6": {
+        "subtitle": "Wie?",
+        "delay": 15.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_7",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_7": {
+        "subtitle": "Dein ganzer Job dreht sich um Horror und Science-Fiction, au\u00dfer, dass es tats\u00e4chlich keine Fiktion ist.",
+        "delay": 16.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo2_8",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_8": {
+        "subtitle": "Also, eigentlich plane ich ein Buch \u00fcber meine Erfahr-",
+        "delay": 22.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_9",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_9": {
+        "subtitle": "Ok, nimm's mir nicht \u00fcbel, aber ich hab jetzt schon jegliches Interesse an dem verloren was du sagen wolltest.",
+        "delay": 26.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_1": {
+        "subtitle": "Mann, bin ich hungrig. Hey, heute ist Pizzatag in der Cafeteria, stimmt's?",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo3_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_2": {
+        "subtitle": "Uh, e-eigentlich ist es Thunfischauflauf, denke ich.",
+        "delay": 4.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo3_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo3_3": {
+        "subtitle": "Oh, Gott verdammt. Also mein Tag ist ruiniert. Der einzige Grund wieso ich immer noch hier her komme ist wegen der Pizza. Ich wei\u00df nicht was es mit dieser Pizza auf sich hat, aber sie ist echt lecker. Thunfischauflauf andererseits ist eine grausame Abscheulichkeit die mit dem Rest von diesen Missgeburten hier eingesperrt sein sollte.",
+        "delay": 7.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_4": {
+        "subtitle": "Uh, okay..",
+        "delay": 12.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo3_5",
+        "character": "chara_ulgrin",
+        "noFormat": true
+    },
+    "Intro_Convo3_5": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 18.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo3_6",
+        "character": "chara_ulgrin",
+        "noFormat": true
+    },
+    "Intro_Convo3_6": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 22.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_1": {
+        "subtitle": "Lass mich raten, du hast keine Freundin, oder?",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo4_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_2": {
+        "subtitle": "Ist es so offensichtlich?",
+        "delay": 2.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo4_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_3": {
+        "subtitle": "Also ich bin ja kein Gedankenleser, sonst wäre ich auch hier eingesperrt, also ja, es ist ziemlich offensichtlich.",
+        "delay": 3.5,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo4_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_4": {
+        "subtitle": "Wie soll ich denn mit diesem Job eine Freundin finden? Ich meine, ich kann ihr davon ja nichts erzählen, also was soll ich tun?",
+        "delay": 9.5,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo4_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_5": {
+        "subtitle": "Lüg sie doch einfach an. Sag ihr du arbeitest in irgendeinem Café oder so.",
+        "delay": 13.5,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo4_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_6": {
+        "subtitle": "Aber, was wenn ich aus Versehen vergesse hier meine Hände zu waschen und mit Blut an ihnen nach Hause komme? Was sollte ich ihr dann sagen?",
+        "delay": 16.0,
+        "duration": 8.0,
+        "nextSubtitle": "Intro_Convo4_7",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_7": {
+        "subtitle": "Uh, keine Ahnung, sag einfach es wäre, uh... Ketchup oder so.",
+        "delay": 24.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo4_8",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_8": {
+        "subtitle": "Ketchup? Wieso sollte ich Ketchup an meinen Händen haben wenn ich in einem Café arbeite?",
+        "delay": 26.5,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo4_9",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_9": {
+        "subtitle": "Ugh, v-vergiss es einfach.",
+        "delay": 30.5,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_1": {
+        "subtitle": "Uh, hast du in letzter Zeit irgendwelche guten Filme gesehen?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_2": {
+        "subtitle": "Uh, ich schaue nicht wirklich viele Filme.",
+        "delay": 2.5,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo5_3": {
+        "subtitle": "Oh ok. Wie sieht es mit Videospielen aus? Wei\u00dft du was, das gibt mir eine Idee, jemand sollte ein Videospiel \u00fcber diesen Ort machen.",
+        "delay": 5.5,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo5_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_4": {
+        "subtitle": "Wieso sollte das irgendjemand tun?",
+        "delay": 12.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo5_5": {
+        "subtitle": "Ich wei\u00df nicht, ich dachte einfach es w\u00e4re eine coole Idee.",
+        "delay": 13.5,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_6": {
+        "subtitle": "Nun, ich spiele auch keine Videospiele.",
+        "delay": 16.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Escort1": {
+        "subtitle": "Folge mir. Ach und \u00fcbrigens, wir sind dazu autorisiert unfolgsame Testsubjekte zu neutralisieren, also versuch besser nichts Dummes.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Escort2": {
+        "subtitle": "Folge mir. Ach und \u00fcbrigens, wir sind dazu autorisiert unfolgsame Testsubjekte zu neutralisieren, also versuch besser nichts Dummes.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone1": {
+        "subtitle": "Also, hier sind wir. Geh einfach da rein und befolge alle Anweisungen, dann wirst du uh, wahrscheinlich lebend da rauskommen.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone2": {
+        "subtitle": "Also, hier sind wir. Ich bin immer noch entt\u00e4uscht, dass ich dir nicht Eine reinhauen konnte, aber egal.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone3": {
+        "subtitle": "Also, hier sind wir. Ich bin immer noch entt\u00e4uscht, dass ich dir nicht ins Gesicht schlagen durfte, aber *seufz* egal.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone4": {
+        "subtitle": "Geh einfach da rein und befolge alle Anweisungen, dann wirst du uh, wahrscheinlich lebend da rauskommen. Vielleicht aber auch nicht, ist mir eigentlich auch egal.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone5": {
+        "subtitle": "Naja, jedenfalls, lass uns keine Zeit mehr verschwenden. Die Anderen warten auf dich in der Kammer.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EnterChamber": {
+        "subtitle": "Achtung an alle D-Klasse Mitarbeiter, bitte betreten Sie die Isolierungszelle.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Approach173": {
+        "subtitle": "Bitte n\u00e4hern sie sich <color=yellow>SCP-173</color> f\u00fcr einen Versuch.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Problem": {
+        "subtitle": "Uh, es scheint ein Problem mit dem T\u00fcrenkontrollsystem zu geben, die T\u00fcren reagieren nicht auf unsere Versuche sie zu schlie\u00dfen, also uhm, bitte halten sie mit Blickkontakt mit SCP-173 und-",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Problem_2": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 6.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Refuse1": {
+        "subtitle": "Subjekt D-9341, betreten sie die Isolierungszelle oder sie werden neutralisiert.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Refuse2": {
+        "subtitle": "Dies ist ihre letzte Warnung. Sie haben f\u00fcnf Sekunden um den Anweisungen zu folgen.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Refuse3": {
+        "subtitle": "Subjekt D-9341 zum Abschuss freigegeben. Feuer frei.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Escape1": {
+        "subtitle": "Ich denke der k\u00fcrzeste Weg nach drau\u00dfen ist durch den S\u00fcdost-Fl\u00fcgel, folgen Sie mir!",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_sci",
+        "noFormat": false
+    },
+    "Escape2": {
+        "subtitle": "Haben Sie das geh\u00f6rt? Ich hoffe es war nicht-",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "scene_BreachStart_1": {
+        "subtitle": "Agent, hinter dir!",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "scene_BreachStart_2",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "scene_BreachStart_2": {
+        "subtitle": "Oh, Schei\u00dfe!",
+        "delay": 1.0,
+        "duration": 3.0,
+        "nextSubtitle": "scene_BreachStart_3",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "scene_BreachStart_3": {
+        "subtitle": "Behalt ihn im Auge!",
+        "delay": 1.5,
+        "duration": 3.0,
+        "nextSubtitle": "scene_BreachStart_4",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "scene_BreachStart_4": {
+        "subtitle": "Okay, ich werde blinzeln, schau ihn einfach weiter an",
+        "delay": 5.0,
+        "duration": 4.0,
+        "nextSubtitle": "scene_BreachStart_5",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "scene_BreachStart_5": {
+        "subtitle": "Okay, Alles klar",
+        "delay": 7.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "scene_012_1": {
+        "subtitle": "<i>Ich muss... Ich muss es fertig stellen...</i>",
+        "delay": 5.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_2": {
+        "subtitle": "<i>M\u00f6chtest du das wirklich tun... Ich schaffe... das... nicht.</i>",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "",
+        "noFormat": true
+    },
+    "scene_012_2_2": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 13.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_3": {
+        "subtitle": "<i>Ich... Ich... muss... es schaffen.</i>",
+        "delay": 5.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": false
+    },
+    "scene_012_4": {
+        "subtitle": "<i>I-Ich... habe... keine... W-Wahl!</i>",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_5": {
+        "subtitle": "<i>Luftballons... Das....das macht...keinen Sinn!</i>",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "scene_012_5_2",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_5_2": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 7.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_6": {
+        "subtitle": "<i>Nein... das... das kann... nicht sein!</i>",
+        "delay": 6.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_7": {
+        "subtitle": "<i>Es ist... Es ist unm\u00f6glich!</i>",
+        "delay": 8.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "kneel106": {
+        "subtitle": "KNIE NIEDER",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    }
+}

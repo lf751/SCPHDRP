@@ -1,0 +1,17 @@
+        {"death_173", "Subjekt D-9341: \nTödlicher Halswirbelsäulenbruch. Angriff von SCP-173 wird angenommen."},
+        {"death_173_doors", "\"<i>Wenn ich mich nicht irre war einer der Hauptgründe für diese Räume SCP-173 im Falle eines Eindämmungsbruchs am Weiterentkommen zu hindern. Also wessen brilliante Idee war es <b>EINEN GOTT VERDAMMTEN MANNSGROẞEN LÜFTUNGSKANAL</b> da drin zu installieren?</i>\""},
+        {"death_173_surv", "Subjekt: D-9341. \nTodesursache: Tödlicher Halswirbelsäulenbruch. Die Überwachungaufnahmen zeigen, dass das Subjekt von SCP-173 getötet wurde." },
+        {"death_173_intro" , "Subjekt: D-9341. \nTodesursache: Tödlicher Halswirbelsäulenbruch. Laut Sicherheitschef Franklin, welcher sich während dem Eindämmungsbruch bei SCP-173s Kammer aufhielt, wurde das Subjekt von SCP-173 getötet als die Störungen im Stromnetz begannen."},
+
+        {"death_106_stone", "\" [...]<i>In Verbindung mit der verrotteten Erscheinung die typisch für Opfer von SCP-106 ist, weißt der Körper zusätzliche Verletzungen welche zuvor noch nicht beobachtet wurden: massive Schädelfraktur, drei gebrochene Rippen, eine gebrochene Schulter und schwere Blutergüsse.</i>\"" },
+        {"death_939" ,"\"[...] <i>Alle vier (4) entflohenen SCP-939 Exemplare wurden erfolgreich gefangen und reisoliert. Drei (3) von ihnen haben eine ziemliche Sauerei in Lagergebiet 6 verrichtet. Eine Säuberungsmannschaft wurde entsendet.</i> \""},
+        {"death_012", "<i>Subjekt D-9341, gefunden in einer Blutpfütze neben SCP-012. Das Subjekt scheint seine Hauptschlagadern aufgerissen und die Komposition um drei Zeilen weitergeschrieben zu haben, bevor er an Blutverlust verstarb.</i>" },
+
+
+        {"death_intro",  "\"[...] <i>Was ein nerviges Stück Scheiße </i>\""},
+
+        {"death_gas", "<i>Subjekt D-9341 tot gefunden in [DATA REDACTED]. Todesursache: Ersticken durch Dekontaminationsgas.</i>" },
+        {"death_tesla", "Subjekt D-9341 getötet durch Stromtor bei [REDACTED]" },
+
+
+        {"death_mtf", "Subjekt: D-9341. \nNeutralisiert von Nine-Tailed Fox." },

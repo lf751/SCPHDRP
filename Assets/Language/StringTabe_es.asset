@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: StringTabe_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: c344f2ac126317347bc535f4bb7d19ee, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 7409753433525452908
+  m_TableData:
+  - m_Id: 3575352586240
+    m_Localized: Tocar
+    m_Metadata:
+      m_Items:
+      - rid: 7409753433525452908
+  - m_Id: 3272771301376
+    m_Localized: Multijugadora
+    m_Metadata:
+      m_Items:
+      - rid: 7409753433525452908
+  - m_Id: 3435891978240
+    m_Localized: Opciones
+    m_Metadata:
+      m_Items:
+      - rid: 7409753433525452908
+  - m_Id: 3341541109760
+    m_Localized: Salida
+    m_Metadata:
+      m_Items:
+      - rid: 7409753433525452908
+  - m_Id: 6018706632704
+    m_Localized: "atr\xE1s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6244657983488
+    m_Localized: "Pr\xF3logo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6396688920576
+    m_Localized: Nuevo juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6563710300160
+    m_Localized: Cargar juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4063997823217664
+    m_Localized: Pausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4064293886554112
+    m_Localized: Reanudar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4064689698828288
+    m_Localized: Opciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4065014002413568
+    m_Localized: Abandonar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183285752593936384
+    m_Localized: Avanzado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183287783597568000
+    m_Localized: Aporte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183288066792779776
+    m_Localized: Audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289133685305344
+    m_Localized: "Resoluci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289322223464448
+    m_Localized: "Gr\xE1ficos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289426087014400
+    m_Localized: "Calidad de los gr\xE1ficos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289528071516160
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289700084117504
+    m_Localized: Pantalla completa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289820955570176
+    m_Localized: "sincronizaci\xF3n vertical"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 184430950422179840
+    m_Localized: "Modo anisotr\xF3pico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 184438694445346816
+    m_Localized: Nivel de textura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 184445112405749760
+    m_Localized: Gama
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 7409753433525452908
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00f09e734003000000f01efb1f03000000f05e030a03000000f05e00fa020000

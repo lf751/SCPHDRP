@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fc1b696f6fd589f459b5eadaed75c41b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45021
+  packageName: GSpawn - Level Designer
+  packageVersion: 3.2.8.5
+  assetPath: Assets/GSpawn - Level Designer/Scripts/Commands/ObjectSelectionCommands.cs
+  uploadId: 643155

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 28c580edbd6854d4398064880b61982a
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45021
+  packageName: GSpawn - Level Designer
+  packageVersion: 3.2.8.5
+  assetPath: Assets/GSpawn - Level Designer/Resources/Shaders/SimpleDiffuse.shader
+  uploadId: 643155

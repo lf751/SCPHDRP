@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 40d0cc6d00e6a5a4ebe6fa6595af615f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45021
+  packageName: GSpawn - Level Designer
+  packageVersion: 3.2.8.5
+  assetPath: Assets/GSpawn - Level Designer/Scripts/Scene/SceneRayHit.cs
+  uploadId: 643155

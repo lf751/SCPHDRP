@@ -1,0 +1,13 @@
+# Wavefront MTL
+# Created by fragMOTION 1.3.5
+# http://www.fragmosoft.com
+
+newmtl 01 - Default
+illum 2
+d 1
+ka 0.588235 0.588235 0.588235
+kd 0.588235 0.588235 0.588235
+ks 0 0 0
+ke 0 0 0
+ns 0
+map_kd .\MonitorTexture.jpg

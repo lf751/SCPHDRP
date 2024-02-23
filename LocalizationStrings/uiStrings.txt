@@ -1,0 +1,68 @@
+{"ui_generic_back", "Back"},
+        {"ui_main_play", "Play"},
+        {"ui_main_extras", "Extras"},
+        {"ui_main_options", "Options"},
+        {"ui_main_exit", "Exit"},
+
+        {"ui_main_play_pro", "Prologue"},
+        {"ui_main_play_chap", "Chapters"},
+
+        {"ui_main_play_new", "New Game"},
+        {"ui_main_play_load", "Load Game"},
+        {"ui_main_play_start", "Start"},
+        {"ui_main_play_seed", "Map Generation Seed"},
+        {"ui_main_play_sname", "Savefile Name"},
+        {"ui_main_play_intro", "Play Intro"},
+        {"ui_main_play_sload", "Load"},
+        {"ui_main_play_sdelete", "Delete"},
+
+        {"ui_in_anykey", "Press any key to Start"},
+        {"ui_in_pause", "PAUSE"},
+        {"ui_in_info", "Designation: {0} \nName: {1} \n\nSave File: {2}\nMap Seed: {3}"},
+        {"ui_in_resume", "Resume"},
+        {"ui_in_save", "Save and Quit"},
+        {"ui_in_quit", "Quit"},
+        {"ui_in_death", "YOU DIED"},
+        {"ui_in_load", "Load Save"},
+        {"ui_in_saved", "Game Saved" },
+        {"ui_in_nosave", "Can't save at this location" },
+
+
+        {"ui_op_gfx", "Graphics"},
+        {"ui_op_sfx", "Audio"},
+        {"ui_op_input", "Input"},
+        {"ui_op_misc", "Advanced"},
+
+        {"ui_gfx_quality", "Graphics Quality"},
+        {"ui_gfx_post", "Post Processing Quality"},
+        {"ui_gfx_lang", "Language"},
+        {"ui_gfx_vsync", "V-Sync"},
+        {"ui_gfx_frame", "Set Framerate Target"},
+        {"ui_gfx_gamma", "Screen Gamma"},
+
+        {"ui_sfx_master", "Master Volume"},
+        {"ui_sfx_music", "Music"},
+        {"ui_sfx_ambiance", "Ambiance"},
+        {"ui_sfx_sfx", "Sound Effects"},
+        {"ui_sfx_voice", "Voice"},
+        {"ui_sfx_sub", "Show Subtitles"},
+
+        {"ui_input_invert", "Invert Mouse Y-Axis"},
+        {"ui_input_acc", "Mouse Acceleration"},
+
+        {"ui_misc_debug", "Debug Console"},
+        {"ui_misc_tuto", "Show In-game Tutorials"},
+
+        {"ui_demo_end", "Thanks for Playing the our Demo" },
+        {"ui_demo_end_body", "Our first objective with this remaster is to replicate the same ambiance and feeling from the original <color=white><i>SCP: Containment Breach</i></color> in a more detailed rendering engine, and a (hopefully!) more reliable engine.\n\nWe hope you think we have delivered!\n\nWe have a long way too go to reach feature parity with the current version. However as a creator, you have that itch to both perfect your work, but also get in on the hands of the people who will enjoy it. I believe I have turned this engine into something that will deliver a definitive SCP:CB experience quick and in high quality.\n\nYou can keep playing and explore the work we have in the Heavy Containment Zone by reloading this save.\n\nKeep an eye out for the next major update! Hopefully there you'll have a taste of the new features and ideas we want to build into the main game." },
+
+        {"ui_map_noconnect", "UNABLE TO CONNECT TO MAP DATABASE" },
+        {"ui_map_lock", "LOCKDOWN IN AREAS: " },
+        {"ui_map_heavy", "HEAVY CONT. ZONE " },
+        {"ui_map_entrance", "ENTRANCE ZONE " },
+
+        {"ui_radio_channel2", " WARNING - CONTAINMENT BREACH " },
+        {"ui_radio_channel3", " SCP Foundation On-Site Radio " },
+        {"ui_radio_channel4", " EMERGENCY CHANNEL - RESERVED FOR COMMUNICATION IN THE EVENT OF A CONTAINMENT BREACH " },
+
+

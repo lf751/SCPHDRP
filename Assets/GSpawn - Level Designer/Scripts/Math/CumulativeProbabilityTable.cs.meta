@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a79aff110e80a3d43b83aa4710b53ed7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45021
+  packageName: GSpawn - Level Designer
+  packageVersion: 3.2.8.5
+  assetPath: Assets/GSpawn - Level Designer/Scripts/Math/CumulativeProbabilityTable.cs
+  uploadId: 643155

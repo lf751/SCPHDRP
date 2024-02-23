@@ -1,0 +1,11 @@
+{
+    "tutograb": "Presiona el boton de interactuar cuando veas el icono de Mano para interactuar con distintos elementos. Objetos, Palancas, Botones, etc.",
+    "tutoinv1": "Presiona la tecla de inventario para ver tus objetos recogidos. Da clic en ellos para equiparlos o usarlos",
+    "tutoinv2": "Suelta objetos en las casillas de otros para combinar con distintos resultados. Tambien puedes soltarlos fuera para tirarlos",
+    "tutoinv3": "Hay cerrojos alrededor del edificio que necesitan una llave de acceso. Encontraras puertas cerradas remotamente. Busca formas para abrirlas",
+    "tutodead": "Puedes encontrar cosas interesantes en los cuerpos de las victimas del accidente",
+    "tutorun": "Sosten el boton de Sprint para correr. Ten cuidado, ya que tus pasos podrian atraer a ciertas criaturas",
+    "tutohide1": "Crouching and hiding behind objects can deter Enemies aware of their enviroment",
+    "tutohide2": "Hay criaturas que pueden oir tus pasos. Agachate o camina despacio para que no se enteren de tu presencia",
+    "tutoradio": "Presiona las teclas 1~5 para cambiar de estacion"
+}

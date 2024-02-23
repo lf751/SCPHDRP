@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e50c643728e770d4a84436d09cc7d975
+  m_SerializeEntries:
+  - m_GUID: 28d847b690e26f74da7f953af4af401d
+    m_Address: Assets/Scenes/Lobby/Prefabs/Art/Logos/BLOGO_712txt.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95fb69e6d562a2d448e549717904839b
+    m_Address: Assets/Scenes/Lobby/Prefabs/Art/Logos/BLOGO_512.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 570689448f7700c4c9e3390420b9f8b9, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e6c639a1b5a8e5d49a8a2c21f1c3b61f, type: 2}
+    - {fileID: 11400000, guid: adcffde0dfa5c334db2548dcd9b0b30f, type: 2}

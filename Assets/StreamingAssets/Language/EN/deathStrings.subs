@@ -1,0 +1,17 @@
+{
+    "death_173": "Subject D-9341: \nFatal cervical fracture. Assumed to be attacked by SCP-173.",
+    "death_173_doors": "\"<i>If I'm not mistaken, one of the main purposes of these rooms was to stop SCP-173 from moving further in the event of a containment breach. So, whose brilliant idea was it to put <b>A GODDAMN MAN-SIZED VENTILATION DUCT</b> in there?</i>\"",
+    "death_173_surv": "Subject: D-9341. \nCause of Death: Fatal cervical fracture. The surveillance tapes confirm that the subject was killed by SCP-173.",
+    "death_173_intro": "Subject: D-9341. \nCause of death: Fatal cervical fracture. According to Security Chief Franklin who was present at SCP-173's containment chamber during the breach, the subject was killed by SCP-173 as soon as the disruptions in the electrical network started.",
+    "death_106_stone": "\" [...]<i>In addition to the decomposed appearance typical of the victims of SCP-106, the body exhibits injuries that have not been observed before: massive skull fracture, three broken ribs, fractured shoulder and heavy lacerations.</i>\"",
+    "death_939": "\"[...] <i>All four escaped SCP-939 (4) specimens have been captured and recontained successfully. Three (3) of them made quite a mess at Storage Area 6. A cleaning team has been dispatched.</i> \"",
+    "death_012": "<i>Subject D-9341 found in a pool of blood next to SCP-012. Subject seems to have ripped open his wrists and written three extra lines to the composition before dying of blood loss.</i>",
+    "death_intro": "\"[...] <i>What an annoying piece of shit </i>\"",
+    "death_gas": "<i>Subject D-9341 found dead in [DATA REDACTED]. Cause of death: suffocation due to decontamination gas.</i>",
+    "death_tesla": "Subject D-9341 killed by the Tesla Gate at [REDACTED]",
+	"death_008" : "Subject D-9341 found ingesting Dr. [REDACTED] at Sector [REDACTED]. \nSubject immediately terminated by Nine-Tailed Fox and sent for autopsy. \nSCP-008 infection was confirmed, after which the body was incinerated.",
+	"death_049" : "An active instance of SCP-049-2 was discovered in [REDACTED]. \nTerminated by Nine-Tailed Fox.",
+	"death_049_1" : "Subject D-9341. \nCause of death: multiple lacerations and severe blunt force trauma caused by an instance of SCP-049-2.",
+	"death_096" : "A large amount of blood found in [DATA REDACTED]. \nDNA identified as Subject D-9341. Most likely [DATA REDACTED] by SCP-096.",
+    "death_mtf": "Subject: D-9341. \nTerminated by Nine-Tailed Fox."
+}

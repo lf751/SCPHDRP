@@ -1,0 +1,3300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8780410545750352223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: wall_5x5_White02
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 4ca9ed86-6231-46a6-ae55-5fa534a47878
+  _prefabAsset: {fileID: 7983735748252237308, guid: d957b80083d093d48815a52c4fe33f96, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7983735748252237308, guid: d957b80083d093d48815a52c4fe33f96, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -9, y: 4.00632, z: -1}
+    _rotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
+    _scale: {x: 0.8000003, y: 0.8, z: 0.8000003}
+  _modularSnapVerticalStep: 4
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0}
+  _uiSelected: 1
+--- !u!114 &-8776316181708986765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Ceiling_5x5_ConcreteLines
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 59e37cec-22ef-44ad-99a0-218141be9ff1
+  _prefabAsset: {fileID: 4137661214758963728, guid: 28a95d2366247b5438552ce7ca3c247f, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4137661214758963728, guid: 28a95d2366247b5438552ce7ca3c247f, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    _scale: {x: 0.8, y: 0.80000025, z: 0.80000025}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.0000014, z: 0}
+  _uiSelected: 0
+--- !u!114 &-8255554987183589518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_OneSide_Tiles
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 2c69e463-1bad-44f6-900e-44b9492de129
+  _prefabAsset: {fileID: 1007766322037068553, guid: e3711ba4facf785498c2836662b599e1, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 1007766322037068553, guid: e3711ba4facf785498c2836662b599e1, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -2, y: 0, z: 14}
+    _rotation: {x: -0, y: 1, z: -0, w: 0}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.01524, z: 0.4133597}
+  _uiSelected: 0
+--- !u!114 &-8236340115398629083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_OneSide_ConcreteRough
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 61e7743c-69d9-43f0-b7bf-2b4e89e15a4a
+  _prefabAsset: {fileID: 6135974651270028047, guid: 07a566115f5ec8b4cb4039be43a3d657, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6135974651270028047, guid: 07a566115f5ec8b4cb4039be43a3d657, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: -0, y: 1, z: -0, w: 0}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.01524, z: 0.4133597}
+  _uiSelected: 0
+--- !u!114 &-8229934359195168023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: crate2
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: c7d59fc1-2893-499c-9337-d610b82b96e1
+  _prefabAsset: {fileID: 4016202828926327265, guid: d10c80ebba8866541a62072c5e373f23, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4016202828926327265, guid: d10c80ebba8866541a62072c5e373f23, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 1.5, y: 1.5, z: 1.5}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 1.1711957, y: 0.3220034, z: 0.6286849}
+  _uiSelected: 0
+--- !u!114 &-7776490384402620708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Shelves
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 2f5e9fea-bb46-4ada-9ac7-03d8da69bdb2
+  _prefabAsset: {fileID: 3395746995667648927, guid: 923d0c33b93c6194089a38ef84e646aa, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3395746995667648927, guid: 923d0c33b93c6194089a38ef84e646aa, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -7, y: 0.0063198837, z: -9}
+    _rotation: {x: -0, y: 1, z: -0, w: 0}
+    _scale: {x: 0.80000013, y: 0.8000001, z: 0.8000002}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 1.8459787, y: 2.2352, z: 0.6827522}
+  _uiSelected: 0
+--- !u!114 &-7668557758583495800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: monitor
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: d13e31f4-cc1b-4188-8cd3-a294bd371e20
+  _prefabAsset: {fileID: 6145623749601613313, guid: 83f5573464909cf43923f7cd7925781b, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6145623749601613313, guid: 83f5573464909cf43923f7cd7925781b, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -7.533172, y: 0.9775468, z: -5.8298993}
+    _rotation: {x: 0.000000063795596, y: 0.7009095, z: -0.00000006565824, w: 0.7132503}
+    _scale: {x: 1.0000001, y: 1, z: 1.0000001}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0.05000001
+  _modelSize: {x: 0.51353514, y: 0.472748, z: 0.14929393}
+  _uiSelected: 0
+--- !u!114 &-7542332180112838016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: wall_5x5_OfficeLines
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 49238ad3-aabe-46f5-90c6-e98676e8d826
+  _prefabAsset: {fileID: 3672136997008782941, guid: 45d89f849f31e9442a421ab65ac475bf, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3672136997008782941, guid: 45d89f849f31e9442a421ab65ac475bf, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 1, y: 0.0063198837, z: -4}
+    _rotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+    _scale: {x: 0.80000025, y: 0.8, z: 0.80000025}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &-7494308267774829092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_Curved_Wall_OneSide_WhiteW
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 12c03ceb-147b-40ba-9b30-a468c9f592d8
+  _prefabAsset: {fileID: 7003761749283074956, guid: 171dc524ec4f75b4a8da7546437427bf, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7003761749283074956, guid: 171dc524ec4f75b4a8da7546437427bf, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -3, y: 0.0063198837, z: -1}
+    _rotation: {x: -0, y: 1, z: -0, w: 0}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.01524, z: 0.4133596}
+  _uiSelected: 0
+--- !u!114 &-7236264142878908154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Pipe_Straight
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 6120b305-7123-4998-8bfb-f3cec86dcb24
+  _prefabAsset: {fileID: 5829054493291966878, guid: 289ccbf8afe36a14ca7a5c344690c976, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 5829054493291966878, guid: 289ccbf8afe36a14ca7a5c344690c976, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.46479782, y: 2, z: 0.46479782}
+  _uiSelected: 0
+--- !u!114 &-7108598429000173262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_Window_Tiles
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: e6e99a0f-bf09-4e65-8c84-29ff17f6d738
+  _prefabAsset: {fileID: 8410942782501025389, guid: 694190a8eaa0fc84e99048550c392e30, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 8410942782501025389, guid: 694190a8eaa0fc84e99048550c392e30, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &-6868875567653891664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_SmoothCorner
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: cc7f3794-af73-4714-8a12-10b241f20b8b
+  _prefabAsset: {fileID: 1121095026415721704, guid: a4a456c397581fc499389859366c9a97, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 1121095026415721704, guid: a4a456c397581fc499389859366c9a97, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8000003, y: 0.8, z: 0.8000003}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4.0000014, y: 4, z: 4.0000014}
+  _uiSelected: 0
+--- !u!114 &-6867549905646799172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Walkway
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 6e24acc0-59a7-4461-989f-17b343797aa9
+  _prefabAsset: {fileID: 1907658340428838765, guid: 6d9224ea89c4b85478644faa5d748a38, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 1907658340428838765, guid: 6d9224ea89c4b85478644faa5d748a38, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 0.4, z: 4}
+  _uiSelected: 0
+--- !u!114 &-6484671207891843376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: wall_5x5_Whitewall
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 73c57775-2c75-4903-9ffe-d51d68c10c32
+  _prefabAsset: {fileID: 2442337636792553733, guid: fc37722a0a16ffc44aa9c2d53a182c04, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2442337636792553733, guid: fc37722a0a16ffc44aa9c2d53a182c04, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 8, y: 0.0063198837, z: 10}
+    _rotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+    _scale: {x: 0.80000025, y: 0.8, z: 0.80000025}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &-6068012539770389811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Ceiling_5x5_2Lights
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 710b7b87-29c9-47f1-bdd9-6ae26228a158
+  _prefabAsset: {fileID: 4620549055545079303, guid: 0f582c378c073ae4e8b33de5f4f3c654, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4620549055545079303, guid: 0f582c378c073ae4e8b33de5f4f3c654, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 1, y: 4.00632, z: -2}
+    _rotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
+    _scale: {x: 0.80000037, y: 0.8000003, z: 0.8000003}
+  _modularSnapVerticalStep: 4
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.0000014, z: 0}
+  _uiSelected: 1
+--- !u!114 &-5999259240434674670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Large_wall
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 08383e51-0f18-4522-97be-2719091b28a1
+  _prefabAsset: {fileID: 7101861348988999407, guid: 82c7a3335457364489c9a1cc6705c9dc, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7101861348988999407, guid: 82c7a3335457364489c9a1cc6705c9dc, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 8, y: 8, z: 0}
+  _uiSelected: 0
+--- !u!114 &-5995311209202031177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: DoubleDesk
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: fe1dd30c-7f71-45fe-b498-4934baa2f3cb
+  _prefabAsset: {fileID: 4777405603220334848, guid: 53e93ad86bf582f49aa51a004c3b161c, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4777405603220334848, guid: 53e93ad86bf582f49aa51a004c3b161c, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 1.5740808, y: 1.5360007, z: 1.8000001}
+  _uiSelected: 0
+--- !u!114 &-5941036090035907978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: L_Wall_Round
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: efefc77e-bb1a-4341-8606-c4c74dd496c4
+  _prefabAsset: {fileID: 8619323302989554519, guid: 6aebfe428ed217542a7398d558751eb4, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 8619323302989554519, guid: 6aebfe428ed217542a7398d558751eb4, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 8, z: 4}
+  _uiSelected: 0
+--- !u!114 &-5919264361642288905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: floor_5x5_OfficeCarpet
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 7211bcb8-4a59-4d38-bfa8-1d17692d0436
+  _prefabAsset: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -3, y: 0.0063198837, z: -8}
+    _rotation: {x: -0, y: -1, z: -0, w: 0}
+    _scale: {x: 0.8000003, y: 0.8, z: 0.8000003}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4.0000014, y: 0, z: 4.0000014}
+  _uiSelected: 0
+--- !u!114 &-5601184987360300136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Ceiling_5x5_1LightSingle
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 6229188f-c463-4f52-8d9e-8cce313dc740
+  _prefabAsset: {fileID: 2462988765316415080, guid: 435f48ae7aaa29c4cb41d4f300dcc280, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2462988765316415080, guid: 435f48ae7aaa29c4cb41d4f300dcc280, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 6, y: 0, z: 0}
+    _rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    _scale: {x: 0.8, y: 0.80000025, z: 0.80000025}
+  _modularSnapVerticalStep: 4
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.0000014, z: 0}
+  _uiSelected: 0
+--- !u!114 &-5580373845162169338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: boxfile_b
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: ea99c004-51bf-4f29-9b93-581acfcdf5bb
+  _prefabAsset: {fileID: 6209737441973859563, guid: a88f276c5c9eedd48b4575934d6965ce, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6209737441973859563, guid: a88f276c5c9eedd48b4575934d6965ce, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -9.42296, y: 0.012639746, z: 3.9582984}
+    _rotation: {x: -2.1175824e-22, y: 1, z: -0.00000005969778, w: -0.00000005969779}
+    _scale: {x: 1, y: 1, z: 1}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.100116, y: 0.41217747, z: 0.3173535}
+  _uiSelected: 0
+--- !u!114 &-5396053536885298893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: CeilingVent
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: b0e87fe2-b1fe-4601-84c4-1a3bb41af8af
+  _prefabAsset: {fileID: 8909223544696892883, guid: cf3a7ead14cae8947b9eb1304ee20714, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 8909223544696892883, guid: cf3a7ead14cae8947b9eb1304ee20714, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4.0009527, y: 1.68, z: 4}
+  _uiSelected: 0
+--- !u!114 &-5348199157407996130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_Inset02
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: de7b390b-ef3a-432f-b96c-673d7bb6e267
+  _prefabAsset: {fileID: 3957720187345334676, guid: 23432fa72c2cdae4cb27a0381eeeff46, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3957720187345334676, guid: 23432fa72c2cdae4cb27a0381eeeff46, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.30796343}
+  _uiSelected: 0
+--- !u!114 &-5227356526701079184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b09c502d52d26944bd03a0b831a19c4, type: 3}
+  m_Name: Props
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 0cdeb12c-ac81-4024-886b-6b2674cb48a2
+  _parentLib: {fileID: 0}
+  _directChildren: []
+  _prefabsVisibleInManager: 1
+  _libName: Props
+  _folderPath:
+    _path: Assets/Models/Map/Modular/Prefabs/Props
+    _reveresedPath: Props/Prefabs/Modular/Map/Models/Assets
+  _prefabs:
+  - {fileID: -21073687606773688}
+  - {fileID: 1199569783455531475}
+  - {fileID: 487994050523387424}
+  - {fileID: 5211707384533305469}
+  - {fileID: 8000805901457450936}
+  - {fileID: 5615727113798472510}
+  - {fileID: 8947898422733603273}
+  - {fileID: 8475218431202486569}
+  - {fileID: 7753220076836103527}
+  - {fileID: 1016673684687156544}
+  - {fileID: 7784213095333176823}
+  - {fileID: 2381587319890814129}
+  - {fileID: -7236264142878908154}
+  - {fileID: -663734268089982617}
+  - {fileID: -7776490384402620708}
+  - {fileID: 3717591263021917878}
+  - {fileID: 5836070529558362507}
+  - {fileID: 5296231470849889184}
+  - {fileID: 6566153251832739073}
+  - {fileID: 8193532559635383239}
+  - {fileID: 3223017745255380986}
+  - {fileID: 3050940668420921519}
+  - {fileID: 4701360411355120581}
+  - {fileID: -8229934359195168023}
+  - {fileID: -5995311209202031177}
+  - {fileID: -1430207223895989286}
+  - {fileID: 680810459972252721}
+  - {fileID: -7668557758583495800}
+  - {fileID: 6527797202093824160}
+  - {fileID: -5580373845162169338}
+  - {fileID: 7080271765918792378}
+  _uiSelected: 0
+--- !u!114 &-4971459027107175120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Stairs
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: b4a93f45-6b0c-42ee-98a4-4564e86828ea
+  _prefabAsset: {fileID: 808494269195537287, guid: 1941f3046c95f6345ac7fb86a18f650a, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 808494269195537287, guid: 1941f3046c95f6345ac7fb86a18f650a, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 4}
+  _uiSelected: 0
+--- !u!114 &-4958015912969257282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: L_Wall_RoundCorner
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 326144e7-ee31-4aed-8024-75a5b4f7784a
+  _prefabAsset: {fileID: 2898288693496413952, guid: 04a2d68a02a548b47a21f7609af485ad, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2898288693496413952, guid: 04a2d68a02a548b47a21f7609af485ad, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 8, z: 4}
+  _uiSelected: 0
+--- !u!114 &-4820559236802265281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_Simple
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 3bc89a72-346a-403a-b159-6f6b1795f892
+  _prefabAsset: {fileID: 6628725908546466995, guid: c92f0d55a950f1240a143dd8489f5db5, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6628725908546466995, guid: c92f0d55a950f1240a143dd8489f5db5, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.8}
+  _uiSelected: 0
+--- !u!114 &-4467334781710052773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Ceiling_5x5_4Lights
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: fd2ba592-ea13-4d6d-b6f5-bf2ec920593d
+  _prefabAsset: {fileID: 4620549055545079303, guid: ff4f0bbba19d67947a925ec066cb96ef, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4620549055545079303, guid: ff4f0bbba19d67947a925ec066cb96ef, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    _scale: {x: 0.79999995, y: 0.80000025, z: 0.80000025}
+  _modularSnapVerticalStep: 4
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 3.9999998, y: 4.0000014, z: 0}
+  _uiSelected: 0
+--- !u!114 &-4423072988190198485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_Curved_WWall_Carpet
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 30bca5c6-69c1-44c2-ab8e-0162da07688e
+  _prefabAsset: {fileID: 7137628308274962211, guid: 735f9f9edfc3207499bfc395b4296c60, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7137628308274962211, guid: 735f9f9edfc3207499bfc395b4296c60, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 2, y: 0.0063198837, z: -10}
+    _rotation: {x: -0, y: -0, z: -0, w: -1}
+    _scale: {x: 0.8000003, y: 0.8, z: 0.8000003}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4.0000014, y: 4.0203204, z: 0.8400008}
+  _uiSelected: 0
+--- !u!114 &-4053866024610068316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: TunnelRing
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 389fbcd5-d4ed-4590-8dae-e1474382a8a2
+  _prefabAsset: {fileID: 709087716067203878, guid: 238ce8d964efd1c4490e5791c553aa59, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 709087716067203878, guid: 238ce8d964efd1c4490e5791c553aa59, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 64.56975, y: 31.6, z: 5.3}
+    _rotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.4}
+  _uiSelected: 0
+--- !u!114 &-3941241748107774802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Tunnel_s
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 7ae5a81f-293c-4e36-a6dc-34dc9c01f093
+  _prefabAsset: {fileID: 7730635485658655123, guid: 871c1ca787935074abff176d33437352, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7730635485658655123, guid: 871c1ca787935074abff176d33437352, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 4}
+  _uiSelected: 0
+--- !u!114 &-3885459879785273651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: wall_5x5_corner
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: fddd853a-ad25-4cb4-8dc2-01e84c008dfd
+  _prefabAsset: {fileID: 3663278101175293826, guid: 781c626eae80a80488f2d71c26500a6e, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3663278101175293826, guid: 781c626eae80a80488f2d71c26500a6e, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 1, y: 0.0063198837, z: 1}
+    _rotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+    _scale: {x: 0.80000037, y: 0.8, z: 0.80000037}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.8, y: 4, z: 0.8}
+  _uiSelected: 0
+--- !u!114 &-3688953397988572786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Frame_S
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: fb0868e5-d35e-4c21-a0e0-b99cb6901312
+  _prefabAsset: {fileID: 888615160448638246, guid: abad64e21d43ec148bf34164d8564a53, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 888615160448638246, guid: abad64e21d43ec148bf34164d8564a53, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 2}
+    _rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 1.3970559, y: 2.56, z: 0.28800058}
+  _uiSelected: 0
+--- !u!114 &-3528371635510597350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Ceiling_MetalPanel
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 32b0af76-2847-4628-9498-dd3eff9fdf18
+  _prefabAsset: {fileID: 4620549055545079303, guid: 219b86e79928a6f4ab9ec93e07bd68de, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4620549055545079303, guid: 219b86e79928a6f4ab9ec93e07bd68de, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    _scale: {x: 0.8, y: 0.80000025, z: 0.80000025}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.0000014, z: 0}
+  _uiSelected: 0
+--- !u!114 &-2684610992352219912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_Inset
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 0f3d8cdc-f1e3-469b-9299-1e4ea996815c
+  _prefabAsset: {fileID: 3571305047321760324, guid: 1449bb7d7440ade479d7a41fed3c2de9, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3571305047321760324, guid: 1449bb7d7440ade479d7a41fed3c2de9, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -9, y: 0.0063198837, z: 8}
+    _rotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+    _scale: {x: 0.80000067, y: 0.8, z: 0.80000067}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.8}
+  _uiSelected: 0
+--- !u!114 &-2098530897116948824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Half_Wall_45
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: b93c0ea0-5730-444d-9c15-5d6c65a5c261
+  _prefabAsset: {fileID: 7471480075085181464, guid: aee9eb9dbfc53cf4aaf566c6b69c94eb, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7471480075085181464, guid: aee9eb9dbfc53cf4aaf566c6b69c94eb, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+    _scale: {x: 0.8000001, y: 0.8, z: 0.8000001}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 2.8284273, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &-1798884471996302233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_Corner_Pipe
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: cdcfe1ba-8b0a-4fce-9b29-6d7c7c8e36a7
+  _prefabAsset: {fileID: 3157701268605446411, guid: 0082d51471bfe324da2a76bcbe92382c, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3157701268605446411, guid: 0082d51471bfe324da2a76bcbe92382c, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4.0392, y: 4, z: 4.035562}
+  _uiSelected: 0
+--- !u!114 &-1797322635980161323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Walkway
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 93a7fb4f-3b5b-4358-8ea2-36930b061b95
+  _prefabAsset: {fileID: 4573668341575512592, guid: 4fa4a05816578ac43854811d2728b022, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4573668341575512592, guid: 4fa4a05816578ac43854811d2728b022, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 3.6000001, z: 0.6400003}
+  _uiSelected: 0
+--- !u!114 &-1738394518765446759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Ceiling_5x5_PlainOffice
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 0f0caf6d-1e5f-4607-91b0-a4e6edfe3d3a
+  _prefabAsset: {fileID: 4137661214758963728, guid: ca48f728f1dd24e4c924dffa983932c4, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4137661214758963728, guid: ca48f728f1dd24e4c924dffa983932c4, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    _scale: {x: 0.8, y: 0.80000025, z: 0.80000025}
+  _modularSnapVerticalStep: 4
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.0000014, z: 0}
+  _uiSelected: 0
+--- !u!114 &-1461502687117644928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b09c502d52d26944bd03a0b831a19c4, type: 3}
+  m_Name: LevelParts
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 4bca866a-0a5e-4e11-b183-ca030cf47a31
+  _parentLib: {fileID: 0}
+  _directChildren:
+  - {fileID: 1030170976083957548}
+  - {fileID: 5794171214119213578}
+  - {fileID: 5959357700899589207}
+  - {fileID: 3109007224164878554}
+  _prefabsVisibleInManager: 1
+  _libName: LevelParts
+  _folderPath:
+    _path: Assets/Models/Map/Modular/Prefabs/LevelParts
+    _reveresedPath: LevelParts/Prefabs/Modular/Map/Models/Assets
+  _prefabs:
+  - {fileID: 8649113122223280938}
+  - {fileID: -5999259240434674670}
+  - {fileID: -5941036090035907978}
+  - {fileID: -4958015912969257282}
+  - {fileID: -650546681809099682}
+  - {fileID: 5131234003214743506}
+  - {fileID: -4971459027107175120}
+  - {fileID: -4053866024610068316}
+  - {fileID: 2337311489600306545}
+  - {fileID: -3941241748107774802}
+  - {fileID: -6867549905646799172}
+  - {fileID: 386924105681394285}
+  _uiSelected: 0
+--- !u!114 &-1430207223895989286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Desk
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: da46df69-c197-42c1-8fc2-d08cf163a2ee
+  _prefabAsset: {fileID: 1906834457694464837, guid: 89a1d7c4dd7adb74ba6ac34381a1322c, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 1906834457694464837, guid: 89a1d7c4dd7adb74ba6ac34381a1322c, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -7, y: 0.0063198837, z: -6}
+    _rotation: {x: -0, y: 1, z: -0, w: 0}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.7680004, y: 1.1624376, z: 1.8000001}
+  _uiSelected: 0
+--- !u!114 &-1010520340993844891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_Curved_Wall
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: e838e91c-4f2f-4b09-b351-5bb537d0cf1d
+  _prefabAsset: {fileID: 7590496230110824170, guid: 8b2af25c365336c4a88ce38afab29e1d, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7590496230110824170, guid: 8b2af25c365336c4a88ce38afab29e1d, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.0203204, z: 0.84000057}
+  _uiSelected: 0
+--- !u!114 &-827553927560258286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: floor_5x5_MetalPlates_01
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: e98883d9-0191-4707-9545-e13ea1951371
+  _prefabAsset: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 2, y: 4, z: -6}
+    _rotation: {x: -0.7071068, y: -0, z: 0.7071068, w: 0}
+    _scale: {x: 0.8000006, y: 0.80000037, z: 0.8000006}
+  _modularSnapVerticalStep: 4
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 0, z: 4}
+  _uiSelected: 0
+--- !u!114 &-663734268089982617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Pipe_TShape
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 76b66908-d64f-4632-99b3-3e5880ed50db
+  _prefabAsset: {fileID: 8351375801527513115, guid: 1706fa6ffdad5ab478fac864d3d60d7a, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 8351375801527513115, guid: 1706fa6ffdad5ab478fac864d3d60d7a, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 2.2324939, y: 2, z: 0.45792314}
+  _uiSelected: 0
+--- !u!114 &-650546681809099682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Panel_Glass
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 70c3c184-9f7a-4481-8109-4baa28b7ed7f
+  _prefabAsset: {fileID: 3792191412968348424, guid: 261592c5654a53840b322faf5248487b, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3792191412968348424, guid: 261592c5654a53840b322faf5248487b, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.120000005, y: 2, z: 4}
+  _uiSelected: 0
+--- !u!114 &-313103781739572508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: wall_5x5_White01
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 26c6a6c3-8dd7-4b7f-a294-d0242ae7d1a8
+  _prefabAsset: {fileID: 3672136997008782941, guid: f79a26bed4e413c4cbb1c73c5f34f849, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3672136997008782941, guid: f79a26bed4e413c4cbb1c73c5f34f849, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -5, y: 0.0063198837, z: -4}
+    _rotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
+    _scale: {x: 0.80000037, y: 0.8, z: 0.80000037}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4.0000005, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &-21073687606773688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Bed
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: be14af3e-6834-4e4f-8235-debbd3f064e1
+  _prefabAsset: {fileID: 917779660657826647, guid: be44ecc919f5977469e9a076fcc5128f, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 917779660657826647, guid: be44ecc919f5977469e9a076fcc5128f, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 1.25, y: 1.25, z: 1.25}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 2.5907998, y: 1.0185044, z: 1.8321452}
+  _uiSelected: 0
+--- !u!114 &-10525225314564023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Ceiling_5x5_1ELight
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 1d013c7c-6c05-421e-85e5-2a0492509ae6
+  _prefabAsset: {fileID: 6094293282980052057, guid: fefe0538865090d41b011c8ffccd076f, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6094293282980052057, guid: fefe0538865090d41b011c8ffccd076f, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    _scale: {x: 0.8, y: 0.80000025, z: 0.80000025}
+  _modularSnapVerticalStep: 4
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.0000014, z: 0}
+  _uiSelected: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d27d60231fbfd54a8dd0a2b498f7841, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  _profileName: Default
+  _libs:
+  - {fileID: -1461502687117644928}
+  - {fileID: 1030170976083957548}
+  - {fileID: 5794171214119213578}
+  - {fileID: 5959357700899589207}
+  - {fileID: 3109007224164878554}
+  - {fileID: -5227356526701079184}
+--- !u!114 &386924105681394285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Walkway_wall
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: d4814e1a-6a98-4d1c-89ca-da5a4f52f986
+  _prefabAsset: {fileID: 2342218456732004567, guid: f0448ca85da4d514ea5a1e7723e3e4f2, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2342218456732004567, guid: f0448ca85da4d514ea5a1e7723e3e4f2, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.32000008, y: 0.8, z: 4}
+  _uiSelected: 0
+--- !u!114 &487994050523387424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: crate1
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 34b57177-6f38-4a3a-a1cd-cd731968d018
+  _prefabAsset: {fileID: 8909943621818551198, guid: 17e06fead79b83545bfbff76e6259876, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 8909943621818551198, guid: 17e06fead79b83545bfbff76e6259876, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0.85199976, y: -0.013445526, z: -8.941408}
+    _rotation: {x: 0.00000005960465, y: -0.022704301, z: 0.000000011175873, w: 0.99974227}
+    _scale: {x: 0.393701, y: 0.39370102, z: 0.393701}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.9099703, y: 0.57510525, z: 0.6363982}
+  _uiSelected: 0
+--- !u!114 &680810459972252721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: keyboard
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 822d6534-e6af-4a6f-a539-6220df1fed3f
+  _prefabAsset: {fileID: 2107929157444006454, guid: 1cd47a63cc7027044ae9cbee6d4fb3a3, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2107929157444006454, guid: 1cd47a63cc7027044ae9cbee6d4fb3a3, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -7.575646, y: 0.9664534, z: -5.7628975}
+    _rotation: {x: 0.00000004097819, y: -0.7132984, z: 0.000000045285553, w: 0.7008605}
+    _scale: {x: 1, y: 1, z: 1}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0.049999963
+  _modelSize: {x: 0.46804923, y: 0.04342908, z: 0.20876783}
+  _uiSelected: 0
+--- !u!114 &724345175911461725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Half_Wall_45_WhiteWall02
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 58f479a4-8c86-47b0-83e0-94d509bf993b
+  _prefabAsset: {fileID: 6621161272728850487, guid: 45041f548a8b1c144be61b8b4e30d896, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6621161272728850487, guid: 45041f548a8b1c144be61b8b4e30d896, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 2}
+    _rotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+    _scale: {x: 0.8000001, y: 0.8, z: 0.8000001}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 2.8284273, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &938524136732220432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_Corner
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: ca69dbac-368c-4259-8e69-8f497f70fce2
+  _prefabAsset: {fileID: 1925406747604091199, guid: 75187f2ea807a0a4b95cf4c7f839de47, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 1925406747604091199, guid: 75187f2ea807a0a4b95cf4c7f839de47, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 1.0666671, y: 1.0666667, z: 1.0666671}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 5.3333354, y: 5.3333335, z: 5.3333354}
+  _uiSelected: 0
+--- !u!114 &976028021906942055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_InsetENDPR
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 8fb9f09b-bc8d-409c-bb9e-9d76ab151c8d
+  _prefabAsset: {fileID: 6654189718471532056, guid: 58358917af0e55b4a99432e07dd31f2c, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6654189718471532056, guid: 58358917af0e55b4a99432e07dd31f2c, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.30795965}
+  _uiSelected: 0
+--- !u!114 &1016673684687156544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: HangingLight
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: c06a4bb4-b8f1-4a58-a655-f401c034d93a
+  _prefabAsset: {fileID: 6582957776434506462, guid: edce19cbdbed3914683bd09f570504bc, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6582957776434506462, guid: edce19cbdbed3914683bd09f570504bc, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 2.8556097, y: 7.9627175, z: 3.8229525}
+    _rotation: {x: -0, y: 1, z: -0, w: 0}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 2.48, y: 0.953282, z: 0.48000002}
+  _uiSelected: 0
+--- !u!114 &1030170976083957548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b09c502d52d26944bd03a0b831a19c4, type: 3}
+  m_Name: Ceilings
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 61f2ad64-6cfd-437c-9a0e-8b2409a020fe
+  _parentLib: {fileID: -1461502687117644928}
+  _directChildren: []
+  _prefabsVisibleInManager: 1
+  _libName: Ceilings
+  _folderPath:
+    _path: Assets/Models/Map/Modular/Prefabs/LevelParts\Ceilings
+    _reveresedPath: Ceilings/LevelParts/Prefabs/Modular/Map/Models/Assets
+  _prefabs:
+  - {fileID: -5396053536885298893}
+  - {fileID: -10525225314564023}
+  - {fileID: 4852790533558370705}
+  - {fileID: -5601184987360300136}
+  - {fileID: -6068012539770389811}
+  - {fileID: -4467334781710052773}
+  - {fileID: 3787136070433103973}
+  - {fileID: -8776316181708986765}
+  - {fileID: -1738394518765446759}
+  - {fileID: -3528371635510597350}
+  _uiSelected: 0
+--- !u!114 &1199569783455531475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: CargoBox
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: d3513ab3-d640-46dd-bcc9-4c876a3e8653
+  _prefabAsset: {fileID: 4622614458209297045, guid: e043da748121dcd439f38bf92c766b27, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4622614458209297045, guid: e043da748121dcd439f38bf92c766b27, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+    _scale: {x: 0.8, y: 0.80000025, z: 0.80000025}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 3.2512002, y: 2.4384007, z: 2.844801}
+  _uiSelected: 0
+--- !u!114 &1200520111631818624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: floor_5x5_Tiles_01
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: bf60df6d-f707-4d46-abab-f51022d01479
+  _prefabAsset: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 0, z: 4}
+  _uiSelected: 1
+--- !u!114 &2122014579622534331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_OneSide_ConcreteBlocks
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: effcd641-a115-4109-9eb7-5593d544f2f3
+  _prefabAsset: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -3, y: 0, z: 15}
+    _rotation: {x: -0, y: -0, z: -0, w: -1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.01524, z: 0.4133597}
+  _uiSelected: 0
+--- !u!114 &2133327366401704103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: wall_5x5_Concretelines
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: fd156fc8-de5b-4a0f-b052-fbbdf1f0b35b
+  _prefabAsset: {fileID: 2442337636792553733, guid: 912a8fa41ca213441b2c7a88cbee2c6b, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2442337636792553733, guid: 912a8fa41ca213441b2c7a88cbee2c6b, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 1, y: 0.0063198837, z: 0}
+    _rotation: {x: -0, y: -0, z: -0, w: -1}
+    _scale: {x: 0.8000001, y: 0.8, z: 0.8000001}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &2337311489600306545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Tunnel_large
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 377a6a1c-27ea-4082-949e-4dfe13d9be18
+  _prefabAsset: {fileID: 3315493438371194554, guid: 8aacdf59fa8b5be4abad30c6bb39345f, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3315493438371194554, guid: 8aacdf59fa8b5be4abad30c6bb39345f, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 8, y: 4, z: 4}
+  _uiSelected: 0
+--- !u!114 &2381587319890814129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Pipe_Bend
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: ea0df4c4-d5f8-403f-a56f-b3c7b7e4a1cf
+  _prefabAsset: {fileID: 324824113392768825, guid: 64089cee54825974ab7399278346dd8a, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 324824113392768825, guid: 64089cee54825974ab7399278346dd8a, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 2.2324922, y: 2.0323987, z: 0.46480075}
+  _uiSelected: 1
+--- !u!114 &2737986493388699300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_Curved_Wall_OneSide
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 0f1e5ca4-9d14-415c-9de1-812024e95fbc
+  _prefabAsset: {fileID: 523095199625736137, guid: a0bb1093e25c0514e9199ac426b02cb6, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 523095199625736137, guid: a0bb1093e25c0514e9199ac426b02cb6, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 10, y: 0.0063198837, z: -1}
+    _rotation: {x: 0.000000057601163, y: -0.7071068, z: 0.000000057601163, w: 0.7071068}
+    _scale: {x: 0.80000025, y: 0.8, z: 0.80000025}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.01524, z: 0.41336003}
+  _uiSelected: 1
+--- !u!114 &2878385616060417680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_Window
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 467f9b8b-f038-4c7c-8047-3cc35b84a363
+  _prefabAsset: {fileID: 1101690087499135976, guid: ab2354ec90f28ff43abe87b502131f94, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 1101690087499135976, guid: ab2354ec90f28ff43abe87b502131f94, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -6, y: 0, z: -3}
+    _rotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+    _scale: {x: 0.80000025, y: 0.8, z: 0.80000025}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &3050940668420921519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: CornerStation
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: d9724d11-706e-4722-93ce-be7668dffd7e
+  _prefabAsset: {fileID: 6619821756015486075, guid: 612f1fbedbf911b4da48f5dce8f84eb7, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6619821756015486075, guid: 612f1fbedbf911b4da48f5dce8f84eb7, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -7, y: 0.0063198837, z: 6}
+    _rotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+    _scale: {x: 0.80000025, y: 0.8, z: 0.80000025}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 7.268004, y: 2.9623888, z: 3.6477616}
+  _uiSelected: 0
+--- !u!114 &3109007224164878554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b09c502d52d26944bd03a0b831a19c4, type: 3}
+  m_Name: Walls
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 2a365282-bdf7-4aa6-83a3-72f621d013c4
+  _parentLib: {fileID: -1461502687117644928}
+  _directChildren: []
+  _prefabsVisibleInManager: 1
+  _libName: Walls
+  _folderPath:
+    _path: Assets/Models/Map/Modular/Prefabs/LevelParts\Walls
+    _reveresedPath: Walls/LevelParts/Prefabs/Modular/Map/Models/Assets
+  _prefabs:
+  - {fileID: -2098530897116948824}
+  - {fileID: 5692115395151739883}
+  - {fileID: 724345175911461725}
+  - {fileID: 5849971101276176534}
+  - {fileID: 2133327366401704103}
+  - {fileID: -3885459879785273651}
+  - {fileID: 3319579563475899646}
+  - {fileID: 4860256501341257114}
+  - {fileID: 6987741394938000614}
+  - {fileID: -313103781739572508}
+  - {fileID: -8780410545750352223}
+  - {fileID: -6484671207891843376}
+  - {fileID: 938524136732220432}
+  - {fileID: -1798884471996302233}
+  - {fileID: -2684610992352219912}
+  - {fileID: 6808832448131500693}
+  - {fileID: -5348199157407996130}
+  - {fileID: 5543191922133577863}
+  - {fileID: 5493008057282576420}
+  - {fileID: 976028021906942055}
+  - {fileID: 8530663908250861151}
+  - {fileID: -6868875567653891664}
+  - {fileID: 2878385616060417680}
+  - {fileID: -7108598429000173262}
+  - {fileID: 6688485104769543929}
+  - {fileID: -7542332180112838016}
+  _uiSelected: 1
+--- !u!114 &3223017745255380986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: cabinet_b
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: dbd8cd3e-b275-421a-96eb-2c77dadbb5a7
+  _prefabAsset: {fileID: 3171187602200683116, guid: e7589ff8820e7814f837ed898ae45c2c, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3171187602200683116, guid: e7589ff8820e7814f837ed898ae45c2c, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 1, y: 1, z: 1}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 3.025416, y: 1.6010519, z: 0.716982}
+  _uiSelected: 0
+--- !u!114 &3319579563475899646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: wall_5x5_OfficeWalls
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: e43ba267-94be-465d-96a0-8fab39187e09
+  _prefabAsset: {fileID: 7983735748252237308, guid: 7718390d7b8fce44baf43b764293bc01, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7983735748252237308, guid: 7718390d7b8fce44baf43b764293bc01, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -7, y: 0, z: 7}
+    _rotation: {x: -0, y: -1, z: -0, w: 0}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &3717591263021917878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Sink_Toilet
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: b4857d92-5506-48f9-b52d-2c452df46e33
+  _prefabAsset: {fileID: 2512432903886219101, guid: c90d7432a44aba14c95bd96e68ef5ed8, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2512432903886219101, guid: c90d7432a44aba14c95bd96e68ef5ed8, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.76, y: 0.76, z: 0.76}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 1.2468631, y: 1.3543268, z: 1.2530774}
+  _uiSelected: 0
+--- !u!114 &3787136070433103973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Ceiling_5x5_Concrete
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 5b5d4e92-bf11-4777-8349-1eb5692b362c
+  _prefabAsset: {fileID: 4137661214758963728, guid: 3790012920bd3f546805b114b489b0a7, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4137661214758963728, guid: 3790012920bd3f546805b114b489b0a7, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    _scale: {x: 0.8, y: 0.80000025, z: 0.80000025}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.0000014, z: 0}
+  _uiSelected: 0
+--- !u!114 &4701360411355120581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: crate1
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 2a20e372-063e-430f-a9c8-1ba4119377f4
+  _prefabAsset: {fileID: 4009629774983161105, guid: fa73333935d350c4085b855ca4598312, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4009629774983161105, guid: fa73333935d350c4085b855ca4598312, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 1.8490585, y: 1.1699611, z: 1.2931604}
+  _uiSelected: 0
+--- !u!114 &4852790533558370705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Ceiling_5x5_1Light
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: f9e5c221-f4ff-4228-a362-d4a42e28b702
+  _prefabAsset: {fileID: 4620549055545079303, guid: df1b903e428bc394e952e682036daff9, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4620549055545079303, guid: df1b903e428bc394e952e682036daff9, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    _scale: {x: 0.8, y: 0.80000025, z: 0.80000025}
+  _modularSnapVerticalStep: 4
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.0000014, z: 0}
+  _uiSelected: 0
+--- !u!114 &4860256501341257114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: wall_5x5_PlainConcrete
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 240cb44d-0925-49ea-a041-5cd8021bb687
+  _prefabAsset: {fileID: 2857394765655507938, guid: e9d61753e9042f641bcbc63585ffdeb3, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2857394765655507938, guid: e9d61753e9042f641bcbc63585ffdeb3, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -2.0000021, y: 0.0063203364, z: -2.0000005}
+    _rotation: {x: -0, y: 1, z: -0, w: 0}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &4878654849300757998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_OneSide
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 1f288f09-5936-4caf-99cc-63d1de973877
+  _prefabAsset: {fileID: 6704065405285633351, guid: c8c4819404ba62d40ab02be515310d52, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6704065405285633351, guid: c8c4819404ba62d40ab02be515310d52, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 2, y: 0.0063198837, z: 8}
+    _rotation: {x: -0, y: -1, z: 0.00000008146034, w: 0}
+    _scale: {x: 0.8000001, y: 0.8, z: 0.8000001}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.01524, z: 0.4133597}
+  _uiSelected: 0
+--- !u!114 &5039309017664126135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Large_frame
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 0aeff229-cbbb-4385-9e78-8f76c14ee9ef
+  _prefabAsset: {fileID: 8289533452560137710, guid: 68367c9304dc75841986380ae3f160c8, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 8289533452560137710, guid: 68367c9304dc75841986380ae3f160c8, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 8, y: 4.00086, z: 1.6}
+  _uiSelected: 0
+--- !u!114 &5131234003214743506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Panel_Metal
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: f5807b90-6ed4-4699-81fa-7d3217e6c17d
+  _prefabAsset: {fileID: 5127986929888036000, guid: ad497257a256ad641bd49f79ea3a7f47, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 5127986929888036000, guid: ad497257a256ad641bd49f79ea3a7f47, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.120000005, y: 2, z: 4}
+  _uiSelected: 0
+--- !u!114 &5211707384533305469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Electric_Box
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 9c63705c-d6bc-459f-aa7e-55c9552842df
+  _prefabAsset: {fileID: 5286840232429572011, guid: ef9733cb82d23844f92592ec415f6b52, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 5286840232429572011, guid: ef9733cb82d23844f92592ec415f6b52, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+    _scale: {x: 0.8516802, y: 0.85168, z: 0.8516802}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.8587395, y: 2.472352, z: 0.39947298}
+  _uiSelected: 0
+--- !u!114 &5296231470849889184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: WallLight
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: ff2385db-4dae-4fc7-8ebe-48b749c225e1
+  _prefabAsset: {fileID: 6466435954440441649, guid: c87424ad75886de42b4ad84790bc2f58, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6466435954440441649, guid: c87424ad75886de42b4ad84790bc2f58, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -0.58102274, y: 0.36499304, z: -3.9949017}
+    _rotation: {x: 0.97437006, y: -0, z: -0.22495124, w: 0}
+    _scale: {x: 1.0159999, y: 1.0160005, z: 1.0160003}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.5245915, y: 0.64000005, z: 0.16079013}
+  _uiSelected: 0
+--- !u!114 &5493008057282576420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_InsetENDPL
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 3dd8e8cf-14ca-4627-aad2-47f45b3e25bb
+  _prefabAsset: {fileID: 5945214150596606564, guid: 0b8898267c14bc7438216deead916263, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 5945214150596606564, guid: 0b8898267c14bc7438216deead916263, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.30164155}
+  _uiSelected: 0
+--- !u!114 &5543191922133577863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_InsetEND
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 028d5829-40c2-4b25-b523-03a6476f4b9c
+  _prefabAsset: {fileID: 5770805851425817427, guid: a9295569e68034b4c876967498e47bf8, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 5770805851425817427, guid: a9295569e68034b4c876967498e47bf8, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.31112096}
+  _uiSelected: 0
+--- !u!114 &5615727113798472510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Girder
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 5cdde1c3-2236-464b-ba9d-c3c41a78438a
+  _prefabAsset: {fileID: 121306572169286329, guid: 3f87ca402d4d7f841b645e707e86807b, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 121306572169286329, guid: 3f87ca402d4d7f841b645e707e86807b, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.4, y: 4, z: 0.4}
+  _uiSelected: 0
+--- !u!114 &5692115395151739883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Half_Wall_45_WhiteWall
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 2081f47c-9066-4a17-b812-7533a15fae47
+  _prefabAsset: {fileID: 8036733228160714378, guid: e64bba6f3648fdb4d87bf1cf049de820, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 8036733228160714378, guid: e64bba6f3648fdb4d87bf1cf049de820, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 2}
+    _rotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+    _scale: {x: 0.8000001, y: 0.8, z: 0.8000001}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 2.8284273, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &5740431019890647344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: MetalPlate
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: bb23949d-31cc-499e-846f-750cabfc837f
+  _prefabAsset: {fileID: 2315765652598195619, guid: 4bebd65c85e8f3240834ccb3614ccdd7, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2315765652598195619, guid: 4bebd65c85e8f3240834ccb3614ccdd7, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 2, y: 0.020000001, z: 2}
+  _uiSelected: 0
+--- !u!114 &5794171214119213578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b09c502d52d26944bd03a0b831a19c4, type: 3}
+  m_Name: Doors
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 8f9e52ba-5f9f-4c1a-8d0f-a297eb7fbde1
+  _parentLib: {fileID: -1461502687117644928}
+  _directChildren: []
+  _prefabsVisibleInManager: 1
+  _libName: Doors
+  _folderPath:
+    _path: Assets/Models/Map/Modular/Prefabs/LevelParts\Doors
+    _reveresedPath: Doors/LevelParts/Prefabs/Modular/Map/Models/Assets
+  _prefabs:
+  - {fileID: -3688953397988572786}
+  - {fileID: 7072851649573162113}
+  - {fileID: 5039309017664126135}
+  - {fileID: 7897775890118445481}
+  - {fileID: -1010520340993844891}
+  - {fileID: 2737986493388699300}
+  - {fileID: -7494308267774829092}
+  - {fileID: 8057613088590687216}
+  - {fileID: -4423072988190198485}
+  - {fileID: 4878654849300757998}
+  - {fileID: 2122014579622534331}
+  - {fileID: -8236340115398629083}
+  - {fileID: -8255554987183589518}
+  - {fileID: -4820559236802265281}
+  - {fileID: -1797322635980161323}
+  _uiSelected: 0
+--- !u!114 &5836070529558362507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Vent_Grill
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: ce3da7fe-aba5-4f6f-99bb-f945801c464f
+  _prefabAsset: {fileID: 6638308531947685203, guid: c879e3babfd314e4eb1136da8f3e75ce, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6638308531947685203, guid: c879e3babfd314e4eb1136da8f3e75ce, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.79999995, y: 0.8, z: 0.79999995}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 1.5999999, y: 0.040000003, z: 1.5999999}
+  _uiSelected: 0
+--- !u!114 &5849971101276176534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: wall_5x5_ConcreteBlocks
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 153a4bd6-1f13-4a3c-91d6-ceabf9111f9e
+  _prefabAsset: {fileID: 7986387564604631915, guid: 2f9288f06ca351540a03dc897c16664c, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7986387564604631915, guid: 2f9288f06ca351540a03dc897c16664c, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -4, y: 4, z: 3}
+    _rotation: {x: -0.5, y: -0.5, z: 0.5, w: -0.5}
+    _scale: {x: 0.8000004, y: 0.8, z: 0.8000004}
+  _modularSnapVerticalStep: 8
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &5959357700899589207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b09c502d52d26944bd03a0b831a19c4, type: 3}
+  m_Name: Floors
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 2784ac1d-0297-4dec-8d8e-d1c0920dc58b
+  _parentLib: {fileID: -1461502687117644928}
+  _directChildren: []
+  _prefabsVisibleInManager: 1
+  _libName: Floors
+  _folderPath:
+    _path: Assets/Models/Map/Modular/Prefabs/LevelParts\Floors
+    _reveresedPath: Floors/LevelParts/Prefabs/Modular/Map/Models/Assets
+  _prefabs:
+  - {fileID: -827553927560258286}
+  - {fileID: -5919264361642288905}
+  - {fileID: 1200520111631818624}
+  - {fileID: 5740431019890647344}
+  _uiSelected: 0
+--- !u!114 &6527797202093824160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: officeseat_a
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 0e838579-5d7f-4358-b986-be55e455b9a3
+  _prefabAsset: {fileID: 1181008578214491094, guid: f61eda58f7aeb5644aab9690ba3627b2, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 1181008578214491094, guid: f61eda58f7aeb5644aab9690ba3627b2, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -8.108736, y: -0.04066041, z: -5.387209}
+    _rotation: {x: -0.00000008940697, y: 0.6195415, z: -0.00000008940697, w: 0.78496385}
+    _scale: {x: 0.9999999, y: 1, z: 0.9999999}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.637806, y: 1.2077025, z: 0.63470155}
+  _uiSelected: 0
+--- !u!114 &6566153251832739073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: WallShelf
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 23413ef0-098f-4edb-913c-17bdca021add
+  _prefabAsset: {fileID: 2321617867939504955, guid: 5585592460d6a3c4caddefc9aac048eb, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2321617867939504955, guid: 5585592460d6a3c4caddefc9aac048eb, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.91440004, y: 0.292608, z: 1.6256001}
+  _uiSelected: 0
+--- !u!114 &6688485104769543929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_Window_WW
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 6c0acdc4-34b6-4b68-9b3b-ba25980267f7
+  _prefabAsset: {fileID: 6475457547175385686, guid: b5a689660a8ae624ca933e69a07bd46d, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6475457547175385686, guid: b5a689660a8ae624ca933e69a07bd46d, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8000003, y: 0.8, z: 0.8000003}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4.0000014, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &6808832448131500693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_Inset01
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: e685edae-96d2-477a-b0a6-78ac71c2d08f
+  _prefabAsset: {fileID: 6248486411310738608, guid: 73952068b785469478ac82a571f8756d, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6248486411310738608, guid: 73952068b785469478ac82a571f8756d, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.31112096}
+  _uiSelected: 0
+--- !u!114 &6987741394938000614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: wall_5x5_Tiles
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: f7dc2bc9-c9be-432f-b399-92387873ab01
+  _prefabAsset: {fileID: 4983991697140571213, guid: a7c8f43f0f2bb68409f731839fc3e48e, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 4983991697140571213, guid: a7c8f43f0f2bb68409f731839fc3e48e, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -4, y: 0.0063198837, z: -4}
+    _rotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
+    _scale: {x: 0.80000025, y: 0.8, z: 0.80000025}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0}
+  _uiSelected: 0
+--- !u!114 &7072851649573162113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Frame_S_02
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 1807337d-3d62-4969-adec-d6c30ba8e0be
+  _prefabAsset: {fileID: 888615160448638246, guid: 713f073df93b58942a5878002ccacce4, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 888615160448638246, guid: 713f073df93b58942a5878002ccacce4, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 2}
+    _rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 1.3970559, y: 2.56, z: 0.28800058}
+  _uiSelected: 0
+--- !u!114 &7080271765918792378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: boxfile_a
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 7bad4304-87ae-49fa-9b4f-e5090d861f0e
+  _prefabAsset: {fileID: 1303905211393305062, guid: c7fe7a39a0a107f48bc0c91183a8fcd6, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 1303905211393305062, guid: c7fe7a39a0a107f48bc0c91183a8fcd6, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -7.55931, y: 1.0098829, z: -5.3078446}
+    _rotation: {x: -0.000000010244548, y: 0.9318518, z: 0.0000000055879354, w: 0.36283925}
+    _scale: {x: 1.0000004, y: 1, z: 1.0000004}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0.049999993
+  _modelSize: {x: 0.100116, y: 0.41217747, z: 0.3173535}
+  _uiSelected: 0
+--- !u!114 &7753220076836103527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Grate_Wall
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: a0e860a0-34b8-4881-9fd7-77c5ca33115f
+  _prefabAsset: {fileID: 2892011707443144542, guid: b89aadeb4520d0046a3bae75e87b63d9, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 2892011707443144542, guid: b89aadeb4520d0046a3bae75e87b63d9, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.10160029}
+  _uiSelected: 0
+--- !u!114 &7784213095333176823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: lamp3
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: d465f2af-5457-4d8c-9f32-0c2a1996c261
+  _prefabAsset: {fileID: 6793959904526363008, guid: 580b81a422581334ebdced50354e9311, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 6793959904526363008, guid: 580b81a422581334ebdced50354e9311, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+    _scale: {x: 1, y: 1, z: 1}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.14053479, y: 0.21874419, z: 1.552558}
+  _uiSelected: 0
+--- !u!114 &7897775890118445481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_Curved_Wall Variant
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: ac76f982-bdff-46b7-aa26-5a6d7447f580
+  _prefabAsset: {fileID: 8828618483050438270, guid: fc352ad2c6f0ea14eac9dc81878084da, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 8828618483050438270, guid: fc352ad2c6f0ea14eac9dc81878084da, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 40.5, y: 30, z: -16}
+    _rotation: {x: -0, y: -0, z: -0, w: -1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4.0203204, z: 0.84000057}
+  _uiSelected: 0
+--- !u!114 &8000805901457450936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Elevator
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: aa7117bd-b261-41e6-a21d-d81c3972b564
+  _prefabAsset: {fileID: 5442654018969487766, guid: c79fea66d95b2f543a88cfa16a983a7e, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 5442654018969487766, guid: c79fea66d95b2f543a88cfa16a983a7e, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 3.9784405, z: 3.6000001}
+  _uiSelected: 0
+--- !u!114 &8057613088590687216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Door_Small_Curved_WWall
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 7deb3e20-25b5-470e-a808-b76b2a1b0b4b
+  _prefabAsset: {fileID: 7137628308274962211, guid: bbf4f7fa066a9844fab4a67e34d89650, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7137628308274962211, guid: bbf4f7fa066a9844fab4a67e34d89650, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 10}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.80000037, y: 0.8, z: 0.80000037}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4.000002, y: 4.0203204, z: 0.8400009}
+  _uiSelected: 0
+--- !u!114 &8193532559635383239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: cabinet_a
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 5d0d1ce0-7e8e-4bb9-b57b-fa6b46610e08
+  _prefabAsset: {fileID: 3415019972348966586, guid: cc097c1788c287c4a8e1bd691fe6861b, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 3415019972348966586, guid: cc097c1788c287c4a8e1bd691fe6861b, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 1, y: 1, z: 1}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 0.756354, y: 1.601052, z: 0.716982}
+  _uiSelected: 0
+--- !u!114 &8475218431202486569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: GlassCell_door
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 1832f7f8-880d-4c9c-b5fb-71248e27d622
+  _prefabAsset: {fileID: 532049997483396031, guid: 52dae84c9e96db44092c3f77e71ebae5, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 532049997483396031, guid: 52dae84c9e96db44092c3f77e71ebae5, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4.0030413, y: 4, z: 0.15400966}
+  _uiSelected: 0
+--- !u!114 &8530663908250861151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: Wall_Inset_Top
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: b91bb732-f91a-4055-8ead-3e4290bd7975
+  _prefabAsset: {fileID: 373431359848969092, guid: 17a1bb246acdb45419f99aa6be80e622, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 373431359848969092, guid: 17a1bb246acdb45419f99aa6be80e622, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: -10, y: 4.00632, z: 6}
+    _rotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
+    _scale: {x: 0.8000003, y: 0.8, z: 0.8000003}
+  _modularSnapVerticalStep: 4
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.8}
+  _uiSelected: 0
+--- !u!114 &8649113122223280938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: LargeWall_Window
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: 89c4f779-1048-4872-8436-4a3746c0167a
+  _prefabAsset: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: 0}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 8.019495, z: 4}
+  _uiSelected: 0
+--- !u!114 &8947898422733603273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfdaf7f2c4c1d04580d676ed3717f21, type: 3}
+  m_Name: GlassCell
+  m_EditorClassIdentifier: 
+  _guid:
+    _guidString: ccd75eaf-7503-4c66-8dfc-d37c0a058c04
+  _prefabAsset: {fileID: 1576876962493536005, guid: 7461b3cf9b307c241ae0d9ac02564984, type: 3}
+  _preview:
+    _prefabAsset: {fileID: 1576876962493536005, guid: 7461b3cf9b307c241ae0d9ac02564984, type: 3}
+    _texture: {fileID: 0}
+    _yaw: 0
+    _pitch: 0
+  _sceneToObjectGroup:
+    _serializedKeys: []
+    _serializedValues: []
+  _spawnGuideTransformTRS:
+    _position: {x: 0, y: 0, z: -2}
+    _rotation: {x: 0, y: 0, z: 0, w: 1}
+    _scale: {x: 0.8, y: 0.8, z: 0.8}
+  _modularSnapVerticalStep: 0
+  _surfaceSnapAppliedOffsetFromSurface: 0
+  _modelSize: {x: 4, y: 4, z: 0.1600068}
+  _uiSelected: 0

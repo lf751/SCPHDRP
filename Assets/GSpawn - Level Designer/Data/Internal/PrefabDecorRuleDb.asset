@@ -1,0 +1,755 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d144ddeed9fb9846a9d030a79197108, type: 3}
+  m_Name: PrefabDecorRuleDb
+  m_EditorClassIdentifier: 
+  _decorMap:
+    _serializedKeys:
+    - {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814, type: 3}
+    - {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623, type: 3}
+    - {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b, type: 3}
+    - {fileID: 2315765652598195619, guid: 4bebd65c85e8f3240834ccb3614ccdd7, type: 3}
+    _serializedValues:
+    - decorPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+        type: 3}
+      decoratedMap:
+        _serializedKeys:
+        - {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814, type: 3}
+        - {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc, type: 3}
+        - {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc, type: 3}
+        - {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623, type: 3}
+        - {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8, type: 3}
+        - {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b, type: 3}
+        _serializedValues:
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: 0.00000004214685, y: 0.7071068, z: -0.000000073055475,
+              w: -0.7071068}
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: -0.50000006, y: 0.50000006, z: 0.50000006, w: -0.50000006}
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: 0.00000004214685, y: 0.7071068, z: -0.000000073055475,
+              w: -0.7071068}
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: 0.00000004214685, y: 0.7071068, z: -0.000000073055475,
+              w: -0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8,
+              type: 3}
+            relativeRotation: {x: 0, y: -1.0000001, z: 0.000000021855698, w: 0}
+          - decoratedPrefab: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8,
+              type: 3}
+            relativeRotation: {x: 0, y: -1.0000001, z: 0.000000021855698, w: 0}
+          - decoratedPrefab: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8,
+              type: 3}
+            relativeRotation: {x: 0, y: -1.0000001, z: 0.000000021855698, w: 0}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+    - decorPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+        type: 3}
+      decoratedMap:
+        _serializedKeys:
+        - {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc, type: 3}
+        - {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623, type: 3}
+        - {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814, type: 3}
+        - {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b, type: 3}
+        - {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc, type: 3}
+        - {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8, type: 3}
+        _serializedValues:
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: -0.000000015454312, y: -0.7071068, z: 0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: -0.000000015454312, y: -0.7071068, z: 0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: -0.000000015454312, y: -0.7071068, z: 0.000000015454312,
+              w: 0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: -0.000000015454312, y: -0.7071068, z: 0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: -0.000000015454312, y: -0.7071068, z: 0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: -0.000000015454312, y: -0.7071068, z: 0.000000015454312,
+              w: 0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: -0.000000015454312, y: -0.7071068, z: 0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: -0.000000015454312, y: -0.7071068, z: 0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: -0.000000015454312, y: -0.7071068, z: 0.000000015454312,
+              w: 0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: 0.00000004214685, y: 0.7071068, z: -0.000000073055475,
+              w: -0.7071068}
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: -0.50000006, y: 0.50000006, z: 0.50000006, w: -0.50000006}
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: 0.00000004214685, y: 0.7071068, z: -0.000000073055475,
+              w: -0.7071068}
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: 0.00000004214685, y: 0.7071068, z: -0.000000073055475,
+              w: -0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8,
+              type: 3}
+            relativeRotation: {x: 0, y: -1.0000001, z: 0.000000021855698, w: 0}
+          - decoratedPrefab: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8,
+              type: 3}
+            relativeRotation: {x: 0, y: -1.0000001, z: 0.000000021855698, w: 0}
+          - decoratedPrefab: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8,
+              type: 3}
+            relativeRotation: {x: 0, y: -1.0000001, z: 0.000000021855698, w: 0}
+    - decorPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+        type: 3}
+      decoratedMap:
+        _serializedKeys:
+        - {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814, type: 3}
+        - {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc, type: 3}
+        - {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc, type: 3}
+        - {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623, type: 3}
+        - {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8, type: 3}
+        - {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b, type: 3}
+        _serializedValues:
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4747483842593784729, guid: af14c64f231d4a34b89a70a04bd1d814,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 8960143289460014594, guid: f7fe62dc79b9fac46b0bc589d3be92fc,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: 0.00000004214685, y: 0.7071068, z: -0.000000073055475,
+              w: -0.7071068}
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: -0.50000006, y: 0.50000006, z: 0.50000006, w: -0.50000006}
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: 0.00000004214685, y: 0.7071068, z: -0.000000073055475,
+              w: -0.7071068}
+          - decoratedPrefab: {fileID: 6410350607627185355, guid: 64c525f77305a684786da6ab88f59cdc,
+              type: 3}
+            relativeRotation: {x: 0.00000004214685, y: 0.7071068, z: -0.000000073055475,
+              w: -0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 8703030773eec864cb9b6a2a45ef6623,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8,
+              type: 3}
+            relativeRotation: {x: 0, y: -1.0000001, z: 0.000000021855698, w: 0}
+          - decoratedPrefab: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8,
+              type: 3}
+            relativeRotation: {x: 0, y: -1.0000001, z: 0.000000021855698, w: 0}
+          - decoratedPrefab: {fileID: 7438540854299497368, guid: 30d12ff3d16e74a4c9d4eac1e7dc38f8,
+              type: 3}
+            relativeRotation: {x: 0, y: -1.0000001, z: 0.000000021855698, w: 0}
+        - favPropsSpawnRule: 0
+          rules:
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+          - decoratedPrefab: {fileID: 4271032485307589651, guid: 374d263152c07be49be060f80a11245b,
+              type: 3}
+            relativeRotation: {x: 0.000000015454312, y: 0.7071068, z: -0.000000015454312,
+              w: 0.7071068}
+    - decorPrefab: {fileID: 2315765652598195619, guid: 4bebd65c85e8f3240834ccb3614ccdd7,
+        type: 3}
+      decoratedMap:
+        _serializedKeys: []
+        _serializedValues: []

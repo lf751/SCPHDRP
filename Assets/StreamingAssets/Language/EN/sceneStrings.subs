@@ -1,0 +1,1233 @@
+{
+    "BeforeDoorOpen": {
+        "subtitle": "Control, this is Agent Ulgrin. I need to request open up Cell 3-11.",
+        "delay": 3.0,
+        "duration": 6.0,
+        "nextSubtitle": "BeforeDoorOpen2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "BeforeDoorOpen2": {
+        "subtitle": "<i>Copy that</i>",
+        "delay": 8.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": true
+    },
+    "ExitCell": {
+        "subtitle": "Hey, they've got some work for ya. Do me a favor, and step out of your cell",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "ExitCellRefuse1": {
+        "subtitle": "What are you stupid or something? I said step out of the cell. If you don't step out of the cell I'm gonna kick your ass.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "ExitCellRefuse2": {
+        "subtitle": "Look buddy I don't have all day. I'm trying to be polite about this. If you don't step out of the cell I'm gonna kick your ass.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "CellGas1": {
+        "subtitle": "Huh, you have got to be the dumbest test subject we've ever had. Oh well, shut the doors and open the gas valves.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "CellGas2": {
+        "subtitle": "Huh, I'm actually kinda disappointed you didn't put up a fight. I was looking forward to punching you in the face.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortRun": {
+        "subtitle": "Hey, dumbass! You're going the wrong way. Get the hell over here right now!",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortRefuse1": {
+        "subtitle": "Hurry up! They're waiting for you.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortRefuse2": {
+        "subtitle": "Look dude, I already hate my job. Why are you making it more difficult for me?",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortPissedOff1": {
+        "subtitle": "I ain't in the mood for this shit, I have no problem putting a bullet in your brain if you don't start cooperating.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortPissedOff2": {
+        "subtitle": "I ain't in the mood for this shit! I have no problem putting a bullet in your brain if you don't start cooperating.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortKill1": {
+        "subtitle": "Alright, you know what? Fine, be that way. We'll just get somebody else then",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortKill2": {
+        "subtitle": "Alright fine, be that way. We'll just get somebody else then.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_1": {
+        "subtitle": "So, uh, how's it going?",
+        "delay": 0.0,
+        "duration": 3.5,
+        "nextSubtitle": "Intro_Convo1_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_2": {
+        "subtitle": "Uh, a-are you talking to me?",
+        "delay": 2.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo1_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo1_3": {
+        "subtitle": "Well yeah, who do you think I'm talking to, this guy with the punchable face? Course I'm talking to you.",
+        "delay": 5.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo1_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_4": {
+        "subtitle": "Oh, I'm just a little surprised. I think this is the first time you've ever spoken to me.",
+        "delay": 10.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo1_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo1_5": {
+        "subtitle": "Well yeah, it's your first day working here.",
+        "delay": 14.5,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo1_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_6": {
+        "subtitle": "Uh, actually, we've worked together now for about 5 months.",
+        "delay": 18.0,
+        "duration": 7.0,
+        "nextSubtitle": "Intro_Convo1_7",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo1_7": {
+        "subtitle": "Really? Wow. That's weird.",
+        "delay": 22.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_1": {
+        "subtitle": "Uh, so you see any good movies lately?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_2": {
+        "subtitle": "Uh, I don't really watch movies. I mostly read books.",
+        "delay": 2.5,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo2_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_3": {
+        "subtitle": "Yeah? What kind of books?",
+        "delay": 6.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_5",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_4": {
+        "subtitle": "Uh, horror, science fiction, anything like that?",
+        "delay": 9.0,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo2_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_5": {
+        "subtitle": "You're kidding me.",
+        "delay": 12.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo2_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_6": {
+        "subtitle": "What?",
+        "delay": 14.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_7",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_7": {
+        "subtitle": "Your whole job revolves around horror and science fiction, except, you know, it's not actually fiction.",
+        "delay": 15.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_8": {
+        "subtitle": "Well, actually, I'm planning on writing a book about my exper-",
+        "delay": 22.0,
+        "duration": 7.0,
+        "nextSubtitle": "Intro_Convo2_8",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_9": {
+        "subtitle": "Yeah, look, no offense, but I've already lost interest in what you're talking about.",
+        "delay": 24.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_1": {
+        "subtitle": "Man, I'm hungry. Hey, today's pizza day down at the cafeteria, right?",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo3_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_2": {
+        "subtitle": "Uh, a-actually, I think it's tuna casserole.",
+        "delay": 4.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo3_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo3_3": {
+        "subtitle": "Oh, god dammit. Well, my day's ruined. The only reason I still come here is for the pizza.",
+        "delay": 7.0,
+        "duration": 7.0,
+        "nextSubtitle": "Intro_Convo3_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_4": {
+        "subtitle": "I don't know what it is about that pizza, but it's delicious.",
+        "delay": 12.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo3_5",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_5": {
+        "subtitle": "Tuna casserole, on the other hand, is a disgusting abomination and it should be locked up in here with the rest of these freaks.",
+        "delay": 17.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo3_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_6": {
+        "subtitle": "Uh, okay..",
+        "delay": 22.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_1": {
+        "subtitle": "Let me guess. You don't have a girlfriend, do you?",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo4_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_2": {
+        "subtitle": "Is it that obvious?",
+        "delay": 1.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo4_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_3": {
+        "subtitle": "Well I'm definitely not a mind reader, otherwise I'd be locked up in this place, so, yeah, I'd say it's pretty damn obvious",
+        "delay": 3.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo4_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_4": {
+        "subtitle": "Well, how am I supposed to get a girlfriend anyway when I have this job? I mean, I can't tell her about it, so what am I supposed to do?",
+        "delay": 8.0,
+        "duration": 7.0,
+        "nextSubtitle": "Intro_Convo4_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_5": {
+        "subtitle": "Tell her you work at some coffee shop or something.",
+        "delay": 12.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo4_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_6": {
+        "subtitle": "Well, what if I accidentally forgot to wash my hands here at work, and I came home and there was blood on my hands? What would I say to her then?",
+        "delay": 16.0,
+        "duration": 10.0,
+        "nextSubtitle": "Intro_Convo4_7",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_7": {
+        "subtitle": "Uh, I don't know, tell her it's, uh... ketchup.",
+        "delay": 23.0,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo4_8",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_8": {
+        "subtitle": "Ketchup? Why would I have ketchup on my hands if I worked at a coffee shop?",
+        "delay": 26.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo4_9",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_9": {
+        "subtitle": "Ugh, j-just forget it.",
+        "delay": 30.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_1": {
+        "subtitle": "Uh, so you see any good movies lately?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_2": {
+        "subtitle": "Uh, I don't really watch movies.",
+        "delay": 2.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo5_3": {
+        "subtitle": "Oh ok. Well what about video games? You know that reminds me, someone should make a video game based on this place.",
+        "delay": 5.0,
+        "duration": 7.0,
+        "nextSubtitle": "Intro_Convo5_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_4": {
+        "subtitle": "Why would anyone do that?",
+        "delay": 11.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo5_5": {
+        "subtitle": "I don't know, just thought it was kind of a cool idea.",
+        "delay": 13.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_6": {
+        "subtitle": "Well, I don't play video games either.",
+        "delay": 16.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Escort1": {
+        "subtitle": "Just follow me. Oh and by the way, we're authorized to kill any disobedient test subjects, so don't try anything stupid.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Escort2": {
+        "subtitle": "Just follow me. Oh and by the way, we're authorized , uh, exterminate any disobedient test subjects, so I'll recommend not doing anything stupid.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone1": {
+        "subtitle": "Well, we're here. Just get in there and follow all the instructions and uh, you'll probably be fine.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone2": {
+        "subtitle": "Well, we're here. I'm still disappointed I didn't get to punch you, but whatever.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone3": {
+        "subtitle": "Well, we're here. I'm still disappointed I didn't get to punch you in the face, but *sigh* whatever.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone4": {
+        "subtitle": "Just get in there and follow all the instructions and uh, you'll probably be fine. Or maybe you won't be. Either way, I don't really care.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone5": {
+        "subtitle": "Well anyway, let's not waste anymore time. They're waiting for you down in the chamber.",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EnterChamber": {
+        "subtitle": "Attention all Class D Personel, Please enter the Containment Chamber",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Approach173": {
+        "subtitle": "Please approach SCP-173for testing",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Problem": {
+        "subtitle": "Uh, there seems to be a problem with the door control system, the doors aren't responding to any of our attempts to close it",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "Problem_2",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Problem_2": {
+        "subtitle": "So Uhm, Please maintain direct eye contact with SCP-173 and-",
+        "delay": 6.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Refuse1": {
+        "subtitle": "Subject D-9341, enter the containment chamber or you will be terminated.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Refuse2": {
+        "subtitle": "This is your last warning. You have five seconds to comply.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Refuse3": {
+        "subtitle": "Subject D-9341 designated for termination. Fire at will.",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Escape1": {
+        "subtitle": "I think the shortest way out, is through the South-east wing, follow me!",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_sci",
+        "noFormat": false
+    },
+    "Escape2": {
+        "subtitle": "Did you hear that? I hope it wasnt-",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "scene_BreachStart_1": {
+        "subtitle": "Agent, Behind You!",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "scene_BreachStart_2",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "scene_BreachStart_2": {
+        "subtitle": "Oh, shit!",
+        "delay": 1.0,
+        "duration": 3.0,
+        "nextSubtitle": "scene_BreachStart_3",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "scene_BreachStart_3": {
+        "subtitle": "Keep your eyes on Him!",
+        "delay": 1.5,
+        "duration": 3.0,
+        "nextSubtitle": "scene_BreachStart_4",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "scene_BreachStart_4": {
+        "subtitle": "Okay, I'm going to blink, just keep on watching him",
+        "delay": 4.6,
+        "duration": 3.0,
+        "nextSubtitle": "scene_BreachStart_5",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "scene_BreachStart_5": {
+        "subtitle": "Alright, got it",
+        "delay": 8.0,
+        "duration": 3.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "scene_012_1": {
+        "subtitle": "<i>I have to... I have to finish it...</i>",
+        "delay": 5.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_2": {
+        "subtitle": "<i>Do you really wanna do it?</i>",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "scene_012_2_2",
+        "character": "",
+        "noFormat": true
+    },
+    "scene_012_2_2": {
+        "subtitle": "<i>I don't... think... I can do this.</i>",
+        "delay": 13.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_3": {
+        "subtitle": "<i>I... I... must... do it.</i>",
+        "delay": 5.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": false
+    },
+    "scene_012_4": {
+        "subtitle": "<i>I-I... have... no... ch-choice!</i>",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_5": {
+        "subtitle": "<i>Balloons...</i>",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "scene_012_5_2",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_5_2": {
+        "subtitle": "<i>This....this makes...no sense!</i>",
+        "delay": 7.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_6": {
+        "subtitle": "<i>No... this... this is... impossible!</i>",
+        "delay": 6.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_7": {
+        "subtitle": "<i>It can't... It can't be completed!</i>",
+        "delay": 8.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "kneel106": {
+        "subtitle": "KNEEL",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+	    "Room2SL1": {
+        "subtitle": "Good Heavens... It's worse than I thought",
+        "delay": 0.0,
+        "duration": 4,
+        "nextSubtitle": "Room2SL1_1",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Room2SL1_1": {
+        "subtitle": "Like wildfire... It spreads",
+        "delay": 3.5,
+        "duration": 4,
+        "nextSubtitle": "Room2SL1_2",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Room2SL1_2": {
+        "subtitle": "They should've brought me sooner",
+        "delay": 6.5,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Room2SL2": {
+        "subtitle": "I need to get to work. Before the disease",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "Room2SL2_1",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Room2SL2_1": {
+        "subtitle": "Consumes the rest of these poor souls",
+        "delay": 3.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+	
+		"Searching1": {
+        "subtitle": "I know you are here",
+        "delay": 0.5,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Searching2": {
+        "subtitle": "There's no need to hide. I'm here to help.",
+        "delay": 0.5,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Searching3": {
+        "subtitle": "I hear your breathing",
+        "delay": 0.5,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Searching4": {
+        "subtitle": "I can see you are not well",
+        "delay": 0.5,
+        "duration": 3.0,
+        "nextSubtitle": "Searching4_1",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Searching4_1": {
+        "subtitle": "The sickness has taken ahold of you",
+        "delay": 2.5,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Searching5": {
+        "subtitle": "Fear not. I'm not trying to harm you",
+        "delay": 0.5,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Searching6": {
+        "subtitle": "I sense the disease in you",
+        "delay": 0.5,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Searching7": {
+        "subtitle": "<i>Ring-a-ring-a-rosies</i>",
+        "delay": 0.5,
+        "duration": 4.0,
+        "nextSubtitle": "Searching7_1",
+        "character": "chara_049",
+        "noFormat": true
+    },
+		"Searching7_1": {
+        "subtitle": "<i>A pocket full of posies</i>",
+        "delay": 3.5,
+        "duration": 4.0,
+        "nextSubtitle": "Searching7_2",
+        "character": "chara_049",
+        "noFormat": true
+    },
+		"Searching7_2": {
+        "subtitle": "<i>A tissue, a tissue</i>",
+        "delay": 7.0,
+        "duration": 5.0,
+        "nextSubtitle": "Searching7_3",
+        "character": "chara_049",
+        "noFormat": true
+    },
+		"Searching7_3": {
+        "subtitle": "<i>We all fall down</i>",
+        "delay": 9.5,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+		"Spotted1": {
+        "subtitle": "Oh my. Yet another victim of the disease",
+        "delay": 2.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Spotted2": {
+        "subtitle": "You are not a doctor",
+        "delay": 2.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Spotted3": {
+        "subtitle": "I am the cure",
+        "delay": 2.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Spotted4": {
+        "subtitle": "Do not be afraid. I am the cure",
+        "delay": 2.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Spotted5": {
+        "subtitle": "There you are",
+        "delay": 2.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Spotted6": {
+        "subtitle": "Hello",
+        "delay": 2.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Spotted7": {
+        "subtitle": "Greetings",
+        "delay": 2.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Kidnap1": {
+        "subtitle": "It will hurt less if you lie still",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"Kidnap2": {
+        "subtitle": "I can assure you. My cure is most effective",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+	
+	"0Alert1": {
+        "subtitle": "Who the hell is there?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Alert2": {
+        "subtitle": "Show yourself!",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Alert3": {
+        "subtitle": "Who's there?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Lure1": {
+        "subtitle": "Hello?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Lure2": {
+        "subtitle": "Is someone there?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Lure3": {
+        "subtitle": "To think... Today of all days...",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Lure4": {
+        "subtitle": "I hope the rest of them are alright",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Lure5": {
+        "subtitle": "I wonder what the hell is going on up there",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Lure6": {
+        "subtitle": "Ugh...",
+        "delay": 0.0,
+        "duration": 0.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Lure7": {
+        "subtitle": "Hello?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Lure8": {
+        "subtitle": "Is someone there?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Lure9": {
+        "subtitle": "Researcher Tole to main, please respond",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"0Lure10": {
+        "subtitle": "Tole to main, anyone out there?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Alert1": {
+        "subtitle": "What the hell are you...",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Alert2": {
+        "subtitle": "Hey... who's there?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Alert3": {
+        "subtitle": "Oh god! What the hell is that?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Lure1": {
+        "subtitle": "Hello?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Lure2": {
+        "subtitle": "Huh. Maybe I'm just hearing things",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Lure3": {
+        "subtitle": "Hello? Who's there?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Lure4": {
+        "subtitle": "Are you okay?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Lure5": {
+        "subtitle": "Where are you?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Lure6": {
+        "subtitle": "Are you injured?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Lure7": {
+        "subtitle": "Hello?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Lure8": {
+        "subtitle": "Hello?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Lure9": {
+        "subtitle": "Who's down here?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"1Lure10": {
+        "subtitle": "Anyone down here?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Alert1": {
+        "subtitle": "Oh thank god. Its just somebody else",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Alert2": {
+        "subtitle": "Oh, there you are",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Alert3": {
+        "subtitle": "I thought I lost you for a moment, there",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure1": {
+        "subtitle": "Hello?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure2": {
+        "subtitle": "Where are you guys? I can't see you down here",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure3": {
+        "subtitle": "Come on, you guys, Stop hiding",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure4": {
+        "subtitle": "Guys, come on. They are sending an extraction team up here",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "2Lure4_1",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure4_1": {
+        "subtitle": "We just have to make our way to one of the dedicated shelters",
+        "delay": 4.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure5": {
+        "subtitle": "Guys, come on",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure6": {
+        "subtitle": "Guys?",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure7": {
+        "subtitle": "Hello?",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure8": {
+        "subtitle": "Hello?",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure9": {
+        "subtitle": "Where are you?",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure10": {
+        "subtitle": "Where are you?",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"2Lure11": {
+        "subtitle": "Anyone?",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": true
+    },
+	"096ServerRoom1": {
+        "subtitle": "Hello?",
+        "delay": 1.0,
+        "duration": 3.0,
+        "nextSubtitle": "096ServerRoom1_1",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+	"096ServerRoom1_1": {
+        "subtitle": "Oh god. How he did get out?",
+        "delay": 4.5,
+        "duration": 6.0,
+        "nextSubtitle": "096ServerRoom1_2",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+	"096ServerRoom1_2": {
+        "subtitle": "Oh shit.",
+        "delay": 8.5,
+        "duration": 3.0,
+        "nextSubtitle": "096ServerRoom1_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+	"096ServerRoom1_3": {
+        "subtitle": "Oh no. I saw it. Get away from me!",
+        "delay": 10.5,
+        "duration": 5.0,
+        "nextSubtitle": "096ServerRoom1_4",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+	"096ServerRoom1_4": {
+        "subtitle": "No, not that thing... Not me!",
+        "delay": 16.5,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+	
+	
+	
+	
+	
+}

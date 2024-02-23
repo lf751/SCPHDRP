@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb700faa8d6b9649a2a84cef9b1388f, type: 3}
+  m_Name: Light_Table
+  m_EditorClassIdentifier: 
+  Zone: 2
+  twoWay_List:
+  - Room: {fileID: 5682853768324432015, guid: cc1c801f8e2e08148b024defda5a4157, type: 3}
+    Chance: 0
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 0
+    type: 0
+    Zone: 2
+    music: -1
+  - Room: {fileID: 1686448342489736023, guid: e2244539487962a4d97887a7a5bedd1c, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 0
+    type: 0
+    Zone: 2
+    music: 0
+  - Room: {fileID: 4208623615329836815, guid: d5f30d67b466bae4da94c6c92250d659, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 1
+    type: 0
+    Zone: 2
+    music: -1
+  - Room: {fileID: 665723464858979390, guid: ce090debd922f774397aae769489f371, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 1
+    type: 0
+    Zone: 2
+    music: -1
+  - Room: {fileID: 1557880920080615051, guid: b080bf655edb78d46a26a78e09855665, type: 3}
+    Chance: 30
+    isSpecial: 0
+    hasEvent: 1
+    hasSpecial: 0
+    hasItem: 0
+    type: 0
+    Zone: 2
+    music: -1
+<<<<<<< HEAD
+  - Room: {fileID: 3310829381663541059, guid: da9eada421be45948ae725a79ed71f82, type: 3}
+    Chance: 50
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    type: 0
+    Zone: 2
+    music: -1
+=======
+>>>>>>> b51288c654010cd38746c4fc80b787219a127ef4
+  - Room: {fileID: 8171998571409749051, guid: 74cc86995ee68c94a86a669f1b795f5f, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    type: 0
+    Zone: 2
+    music: -1
+  cornerWay_List:
+  - Room: {fileID: 9048544684884560003, guid: 32a7949f5d3a2b94591c9d69178b61f2, type: 3}
+    Chance: 30
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    type: 0
+    Zone: 2
+    music: -1
+  - Room: {fileID: 7064482942751786379, guid: 8965f352dcc87f34abf4c3f4e5fe654a, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    type: 0
+    Zone: 2
+    music: -1
+  tWay_List:
+<<<<<<< HEAD
+  - Room: {fileID: 8296496225354921559, guid: 04bb6dc47db7a0f4296e8bd15533b2df, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    type: 3
+    Zone: 2
+    music: 2
+=======
+>>>>>>> b51288c654010cd38746c4fc80b787219a127ef4
+  - Room: {fileID: 218518608770216294, guid: f0cc45da737acf342940d4ea00e27e8a, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    type: 0
+    Zone: 2
+    music: -1
+  endWay_List:
+  - Room: {fileID: 3675413013600902623, guid: 0b83356688aaeea46a017da17ef74a6b, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    type: 4
+    Zone: 2
+    music: 1
+  - Room: {fileID: 5917023621351380373, guid: 14752d3cabb455d49962475afdb18ea8, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    type: 0
+    Zone: 2
+    music: -1
+  fourWay_List:
+  - Room: {fileID: 854786259925866045, guid: d823fb5c7c4370f4e883d826515b23be, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    type: 0
+    Zone: 2
+    music: -1

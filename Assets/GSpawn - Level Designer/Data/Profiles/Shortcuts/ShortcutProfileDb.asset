@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-207541645184663814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664bbe8f21e78f9448b079eff6f4744e, type: 3}
+  m_Name: ShortcutProfileDbUI_ShortcutViewState
+  m_EditorClassIdentifier: 
+  selectedItems:
+    _serializedList: []
+  selectRangeBeginId:
+    _guidString: 00000000-0000-0000-0000-000000000000
+  selectRangeEndId:
+    _guidString: 00000000-0000-0000-0000-000000000000
+  hasSelectRange: 0
+  scrollOffset: {x: 0, y: 0}
+  vertScrollHighValue: 0
+  vertScrollLowValue: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54befb0d0d5729478b3e9076fac7187, type: 3}
+  m_Name: ShortcutProfileDb
+  m_EditorClassIdentifier: 
+  _profiles:
+  - {fileID: 11400000, guid: e671c256b824433449f67d2e513b37bd, type: 2}
+  _activeProfile: {fileID: 11400000, guid: e671c256b824433449f67d2e513b37bd, type: 2}
+--- !u!114 &3099410593111695380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664bbe8f21e78f9448b079eff6f4744e, type: 3}
+  m_Name: ShortcutProfileDbUI_CategoryViewState
+  m_EditorClassIdentifier: 
+  selectedItems:
+    _serializedList:
+    - _guidString: 5941db85-4f46-497f-ae02-8d7d6d07a8c8
+  selectRangeBeginId:
+    _guidString: 5941db85-4f46-497f-ae02-8d7d6d07a8c8
+  selectRangeEndId:
+    _guidString: 5941db85-4f46-497f-ae02-8d7d6d07a8c8
+  hasSelectRange: 0
+  scrollOffset: {x: 0, y: 0}
+  vertScrollHighValue: 0
+  vertScrollLowValue: 0

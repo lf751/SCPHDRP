@@ -1,0 +1,418 @@
+# Wavefront MTL
+# Created by fragMOTION 1.3.5
+# http://www.fragmosoft.com
+
+newmtl drawnmesh0
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd containment_doors.jpg
+newmtl drawnmesh1
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd metal.jpg
+newmtl drawnmesh2
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd keyboard.jpg
+newmtl drawnmesh3
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd metal.jpg
+newmtl drawnmesh4
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd white.jpg
+newmtl drawnmesh5
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd dirtymetal.jpg
+newmtl drawnmesh6
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd vent.jpg
+newmtl drawnmesh7
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd door01.jpg
+newmtl drawnmesh8
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd misc.jpg
+newmtl drawnmesh9
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd scplogo.jpg
+newmtl drawnmesh10
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd glass.png
+newmtl drawnmesh11
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd metal3.jpg
+newmtl drawnmesh12
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd concretefloor.jpg
+newmtl drawnmesh13
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd label173.jpg
+newmtl drawnmesh14
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd tilefloor.jpg
+newmtl drawnmesh15
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd whitewall.jpg
+newmtl drawnmesh16
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd ceiling.jpg
+newmtl drawnmesh17
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd metalpanels2.jpg
+newmtl drawnmesh18
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm1.bmp
+map_kd cloth.jpg
+newmtl drawnmesh19
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd door01.jpg
+newmtl drawnmesh20
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd dirtymetal.jpg
+newmtl drawnmesh21
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd cloth.jpg
+newmtl drawnmesh22
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd whitewall.jpg
+newmtl drawnmesh23
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd controlpanel.jpg
+newmtl drawnmesh24
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd metalpanels2.jpg
+newmtl drawnmesh25
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd metal.jpg
+newmtl drawnmesh26
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd red.jpg
+newmtl drawnmesh27
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd papertexture.jpg
+newmtl drawnmesh28
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd misc.jpg
+newmtl drawnmesh29
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd tilefloor.jpg
+newmtl drawnmesh30
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd white.jpg
+newmtl drawnmesh31
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd concretefloor.jpg
+newmtl drawnmesh32
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd ceiling.jpg
+newmtl drawnmesh33
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd scplogo.jpg
+newmtl drawnmesh34
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm2.bmp
+map_kd vent.jpg
+newmtl drawnmesh35
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm3.bmp
+map_kd concretefloor.jpg
+newmtl drawnmesh36
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm3.bmp
+map_kd whitewall.jpg
+newmtl drawnmesh37
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm3.bmp
+map_kd white.jpg
+newmtl drawnmesh38
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm3.bmp
+map_kd misc.jpg
+newmtl drawnmesh39
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm3.bmp
+map_kd door01.jpg
+newmtl drawnmesh40
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd 173bright_lm3.bmp
+map_kd dirtymetal.jpg
+newmtl collisionmesh0
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40

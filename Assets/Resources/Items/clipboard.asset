@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfa9ac52ad95774f80f8daca05f7122, type: 3}
+  m_Name: clipboard
+  m_EditorClassIdentifier: 
+  colCenter: {x: 0, y: 0, z: 0}
+  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  mass: 1
+  itemName: clipboard
+  icon: {fileID: 21300000, guid: 2f00b87a19580c14ebf38c62c69b0e56, type: 3}
+  deleteUse: 0
+  hasEffect: 0
+  isFem: 0
+  isUnique: 0
+  keepInv: 1
+  Effects:
+  - affected: 0
+    effect:
+      permanent: 0
+      time: 0
+      max: 0
+      min: 0
+      value: 0
+      multiplier: 0
+  - affected: 0
+    effect:
+      permanent: 0
+      time: 0
+      max: 0
+      min: 0
+      value: 0
+      multiplier: 0
+  ItemModel: {fileID: 100000, guid: b2b27dadba1f54c4f806d6a14bf48e6b, type: 3}
+  valueFloat: 0
+  valueInt: -1
+  SFX: 1
+  doc: {fileID: 21300000, guid: 2f00b87a19580c14ebf38c62c69b0e56, type: 3}
+  nodoc: {fileID: 21300000, guid: 7a277ec79de16f44f941c6b39d157470, type: 3}

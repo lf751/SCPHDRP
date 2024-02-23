@@ -1,0 +1,68 @@
+{"ui_generic_back", "返回"},
+        {"ui_main_play", "开始游戏"},
+        {"ui_main_extras", "额外内容"},
+        {"ui_main_options", "设置"},
+        {"ui_main_exit", "退出"},
+
+        {"ui_main_play_pro", "序幕"},
+        {"ui_main_play_chap", "章节"},
+
+        {"ui_main_play_new", "新游戏"},
+        {"ui_main_play_load", "载入游戏"},
+        {"ui_main_play_start", "开始"},
+        {"ui_main_play_seed", "地图种子"},
+        {"ui_main_play_sname", "保存名"},
+        {"ui_main_play_intro", "游戏介绍"},
+        {"ui_main_play_sload", "加载"},
+        {"ui_main_play_sdelete", "删除"},
+
+        {"ui_in_anykey", "按任何按键以开始"},
+        {"ui_in_pause", "暂停"},
+        {"ui_in_info", "记录编号: {0} \n名称: {1} \n\n保存名: {2}\n地图种子: {3}"},
+        {"ui_in_resume", "继续"},
+        {"ui_in_save", "保存并退出"},
+        {"ui_in_quit", "关闭游戏"},
+        {"ui_in_death", "你死了"},
+        {"ui_in_load", "加载存档"},
+        {"ui_in_saved", "游戏保存" },
+        {"ui_in_nosave", "不能在这里保存" },
+
+
+        {"ui_op_gfx", "图像"},
+        {"ui_op_sfx", "音频"},
+        {"ui_op_input", "输出"},
+        {"ui_op_misc", "高级"},
+
+        {"ui_gfx_quality", "画质"},
+        {"ui_gfx_post", "后处理"},
+        {"ui_gfx_lang", "语言"},
+        {"ui_gfx_vsync", "垂直同步"},
+        {"ui_gfx_frame", "设置帧率"},
+        {"ui_gfx_gamma", "屏幕亮度"},
+
+        {"ui_sfx_master", "主音量"},
+        {"ui_sfx_music", "音乐音量"},
+        {"ui_sfx_ambiance", "环境音量"},
+        {"ui_sfx_sfx", "音效音量"},
+        {"ui_sfx_voice", "对话音量"},
+        {"ui_sfx_sub", "显示字幕"},
+
+        {"ui_input_invert", "鼠标Y轴反转"},
+        {"ui_input_acc", "鼠标加速"},
+
+        {"ui_misc_debug", "调试控制台"},
+        {"ui_misc_tuto", "在游戏中显示教程"},
+
+        {"ui_demo_end", "感谢你玩我们的试玩版" },
+        {"ui_demo_end_body", "我们重做的第一个目标就是复原和 <color=white><i>SCP收容失效</i></color> 原版一样的氛围和感觉，用一个更细致而且更加可靠的引擎（希望如此！）\n\n我们将不负众望！\n\n我们离和现在版本一样的感觉还有很长的路要走, 作为一个创作者就有义务不仅要把这些做到完美, 而且还要让玩家享受这个游戏。 我相信我有足够的经验用这个引擎来制作SCP:CB这款游戏，并且又快又好\n\n你可以加载保存的游戏来探索我们在重收容区所做的一切。\n\n持续关注下一次的主要更新 希望你能感受到游戏中新的想法和特色玩法" },
+
+        {"ui_map_noconnect", "无法连接地图数据库" },
+        {"ui_map_lock", "地区上锁：" },
+        {"ui_map_heavy", "重收容区 " },
+        {"ui_map_entrance", "入口区 " },
+
+        {"ui_radio_channel2", " 警告 - 收容失效 " },
+        {"ui_radio_channel3", " SCP基金会站点内无线电 " },
+        {"ui_radio_channel4", " 紧急频道-在收容失效后仍能保持联系 " },
+
+

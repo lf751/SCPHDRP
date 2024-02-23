@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45465b484af8a4f47925aac43387c464, type: 3}
+  m_Name: bell
+  m_EditorClassIdentifier: 
+  colCenter: {x: 0, y: 0, z: 0}
+  colSize: {x: 0.2, y: 0.3, z: 0.2}
+  mass: 1
+  itemName: 513bell
+  icon: {fileID: 21300000, guid: 988283b55dc8eef4c881ada846e3dc42, type: 3}
+  deleteUse: 0
+  hasEffect: 0
+  isFem: 0
+  isUnique: 1
+  keepInv: 0
+  Effects: []
+  ItemModel: {fileID: 100000, guid: 9ec192044c37847489d7c06dc7629bd9, type: 3}
+  valueFloat: 0
+  valueInt: 0
+  SFX: 2
+  bellSounds:
+  - {fileID: 8300000, guid: c72a531443648c247bb8f9241e0bb6b2, type: 3}
+  - {fileID: 8300000, guid: 26d32cfa5b7359d4db38342aab36dd45, type: 3}
+  - {fileID: 8300000, guid: 378d139524b9d3541b9b5d6907926167, type: 3}

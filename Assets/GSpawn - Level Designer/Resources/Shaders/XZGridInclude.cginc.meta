@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ecfc073d9cc84e4449f5026c02637a2a
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45021
+  packageName: GSpawn - Level Designer
+  packageVersion: 3.2.8.5
+  assetPath: Assets/GSpawn - Level Designer/Resources/Shaders/XZGridInclude.cginc
+  uploadId: 643155

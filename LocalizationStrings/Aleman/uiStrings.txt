@@ -1,0 +1,68 @@
+        {"ui_generic_back", "Zurück"},
+        {"ui_main_play", "Spielen"},
+        {"ui_main_extras", "Extras"},
+        {"ui_main_options", "Optionen"},
+        {"ui_main_exit", "Beenden"},
+
+        {"ui_main_play_pro", "Prolog"},
+        {"ui_main_play_chap", "Kapitel"},
+
+        {"ui_main_play_new", "Neues Spiel"},
+        {"ui_main_play_load", "Spiel Laden"},
+        {"ui_main_play_start", "Starten"},
+        {"ui_main_play_seed", "Startwert für den Kartengenerator"},
+        {"ui_main_play_sname", "Spielstand Name"},
+        {"ui_main_play_intro", "Intro Abspielen"},
+        {"ui_main_play_sload", "Laden"},
+        {"ui_main_play_sdelete", "Löschen"},
+
+        {"ui_in_anykey", "Press any key to Start"},
+        {"ui_in_pause", "PAUSE"},
+        {"ui_in_info", "Designation: {0} \nName: {1} \n\nSpielstand: {2}\nStartwert: {3}"},
+        {"ui_in_resume", "Weiter"},
+        {"ui_in_save", "Speichern und Beenden"},
+        {"ui_in_quit", "Beenden"},
+        {"ui_in_death", "DU BIST GESTORBEN"},
+        {"ui_in_load", "Spielstand Laden"},
+        {"ui_in_saved", "Spiel Gespeichert" },
+        {"ui_in_nosave", "Hier kannst du nicht speichern" },
+
+
+        {"ui_op_gfx", "Grafik"},
+        {"ui_op_sfx", "Audio"},
+        {"ui_op_input", "Eingabe"},
+        {"ui_op_misc", "Erweitert"},
+
+        {"ui_gfx_quality", "Grafikqualität"},
+        {"ui_gfx_post", "Nachbearbeitungsqulität"},
+        {"ui_gfx_lang", "Sprache"},
+        {"ui_gfx_vsync", "V-Sync"},
+        {"ui_gfx_frame", "Angestrebte Bildrate"},
+        {"ui_gfx_gamma", "Bildschirmhelligkeit"},
+
+        {"ui_sfx_master", "Gesamtlautstärke"},
+        {"ui_sfx_music", "Musik"},
+        {"ui_sfx_ambiance", "Ambiente"},
+        {"ui_sfx_sfx", "Geräusche"},
+        {"ui_sfx_voice", "Stimmen"},
+        {"ui_sfx_sub", "Untertitel Anzeigen"},
+
+        {"ui_input_invert", "Y-Achse Invertieren"},
+        {"ui_input_acc", "Mausbeschleunigung"},
+
+        {"ui_misc_debug", "Debug Konsole"},
+        {"ui_misc_tuto", "Spielinterne Anleitungen Anzeigen"},
+
+        {"ui_demo_end", "Danke, dass du unsere Demo gespielt hast" },
+        {"ui_demo_end_body", "Unser erstes Ziel mit diesem Remaster ist es, das Gefühl und das Ambiente des originallen <color=white><i>SCP: Containment Breach</i></color> in einer detaillierteren und (hoffentlich!) verlässlicheren Engine einzufangen.\n\nWir hoffen, dass wir damit Erfolg hatten!\n\nWir müssen noch viel tun um mit der aktuellen Version inhaltsgleich zu sein. Aber als Entwickler hat man einerseits den Drang sein Werk zu perfektionieren, andererseits aber auch es in die Hände der Leute zu bekommen, denen es gefallen wird. I believe I have turned this engine into something that will deliver a definitive SCP:CB experience quick and in high quality.\n\nYou can keep playing and explore the work we have in the Heavy Containment Zone by reloading this save.\n\nKeep an eye out for the next major update! Hopefully there you'll have a taste of the new features and ideas we want to build into the main game." },
+
+        {"ui_map_noconnect", "KEINE KOMMUNIKATION MIT DER KARTENDATENBANK MÖGLICH" },
+        {"ui_map_lock", "ABRIEGELUNG IN DEN BEREICHEN: " },
+        {"ui_map_heavy", "HOCHSICHERHEITSZONE " },
+        {"ui_map_entrance", "EINGANSZONE " },
+
+        {"ui_radio_channel2", " WARNUNG - EINDÄMMUNGSFEHLSCHLAG " },
+        {"ui_radio_channel3", " SCP Foundation Vor-Ort-Radio " },
+        {"ui_radio_channel4", " NOTFALL KANAL - RESERVIERT FÜR KOMMUNIKATION IM FALLE EINES EINDÄMMUNGSFEHLSCHLAGES " },
+
+

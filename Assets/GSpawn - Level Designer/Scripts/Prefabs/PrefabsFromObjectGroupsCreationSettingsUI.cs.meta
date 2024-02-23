@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 69bed89d817f545419c84eb39d18505c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45021
+  packageName: GSpawn - Level Designer
+  packageVersion: 3.2.8.5
+  assetPath: Assets/GSpawn - Level Designer/Scripts/Prefabs/PrefabsFromObjectGroupsCreationSettingsUI.cs
+  uploadId: 643155

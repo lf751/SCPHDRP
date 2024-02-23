@@ -1,0 +1,94 @@
+        {"BeforeDoorOpen", "<b>{0}</b> : Kontrolle, hier spricht Agent Ulgrin. Ich ersuche das Öffnen der Zelle 3-11."},
+        {"ExitCell", "<b>{0}</b> : Hey, die haben ein bisschen Arbeit für dich. Tu mir 'nen Gefallen und tret aus deiner Zelle."},
+        {"ExitCellRefuse1", "<b>{0}</b> : Bist du irgendwie dumm oder so? Ich habe gesagt tret aus deiner Zelle. Wenn du nichts aus deiner Zelle tritts kriegst du auf's Maul."},
+        {"ExitCellRefuse2", "<b>{0}</b> : Komm schon Kumpel, wir haben nicht den ganzen Tag. Ich versuche hier höflich zu sein. Wenn du nichts aus deiner Zelle tritts kriegst du auf's Maul."},
+        {"CellGas1", "<b>{0}</b> : Huh, du musst echt das dümmste Testsubjekt sein das wir jemals hatten. Auch egal, schließt die Tür und öffnet das Gasventil."},
+        {"CellGas2", "<b>{0}</b> : Huh, ich bin irgendwie enttäuscht, dass du keinen Stress gemacht hast. Ich hatte gehofft ich könnte dir ins Gesicht schlagen."},
+        {"EscortRun", "<b>{0}</b> : Hey, Spast! Das ist der falsche Weg. Komm augenblicklich hier her!"},
+        {"EscortRefuse1", "<b>{0}</b> : Beeil dich! Die warten auf dich."},
+        {"EscortRefuse2", "<b>{0}</b> : Komm schon Kumpel, ich hasse meinen Job jetzt schon. Wieso machst du ihn mir noch schwerer?"},
+        {"EscortPissedOff1", "<b>{0}</b> : Ich hab keinen Bock auf diesen Scheiß, ich habe absolut kein Problem damit dir 'ne Kugel in den Kopf zu jagen wenn du nicht anfängst mitzuarbeiten."},
+        {"EscortPissedOff2", "<b>{0}</b> : Ich hab keinen Bock auf diesen Scheiß, ich habe absolut kein Problem damit dir 'ne Kugel in den Kopf zu jagen wenn du nicht anfängst mitzuarbeiten."},
+        {"EscortKill1", "<b>{0}</b> : Okay, weißt du was? Dann sei so. Wir werden uns einfach jemand anderen holen."},
+        {"EscortKill2", "<b>{0}</b> : Okay, weißt du was? Dann sei so. Wir werden uns einfach jemand anderen holen."},
+
+
+        {"Intro_Convo1_1", "<b>{0}</b> : Also, uh, wie geht's?"},
+        {"Intro_Convo1_2", "<b>{0}</b> : Uh, r-redest du mit mir?"},
+        {"Intro_Convo1_3", "<b>{0}</b> : Nunja, mit wem denkst du rede ich, dem D-Klasse Fuzzi hier? Klar red ich mit dir."},
+        {"Intro_Convo1_4", "<b>{0}</b> : Oh, ich bin nur ein wenig überrascht. Ich denke, dass ist das erste Mal, das du mit mir redest."},
+        {"Intro_Convo1_5", "<b>{0}</b> : Naja, es ist dein erster Arbeitstag hier."},
+        {"Intro_Convo1_6", "<b>{0}</b> : Uh, eigentlich arbeiten wir seit fünf Monaten zusammen."},
+        {"Intro_Convo1_7", "<b>{0}</b> : Wirklich? Wow. Das ist seltsam."},
+
+        {"Intro_Convo2_1", "<b>{0}</b> : Uh, hast du in letzter Zeit irgendwelche guten Filme gesehen?"},
+        {"Intro_Convo2_2", "<b>{0}</b> : Uh, ich schaue nicht wirklich viele Filme, ich lese Bücher."},
+        {"Intro_Convo2_3", "<b>{0}</b> : Ja? Was für Bücher?"},
+        {"Intro_Convo2_4", "<b>{0}</b> : Uh, Horror, Science-Fiction, sowas halt."},
+        {"Intro_Convo2_5", "<b>{0}</b> : Du machst Witze."},
+        {"Intro_Convo2_6", "<b>{0}</b> : Wie?"},
+        {"Intro_Convo2_7", "<b>{0}</b> : Dein ganzer Job dreht sich um Horror und Science-Fiction, außer, dass es tatsächlich keine Fiktion ist."},
+        {"Intro_Convo2_8", "<b>{0}</b> : Also, eigentlich plane ich ein Buch über meine Erfahr-"},
+        {"Intro_Convo2_9", "<b>{0}</b> : Ok, nimm's mir nicht übel, aber ich hab jetzt schon jegliches Interesse an dem verloren was du sagen wolltest."},
+
+        {"Intro_Convo3_1", "<b>{0}</b> : Mann, bin ich hungrig. Hey, heute ist Pizzatag in der Cafeteria, stimmt's?"},
+        {"Intro_Convo3_2", "<b>{0}</b> : Uh, e-eigentlich ist es Thunfischauflauf, denke ich."},
+        {"Intro_Convo3_3", "<b>{0}</b> : Oh, Gott verdammt. Also mein Tag ist ruiniert. Der einzige Grund wieso ich immer noch hier her komme ist wegen der Pizza. Ich weiß nicht was es mit dieser Pizza auf sich hat, aber sie ist echt lecker. Thunfischauflauf andererseits ist eine grausame Abscheulichkeit die mit dem Rest von diesen Missgeburten hier eingesperrt sein sollte."},
+        {"Intro_Convo3_4", "<b>{0}</b> : Uh, okay.."},
+
+        {"Intro_Convo4_1", "<b>{0}</b> : Lass mich raten, du hast keine Freundin, oder?"},
+        {"Intro_Convo4_2", "<b>{0}</b> : Uh, s-sprichst du mit mir?"},
+        {"Intro_Convo4_3", "<b>{0}</b> : Klar sprech ich mit dir."},
+        {"Intro_Convo4_4", "<b>{0}</b> : Ist es so offensichtlich?"},
+        {"Intro_Convo4_5", "<b>{0}</b> : Also ich bin ja kein Gedankenleser, sonst wäre ich auch hier eingesperrt, also ja, es ist ziemlich offensichtlich."},
+        {"Intro_Convo4_6", "<b>{0}</b> : Wie soll ich denn mit diesem Job eine Freundin finden? Ich meine, ich kann ihr davon ja nichts erzählen, also was soll ich tun?"},
+        {"Intro_Convo4_7", "<b>{0}</b> : Lüg sie doch einfach an. Sag ihr du arbeitest in irgendeinem Café oder so."},
+        {"Intro_Convo4_8", "<b>{0}</b> : Aber, was wenn ich aus Versehen vergesse hier meine Hände zu waschen und mit Blut an ihnen nach Hause komme? Was sollte ich ihr dann sagen?"},
+        {"Intro_Convo4_9", "<b>{0}</b> : Uh, keine Ahnung, sag einfach es wäre, uh... Ketchup oder so."},
+        {"Intro_Convo4_10", "<b>{0}</b> : Ketchup? Wieso sollte ich Ketchup an meinen Händen haben wenn ich in einem Café arbeite?"},
+        {"Intro_Convo4_11", "<b>{0}</b> : Ugh, v-vergiss es einfach."},
+
+        {"Intro_Convo5_1", "<b>{0}</b> : Uh, hast du in letzter Zeit irgendwelche guten Filme gesehen?"},
+        {"Intro_Convo5_2", "<b>{0}</b> : Uh, ich schaue nicht wirklich viele Filme."},
+        {"Intro_Convo5_3", "<b>{0}</b> : Oh ok. Wie sieht es mit Videospielen aus? Weißt du was, das gibt mir eine Idee, jemand sollte ein Videospiel über diesen Ort machen."},
+        {"Intro_Convo5_4", "<b>{0}</b> : Wieso sollte das irgendjemand tun?"},
+        {"Intro_Convo5_5", "<b>{0}</b> : Ich weiß nicht, ich dachte einfach es wäre eine coole Idee."},
+        {"Intro_Convo5_6", "<b>{0}</b> : Nun, ich spiele auch keine Videospiele."},
+
+
+
+        {"Escort1", "<b>{0}</b> : Folge mir. Ach und übrigens, wir sind dazu autorisiert unfolgsame Testsubjekte zu neutralisieren, also versuch besser nichts Dummes."},
+        {"Escort2", "<b>{0}</b> : Folge mir. Ach und übrigens, wir sind dazu autorisiert unfolgsame Testsubjekte zu neutralisieren, also versuch besser nichts Dummes."},
+        {"EscortDone1", "<b>{0}</b> : Also, hier sind wir. Geh einfach da rein und befolge alle Anweisungen, dann wirst du uh, wahrscheinlich lebend da rauskommen."},
+        {"EscortDone2", "<b>{0}</b> : Also, hier sind wir. Ich bin immer noch enttäuscht, dass ich dir nicht Eine reinhauen konnte, aber egal."},
+        {"EscortDone3", "<b>{0}</b> : Also, hier sind wir. Ich bin immer noch enttäuscht, dass ich dir nicht ins Gesicht schlagen durfte, aber *seufz* egal."},
+        {"EscortDone4", "<b>{0}</b> : Geh einfach da rein und befolge alle Anweisungen, dann wirst du uh, wahrscheinlich lebend da rauskommen. Vielleicht aber auch nicht, ist mir eigentlich auch egal."},
+        {"EscortDone5", "<b>{0}</b> : Naja, jedenfalls, lass uns keine Zeit mehr verschwenden. Die Anderen warten auf dich in der Kammer."},
+
+
+        {"EnterChamber","<b>{0}</b> : Achtung an alle D-Klasse Mitarbeiter, bitte betreten Sie die Isolierungszelle." },
+        {"Approach173","<b>{0}</b> : Bitte nähern sie sich <color=yellow>SCP-173</color> für einen Versuch." },
+        { "Problem","<b>{0}</b> : Uh, es scheint ein Problem mit dem Türenkontrollsystem zu geben, die Türen reagieren nicht auf unsere Versuche sie zu schließen, also uhm, bitte halten sie mit Blickkontakt mit SCP-173 und-" },
+
+        { "Escape1","<b>{0}</b> : Ich denke der kürzeste Weg nach draußen ist durch den Südost-Flügel, folgen Sie mir!" },
+        { "Escape2","<b>{0}</b> : Haben Sie das gehört? Ich hoffe es war nicht-" },
+
+
+
+
+
+
+        {"scene_BreachStart_1", "<b>{0}</b> : Agent, hinter dir!"},
+        {"scene_BreachStart_2", "<b>{0}</b> : Oh, Scheiße!"},
+        {"scene_BreachStart_3", "<b>{0}</b> : Behalt ihn im Auge!"},
+        {"scene_BreachStart_4", "<b>{0}</b> : Okay, ich werde blinzeln, schau ihn einfach weiter an"},
+        {"scene_BreachStart_5", "<b>{0}</b> : Okay, Alles klar"},
+
+
+        {"scene_012_1", "<i>Ich muss... Ich muss es fertig stellen...</i>"},
+        {"scene_012_2", "<i>Möchtest du das wirklich tun... Ich schaffe... das... nicht.</i>"},
+        {"scene_012_3", "<i>Ich... Ich... muss... es schaffen.</i>"},
+        {"scene_012_4", "<i>I-Ich... habe... keine... W-Wahl!</i>"},
+        {"scene_012_5", "<i>Luftballons... Das....das macht...keinen Sinn!</i>"},
+        {"scene_012_6", "<i>Nein... das... das kann... nicht sein!</i>"},
+        {"scene_012_7", "<i>Es ist... Es ist unmöglich!</i>"},

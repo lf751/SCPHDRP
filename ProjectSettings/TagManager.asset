@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Smoke
+  - Metal
+  - Concrete
+  - Forest
+  - PD
+  - Death
+  - DeathFall
+  - Scramble
+  - Physics
+  - Camera
+  - Item
+  - IOC TAG
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - PostProcessing
+  - Doors
+  - Collision
+  - Items
+  - Player
+  - Triggers
+  - NPC
+  - DistanceShutOff
+  - GameCamera
+  - MainCamera
+  - Map
+  - Bones
+  - SoundLayer
+  - Death
+  - ACSCulling
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Menu
+    uniqueID: 613330217
+    locked: 0

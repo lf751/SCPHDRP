@@ -1,0 +1,1076 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed5864476f84ce4b85454db09ca4eaa, type: 3}
+  m_Name: graph_0
+  m_EditorClassIdentifier: 
+  AssetPath: Assets/Models/Map/Modular/Materials/SciFi_Corridor_v5.sbsar
+  RawData: {fileID: -244192453324840774, guid: c39c6914835a1da43bba397eff40c176, type: 3}
+  Name: graph_0
+  IsRoot: 1
+  FlagedForDelete: 0
+  GUID: 7bbb6bca-2a77-4315-baa3-31167805d590
+  Index: 0
+  Input:
+  - rid: 7621930332070346870
+  - rid: 7621930332070346871
+  - rid: 7621930332070346872
+  - rid: 7621930332070346873
+  - rid: 7621930332070346874
+  - rid: 7621930332070346875
+  - rid: 7621930332070346876
+  - rid: 7621930332070346877
+  - rid: 7621930332070346878
+  - rid: 7621930332070346879
+  - rid: 7621930332070346880
+  - rid: 7621930332070346881
+  - rid: 7621930332070346882
+  - rid: 7621930332070346883
+  - rid: 7621930332070346884
+  - rid: 7621930332070346885
+  - rid: 7621930332070346886
+  - rid: 7621930332070346887
+  - rid: 7621930332070346888
+  - rid: 7621930332070346889
+  - rid: 7621930332070346890
+  - rid: 7621930332070346891
+  - rid: 7621930332070346892
+  - rid: 7621930332070346893
+  - rid: 7621930332070346894
+  - rid: 7621930332070346895
+  - rid: 7621930332070346896
+  - rid: 7621930332070346897
+  - rid: 7621930332070346898
+  - rid: 7621930332070346899
+  - rid: 7621930332070346900
+  - rid: 7621930332070346901
+  - rid: 7621930332070346902
+  - rid: 7621930332070346903
+  - rid: 7621930332070346904
+  - rid: 7621930332070346905
+  - rid: 7621930332070346906
+  - rid: 7621930332070346907
+  - rid: 7621930332070346908
+  Output:
+  - Index: 0
+    VirtualOutputIndex: 8
+    Description:
+      Identifier: basecolor
+      Label: basecolor
+      Index: 0
+      Type: 8
+      Channel: baseColor
+    OutputTexture: {fileID: 2800000, guid: a01534a07d9be0d4181ed5bae9dc377f, type: 3}
+    sRGB: 1
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _BaseColorMap
+  - Index: 1
+    VirtualOutputIndex: 9
+    Description:
+      Identifier: normal
+      Label: normal
+      Index: 1
+      Type: 8
+      Channel: normal
+    OutputTexture: {fileID: 2800000, guid: b689042ffb5155e4bbac5e88449e9046, type: 3}
+    sRGB: 0
+    IsVirtual: 0
+    IsAlphaAssignable: 0
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _NormalMap
+  - Index: 2
+    VirtualOutputIndex: 10
+    Description:
+      Identifier: roughness
+      Label: roughness
+      Index: 2
+      Type: 8
+      Channel: roughness
+    OutputTexture: {fileID: 0}
+    sRGB: 0
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _RoughnessMap
+  - Index: 3
+    VirtualOutputIndex: 11
+    Description:
+      Identifier: metallic
+      Label: metallic
+      Index: 3
+      Type: 8
+      Channel: metallic
+    OutputTexture: {fileID: 0}
+    sRGB: 0
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _MetallicGlossMap
+  - Index: 4
+    VirtualOutputIndex: 12
+    Description:
+      Identifier: height
+      Label: height
+      Index: 4
+      Type: 8
+      Channel: height
+    OutputTexture: {fileID: 2800000, guid: 455bb79d6e32dd5458f83820f4d66463, type: 3}
+    sRGB: 1
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _HeightMap
+  - Index: 5
+    VirtualOutputIndex: 13
+    Description:
+      Identifier: ambientOcclusion
+      Label: ambientOcclusion
+      Index: 5
+      Type: 8
+      Channel: ambientOcclusion
+    OutputTexture: {fileID: 0}
+    sRGB: 0
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _OcclusionMap
+  - Index: 6
+    VirtualOutputIndex: 14
+    Description:
+      Identifier: emissive
+      Label: emissive
+      Index: 6
+      Type: 8
+      Channel: emissive
+    OutputTexture: {fileID: 2800000, guid: 837582eb518a60c4db09b07bc03d8e1a, type: 3}
+    sRGB: 1
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _EmissiveColorMap
+  - Index: 7
+    VirtualOutputIndex: 7
+    Description:
+      Identifier: mask
+      Label: mask
+      Index: 7
+      Type: 8
+      Channel: mask
+    OutputTexture: {fileID: 2800000, guid: 1c0984a7441dead4ebc960d15b06b972, type: 3}
+    sRGB: 0
+    IsVirtual: 1
+    IsAlphaAssignable: 0
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 4
+    MaterialTextureTarget: _MaskMap
+  HasPhysicalSize: 0
+  PhysicalSize: {x: 0, y: 0, z: 0}
+  EnablePhysicalSize: 0
+  Thumbnail: 
+  HasThumbnail: 0
+  CurrentStatePreset: " <sbspreset pkgurl=\"pkg://SciFi_Corridor\" label=\"\" >\n 
+    <presetinput identifier=\"$outputsize\" uid=\"3671984478\" type=\"8\" value=\"10,10\"
+    />\n  <presetinput identifier=\"show_vent\" uid=\"2849296721\" type=\"4\" value=\"0\"
+    />\n  <presetinput identifier=\"Show_Arrow\" uid=\"2849279184\" type=\"4\" value=\"0\"
+    />\n  <presetinput identifier=\"show_blastmarks\" uid=\"2849300089\" type=\"4\"
+    value=\"0\" />\n  <presetinput identifier=\"show_soot\" uid=\"2849297890\" type=\"4\"
+    value=\"0\" />\n  <presetinput identifier=\"Show_Panel_1\" uid=\"2849298997\"
+    type=\"4\" value=\"0\" />\n  <presetinput identifier=\"Show_Panel_2\" uid=\"2849299748\"
+    type=\"4\" value=\"0\" />\n  <presetinput identifier=\"Show_Scratches\" uid=\"2849283837\"
+    type=\"4\" value=\"0\" />\n  <presetinput identifier=\"show_upper_light_panel\"
+    uid=\"2849301708\" type=\"4\" value=\"0\" />\n  <presetinput identifier=\"show_lower_light_panel\"
+    uid=\"2849302951\" type=\"4\" value=\"0\" />\n  <presetinput identifier=\"Light_IsOn\"
+    uid=\"2849303629\" type=\"4\" value=\"0\" />\n </sbspreset>\n"
+  IsRuntimeOnly: 0
+  GenerateAllOutputs: 0
+  GenerateAllMipmaps: 1
+  OutputMaterial: {fileID: 2100000, guid: b1ed1c33b894e4d44b628f3a81b35259, type: 2}
+  DefaultPreset: " <sbspreset pkgurl=\"pkg://SciFi_Corridor\" label=\"\" >\n  <presetinput
+    identifier=\"$outputsize\" uid=\"3671984478\" type=\"8\" value=\"10,10\" />\n
+    </sbspreset>\n"
+  MaterialShader: HDRP/Lit
+  RenderTextures: 0
+  OutputRemaped: 0
+  Presets: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 7621930332070346870
+      type: {class: SubstanceInputInt2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 0
+        Description:
+          Identifier: $outputsize
+          Label: $outputsize
+          GuiGroup: 
+          GuiDescription: 
+          Type: 5
+          WidgetType: 0
+        Data: {x: 10, y: 10}
+        NumericalDescription:
+          DefaultValue: {x: 8, y: 8}
+          MinValue: {x: 0, y: 0}
+          MaxValue: {x: 1, y: 1}
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346871
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 1
+        Description:
+          Identifier: $randomseed
+          Label: $randomseed
+          GuiGroup: 
+          GuiDescription: 
+          Type: 4
+          WidgetType: 0
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 0
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346872
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 2
+        Description:
+          Identifier: show_vent
+          Label: Show Vent
+          GuiGroup: Module Visibility
+          GuiDescription: 
+          Type: 4
+          WidgetType: 4
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346873
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 3
+        Description:
+          Identifier: Show_Arrow
+          Label: Show Arrow
+          GuiGroup: Module Visibility
+          GuiDescription: 
+          Type: 4
+          WidgetType: 4
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346874
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 4
+        Description:
+          Identifier: show_blastmarks
+          Label: Show Blastmarks
+          GuiGroup: Module Visibility
+          GuiDescription: 
+          Type: 4
+          WidgetType: 4
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346875
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 5
+        Description:
+          Identifier: show_soot
+          Label: Show Soot
+          GuiGroup: Module Visibility
+          GuiDescription: 
+          Type: 4
+          WidgetType: 4
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346876
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 6
+        Description:
+          Identifier: Show_Panel_1
+          Label: Show Panel 1
+          GuiGroup: Module Visibility
+          GuiDescription: 
+          Type: 4
+          WidgetType: 4
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346877
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 7
+        Description:
+          Identifier: Show_Panel_2
+          Label: Show Panel 2
+          GuiGroup: Module Visibility
+          GuiDescription: 
+          Type: 4
+          WidgetType: 4
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346878
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 8
+        Description:
+          Identifier: Show_Scratches
+          Label: Show Scratches
+          GuiGroup: Module Visibility
+          GuiDescription: 
+          Type: 4
+          WidgetType: 4
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346879
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 9
+        Description:
+          Identifier: show_upper_light_panel
+          Label: Show Upper Light Panel
+          GuiGroup: Module Visibility
+          GuiDescription: 
+          Type: 4
+          WidgetType: 4
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346880
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 10
+        Description:
+          Identifier: show_lower_light_panel
+          Label: Show Lower Light Panel
+          GuiGroup: Module Visibility
+          GuiDescription: 
+          Type: 4
+          WidgetType: 4
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346881
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 11
+        Description:
+          Identifier: Arrow_Direction
+          Label: Arrow Direction
+          GuiGroup: Direction Arrow
+          GuiDescription: 
+          Type: 4
+          WidgetType: 5
+        Data: 1
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 0
+          SliderStep: 0
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 2
+          EnumValues:
+          - Value: 0
+            Label: Left
+          - Value: 1
+            Label: Right
+    - rid: 7621930332070346882
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 12
+        Description:
+          Identifier: Arrow_Paint_Color
+          Label: Paint Color
+          GuiGroup: Direction Arrow
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 1, y: 0.0500038, z: 0, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 1, y: 0.0500038, z: 0, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346883
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 13
+        Description:
+          Identifier: Arrow_Paint_Coverage
+          Label: Paint Coverage
+          GuiGroup: Direction Arrow
+          GuiDescription: Paint chipping
+          Type: 0
+          WidgetType: 1
+        Data: 0.75
+        NumericalDescription:
+          DefaultValue: 0.75
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 1
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346884
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 14
+        Description:
+          Identifier: arrow_paint_metallic_level
+          Label: Paint Metallic Level
+          GuiGroup: Direction Arrow
+          GuiDescription: 
+          Type: 0
+          WidgetType: 3
+        Data: 0.0313726
+        NumericalDescription:
+          DefaultValue: 0.0313726
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346885
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 15
+        Description:
+          Identifier: arrow_paint_roughness_level
+          Label: Paint Roughness Level
+          GuiGroup: Direction Arrow
+          GuiDescription: 
+          Type: 0
+          WidgetType: 3
+        Data: 0.286275
+        NumericalDescription:
+          DefaultValue: 0.286275
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346886
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 16
+        Description:
+          Identifier: arrow_paint_height_offset
+          Label: Paint height offset
+          GuiGroup: Direction Arrow
+          GuiDescription: 
+          Type: 0
+          WidgetType: 3
+        Data: 0.0313726
+        NumericalDescription:
+          DefaultValue: 0.0313726
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346887
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 17
+        Description:
+          Identifier: arrow_Paint_Density
+          Label: Paint Density
+          GuiGroup: Direction Arrow
+          GuiDescription: Applies some alpha shading to mimic unevenly sprayed paint.
+          Type: 0
+          WidgetType: 1
+        Data: 0.65
+        NumericalDescription:
+          DefaultValue: 0.65
+          MinValue: -1
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 1
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346888
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 18
+        Description:
+          Identifier: blastmark_count
+          Label: Number of Blastmarks
+          GuiGroup: Battle Damage
+          GuiDescription: The number of blast marks to render
+          Type: 4
+          WidgetType: 1
+        Data: 3
+        NumericalDescription:
+          DefaultValue: 3
+          MinValue: 1
+          MaxValue: 10
+          SliderStep: 1
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346889
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 19
+        Description:
+          Identifier: blastmark_range
+          Label: Blastmark Range
+          GuiGroup: Battle Damage
+          GuiDescription: The horizontal and vertical range centered on zero to render
+            blast marks.  Used to keep blasts off of image edges, etc.
+          Type: 1
+          WidgetType: 1
+        Data: {x: 0.87, y: 0.7}
+        NumericalDescription:
+          DefaultValue: {x: 0.87, y: 0.7}
+          MinValue: {x: 0, y: 0}
+          MaxValue: {x: 1, y: 1}
+          SliderStep: 0.01
+          SliderClamp: 1
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346890
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 20
+        Description:
+          Identifier: Soot_Color
+          Label: Soot Color
+          GuiGroup: Battle Damage
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.0901961, y: 0.0752117, z: 0.0682689, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.0901961, y: 0.0752117, z: 0.0682689, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346891
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 21
+        Description:
+          Identifier: soot_level
+          Label: Base Material Soot Sensitivity Level
+          GuiGroup: Battle Damage
+          GuiDescription: This represents the the least likelyhood that soot will
+            stick.
+          Type: 0
+          WidgetType: 1
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 0
+          MinValue: -1
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 1
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346892
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 22
+        Description:
+          Identifier: show_soot_above_vent
+          Label: Show Soot Above Vent
+          GuiGroup: Battle Damage
+          GuiDescription: Will render soot above the vent - if the vent is visible
+          Type: 4
+          WidgetType: 4
+        Data: 1
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346893
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 23
+        Description:
+          Identifier: soot_lowest_point
+          Label: Soot Lowest Point on Wall
+          GuiGroup: Battle Damage
+          GuiDescription: Use to adjust the lowest point on the wall where soot sticks. 
+            Use with "Soot Base Amount" to adjust the amount and placement of soot
+            (except for the vent soot).
+          Type: 0
+          WidgetType: 1
+        Data: 0.28
+        NumericalDescription:
+          DefaultValue: 0.28
+          MinValue: -1
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 1
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346894
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 24
+        Description:
+          Identifier: soot_base_amount
+          Label: Soot Base Amount
+          GuiGroup: Battle Damage
+          GuiDescription: Use to adjust the coverage of soot on the wall.  Use with
+            "Soot Lowest Point on Wall."
+          Type: 0
+          WidgetType: 1
+        Data: -0.22
+        NumericalDescription:
+          DefaultValue: -0.22
+          MinValue: -1
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 1
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346895
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 25
+        Description:
+          Identifier: panel_1_position
+          Label: Panel 1 Position
+          GuiGroup: Electrical Panels
+          GuiDescription: 
+          Type: 1
+          WidgetType: 1
+        Data: {x: -0.7, y: 0.65}
+        NumericalDescription:
+          DefaultValue: {x: -0.7, y: 0.65}
+          MinValue: {x: -0.5, y: -0.5}
+          MaxValue: {x: 0.5, y: 0.5}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346896
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 26
+        Description:
+          Identifier: panel_1_Label_1
+          Label: Panel 1 Warning Label
+          GuiGroup: Electrical Panels
+          GuiDescription: The type of warning sticker to display
+          Type: 4
+          WidgetType: 5
+        Data: 3
+        NumericalDescription:
+          DefaultValue: 3
+          MinValue: 0
+          MaxValue: 0
+          SliderStep: 0
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 4
+          EnumValues:
+          - Value: 1
+            Label: None
+          - Value: 2
+            Label: Electrical
+          - Value: 3
+            Label: Radiation
+          - Value: 4
+            Label: Danger
+    - rid: 7621930332070346897
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 27
+        Description:
+          Identifier: pane_1l_Label_2
+          Label: Panel 1 Information Label
+          GuiGroup: Electrical Panels
+          GuiDescription: The type of information label to display
+          Type: 4
+          WidgetType: 5
+        Data: 2
+        NumericalDescription:
+          DefaultValue: 2
+          MinValue: 0
+          MaxValue: 0
+          SliderStep: 0
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 3
+          EnumValues:
+          - Value: 1
+            Label: None
+          - Value: 2
+            Label: Notification
+          - Value: 3
+            Label: Identity
+    - rid: 7621930332070346898
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 28
+        Description:
+          Identifier: panel_2_position
+          Label: Panel 2 Position
+          GuiGroup: Electrical Panels
+          GuiDescription: 
+          Type: 1
+          WidgetType: 1
+        Data: {x: -0.7, y: -0.65}
+        NumericalDescription:
+          DefaultValue: {x: -0.7, y: -0.65}
+          MinValue: {x: -0.5, y: -0.5}
+          MaxValue: {x: 0.5, y: 0.5}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346899
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 29
+        Description:
+          Identifier: panel_2_Label_1
+          Label: Panel 2 Warning Label
+          GuiGroup: Electrical Panels
+          GuiDescription: The type of warning sticker to display
+          Type: 4
+          WidgetType: 5
+        Data: 2
+        NumericalDescription:
+          DefaultValue: 2
+          MinValue: 0
+          MaxValue: 0
+          SliderStep: 0
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 4
+          EnumValues:
+          - Value: 1
+            Label: None
+          - Value: 2
+            Label: Electrical
+          - Value: 3
+            Label: Radiation
+          - Value: 4
+            Label: Danger
+    - rid: 7621930332070346900
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 30
+        Description:
+          Identifier: panel_2_Label_2
+          Label: Panel 2 Information Label
+          GuiGroup: Electrical Panels
+          GuiDescription: The type of information label to display
+          Type: 4
+          WidgetType: 5
+        Data: 3
+        NumericalDescription:
+          DefaultValue: 3
+          MinValue: 0
+          MaxValue: 0
+          SliderStep: 0
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 3
+          EnumValues:
+          - Value: 1
+            Label: None
+          - Value: 2
+            Label: Notification
+          - Value: 3
+            Label: Identity
+    - rid: 7621930332070346901
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 31
+        Description:
+          Identifier: scratches_amount
+          Label: Scratches Amount
+          GuiGroup: General Wear
+          GuiDescription: 
+          Type: 4
+          WidgetType: 1
+        Data: 800
+        NumericalDescription:
+          DefaultValue: 800
+          MinValue: 0
+          MaxValue: 8192
+          SliderStep: 1
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346902
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 32
+        Description:
+          Identifier: wall_scratch_sensitivity
+          Label: Wall Base Scratch Sensitivity
+          GuiGroup: General Wear
+          GuiDescription: Represents the sensitivity of base wall material to scratches
+          Type: 0
+          WidgetType: 3
+        Data: 0.121569
+        NumericalDescription:
+          DefaultValue: 0.121569
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346903
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 33
+        Description:
+          Identifier: Light_IsOn
+          Label: Lights Are On
+          GuiGroup: Lights
+          GuiDescription: 
+          Type: 4
+          WidgetType: 4
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346904
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 34
+        Description:
+          Identifier: Light_panel_emissive_Color
+          Label: Emissive Color
+          GuiGroup: Lights
+          GuiDescription: The emissive color of the lights when on
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.593545, y: 0.61268, z: 0.976471, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.593545, y: 0.61268, z: 0.976471, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346905
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 35
+        Description:
+          Identifier: light_panel_baseColor_On
+          Label: Light Panel baseColor when On
+          GuiGroup: Lights
+          GuiDescription: The baseColor of the light panels when the light is on
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.768627, y: 0.778241, z: 0.960784, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.768627, y: 0.778241, z: 0.960784, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346906
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 36
+        Description:
+          Identifier: light_panel_baseColor_Off
+          Label: Light Panel baseColor when Off
+          GuiGroup: Lights
+          GuiDescription: The baseColor of the light panels when the light is off
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.580392, y: 0.571283, z: 0.571283, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.580392, y: 0.571283, z: 0.571283, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346907
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 37
+        Description:
+          Identifier: upper_light_panel_position
+          Label: Upper Light Panel Position
+          GuiGroup: Lights
+          GuiDescription: 
+          Type: 1
+          WidgetType: 1
+        Data: {x: 0.35, y: 0.29}
+        NumericalDescription:
+          DefaultValue: {x: 0.35, y: 0.29}
+          MinValue: {x: -0.5, y: -0.5}
+          MaxValue: {x: 0.5, y: 0.5}
+          SliderStep: 0.01
+          SliderClamp: 1
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 7621930332070346908
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 38
+        Description:
+          Identifier: lower_light_panel_position
+          Label: Lower Light Panel Position
+          GuiGroup: Lights
+          GuiDescription: 
+          Type: 1
+          WidgetType: 1
+        Data: {x: 0.35, y: -0.29}
+        NumericalDescription:
+          DefaultValue: {x: 0.35, y: -0.29}
+          MinValue: {x: -0.5, y: -0.5}
+          MaxValue: {x: 0.5, y: 0.5}
+          SliderStep: 0.01
+          SliderClamp: 1
+          EnumValueCount: 0
+          EnumValues: []

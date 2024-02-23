@@ -1,0 +1,952 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed5864476f84ce4b85454db09ca4eaa, type: 3}
+  m_Name: Office Lights_Emergency
+  m_EditorClassIdentifier: 
+  AssetPath: Assets/Models/Map/Modular/Materials/Ceiling_Gypsum_001.sbsar
+  RawData: {fileID: -244192453324840774, guid: e3de80d09699fa540a4fe6866d5c4b1b, type: 3}
+  Name: Office Lights_Emergency
+  IsRoot: 0
+  FlagedForDelete: 0
+  GUID: 03cf180f-b472-4262-aa13-4042011def28
+  Index: 0
+  Input:
+  - rid: 2426441200333488128
+  - rid: 2426441200333488129
+  - rid: 2426441200333488130
+  - rid: 2426441200333488131
+  - rid: 2426441200333488132
+  - rid: 2426441200333488133
+  - rid: 2426441200333488134
+  - rid: 2426441200333488135
+  - rid: 2426441200333488136
+  - rid: 2426441200333488137
+  - rid: 2426441200333488138
+  - rid: 2426441200333488139
+  - rid: 2426441200333488140
+  - rid: 2426441200333488141
+  - rid: 2426441200333488142
+  - rid: 2426441200333488143
+  - rid: 2426441200333488144
+  - rid: 2426441200333488145
+  - rid: 2426441200333488146
+  - rid: 2426441200333488147
+  - rid: 2426441200333488148
+  - rid: 2426441200333488149
+  - rid: 2426441200333488150
+  - rid: 2426441200333488151
+  - rid: 2426441200333488152
+  - rid: 2426441200333488153
+  - rid: 2426441200333488154
+  - rid: 2426441200333488155
+  - rid: 2426441200333488156
+  - rid: 2426441200333488157
+  - rid: 2426441200333488158
+  - rid: 2426441200333488159
+  - rid: 2426441200333488160
+  - rid: 2426441200333488161
+  - rid: 2426441200333488162
+  - rid: 2426441200333488163
+  Output:
+  - Index: 0
+    VirtualOutputIndex: 9
+    Description:
+      Identifier: basecolor
+      Label: basecolor
+      Index: 0
+      Type: 8
+      Channel: baseColor
+    OutputTexture: {fileID: 2800000, guid: 9f742014b7873d5408266597cc8de3db, type: 3}
+    sRGB: 1
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _BaseColorMap
+  - Index: 1
+    VirtualOutputIndex: 10
+    Description:
+      Identifier: normal
+      Label: normal
+      Index: 1
+      Type: 8
+      Channel: normal
+    OutputTexture: {fileID: 2800000, guid: 5e023def4e9d0d3459970cf23c9f84b9, type: 3}
+    sRGB: 0
+    IsVirtual: 0
+    IsAlphaAssignable: 0
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _NormalMap
+  - Index: 2
+    VirtualOutputIndex: 11
+    Description:
+      Identifier: roughness
+      Label: roughness
+      Index: 2
+      Type: 8
+      Channel: roughness
+    OutputTexture: {fileID: 0}
+    sRGB: 0
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _RoughnessMap
+  - Index: 3
+    VirtualOutputIndex: 12
+    Description:
+      Identifier: metallic
+      Label: metallic
+      Index: 3
+      Type: 8
+      Channel: metallic
+    OutputTexture: {fileID: 0}
+    sRGB: 0
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _MetallicGlossMap
+  - Index: 4
+    VirtualOutputIndex: 13
+    Description:
+      Identifier: height
+      Label: height
+      Index: 4
+      Type: 8
+      Channel: height
+    OutputTexture: {fileID: 2800000, guid: e8b75074277989d41a5045f258f17f59, type: 3}
+    sRGB: 1
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _HeightMap
+  - Index: 5
+    VirtualOutputIndex: 14
+    Description:
+      Identifier: ambientOcclusion
+      Label: ambientOcclusion
+      Index: 5
+      Type: 8
+      Channel: ambientOcclusion
+    OutputTexture: {fileID: 0}
+    sRGB: 0
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _OcclusionMap
+  - Index: 6
+    VirtualOutputIndex: 15
+    Description:
+      Identifier: Emissive_Mask
+      Label: Emissive_Mask
+      Index: 6
+      Type: 8
+      Channel: emissive
+    OutputTexture: {fileID: 2800000, guid: 75ee7635007c5454d82a964fab1bd82b, type: 3}
+    sRGB: 1
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 0
+    MaterialTextureTarget: _EmissiveColorMap
+  - Index: 7
+    VirtualOutputIndex: 16
+    Description:
+      Identifier: mask
+      Label: mask
+      Index: 8
+      Type: 8
+      Channel: mask
+    OutputTexture: {fileID: 2800000, guid: bb3ec0e904d7d824397768ccaa53ed42, type: 3}
+    sRGB: 0
+    IsVirtual: 0
+    IsAlphaAssignable: 1
+    AlphaChannel: 
+    InvertAssignedAlpha: 0
+    Flags: 4
+    MaterialTextureTarget: _MaskMap
+  HasPhysicalSize: 0
+  PhysicalSize: {x: 0, y: 0, z: 0}
+  EnablePhysicalSize: 0
+  Thumbnail: 
+  HasThumbnail: 0
+  CurrentStatePreset: " <sbspreset pkgurl=\"pkg://Ceiling_Gypsum_001\" label=\"\"
+    >\n  <presetinput identifier=\"$outputsize\" uid=\"1907078469\" type=\"8\" value=\"10,10\"
+    />\n  <presetinput identifier=\"Tiles_Texture_1_or_2\" uid=\"77225035\" type=\"0\"
+    value=\"1\" />\n  <presetinput identifier=\"Tiles_Color\" uid=\"77228645\" type=\"3\"
+    value=\"0.726415,0.726415,0.726415,1\" />\n  <presetinput identifier=\"Grid_Color\"
+    uid=\"77228663\" type=\"3\" value=\"0.509434,0.509434,0.509434,1\" />\n  <presetinput
+    identifier=\"Smoke_Detector_-_ON_OFF\" uid=\"77835903\" type=\"0\" value=\"0\"
+    />\n  <presetinput identifier=\"Lights_Square_1_Position\" uid=\"77321632\" type=\"1\"
+    value=\"0.18,-0.18\" />\n  <presetinput identifier=\"Lights_Square_Color\" uid=\"77228951\"
+    type=\"3\" value=\"1,1,1,1\" />\n  <presetinput identifier=\"Lights_Square_2_Position\"
+    uid=\"77327153\" type=\"1\" value=\"0.18,-0.18\" />\n  <presetinput identifier=\"Lights_Square_Glass_Roughness\"
+    uid=\"77246787\" type=\"0\" value=\"0.226\" />\n  <presetinput identifier=\"Vent_ON_OFF_Height_Control_\"
+    uid=\"77296483\" type=\"0\" value=\"0\" />\n  <presetinput identifier=\"Spot_Light_ON_OFF\"
+    uid=\"77570288\" type=\"0\" value=\"0\" />\n  <presetinput identifier=\"Spot_Lights_-_1_or_2\"
+    uid=\"77290339\" type=\"0\" value=\"0\" />\n </sbspreset>\n"
+  IsRuntimeOnly: 0
+  GenerateAllOutputs: 0
+  GenerateAllMipmaps: 1
+  OutputMaterial: {fileID: 2100000, guid: 803fc3f4bfe06024eb298f17b5ad5fde, type: 2}
+  DefaultPreset: " <sbspreset pkgurl=\"pkg://Ceiling_Gypsum_001\" label=\"\" >\n 
+    <presetinput identifier=\"$outputsize\" uid=\"1907078469\" type=\"8\" value=\"10,10\"
+    />\n  <presetinput identifier=\"Tiles_Texture_1_or_2\" uid=\"77225035\" type=\"0\"
+    value=\"1\" />\n  <presetinput identifier=\"Grid_Color\" uid=\"77228663\" type=\"3\"
+    value=\"0.688679,0.630206,0.620461,1\" />\n  <presetinput identifier=\"Smoke_Detector_-_ON_OFF\"
+    uid=\"77835903\" type=\"0\" value=\"0\" />\n  <presetinput identifier=\"Lights_Square_1_Position\"
+    uid=\"77321632\" type=\"1\" value=\"0,0.04\" />\n  <presetinput identifier=\"Lights_Square_Color\"
+    uid=\"77228951\" type=\"3\" value=\"1,1,1,1\" />\n  <presetinput identifier=\"Lights_Square_2_Position\"
+    uid=\"77327153\" type=\"1\" value=\"0.95,0.07\" />\n  <presetinput identifier=\"Lights_Square_Glass_Roughness\"
+    uid=\"77246787\" type=\"0\" value=\"0.226\" />\n  <presetinput identifier=\"Vent_ON_OFF_Height_Control_\"
+    uid=\"77296483\" type=\"0\" value=\"0\" />\n  <presetinput identifier=\"Spot_Light_ON_OFF\"
+    uid=\"77570288\" type=\"0\" value=\"0\" />\n  <presetinput identifier=\"Spot_Lights_-_1_or_2\"
+    uid=\"77290339\" type=\"0\" value=\"0\" />\n </sbspreset>\n"
+  MaterialShader: HDRP/Lit
+  RenderTextures: 0
+  OutputRemaped: 0
+  Presets: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2426441200333488128
+      type: {class: SubstanceInputInt2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 0
+        Description:
+          Identifier: $outputsize
+          Label: $outputsize
+          GuiGroup: 
+          GuiDescription: 
+          Type: 5
+          WidgetType: 0
+        Data: {x: 10, y: 10}
+        NumericalDescription:
+          DefaultValue: {x: 8, y: 8}
+          MinValue: {x: 0, y: 0}
+          MaxValue: {x: 1, y: 1}
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488129
+      type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 1
+        Description:
+          Identifier: $randomseed
+          Label: $randomseed
+          GuiGroup: 
+          GuiDescription: 
+          Type: 4
+          WidgetType: 0
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 0
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          LabelFalse: 
+          LabelTrue: 
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488130
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 2
+        Description:
+          Identifier: Tegular_Recess_ON_OFF
+          Label: Tegular_Recess_ON_OFF
+          GuiGroup: 
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0.48
+        NumericalDescription:
+          DefaultValue: 0.48
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488131
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 3
+        Description:
+          Identifier: Tiles_Texture_1_or_2
+          Label: Tiles_Texture_1_or_2
+          GuiGroup: 
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 1
+        NumericalDescription:
+          DefaultValue: 0
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488132
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 4
+        Description:
+          Identifier: Tiles_Color
+          Label: Tiles_Color
+          GuiGroup: 
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.7264151, y: 0.7264151, z: 0.7264151, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.83908, y: 0.83908, z: 0.83908, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488133
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 5
+        Description:
+          Identifier: Grid_Color
+          Label: Grid_Color
+          GuiGroup: 
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.509434, y: 0.509434, z: 0.509434, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.84, y: 0.84, z: 0.84, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488134
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 6
+        Description:
+          Identifier: Moisture_Damage_ON_OFF
+          Label: Moisture_Damage_ON_OFF
+          GuiGroup: 
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 1
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488135
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 7
+        Description:
+          Identifier: Moisture_Damage_Darkness
+          Label: Moisture_Damage_Darkness
+          GuiGroup: 
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 0
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488136
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 8
+        Description:
+          Identifier: Smoke_Detector_-_ON_OFF
+          Label: Smoke_Detector_-_ON_OFF
+          GuiGroup: Smoke_Detector
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 1
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488137
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 9
+        Description:
+          Identifier: Smoke_Detector_Position
+          Label: Smoke_Detector_Position
+          GuiGroup: Smoke_Detector
+          GuiDescription: 
+          Type: 1
+          WidgetType: 1
+        Data: {x: -0.3925, y: -0.3686}
+        NumericalDescription:
+          DefaultValue: {x: -0.3925, y: -0.3686}
+          MinValue: {x: -0.5, y: -0.5}
+          MaxValue: {x: 0.5, y: 0.5}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488138
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 10
+        Description:
+          Identifier: Smoke_Detector_Color
+          Label: Smoke_Detector_Color
+          GuiGroup: Smoke_Detector
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.97, y: 0.97, z: 0.97, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.97, y: 0.97, z: 0.97, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488139
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 11
+        Description:
+          Identifier: Smoke_Detector_Light_Color
+          Label: Smoke_Detector_Light_Color
+          GuiGroup: Smoke_Detector
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.49, y: 0.49, z: 0.49, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.49, y: 0.49, z: 0.49, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488140
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 12
+        Description:
+          Identifier: Smoke_Detector_Roughness
+          Label: Smoke_Detector_Roughness
+          GuiGroup: Smoke_Detector
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0.54
+        NumericalDescription:
+          DefaultValue: 0.54
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488141
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 13
+        Description:
+          Identifier: Lights_Square_ON_OFF
+          Label: Lights_Square_ON_OFF
+          GuiGroup: Lights_Square
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 1
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488142
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 14
+        Description:
+          Identifier: Lights_Square_1_Position
+          Label: Lights_Square_1_Position
+          GuiGroup: Lights_Square
+          GuiDescription: 
+          Type: 1
+          WidgetType: 1
+        Data: {x: 0.18, y: -0.18}
+        NumericalDescription:
+          DefaultValue: {x: -0.1415, y: 0.2017}
+          MinValue: {x: -0.5, y: -0.5}
+          MaxValue: {x: 0.5, y: 0.5}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488143
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 15
+        Description:
+          Identifier: Lights_Square_Color
+          Label: Lights_Square_Color
+          GuiGroup: Lights_Square
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 1, y: 1, z: 1, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.787356, y: 0.787356, z: 0.787356, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488144
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 16
+        Description:
+          Identifier: Lights_Square_Trim_Color
+          Label: Lights_Square_Trim_Color
+          GuiGroup: Lights_Square
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.46, y: 0.46, z: 0.46, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.46, y: 0.46, z: 0.46, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488145
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 17
+        Description:
+          Identifier: Lights_Square_2_Position
+          Label: Lights_Square_2_Position
+          GuiGroup: Lights_Square
+          GuiDescription: 
+          Type: 1
+          WidgetType: 1
+        Data: {x: 0.18, y: -0.18}
+        NumericalDescription:
+          DefaultValue: {x: 0.1769, y: -0.1628}
+          MinValue: {x: -0.5, y: -0.5}
+          MaxValue: {x: 0.5, y: 0.5}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488146
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 18
+        Description:
+          Identifier: Lights_Square_Trim_Metallic
+          Label: Lights_Square_Trim_Metallic
+          GuiGroup: Lights_Square
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 1
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488147
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 19
+        Description:
+          Identifier: Lights_Square_Trim_Roughness
+          Label: Lights_Square_Trim_Roughness
+          GuiGroup: Lights_Square
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0.51
+        NumericalDescription:
+          DefaultValue: 0.51
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488148
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 20
+        Description:
+          Identifier: Lights_Square_Glass_Roughness
+          Label: Lights_Square_Glass_Roughness
+          GuiGroup: Lights_Square
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0.226
+        NumericalDescription:
+          DefaultValue: 0.54
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488149
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 21
+        Description:
+          Identifier: Vent_ON_OFF_Height_Control_
+          Label: Vent_ON_OFF_Height_Control_
+          GuiGroup: Vent
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 0.71
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488150
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 22
+        Description:
+          Identifier: Vent_Position
+          Label: Vent_Position
+          GuiGroup: Vent
+          GuiDescription: 
+          Type: 1
+          WidgetType: 1
+        Data: {x: 0.1976, y: 0.2002}
+        NumericalDescription:
+          DefaultValue: {x: 0.1976, y: 0.2002}
+          MinValue: {x: -0.5, y: -0.5}
+          MaxValue: {x: 0.5, y: 0.5}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488151
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 23
+        Description:
+          Identifier: Vent_Color
+          Label: Vent_Color
+          GuiGroup: Vent
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.91, y: 0.91, z: 0.91, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.91, y: 0.91, z: 0.91, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488152
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 24
+        Description:
+          Identifier: Vent_Soot_ON_OFF
+          Label: Vent_Soot_ON_OFF
+          GuiGroup: Vent
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0.77
+        NumericalDescription:
+          DefaultValue: 0.77
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488153
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 25
+        Description:
+          Identifier: Vent_Metallic
+          Label: Vent_Metallic
+          GuiGroup: Vent
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0.5
+        NumericalDescription:
+          DefaultValue: 0.5
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488154
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 26
+        Description:
+          Identifier: Vent_Roughness
+          Label: Vent_Roughness
+          GuiGroup: Vent
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0.56
+        NumericalDescription:
+          DefaultValue: 0.56
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488155
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 27
+        Description:
+          Identifier: Spot_Light_ON_OFF
+          Label: Spot_Light_ON_OFF
+          GuiGroup: Spot_Light
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 1
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488156
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 28
+        Description:
+          Identifier: Spot_Lights_-_1_or_2
+          Label: Spot_Lights_-_1_or_2
+          GuiGroup: Spot_Light
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 0.5
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488157
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 29
+        Description:
+          Identifier: Spot_Light_1_Position
+          Label: Spot_Light_1_Position
+          GuiGroup: Spot_Light
+          GuiDescription: 
+          Type: 1
+          WidgetType: 1
+        Data: {x: -0.3813, y: 0.0233}
+        NumericalDescription:
+          DefaultValue: {x: -0.3813, y: 0.0233}
+          MinValue: {x: -0.5, y: -0.5}
+          MaxValue: {x: 0.5, y: 0.5}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488158
+      type: {class: SubstanceInputFloat2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 30
+        Description:
+          Identifier: Spot_Light_2_Position
+          Label: Spot_Light_2_Position
+          GuiGroup: Spot_Light
+          GuiDescription: 
+          Type: 1
+          WidgetType: 1
+        Data: {x: -0.3533, y: 0.7181}
+        NumericalDescription:
+          DefaultValue: {x: -0.3533, y: 0.7181}
+          MinValue: {x: -0.5, y: -0.5}
+          MaxValue: {x: 0.5, y: 0.5}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488159
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 31
+        Description:
+          Identifier: Spot_Light_Color
+          Label: Spot_Light_Color
+          GuiGroup: Spot_Light
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.92, y: 0.92, z: 0.92, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.92, y: 0.92, z: 0.92, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488160
+      type: {class: SubstanceInputFloat4, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 32
+        Description:
+          Identifier: Spot_Light_Glass_Color
+          Label: Spot_Light_Glass_Color
+          GuiGroup: Spot_Light
+          GuiDescription: 
+          Type: 3
+          WidgetType: 3
+        Data: {x: 0.81, y: 0.81, z: 0.81, w: 1}
+        NumericalDescription:
+          DefaultValue: {x: 0.81, y: 0.81, z: 0.81, w: 1}
+          MinValue: {x: 0, y: 0, z: 0, w: 0}
+          MaxValue: {x: 1, y: 1, z: 1, w: 1}
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488161
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 33
+        Description:
+          Identifier: Spot_Light_Metallic
+          Label: Spot_Light_Metallic
+          GuiGroup: Spot_Light
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0
+        NumericalDescription:
+          DefaultValue: 0
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488162
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 34
+        Description:
+          Identifier: Spot_Light_Roughness
+          Label: Spot_Light_Roughness
+          GuiGroup: Spot_Light
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0.53
+        NumericalDescription:
+          DefaultValue: 0.53
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []
+    - rid: 2426441200333488163
+      type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
+      data:
+        Index: 35
+        Description:
+          Identifier: Spot_Light_Size
+          Label: Scale
+          GuiGroup: Spot_Light
+          GuiDescription: 
+          Type: 0
+          WidgetType: 1
+        Data: 0.64
+        NumericalDescription:
+          DefaultValue: 0.64
+          MinValue: 0
+          MaxValue: 1
+          SliderStep: 0.01
+          SliderClamp: 0
+          EnumValueCount: 0
+          EnumValues: []

@@ -1,0 +1,902 @@
+fileFormatVersion: 2
+guid: 26e2f72d2c55dfa41bbd334351c10d71
+ModelImporter:
+  serializedVersion: 22103
+  internalIDToNameTable:
+  - first:
+      74: -2073829399361231338
+    second: scp-049_skeleton|0_idleloop01
+  - first:
+      74: 1303310063755522237
+    second: scp-049_skeleton|1_event_lookup
+  - first:
+      74: -2839179568163182790
+    second: scp-049_skeleton|2_search01
+  - first:
+      74: -485362524560195694
+    second: scp-049_skeleton|3_walkcycle01
+  - first:
+      74: 5932832210220408193
+    second: scp-049_skeleton|4_idle_to_walk
+  - first:
+      74: -735453591374829994
+    second: scp-049_skeleton|5_walk_to_idle
+  - first:
+      74: -6933640723307645261
+    second: scp-049_skeleton|6_walkcycle02_01
+  - first:
+      74: 6707242706653070472
+    second: scp-049_skeleton|7_walkcycle02
+  - first:
+      74: 2732553818689128937
+    second: scp-049_skeleton|8_walkcycle01_02
+  - first:
+      74: -814221022718275464
+    second: scp-049_skeleton|91_idle_to_walk2
+  - first:
+      74: -990384157020412086
+    second: scp-049_skeleton|92_walk_to_idle2
+  - first:
+      74: -7374267415444365618
+    second: scp-049_skeleton|94_kill_leanover
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scp-049_clothing_diffuse4.bmp
+    second: {fileID: 2100000, guid: e837f409190c64049907fe8176ece473, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scp-049_mask_diffuse5.bmp
+    second: {fileID: 2100000, guid: 6b832839003aa5241acc0c86d7ea19f0, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 1
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: scp-049_skeleton|0_idleloop01
+      takeName: scp-049_skeleton|0_idleloop01
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|1_event_lookup
+      takeName: scp-049_skeleton|1_event_lookup
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 37
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|2_search01
+      takeName: scp-049_skeleton|2_search01
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 229
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|3_walkcycle01
+      takeName: scp-049_skeleton|3_walkcycle01
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.59999996
+        functionName: StepSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 156518ff67a112f4a9587cd5f8bcef0e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.06428572
+        functionName: StepSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 156518ff67a112f4a9587cd5f8bcef0e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|4_idle_to_walk
+      takeName: scp-049_skeleton|4_idle_to_walk
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|5_walk_to_idle
+      takeName: scp-049_skeleton|5_walk_to_idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|6_walkcycle02_01
+      takeName: scp-049_skeleton|6_walkcycle02_01
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: scp-049
+        weight: 0
+      - path: scp-049_skeleton
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/049_mask
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/049
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021/Bone_022
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021/Bone_022/Bone_023
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024/Bone_025
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024/Bone_025/Bone_026
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027/Bone_028
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027/Bone_028/Bone_029
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030/Bone_031
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030/Bone_031/Bone_032
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033/Bone_034
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033/Bone_034/Bone_035
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037/Bone_038
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037/Bone_038/Bone_039
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040/Bone_041
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040/Bone_041/Bone_042
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043/Bone_044
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043/Bone_044/Bone_045
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046/Bone_047
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046/Bone_047/Bone_048
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049/Bone_050
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049/Bone_050/Bone_051
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_018
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_018/Bone_019
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007/Bone_009
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007/Bone_009/Bone_011
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006/Bone_008
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006/Bone_008/Bone_010
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: 742c91e9b2e95de4eaac44b1c7f2ec50, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|7_walkcycle02
+      takeName: scp-049_skeleton|7_walkcycle02
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: scp-049
+        weight: 0
+      - path: scp-049_skeleton
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/049_mask
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/049
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021/Bone_022
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021/Bone_022/Bone_023
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024/Bone_025
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024/Bone_025/Bone_026
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027/Bone_028
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027/Bone_028/Bone_029
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030/Bone_031
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030/Bone_031/Bone_032
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033/Bone_034
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033/Bone_034/Bone_035
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037/Bone_038
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037/Bone_038/Bone_039
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040/Bone_041
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040/Bone_041/Bone_042
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043/Bone_044
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043/Bone_044/Bone_045
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046/Bone_047
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046/Bone_047/Bone_048
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049/Bone_050
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049/Bone_050/Bone_051
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_018
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_018/Bone_019
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007/Bone_009
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007/Bone_009/Bone_011
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006/Bone_008
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006/Bone_008/Bone_010
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: 742c91e9b2e95de4eaac44b1c7f2ec50, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|8_walkcycle01_02
+      takeName: scp-049_skeleton|8_walkcycle01_02
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: scp-049
+        weight: 0
+      - path: scp-049_skeleton
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/049_mask
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/049
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021/Bone_022
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021/Bone_022/Bone_023
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024/Bone_025
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024/Bone_025/Bone_026
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027/Bone_028
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027/Bone_028/Bone_029
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030/Bone_031
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030/Bone_031/Bone_032
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033/Bone_034
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033/Bone_034/Bone_035
+        weight: 1
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037/Bone_038
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037/Bone_038/Bone_039
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040/Bone_041
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040/Bone_041/Bone_042
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043/Bone_044
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043/Bone_044/Bone_045
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046/Bone_047
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046/Bone_047/Bone_048
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049/Bone_050
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049/Bone_050/Bone_051
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_018
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_018/Bone_019
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007/Bone_009
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007/Bone_009/Bone_011
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006/Bone_008
+        weight: 0
+      - path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006/Bone_008/Bone_010
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: 742c91e9b2e95de4eaac44b1c7f2ec50, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|91_idle_to_walk2
+      takeName: scp-049_skeleton|91_idle_to_walk2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|92_walk_to_idle2
+      takeName: scp-049_skeleton|92_walk_to_idle2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: scp-049_skeleton|94_kill_leanover
+      takeName: scp-049_skeleton|94_kill_leanover
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 122
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.6
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.6
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

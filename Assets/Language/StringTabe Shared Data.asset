@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: StringTabe Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: StringTabe
+  m_TableCollectionNameGuidString: c344f2ac126317347bc535f4bb7d19ee
+  m_Entries:
+  - m_Id: 3272771301376
+    m_Key: MainMenu/MainMenuController/Menu/MainMenu/Multiplayer/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3341541109760
+    m_Key: MainMenu/MainMenuController/Menu/MainMenu/Exit/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3435891978240
+    m_Key: MainMenu/MainMenuController/Menu/MainMenu/Options/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3575352586240
+    m_Key: MainMenu/MainMenuController/Menu/MainMenu/Play/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6018706632704
+    m_Key: MainMenu/MainMenuController/Menu/PlayMenu/Panel/Back/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6244657983488
+    m_Key: MainMenu/MainMenuController/Menu/PlayMenu/Panel/Chapters/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6396688920576
+    m_Key: MainMenu/MainMenuController/Menu/PlayMenu/Panel/NewGame/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6563710300160
+    m_Key: MainMenu/MainMenuController/Menu/PlayMenu/Panel/LoadGame/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4063997823217664
+    m_Key: SampleScene/GameManager_Normal/UI/PauseMenu/pause_menu_panel/Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4064293886554112
+    m_Key: SampleScene/GameManager_Normal/UI/PauseMenu/pause_menu_panel/Volver/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4064689698828288
+    m_Key: SampleScene/GameManager_Normal/UI/PauseMenu/pause_menu_panel/Salvarysalir/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4065014002413568
+    m_Key: SampleScene/GameManager_Normal/UI/PauseMenu/pause_menu_panel/Salir/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183285752593936384
+    m_Key: Advanced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183287783597568000
+    m_Key: Input
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183288066792779776
+    m_Key: Audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289133685305344
+    m_Key: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289322223464448
+    m_Key: Graphics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289426087014400
+    m_Key: Graphics Quality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289528071516160
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289700084117504
+    m_Key: Fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183289820955570176
+    m_Key: V-Sync
+    m_Metadata:
+      m_Items: []
+  - m_Id: 184430950422179840
+    m_Key: Anisotropic Mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 184438694445346816
+    m_Key: Texture Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 184445112405749760
+    m_Key: Gamma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 185537604484100096
+    m_Key: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 185538094739517440
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7409753433525452861
+  references:
+    version: 2
+    RefIds:
+    - rid: 7409753433525452861
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1663957339204

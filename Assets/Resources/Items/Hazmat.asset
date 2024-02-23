@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57386a160ab2e541893d65f49ad28d0, type: 3}
+  m_Name: Hazmat
+  m_EditorClassIdentifier: 
+  colCenter: {x: 0.0004315078, y: 0.9054214, z: -0.05219725}
+  colSize: {x: 0.7189595, y: 2.007277, z: 0.4735436}
+  mass: 8
+  itemName: hazmat
+  icon: {fileID: 21300000, guid: bee098cb7dc2c0f46a07e6962d9b512f, type: 3}
+  deleteUse: 0
+  hasEffect: 1
+  isFem: 0
+  isUnique: 0
+  keepInv: 0
+  Effects:
+  - affected: 3
+    effect:
+      permanent: 0
+      time: 0
+      max: 0
+      min: 0
+      value: 0
+      multiplier: 0.5
+  ItemModel: {fileID: -927199367670048503, guid: 6e8df23bd8984594387f1c7712e7baa3,
+    type: 3}
+  valueFloat: 0
+  valueInt: 0
+  SFX: 2
+  Overlay: {fileID: 21300000, guid: 6a6274d5470782742a737d067fa8fac9, type: 3}
+  protectGas: 1
+  autoEquip: 1
+  part: 0

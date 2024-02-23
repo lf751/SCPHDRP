@@ -1,0 +1,141 @@
+# Wavefront MTL
+# Created by fragMOTION 1.3.5
+# http://www.fragmosoft.com
+
+newmtl drawnmesh0
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd tilefloor.jpg
+newmtl drawnmesh1
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd concretefloor.jpg
+newmtl drawnmesh2
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd dirtymetal.jpg
+newmtl drawnmesh3
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd whitewall.jpg
+newmtl drawnmesh4
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd metalpanels2.jpg
+newmtl drawnmesh5
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd concretewall.jpg
+newmtl drawnmesh6
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd white.jpg
+newmtl drawnmesh7
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd glass.png
+newmtl drawnmesh8
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd metal.jpg
+newmtl drawnmesh9
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd controlpanel.jpg
+newmtl drawnmesh10
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd miscsigns.jpg
+newmtl drawnmesh11
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd misc.jpg
+newmtl drawnmesh12
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd checkpoint1_lm1.png
+map_kd door01.jpg
+newmtl collisionmesh0
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40

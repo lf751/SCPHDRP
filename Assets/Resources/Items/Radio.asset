@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 332e401254c407d4691d61ca0882cacc, type: 3}
+  m_Name: Radio
+  m_EditorClassIdentifier: 
+  colCenter: {x: 0, y: 0, z: 0}
+  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  mass: 1
+  itemName: radio
+  icon: {fileID: 21300000, guid: 0a1d94dd5b12cbd439d24a55bcdba752, type: 3}
+  deleteUse: 0
+  hasEffect: 0
+  isFem: 1
+  isUnique: 0
+  keepInv: 0
+  Effects:
+  - affected: 0
+    effect:
+      permanent: 0
+      time: 0
+      max: 0
+      min: 0
+      value: 0
+      multiplier: 0
+  - affected: 0
+    effect:
+      permanent: 0
+      time: 0
+      max: 0
+      min: 0
+      value: 0
+      multiplier: 0
+  ItemModel: {fileID: 100002, guid: c43f17eb738350346a6a7646a8ec4ba0, type: 3}
+  valueFloat: 10
+  valueInt: 0
+  SFX: 1
+  Overlay: {fileID: 0}
+  protectGas: 0
+  autoEquip: 0
+  part: 2
+  SpendBattery: 1
+  SpendFactor: 0.3

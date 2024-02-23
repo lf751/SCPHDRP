@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: dce1192e9d5dee24a9a502a9a9a3f8d3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45021
+  packageName: GSpawn - Level Designer
+  packageVersion: 3.2.8.5
+  assetPath: Assets/GSpawn - Level Designer/Scripts/Mesh/PluginMeshAABBTree.cs
+  uploadId: 643155

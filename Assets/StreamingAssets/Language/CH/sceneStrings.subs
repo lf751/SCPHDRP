@@ -1,0 +1,658 @@
+{
+    "BeforeDoorOpen": {
+        "subtitle": "\u7ba1\u7406\u4e2d\u5fc3\uff0c\u6211\u662f\u5c24\u683c\u6797\u63a2\u5458\u3002\u6211\u9700\u8981\u6253\u5f003-11\u53f7\u623f\u95f4\u3002",
+        "delay": 3.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "BeforeDoorOpen2": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 9.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": true
+    },
+    "ExitCell": {
+        "subtitle": "\u563f\uff0c\u4ed6\u4eec\u4e3a\u4f60\u627e\u4e86\u4e9b\u5de5\u4f5c\u3002\u5e2e\u4e2a\u5fd9\uff0c\u79bb\u5f00\u4f60\u7684\u623f\u95f4",
+        "delay": 2.5,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "ExitCellRefuse1": {
+        "subtitle": "\u4f60\u662f\u50bb\u74dc\u8fd8\u662f\u600e\u4e48\u4e86\uff1f\u6211\u8bf4\u79bb\u5f00\u4f60\u7684\u623f\u95f4\u3002\u5982\u679c\u4f60\u4e0d\u79bb\u5f00\u6211\u5c31\u4f1a\u8e22\u4f60\u7684\u5c41\u80a1",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "ExitCellRefuse2": {
+        "subtitle": "\u542c\u7740\uff0c\u4f19\u8ba1\uff0c\u6211\u4e0d\u662f\u4e00\u6574\u5929\u90fd\u6709\u65f6\u95f4\u3002\u6211\u60f3\u793c\u8c8c\u4e00\u70b9\u3002\u5982\u679c\u4f60\u4e0d\u79bb\u5f00\u623f\u95f4\uff0c\u6211\u5c31\u8e22\u4f60\u5c41\u80a1\u3002",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "CellGas1": {
+        "subtitle": "\u554a\uff0c\u4f60\u662f\u8fd9\u91cc\u6709\u53f2\u4ee5\u6765\u6700\u7b28\u7684\u6d4b\u8bd5\u5bf9\u8c61\u4e86\u3002\u54e6\uff0c\u597d\u5427\uff0c\u5173\u4e0a\u95e8\uff0c\u6253\u5f00\u6c14\u9600\u3002",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "CellGas2": {
+        "subtitle": "\u554a\uff0c\u6211\u771f\u7684\u6709\u70b9\u5931\u671b\uff0c\u4f60\u6ca1\u88ab\u6253\u3002\u6211\u8fd8\u671f\u5f85\u7740\u6253\u4f60\u7684\u8138\u3002",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortRun": {
+        "subtitle": "\u563f\uff0c\u7b28\u86cb\uff01\u4f60\u8d70\u9519\u4e86\u8def\u3002\u9a6c\u4e0a\u8fc7\u6765\uff01",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortRefuse1": {
+        "subtitle": "\u5feb\u70b9\uff01\u4ed6\u4eec\u5728\u7b49\u4f60\u3002",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortRefuse2": {
+        "subtitle": "\u542c\u7740\uff0c\u4f19\u8ba1\uff0c\u6211\u5df2\u7ecf\u8ba8\u538c\u6211\u7684\u5de5\u4f5c\u4e86\u3002\u4f60\u4e3a\u4ec0\u4e48\u8ba9\u6211\u66f4\u96be\u505a\uff1f",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortPissedOff1": {
+        "subtitle": "\u6211\u6ca1\u5fc3\u60c5\u548c\u4f60\u80e1\u626f\uff0c\u5982\u679c\u4f60\u4e0d\u5408\u4f5c\u7684\u8bdd\uff0c\u6211\u4f1a\u5bf9\u7740\u4f60\u7684\u8111\u5b50\u5f00\u4e00\u67aa\u3002",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortPissedOff2": {
+        "subtitle": "\u6211\u6ca1\u5fc3\u60c5\u548c\u4f60\u80e1\u626f\uff0c\u5982\u679c\u4f60\u4e0d\u5408\u4f5c\u7684\u8bdd\uff0c\u6211\u4f1a\u5bf9\u7740\u4f60\u7684\u8111\u5b50\u5f00\u4e00\u67aa\u3002",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortKill1": {
+        "subtitle": "\u597d\u5427\uff0c\u542c\u6211\u8bf4\u3002\u597d\u5427\uff0c\u5c31\u8fd9\u6837\u5427\u3002\u6211\u4eec\u5f97\u53bb\u627e\u5176\u4ed6\u4eba\u4e86",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortKill2": {
+        "subtitle": "\u597d\u5427\uff0c\u5c31\u8fd9\u6837\u3002\u90a3\u6211\u4eec\u5c31\u53bb\u627e\u522b\u4eba\u5427\u3002",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_1": {
+        "subtitle": "\u90a3\u4e48\uff0c\u5443\uff0c\u6700\u8fd1\u600e\u4e48\u6837\uff1f",
+        "delay": 0.0,
+        "duration": 3.5,
+        "nextSubtitle": "Intro_Convo1_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_2": {
+        "subtitle": "\u5443\uff0c\u4f60-\u4f60\u5728\u548c\u6211\u8bf4\u8bdd\u5417\uff1f",
+        "delay": 3.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo1_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo1_3": {
+        "subtitle": "\u55ef\uff0c\u662f\u7684\uff0c\u4f60\u89c9\u5f97\u6211\u5728\u8ddf\u8c01\u8bf4\u8bdd\uff0c\u8fd9\u4e2a\u957f\u7740\u8981\u6328\u6253\u7684\u8138\u7684\u5bb6\u4f19\uff1f\u6211\u5f53\u7136\u5728\u548c\u4f60\u8bf4\u8bdd\u3002",
+        "delay": 4.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo1_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_4": {
+        "subtitle": "\u54e6\uff0c\u6211\u53ea\u662f\u6709\u70b9\u60ca\u8bb6\u3002\u6211\u60f3\u8fd9\u662f\u4f60\u7b2c\u4e00\u6b21\u548c\u6211\u8bf4\u8bdd\u3002",
+        "delay": 10.0,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo1_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo1_5": {
+        "subtitle": "\u662f\u7684\uff0c\u8fd9\u662f\u4f60\u5728\u8fd9\u91cc\u5de5\u4f5c\u7684\u7b2c\u4e00\u5929\u3002",
+        "delay": 15.5,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo1_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo1_6": {
+        "subtitle": "\u5b9e\u9645\u4e0a\uff0c\u6211\u4eec\u5df2\u7ecf\u5728\u4e00\u8d77\u5de5\u4f5c\u4e865\u4e2a\u6708\u4e86\u3002",
+        "delay": 19.0,
+        "duration": 7.0,
+        "nextSubtitle": "Intro_Convo1_7",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo1_7": {
+        "subtitle": "\u771f\u7684\u5417\uff1f\u597d\u5947\u602a\u554a\u3002",
+        "delay": 23.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_1": {
+        "subtitle": "\u5443\uff0c\u4f60\u6700\u8fd1\u770b\u4e86\u4ec0\u4e48\u597d\u7535\u5f71\u5417\uff1f",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_2": {
+        "subtitle": "\u5443\uff0c\u6211\u771f\u7684\u4e0d\u770b\u7535\u5f71\u3002\u6211\u4e3b\u8981\u770b\u4e66\u3002",
+        "delay": 3.5,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo2_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_3": {
+        "subtitle": "\u662f\u5417\uff1f\u90a3\u770b\u7684\u662f\u4ec0\u4e48\u4e66\uff1f",
+        "delay": 7.5,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_4": {
+        "subtitle": "\u5443\uff0c\u6050\u6016\u5c0f\u8bf4\uff0c\u79d1\u5e7b\u5c0f\u8bf4\u4e4b\u7c7b\u7684\uff1f",
+        "delay": 9.0,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo2_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_5": {
+        "subtitle": "\u4f60\u5728\u5f00\u73a9\u7b11\u5427\u3002",
+        "delay": 13.5,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo2_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_6": {
+        "subtitle": "\u4ec0\u4e48\uff1f",
+        "delay": 15.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_7",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_7": {
+        "subtitle": "\u4f60\u7684\u6574\u4e2a\u5de5\u4f5c\u90fd\u56f4\u7ed5\u7740\u6050\u6016\u548c\u79d1\u5e7b\u5c0f\u8bf4\u5c55\u5f00\uff0c\u5176\u5b9e\uff0c\u4f60\u77e5\u9053\uff0c\u8fd9\u4e0d\u662f\u865a\u6784\u7684\u3002",
+        "delay": 16.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo2_8",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo2_8": {
+        "subtitle": "\u5b9e\u9645\u4e0a\uff0c\u6211\u6b63\u8ba1\u5212\u5199\u4e00\u672c\u5173\u4e8e\u6211\u7684\u7ecf\u9a8c\u7684\u4e66-",
+        "delay": 22.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo2_9",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo2_9": {
+        "subtitle": "\u662f\u7684\uff0c\u542c\u7740\uff0c\u6ca1\u6709\u5192\u72af\u7684\u610f\u601d\uff0c\u4f46\u6211\u5df2\u7ecf\u5bf9\u4f60\u6240\u8bf4\u7684\u5931\u53bb\u4e86\u5174\u8da3\u3002",
+        "delay": 26.0,
+        "duration": 4.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_1": {
+        "subtitle": "\u4f19\u8ba1\uff0c\u6211\u997f\u4e86\u3002\u563f\uff0c\u4eca\u5929\u7684\u62ab\u8428\u65e5\u5728\u81ea\u52a9\u9910\u5385\uff0c\u5bf9\u5427\uff1f",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo3_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_2": {
+        "subtitle": "\u55ef\uff0c\u4e8b\u5b9e\u4e0a\uff0c\u6211\u60f3\u662f\u91d1\u67aa\u9c7c\u7802\u9505\u3002",
+        "delay": 4.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo3_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo3_3": {
+        "subtitle": "\u54e6\uff0c\u5929\u54ea\u3002\u597d\u5427\uff0c\u6211\u7684\u4e00\u5929\u88ab\u6bc1\u4e86\u3002\u6211\u6765\u8fd9\u91cc\u7684\u552f\u4e00\u539f\u56e0\u662f\u5403\u62ab\u8428\u3002\u6211\u4e0d\u77e5\u9053\u90a3\u6bd4\u8428\u4e3a\u4ec0\u4e48\u90a3\u4e48\u7f8e\u5473\u3002\u53e6\u4e00\u65b9\u9762\uff0c\u91d1\u67aa\u9c7c\u7802\u9505\u662f\u4e00\u79cd\u6076\u5fc3\u7684\u53ef\u618e\u7684\u98df\u7269\uff0c\u5b83\u5e94\u8be5\u548c\u5176\u4ed6\u7684\u602a\u7269\u4e00\u8d77\u5173\u5728\u8fd9\u91cc\u3002",
+        "delay": 7.0,
+        "duration": 7.0,
+        "nextSubtitle": "Intro_Convo3_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo3_4": {
+        "subtitle": "\u597d\u5427..",
+        "delay": 12.0,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo3_5",
+        "character": "chara_ulgrin",
+        "noFormat": true
+    },
+    "Intro_Convo3_5": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 18.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo3_6",
+        "character": "chara_ulgrin",
+        "noFormat": true
+    },
+    "Intro_Convo3_6": {
+        "subtitle": "好吧...",
+        "delay": 22.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_1": {
+        "subtitle": "让我猜猜。你没有女朋友，对吧？",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo4_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_2": {
+        "subtitle": "那很明显吗？",
+        "delay": 2.0,
+        "duration": 3.0,
+        "nextSubtitle": "Intro_Convo4_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_3": {
+        "subtitle": "嗯哼，我绝对不是一个读心术的人，否则我会被关在这个地方，所以，是的，我会说这很明显。",
+        "delay": 3.5,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo4_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_4": {
+        "subtitle": "好吧，当我有这份工作的时候，我该怎么找女朋友呢？我是说，我不能告诉她，那我该怎么办？",
+        "delay": 9.5,
+        "duration": 5.0,
+        "nextSubtitle": "Intro_Convo4_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_5": {
+        "subtitle": "对她撒谎。告诉她你在咖啡店或别的什么地方工作。",
+        "delay": 13.5,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo4_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_6": {
+        "subtitle": "好吧，如果我在工作时不小心忘了洗手，然后我回到家，手上沾满了血怎么办？那我对她说什么？",
+        "delay": 16.0,
+        "duration": 8.0,
+        "nextSubtitle": "Intro_Convo4_7",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_7": {
+        "subtitle": "呃，我不知道，告诉她，呃…番茄酱。",
+        "delay": 24.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo4_8",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo4_8": {
+        "subtitle": "番茄酱？如果我在咖啡店工作，为什么我会手上会有番茄酱？",
+        "delay": 26.5,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo4_9",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo4_9": {
+        "subtitle": "呃，忘-忘了它吧。",
+        "delay": 30.5,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_1": {
+        "subtitle": "\u5443\uff0c\u4f60\u6700\u8fd1\u770b\u4e86\u4ec0\u4e48\u597d\u7535\u5f71\u5417\uff1f",
+        "delay": 0.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_2",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_2": {
+        "subtitle": "\u5443\uff0c\u6211\u771f\u7684\u4e0d\u770b\u7535\u5f71\u3002",
+        "delay": 2.5,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_3",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo5_3": {
+        "subtitle": "\u54e6\uff0c\u597d\u7684\u3002\u90a3\u4e48\u7535\u5b50\u6e38\u620f\u5462\uff1f\u4f60\u77e5\u9053\u8fd9\u63d0\u9192\u4e86\u6211\uff0c\u6709\u4eba\u5e94\u8be5\u5728\u8fd9\u4e2a\u5730\u65b9\u505a\u4e00\u4e2a\u7535\u5b50\u6e38\u620f\u3002",
+        "delay": 5.5,
+        "duration": 6.0,
+        "nextSubtitle": "Intro_Convo5_4",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_4": {
+        "subtitle": "\u4e3a\u4ec0\u4e48\u4f1a\u6709\u4eba\u8fd9\u4e48\u505a\uff1f",
+        "delay": 12.0,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_5",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Intro_Convo5_5": {
+        "subtitle": "\u6211\u4e0d\u77e5\u9053\uff0c\u53ea\u662f\u89c9\u5f97\u8fd9\u4e2a\u4e3b\u610f\u5f88\u9177\u3002",
+        "delay": 13.5,
+        "duration": 4.0,
+        "nextSubtitle": "Intro_Convo5_6",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Intro_Convo5_6": {
+        "subtitle": "\u55ef\uff0c\u6211\u4e5f\u4e0d\u73a9\u7535\u5b50\u6e38\u620f\u3002",
+        "delay": 16.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "Escort1": {
+        "subtitle": "\u8ddf\u7740\u6211\u3002\u54e6\uff0c\u987a\u4fbf\u8bf4\u4e00\u4e0b\uff0c\u6211\u4eec\u53ef\u4ee5\u6740\u6b7b\u4efb\u4f55\u4e0d\u542c\u8bdd\u7684\u6d4b\u8bd5\u5bf9\u8c61\uff0c\u6240\u4ee5\u4e0d\u8981\u5c1d\u8bd5\u4efb\u4f55\u611a\u8822\u7684\u4e8b\u60c5\u3002",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "Escort2": {
+        "subtitle": "\u8ddf\u7740\u6211\u3002\u54e6\uff0c\u987a\u4fbf\u8bf4\u4e00\u4e0b\uff0c\u6211\u4eec\u53ef\u4ee5\u6740\u6b7b\u4efb\u4f55\u4e0d\u542c\u8bdd\u7684\u6d4b\u8bd5\u5bf9\u8c61\uff0c\u6240\u4ee5\u4e0d\u8981\u5c1d\u8bd5\u4efb\u4f55\u611a\u8822\u7684\u4e8b\u60c5\u3002",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone1": {
+        "subtitle": "\u597d\u5427\uff0c\u6211\u4eec\u5230\u4e86\u3002\u4f60\u53ea\u8981\u8fdb\u53bb\u6309\u7167\u6307\u793a\u53bb\u505a\uff0c\u55ef\uff0c\u4f60\u53ef\u80fd\u4f1a\u6ca1\u4e8b\u7684\u3002",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone2": {
+        "subtitle": "\u597d\u5427\uff0c\u6211\u4eec\u5230\u4e86\u3002\u6211\u8fd8\u662f\u5f88\u5931\u671b\u6211\u6ca1\u6253\u4f60\uff0c\u4f46\u4e0d\u7ba1\u600e\u6837\u3002",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone3": {
+        "subtitle": "\u597d\u5427\uff0c\u6211\u4eec\u5230\u4e86\u3002\u6211\u8fd8\u662f\u5f88\u5931\u671b\u6ca1\u80fd\u6253\u4f60\u7684\u8138\uff0c\u4f46*\u53f9\u6c14*\u4e0d\u7ba1\u600e\u4e48\u6837\u3002",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone4": {
+        "subtitle": "\u4f60\u53ea\u8981\u8fdb\u53bb\u6309\u7167\u6307\u793a\u53bb\u505a\uff0c\u55ef\uff0c\u4f60\u53ef\u80fd\u4f1a\u597d\u8d77\u6765\u7684\u3002\u6216\u8bb8\u4f60\u4e0d\u4f1a\u3002\u4e0d\u7ba1\u600e\u6837\uff0c\u6211\u771f\u7684\u4e0d\u5728\u4e4e\u3002",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EscortDone5": {
+        "subtitle": "\u4e0d\u7ba1\u600e\u6837\uff0c\u6211\u4eec\u4e0d\u8981\u518d\u6d6a\u8d39\u65f6\u95f4\u4e86\u3002\u4ed6\u4eec\u5728\u623f\u95f4\u91cc\u7b49\u4f60\u3002",
+        "delay": 0.0,
+        "duration": 7.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "EnterChamber": {
+        "subtitle": "\u6240\u6709D\u7ea7\u4eba\u5458\u6ce8\u610f\uff0c\u8bf7\u8fdb\u5165\u6536\u5bb9\u5ba4",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Approach173": {
+        "subtitle": "\u8bf7\u63a5\u8fd1<color=yellow>SCP-173</color>\u6765\u8fdb\u884c\u6d4b\u8bd5",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Problem": {
+        "subtitle": "\u5443\uff0c\u770b\u8d77\u6765\u95e8\u63a7\u7cfb\u7edf\u6709\u70b9\u95ee\u9898\uff0c\u6211\u4eec\u5173\u95ed\u95e8\u7684\u5c1d\u8bd5\u90fd\u6ca1\u6709\u594f\u6548\uff0c\u6240\u4ee5\u5443\uff0c\u8bf7\u7ee7\u7eed\u4fdd\u6301\u76f4\u89c6SCP-173\u5e76\u4e14-",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Problem_2": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 6.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Refuse1": {
+        "subtitle": "\u9879\u76eeD-9341,\u8fdb\u5165\u6536\u5bb9\u95f4\u6216\u4f60\u88ab\u6d88\u706d",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Refuse2": {
+        "subtitle": "\u8fd9\u662f\u4f60\u6700\u540e\u7684\u8b66\u544a\u3002\u4f60\u6709\u4e94\u79d2\u949f\u7684\u65f6\u95f4\u3002",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Refuse3": {
+        "subtitle": "\u9879\u76eeD-9341\u4efb\u52a1\u7ed3\u675f\uff0c\u968f\u610f\u5f00\u706b",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "Escape1": {
+        "subtitle": "\u6211\u731c\u6700\u77ed\u7684\u51fa\u53e3\uff0c\u5c31\u662f\u901a\u8fc7\u4e1c\u5357\u95e8\uff0c\u8ddf\u6211\u6765\uff01",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_sci",
+        "noFormat": false
+    },
+    "Escape2": {
+        "subtitle": "\u4f60\u542c\u5230\u4e86\u5417\uff1f\u6211\u5e0c\u671b\u90a3\u4e0d\u662f-",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_guard",
+        "noFormat": false
+    },
+    "scene_BreachStart_1": {
+        "subtitle": "\u7279\u5de5\uff01\u5728\u4f60\u540e\u9762",
+        "delay": 0.0,
+        "duration": 3.0,
+        "nextSubtitle": "scene_BreachStart_2",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "scene_BreachStart_2": {
+        "subtitle": "\u5367\u69fd\uff01",
+        "delay": 1.0,
+        "duration": 3.0,
+        "nextSubtitle": "scene_BreachStart_3",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "scene_BreachStart_3": {
+        "subtitle": "\u76ef\u7740\u4ed6\uff01",
+        "delay": 1.5,
+        "duration": 3.0,
+        "nextSubtitle": "scene_BreachStart_4",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "scene_BreachStart_4": {
+        "subtitle": "\u597d\u4e86\uff0c\u6211\u8981\u7728\u773c\u4e86\uff0c\u76ef\u7740\u4ed6",
+        "delay": 5.0,
+        "duration": 4.0,
+        "nextSubtitle": "scene_BreachStart_5",
+        "character": "chara_franklin",
+        "noFormat": false
+    },
+    "scene_BreachStart_5": {
+        "subtitle": "\u597d\u7684\uff0c\u660e\u767d\u4e86",
+        "delay": 7.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "chara_ulgrin",
+        "noFormat": false
+    },
+    "scene_012_1": {
+        "subtitle": "<i>\u6211\u5fc5\u987b...\u6211\u5fc5\u987b\u5b8c\u6210\u5b83...</i>",
+        "delay": 5.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_2": {
+        "subtitle": "<i>\u4f60\u771f\u7684\u60f3\u8fd9\u6837\u505a\u5417\u2026\u6211\u4e0d...\u60f3...\u6211\u80fd\u505a\u5230\u3002</i>",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "",
+        "noFormat": true
+    },
+    "scene_012_2_2": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 13.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_3": {
+        "subtitle": "<i>\u6211...\u6211...\u5fc5\u987b\u2026\u505a\u3002</i>",
+        "delay": 5.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": false
+    },
+    "scene_012_4": {
+        "subtitle": "<i>\u6211-\u6211...\u6ca1...\u6709...\u9009-\u9009\u62e9\uff01</i>",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_5": {
+        "subtitle": "<i>\u8111\u888b\u75bc...\u8fd9...\u8bf4...\u4e0d\u901a!</i>",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_5_2": {
+        "subtitle": "MISSING SUBTITLE",
+        "delay": 7.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_6": {
+        "subtitle": "<i>\u4e0d...\u8fd9...\u8fd9\u662f...\u4e0d\u53ef\u80fd\u7684</i>",
+        "delay": 6.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "scene_012_7": {
+        "subtitle": "<i>\u8fd9\u4e0d\u53ef\u80fd...\u8fd9\u4e0d\u53ef\u80fd\u88ab\u5b8c\u6210</i>",
+        "delay": 8.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    },
+    "kneel106": {
+        "subtitle": "\u8dea\u4e0b",
+        "delay": 0.0,
+        "duration": 6.0,
+        "nextSubtitle": "",
+        "character": "CHANGE_THIS",
+        "noFormat": true
+    }
+}

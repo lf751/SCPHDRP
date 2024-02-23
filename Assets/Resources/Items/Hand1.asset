@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871dae7ccbebbb14ebcc23bc682da861, type: 3}
+  m_Name: Hand1
+  m_EditorClassIdentifier: 
+  colCenter: {x: -0.04888153, y: -0.03777958, z: -0.05219725}
+  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  mass: 1
+  itemName: hand1
+  icon: {fileID: 21300000, guid: 92bd9203f43e79440916c722f04ad056, type: 3}
+  deleteUse: 0
+  hasEffect: 0
+  isFem: 1
+  isUnique: 0
+  keepInv: 0
+  Effects: []
+  ItemModel: {fileID: 100002, guid: 37ec9dc63eaa26d4a9ca5f38c8c10f84, type: 3}
+  valueFloat: 0
+  valueInt: 0
+  SFX: 1
+  Overlay: {fileID: 21300000, guid: 92bd9203f43e79440916c722f04ad056, type: 3}
+  protectGas: 0
+  autoEquip: 0
+  part: 2
+  handID: 0

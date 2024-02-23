@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6f43f7586ee32994884e432b21ebe6d7
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: a056f3a234ded2248b91a1664df5f63c
+  - enabled: 1
+    path: Assets/Scenes/SafePlace.unity
+    guid: 41c087b9b7363f54c9587e1f08009cf9
+  - enabled: 1
+    path: Assets/Scenes/Pocket.unity
+    guid: ed9b963feb6336449ad92e6b8a286399
+  - enabled: 1
+    path: Assets/Scenes/ZombieDeath.unity
+    guid: 88adf42bdceaf514cba2d47545a60271
+  - enabled: 1
+    path: Assets/Scenes/DemoEnd.unity
+    guid: 4a950fa05c71e6343a368b46fb184b50
+  - enabled: 0
+    path: Assets/Scenes/Lobby/Test.unity
+    guid: 2ce02b8ba1b6bf24f95bbea772f1d2da
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: c2100ef2530dae04288853a400c6de08, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 0a9264de0fc32f9479c2dabd33d07c72, type: 2}
+  m_UseUCBPForAssetBundles: 0

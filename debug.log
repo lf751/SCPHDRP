@@ -1,0 +1,5 @@
+[1230/075159.267:ERROR:backend_impl.cc(1380)] Unable to map Index file
+[1230/075159.307:ERROR:cache_util_win.cc(20)] Unable to move the cache: 5
+[1230/075159.307:ERROR:cache_util.cc(134)] Unable to move cache folder C:\Users\Daniel\AppData\Roaming\Adobe\Adobe Photoshop CC 2019\Adobe Photoshop CC 2019 Settings\web-cache-temp\GPUCache to C:\Users\Daniel\AppData\Roaming\Adobe\Adobe Photoshop CC 2019\Adobe Photoshop CC 2019 Settings\web-cache-temp\old_GPUCache_000
+[1230/075159.307:ERROR:disk_cache.cc(132)] Unable to create cache
+[1230/075159.307:ERROR:shader_disk_cache.cc(604)] Shader Cache Creation failed: -2

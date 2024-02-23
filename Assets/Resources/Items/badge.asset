@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57386a160ab2e541893d65f49ad28d0, type: 3}
+  m_Name: badge
+  m_EditorClassIdentifier: 
+  colCenter: {x: 0, y: 0, z: 0}
+  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  mass: 1
+  itemName: badge
+  icon: {fileID: 21300000, guid: 7b230ac8d0ea1a84ca833b2d66858bac, type: 3}
+  deleteUse: 0
+  hasEffect: 0
+  isFem: 1
+  isUnique: 0
+  keepInv: 0
+  Effects:
+  - affected: 0
+    effect:
+      permanent: 0
+      time: 0
+      max: 0
+      min: 0
+      value: 0
+      multiplier: 0
+  - affected: 0
+    effect:
+      permanent: 0
+      time: 0
+      max: 0
+      min: 0
+      value: 0
+      multiplier: 0
+  ItemModel: {fileID: 3751624436181185535, guid: 0abe03dc324eced4e8d091b350664deb,
+    type: 3}
+  valueFloat: 0
+  valueInt: 0
+  SFX: 1
+  Overlay: {fileID: 21300000, guid: 4e1ba534d7f496e4187c422407a7557f, type: 3}
+  protectGas: 0
+  autoEquip: 0
+  part: 2

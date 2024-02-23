@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb700faa8d6b9649a2a84cef9b1388f, type: 3}
+  m_Name: Heavy_Table
+  m_EditorClassIdentifier: 
+  Zone: 2
+  twoWay_List:
+  - Room: {fileID: 5933296252126844071, guid: 9915d2a01471ed34280e0d44e36805e3, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 1
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 1247404582780000931, guid: 0c4988d59c24a0d44a87ee3382f527eb, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 1
+    hasAmbiance: 0
+    customFog: 10
+    type: 0
+    Zone: 3
+    music: 2
+  - Room: {fileID: 8215106919649264091, guid: 9d7f71086390a5441855e4b0981eb447, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 1
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 5981067745969903986, guid: 166d950bba7870d48806f6a7c737a48b, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 8860454004158059771, guid: 0af8a47286ed81c42a04abb18b8aadb5, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 1
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 1494807399561419597, guid: 3e05738d8b7b1c240aea8632beb0e73d, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 1
+    hasAmbiance: 1
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 7998012436456315021, guid: 834ad12f0f394ca409a7783673f80b92, type: 3}
+    Chance: 0
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: 0
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 3490223555289019372, guid: ed3a5972d2fafb646b49fd31790cc1a7, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 1777141851452463505, guid: c303c1caf8a2448468b3113d5e39df51, type: 3}
+    Chance: 25
+    isSpecial: 0
+    hasEvent: 1
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 5866732822581276493, guid: d0699bf2e8d48774fb43f5c817435e1b, type: 3}
+    Chance: 50
+    isSpecial: 0
+    hasEvent: 1
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 1545820661364487273, guid: a8ec06a1092779848aefc1d4e60ee0b0, type: 3}
+    Chance: 50
+    isSpecial: 0
+    hasEvent: 1
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 5121887483526186734, guid: 9a26aa5aecf921c45893ee530c02fdb3, type: 3}
+    Chance: 50
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 5920012515299117795, guid: 17654b7dc361ae646b5b0b2a25b5df69, type: 3}
+    Chance: 75
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 3110568734712026944, guid: 3ac0af28115be3e469693d6e87c145d9, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  - Room: {fileID: 6298108349328654504, guid: 93dba070da7d40c4f89c8af488528d84, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  cornerWay_List:
+  - Room: {fileID: 2123373028317748846, guid: abc262a08a8e10a44b56e478dc373a89, type: 3}
+    Chance: 50
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 2
+    Zone: 3
+    music: -1
+  - Room: {fileID: 5893879109024869264, guid: 6b1cc4f8bd528a241955a2a3fca6dabb, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  tWay_List:
+  - Room: {fileID: 2442064819278727773, guid: 43af4f33aa1dc014a9ee19e60fdcefd3, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 1
+    hasAmbiance: 0
+    customFog: -1
+    type: 3
+    Zone: 3
+    music: -1
+  - Room: {fileID: 4524403346287399186, guid: dcf7fb41b27cfb1489f537042d1ecb3b, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 3
+    Zone: 3
+    music: -1
+  - Room: {fileID: 8849347435380857835, guid: 6c5a01c3239e5354e8803308cf7fdd6e, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  endWay_List:
+  - Room: {fileID: 7498907380380756497, guid: 578b387574fc0c1429c853d63fc19d06, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 4
+    Zone: 3
+    music: -1
+  - Room: {fileID: 6956669048770691265, guid: 97b8da80a63699646bae216f64b23f34, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 1
+    hasAmbiance: 0
+    customFog: 25
+    type: 4
+    Zone: 3
+    music: -1
+  - Room: {fileID: 4847452566265335398, guid: 8a359d5188f41bf42887aeca4efefd3b, type: 3}
+    Chance: 0
+    isSpecial: 1
+    hasEvent: 0
+    hasSpecial: 1
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 4
+    Zone: 3
+    music: -1
+  - Room: {fileID: 7180635824737341866, guid: 3747b4c2129b6e745ac8cde1f9796731, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1
+  fourWay_List:
+  - Room: {fileID: 6371661222197844980, guid: 050791e5515bbe3488f69ef45eee3d89, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 1
+    Zone: 3
+    music: -1
+  - Room: {fileID: 7753281641134014415, guid: 534eca3ee23d1534da59e7ed8de3815c, type: 3}
+    Chance: 100
+    isSpecial: 0
+    hasEvent: 0
+    hasSpecial: 0
+    hasItem: 0
+    hasAmbiance: 0
+    customFog: -1
+    type: 0
+    Zone: 3
+    music: -1

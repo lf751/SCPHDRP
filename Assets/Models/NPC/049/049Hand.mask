@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 049Hand
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: scp-049
+    m_Weight: 0
+  - m_Path: scp-049_skeleton
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/049_mask
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/049
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021/Bone_022
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_021/Bone_022/Bone_023
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024/Bone_025
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_024/Bone_025/Bone_026
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027/Bone_028
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_027/Bone_028/Bone_029
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030/Bone_031
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_030/Bone_031/Bone_032
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033/Bone_034
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_012/Bone_013/Bone_014/Bone_020/Bone_033/Bone_034/Bone_035
+    m_Weight: 1
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037/Bone_038
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_037/Bone_038/Bone_039
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040/Bone_041
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_040/Bone_041/Bone_042
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043/Bone_044
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_043/Bone_044/Bone_045
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046/Bone_047
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_046/Bone_047/Bone_048
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049/Bone_050
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_015/Bone_016/Bone_017/Bone_036/Bone_049/Bone_050/Bone_051
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_018
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone/Bone_001/Bone_018/Bone_019
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007/Bone_009
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_002/Bone_005/Bone_007/Bone_009/Bone_011
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006/Bone_008
+    m_Weight: 0
+  - m_Path: scp-049_skeleton/Scene_Root/Scene_Root1/Scene_Root2/Scene_Root3/Skeleton/Scene_Root4/Armature/Bone_003/Bone_004/Bone_006/Bone_008/Bone_010
+    m_Weight: 0

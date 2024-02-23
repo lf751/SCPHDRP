@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6b71342f24acd489409bc763b48b92, type: 3}
+  m_Name: JanCard
+  m_EditorClassIdentifier: Assembly-CSharp::Equipable_Key
+  colCenter: {x: 0, y: 0.05, z: 0}
+  colSize: {x: 0.3, y: 0.15, z: 0.5}
+  mass: 1
+  itemName: key0
+  icon: {fileID: 21300000, guid: 5819d3ab6deafdd41a846bae84ba4160, type: 3}
+  deleteUse: 0
+  hasEffect: 0
+  isFem: 0
+  isUnique: 0
+  keepInv: 0
+  Effects:
+  - affected: 0
+    effect:
+      permanent: 0
+      time: 0
+      max: 0
+      min: 0
+      value: 0
+      multiplier: 0
+  - affected: 0
+    effect:
+      permanent: 0
+      time: 0
+      max: 0
+      min: 0
+      value: 0
+      multiplier: 0
+  ItemModel: {fileID: 4082168622866641274, guid: 39062a89993d8a3458c4771bf3ad650e,
+    type: 3}
+  valueFloat: 0
+  valueInt: 0
+  SFX: 1
+  Overlay: {fileID: 21300000, guid: 5819d3ab6deafdd41a846bae84ba4160, type: 3}
+  protectGas: 0
+  autoEquip: 0
+  part: 2
+  level: 0

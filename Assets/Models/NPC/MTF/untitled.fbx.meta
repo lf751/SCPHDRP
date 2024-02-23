@@ -1,0 +1,893 @@
+fileFormatVersion: 2
+guid: 3e22560f4b4d84541abe51eb8082eb2b
+ModelImporter:
+  serializedVersion: 22103
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Chest
+  - first:
+      1: 100002
+    second: Fingers01.L
+  - first:
+      1: 100004
+    second: Fingers01.R
+  - first:
+      1: 100006
+    second: Fingers02.L
+  - first:
+      1: 100008
+    second: Fingers02.L_end
+  - first:
+      1: 100010
+    second: Fingers02.R
+  - first:
+      1: 100012
+    second: Fingers02.R_end
+  - first:
+      1: 100014
+    second: Foot Roll.L
+  - first:
+      1: 100016
+    second: Foot Roll.R
+  - first:
+      1: 100018
+    second: Foot.L
+  - first:
+      1: 100020
+    second: Foot.R
+  - first:
+      1: 100022
+    second: guard
+  - first:
+      1: 100024
+    second: guard 1
+  - first:
+      1: 100026
+    second: guard_end
+  - first:
+      1: 100028
+    second: guard_skeleton
+  - first:
+      1: 100030
+    second: Hand.L
+  - first:
+      1: 100032
+    second: Hand.R
+  - first:
+      1: 100034
+    second: Head
+  - first:
+      1: 100036
+    second: HeadOther
+  - first:
+      1: 100038
+    second: HeadOther_end
+  - first:
+      1: 100040
+    second: Leg Control.L
+  - first:
+      1: 100042
+    second: Leg Control.R
+  - first:
+      1: 100044
+    second: Leg ik.L
+  - first:
+      1: 100046
+    second: Leg ik.L_end
+  - first:
+      1: 100048
+    second: Leg ik.R
+  - first:
+      1: 100050
+    second: Leg ik.R_end
+  - first:
+      1: 100052
+    second: Leg pole target.L
+  - first:
+      1: 100054
+    second: Leg pole target.L_end
+  - first:
+      1: 100056
+    second: Leg pole target.R
+  - first:
+      1: 100058
+    second: Leg pole target.R_end
+  - first:
+      1: 100060
+    second: Lower Arm.L
+  - first:
+      1: 100062
+    second: Lower Arm.R
+  - first:
+      1: 100064
+    second: Lower Leg.L
+  - first:
+      1: 100066
+    second: Lower Leg.L_end
+  - first:
+      1: 100068
+    second: Lower Leg.R
+  - first:
+      1: 100070
+    second: Lower Leg.R_end
+  - first:
+      1: 100072
+    second: Neck
+  - first:
+      1: 100074
+    second: ROOT
+  - first:
+      1: 100076
+    second: Root1
+  - first:
+      1: 100078
+    second: Scene_Root
+  - first:
+      1: 100080
+    second: Scene_Root.003
+  - first:
+      1: 100082
+    second: Scene_Root1
+  - first:
+      1: 100084
+    second: Scene_Root2
+  - first:
+      1: 100086
+    second: Scene_Root3
+  - first:
+      1: 100088
+    second: Scene_Root4
+  - first:
+      1: 100090
+    second: Scene_Root5
+  - first:
+      1: 100092
+    second: Thumb01.L
+  - first:
+      1: 100094
+    second: Thumb01.R
+  - first:
+      1: 100096
+    second: Thumb01.R.001
+  - first:
+      1: 100098
+    second: Thumb01.R.001_end
+  - first:
+      1: 100100
+    second: Thumb02.L
+  - first:
+      1: 100102
+    second: Thumb02.L_end
+  - first:
+      1: 100104
+    second: Thumb02.R
+  - first:
+      1: 100106
+    second: Thumb02.R_end
+  - first:
+      1: 100108
+    second: Toes Control.L
+  - first:
+      1: 100110
+    second: Toes Control.L_end
+  - first:
+      1: 100112
+    second: Toes Control.R
+  - first:
+      1: 100114
+    second: Toes Control.R_end
+  - first:
+      1: 100116
+    second: Toes.L
+  - first:
+      1: 100118
+    second: Toes.L_end
+  - first:
+      1: 100120
+    second: Toes.R
+  - first:
+      1: 100122
+    second: Toes.R_end
+  - first:
+      1: 100124
+    second: Torso
+  - first:
+      1: 100126
+    second: Torso.001
+  - first:
+      1: 100128
+    second: Torso.001_end
+  - first:
+      1: 100130
+    second: //RootNode
+  - first:
+      1: 100132
+    second: Upper Arm.L
+  - first:
+      1: 100134
+    second: Upper Arm.L.001
+  - first:
+      1: 100136
+    second: Upper Arm.L.001_end
+  - first:
+      1: 100138
+    second: Upper Arm.L.002
+  - first:
+      1: 100140
+    second: Upper Arm.L.002_end
+  - first:
+      1: 100142
+    second: Upper Arm.R
+  - first:
+      1: 100144
+    second: Upper Arm.R.001
+  - first:
+      1: 100146
+    second: Upper Arm.R.001_end
+  - first:
+      1: 100148
+    second: Upper Arm.R.002
+  - first:
+      1: 100150
+    second: Upper Arm.R.002_end
+  - first:
+      1: 100152
+    second: Upper Leg.L
+  - first:
+      1: 100154
+    second: Upper Leg.R
+  - first:
+      4: 400000
+    second: Chest
+  - first:
+      4: 400002
+    second: Fingers01.L
+  - first:
+      4: 400004
+    second: Fingers01.R
+  - first:
+      4: 400006
+    second: Fingers02.L
+  - first:
+      4: 400008
+    second: Fingers02.L_end
+  - first:
+      4: 400010
+    second: Fingers02.R
+  - first:
+      4: 400012
+    second: Fingers02.R_end
+  - first:
+      4: 400014
+    second: Foot Roll.L
+  - first:
+      4: 400016
+    second: Foot Roll.R
+  - first:
+      4: 400018
+    second: Foot.L
+  - first:
+      4: 400020
+    second: Foot.R
+  - first:
+      4: 400022
+    second: guard
+  - first:
+      4: 400024
+    second: guard 1
+  - first:
+      4: 400026
+    second: guard_end
+  - first:
+      4: 400028
+    second: guard_skeleton
+  - first:
+      4: 400030
+    second: Hand.L
+  - first:
+      4: 400032
+    second: Hand.R
+  - first:
+      4: 400034
+    second: Head
+  - first:
+      4: 400036
+    second: HeadOther
+  - first:
+      4: 400038
+    second: HeadOther_end
+  - first:
+      4: 400040
+    second: Leg Control.L
+  - first:
+      4: 400042
+    second: Leg Control.R
+  - first:
+      4: 400044
+    second: Leg ik.L
+  - first:
+      4: 400046
+    second: Leg ik.L_end
+  - first:
+      4: 400048
+    second: Leg ik.R
+  - first:
+      4: 400050
+    second: Leg ik.R_end
+  - first:
+      4: 400052
+    second: Leg pole target.L
+  - first:
+      4: 400054
+    second: Leg pole target.L_end
+  - first:
+      4: 400056
+    second: Leg pole target.R
+  - first:
+      4: 400058
+    second: Leg pole target.R_end
+  - first:
+      4: 400060
+    second: Lower Arm.L
+  - first:
+      4: 400062
+    second: Lower Arm.R
+  - first:
+      4: 400064
+    second: Lower Leg.L
+  - first:
+      4: 400066
+    second: Lower Leg.L_end
+  - first:
+      4: 400068
+    second: Lower Leg.R
+  - first:
+      4: 400070
+    second: Lower Leg.R_end
+  - first:
+      4: 400072
+    second: Neck
+  - first:
+      4: 400074
+    second: ROOT
+  - first:
+      4: 400076
+    second: Root1
+  - first:
+      4: 400078
+    second: Scene_Root
+  - first:
+      4: 400080
+    second: Scene_Root.003
+  - first:
+      4: 400082
+    second: Scene_Root1
+  - first:
+      4: 400084
+    second: Scene_Root2
+  - first:
+      4: 400086
+    second: Scene_Root3
+  - first:
+      4: 400088
+    second: Scene_Root4
+  - first:
+      4: 400090
+    second: Scene_Root5
+  - first:
+      4: 400092
+    second: Thumb01.L
+  - first:
+      4: 400094
+    second: Thumb01.R
+  - first:
+      4: 400096
+    second: Thumb01.R.001
+  - first:
+      4: 400098
+    second: Thumb01.R.001_end
+  - first:
+      4: 400100
+    second: Thumb02.L
+  - first:
+      4: 400102
+    second: Thumb02.L_end
+  - first:
+      4: 400104
+    second: Thumb02.R
+  - first:
+      4: 400106
+    second: Thumb02.R_end
+  - first:
+      4: 400108
+    second: Toes Control.L
+  - first:
+      4: 400110
+    second: Toes Control.L_end
+  - first:
+      4: 400112
+    second: Toes Control.R
+  - first:
+      4: 400114
+    second: Toes Control.R_end
+  - first:
+      4: 400116
+    second: Toes.L
+  - first:
+      4: 400118
+    second: Toes.L_end
+  - first:
+      4: 400120
+    second: Toes.R
+  - first:
+      4: 400122
+    second: Toes.R_end
+  - first:
+      4: 400124
+    second: Torso
+  - first:
+      4: 400126
+    second: Torso.001
+  - first:
+      4: 400128
+    second: Torso.001_end
+  - first:
+      4: 400130
+    second: //RootNode
+  - first:
+      4: 400132
+    second: Upper Arm.L
+  - first:
+      4: 400134
+    second: Upper Arm.L.001
+  - first:
+      4: 400136
+    second: Upper Arm.L.001_end
+  - first:
+      4: 400138
+    second: Upper Arm.L.002
+  - first:
+      4: 400140
+    second: Upper Arm.L.002_end
+  - first:
+      4: 400142
+    second: Upper Arm.R
+  - first:
+      4: 400144
+    second: Upper Arm.R.001
+  - first:
+      4: 400146
+    second: Upper Arm.R.001_end
+  - first:
+      4: 400148
+    second: Upper Arm.R.002
+  - first:
+      4: 400150
+    second: Upper Arm.R.002_end
+  - first:
+      4: 400152
+    second: Upper Leg.L
+  - first:
+      4: 400154
+    second: Upper Leg.R
+  - first:
+      21: 2100000
+    second: guard_diffuse.bmp
+  - first:
+      21: 2100002
+    second: helmet_guard.bmp
+  - first:
+      21: 2100004
+    second: MTF_P90_diffuse02.bmp
+  - first:
+      43: 4300000
+    second: guard
+  - first:
+      74: 7400000
+    second: guard_skeleton|guard_gun_dead1
+  - first:
+      74: 7400002
+    second: guard_skeleton|guard_gun_dead2
+  - first:
+      74: 7400004
+    second: guard_skeleton|guard_gun_dead3
+  - first:
+      74: 7400006
+    second: guard_skeleton|guard_gun_fire
+  - first:
+      74: 7400008
+    second: guard_skeleton|guard_gun_idle
+  - first:
+      74: 7400010
+    second: guard_skeleton|guard_gun_walk
+  - first:
+      74: 7400012
+    second: guard_skeleton|guard_normal_idle
+  - first:
+      74: 7400014
+    second: guard_skeleton|guard_normal_walk
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: guard
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MTF_P90_diffuse02.bmp
+    second: {fileID: 2100000, guid: f59cddf850dbea44da2005b8e30759d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: guard_diffuse.bmp
+    second: {fileID: 2100000, guid: b199c694986cc4941b23aa077bb2d22c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: helmet_guard.bmp
+    second: {fileID: 2100000, guid: a31f0b3ebb5aa4c46be4ea22672d9499, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: guard_skeleton|guard_gun_dead1
+      takeName: guard_skeleton|guard_gun_dead1
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 37
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: guard_skeleton|guard_gun_dead2
+      takeName: guard_skeleton|guard_gun_dead2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: guard_skeleton|guard_gun_dead3
+      takeName: guard_skeleton|guard_gun_dead3
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: guard_skeleton|guard_gun_fire
+      takeName: guard_skeleton|guard_gun_fire
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 3
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: guard_skeleton|guard_gun_idle
+      takeName: guard_skeleton|guard_gun_idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 42
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: guard_skeleton|guard_gun_walk
+      takeName: guard_skeleton|guard_gun_walk
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 37
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.58564264
+        functionName: StepSound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.07758621
+        functionName: StepSound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: guard_skeleton|guard_normal_idle
+      takeName: guard_skeleton|guard_normal_idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 124
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: guard_skeleton|guard_normal_walk
+      takeName: guard_skeleton|guard_normal_walk
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 37
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.5664557
+        functionName: StepSound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.04310345
+        functionName: StepSound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

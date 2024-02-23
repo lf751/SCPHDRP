@@ -1,0 +1,40 @@
+# Wavefront MTL
+# Created by fragMOTION 1.3.5
+# http://www.fragmosoft.com
+
+newmtl gravel
+illum 2
+d 1
+ka 1 1 1
+kd 1 1 1
+ks 0 0 0
+ke 0 0 0
+ns 0
+map_ka gravel.jpg
+newmtl grass2
+illum 2
+d 1
+ka 1 1 1
+kd 1 1 1
+ks 0 0 0
+ke 0 0 0
+ns 0
+map_ka grass2.jpg
+newmtl gravel1
+illum 2
+d 1
+ka 1 1 1
+kd 1 1 1
+ks 0 0 0
+ke 0 0 0
+ns 0
+map_ka gravel.jpg
+newmtl grass
+illum 2
+d 1
+ka 1 1 1
+kd 1 1 1
+ks 0 0 0
+ke 0 0 0
+ns 0
+map_ka grass2.jpg

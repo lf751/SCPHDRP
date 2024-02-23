@@ -1,0 +1,4 @@
+        {"chara_franklin", "S.C.富兰克林"},
+        {"chara_ulgrin", "尤格林探员"},
+        {"chara_guard", "警卫"},
+        {"chara_sci", "博士"},

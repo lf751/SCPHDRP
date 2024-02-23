@@ -1,0 +1,13 @@
+# Wavefront MTL
+# Created by fragMOTION 1.3.5
+# http://www.fragmosoft.com
+
+newmtl Mat
+illum 2
+d 1
+ka 0.498039 0.498039 0.498039
+kd 0.498039 0.498039 0.498039
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd D:\Program Files\SCPCB\SCP427\427.jpg
