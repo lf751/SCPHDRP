@@ -36,6 +36,7 @@ MonoBehaviour:
   valueFloat: 0
   valueInt: 0
   SFX: 2
+  useTime: 4
   Overlay: {fileID: 21300000, guid: 6a6274d5470782742a737d067fa8fac9, type: 3}
   protectGas: 1
   autoEquip: 1

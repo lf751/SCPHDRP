@@ -7,7 +7,7 @@ public class Item_Clipboard : Item
 {
     public Sprite doc, nodoc;
     // Start is called before the first frame update
-    public override void Use(ref gameItem currItem)
+    public override void Use(ref GameItem currItem)
     {
         //Debug.Log("Current inv = " + currItem.valInt);
         if (currItem.valInt == -1)
@@ -17,9 +17,10 @@ public class Item_Clipboard : Item
         }
         ItemController.instance.ChangeInv(currItem.valInt);
     }
-    public override bool Mix(ref gameItem currItem, ref gameItem toMix)
+    public override bool Mix(ref GameItem currItem, ref GameItem toMix)
     {
-        if (ItemController.instance.items[toMix.itemFileName] is Document_Equipable || ItemController.instance.items[toMix.itemFileName] is Equipable_Key)
+        Item itDef = ItemController.instance.items[toMix.itemFileName];
+        if (itDef is Document_Equipable || itDef is Equipable_Key || itDef is Equipable_DocumentLoad)
         {
             if (currItem.valInt == -1)
             {

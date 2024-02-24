@@ -8,21 +8,22 @@ public class SCP_106 : Roam_NPC
     NavMeshAgent _navMeshagent;
     [SerializeField]
     private LayerMask Ground;
-    float PlayerDistance= 20, timer, ambianceTimer;
+    float PlayerDistance = 20, timer, ambianceTimer, crackTimer;
     [SerializeField]
-    private GameObject Player, Eyes;
+    private GameObject Eyes;
+    private PlayerControl Player;
     bool playedHorror, usingAStar = true, isSpawn = false, isBlocked = false, isOut = false, isPath, pathInvalid, eyesActive = true;
     Quaternion toAngle, realAngle;
     [SerializeField]
-    private float normalSpeed, crawlSpeed, spawntimer, Distance;
+    private float normalSpeed, crawlSpeed, spawntimer, Distance, crackDistance;
     private float speed;
     float escapeTimer;
-    bool Escaped=false, lastDest, isChase=false;
+    bool Escaped = false, lastDest, isChase = false;
     AudioSource sfx;
     Vector3 Destination;
-    int frameInterval=20;
+    int frameInterval = 20;
     [SerializeField]
-    private AudioClip[] Horror, Sfx;
+    private AudioClip[] Horror, Sfx, Decay;
     [SerializeField]
     private AudioClip music;
     [SerializeField]
@@ -38,17 +39,18 @@ public class SCP_106 : Roam_NPC
 
     void Awake()
     {
-        Player = GameController.instance.player;
+        Player = GameController.ins.currPly;
         _navMeshagent = this.GetComponent<NavMeshAgent>();
         sfx = GetComponent<AudioSource>();
         _navMeshagent.enabled = false;
+        //_navMeshagent.updateRotation = false;
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(transform.position, 0.3f);
         Gizmos.DrawSphere(transform.position + (Vector3.up * 0.5f), 0.3f);
-    }
+    }*/
 
     void Update()
     {
@@ -65,6 +67,7 @@ public class SCP_106 : Roam_NPC
 
         if (data.isActive)
         {
+
             if (!isEvent)
             {
                 if (Time.frameCount % 10 == 0)
@@ -104,7 +107,7 @@ public class SCP_106 : Roam_NPC
                 }
 
 
-                if (PlayerDistance < 3f || isBlocked || isOut || pathInvalid)
+                if (PlayerDistance < 5f || isBlocked || isOut || pathInvalid)
                 {
                     usingAStar = false;
                 }
@@ -123,7 +126,6 @@ public class SCP_106 : Roam_NPC
                         _navMeshagent.speed = speed;
                         if (Time.frameCount % frameInterval == 0)
                             SetDestination();
-
                     }
                     else
                     {
@@ -151,13 +153,13 @@ public class SCP_106 : Roam_NPC
 
                     if (Escaped && Time.frameCount % frameInterval == 0)
                     {
-                        float dot = Vector3.Dot(Player.transform.forward, (transform.position - Player.transform.position).normalized);
-                        Debug.Log("Dot product of lookAt = " + dot + " using a star " + usingAStar + " distance to latest point " + (usingAStar ? _navMeshagent.remainingDistance : Mathf.Infinity) + " radius " + _navMeshagent.radius); 
-                        if ((dot < 0 && ((!usingAStar && PlayerDistance > 8)) || (usingAStar && (_navMeshagent.remainingDistance < _navMeshagent.radius) && PlayerDistance > 8)))
+                        float dot = Vector3.Dot(GameController.ins.currPly.PlayerCam.transform.forward, (transform.position - Player.transform.position).normalized);
+                        //Debug.Log("Dot product of lookAt = " + dot + " using a star " + usingAStar + " distance to latest point " + (usingAStar ? _navMeshagent.remainingDistance : Mathf.Infinity) + " radius " + _navMeshagent.radius); 
+                        if ((dot < 0 && ((!usingAStar && PlayerDistance > 8)) || (usingAStar && (_navMeshagent.remainingDistance < _navMeshagent.radius) && PlayerDistance > 15f)))
                             UnSpawn();
                     }
 
-                    
+
 
                 }
 
@@ -176,7 +178,7 @@ public class SCP_106 : Roam_NPC
             }
         }
 
-        
+
     }
 
 
@@ -187,7 +189,24 @@ public class SCP_106 : Roam_NPC
         if (ambianceTimer <= 0)
         {
             sfx.PlayOneShot(Sfx[Random.Range(1, Sfx.Length)]);
-            ambianceTimer = 2 * Random.Range(1, 5);
+            ambianceTimer = Random.Range(2f, 6f);
+        }
+
+        if (!isSpawn)
+        {
+            crackTimer -= Time.deltaTime;
+            if (crackTimer <= 0)
+            {
+                sfx.PlayOneShot(Decay[Random.Range(0, Decay.Length)]);
+                crackTimer = Random.Range(0.5f, 1.2f);
+                RaycastHit ray;
+                Vector2 randCirc = Random.insideUnitCircle * crackDistance;
+                Vector3 decayPos = transform.position + new Vector3(randCirc.x, 0, randCirc.y);
+                if (Physics.Raycast(decayPos + (Vector3.up * 0.2f), Vector3.down, out ray, 1.5f, Ground, QueryTriggerInteraction.Ignore))
+                {
+                    DecalSystem.instance.Decal(ray.point, Quaternion.Euler(0f, Random.Range(-180f, 180f), 0), Random.Range(2.5f, 3.5f), false, 0.1f, 0, 3);
+                }
+            }
         }
     }
 
@@ -195,11 +214,11 @@ public class SCP_106 : Roam_NPC
     {
         if (PlayerDistance < 16 && PlayerDistance > 4)
         {
-                if (playedHorror == false)
-                {
-                    GameController.instance.PlayHorror(Horror[Random.Range(0, Horror.Length)], this.transform, npc.scp106);
-                    playedHorror = true;
-                }
+            if (playedHorror == false)
+            {
+                GameController.ins.PlayHorror(Horror[Random.Range(0, Horror.Length)], this.transform, npc.scp106);
+                playedHorror = true;
+            }
         }
     }
 
@@ -214,7 +233,7 @@ public class SCP_106 : Roam_NPC
         Escaped = false;
         anim.SetBool("move", false);
 
-        GameController.instance.DefMusic();
+        GameController.ins.DefMusic();
     }
 
     public override void Spawn(bool beActive, Vector3 here)
@@ -228,8 +247,9 @@ public class SCP_106 : Roam_NPC
         {
             col.enabled = false;
             anim.SetBool("move", false);
-            //anim.SetTrigger("spawn");
-            anim.PlayInFixedTime("Base Layer.106_2_skeleton|106_2_rise", 0, 0.1f);
+            anim.SetTrigger("spawn");
+            //anim.PlayInFixedTime("Base Layer.106_2_skeleton|106_2_rise", 0, 0.1f);
+            anim.Update(0.1f);
             transform.position = here;
             _navMeshagent.enabled = true;
             _navMeshagent.Warp(here);
@@ -240,18 +260,18 @@ public class SCP_106 : Roam_NPC
             sfx.PlayOneShot(Sfx[0]);
 
             playedHorror = false;
-            here.y += 0.05f;
+            crackTimer = Random.Range(0.5f, 1.25f);
             RaycastHit ray;
-            if (Physics.Raycast(transform.position + (Vector3.up*0.2f), Vector3.down, out ray, 1.5f, Ground, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(here + (Vector3.up * 0.2f), Vector3.down, out ray, 1.5f, Ground, QueryTriggerInteraction.Ignore))
             {
-                DecalSystem.instance.Decal(ray.point+(Vector3.up*0.05f), new Vector3(90f, 0, 0), 6f, false, 5f, 2, 0);
+                DecalSystem.instance.Decal(ray.point, Quaternion.Euler(0f, 0, 0), 6f, false, 5f, 2, 0);
             }
-            
+
             if (isChase == false)
             {
                 timer = spawntimer;
                 escapeTimer = 0;
-                GameController.instance.ChangeMusic(music);
+                GameController.ins.ChangeMusic(music);
             }
             else
                 timer = spawntimer - 2;
@@ -269,11 +289,11 @@ public class SCP_106 : Roam_NPC
 
     private void SetDestination()
     {
-      if (!Escaped || (Escaped && PlayerDistance < 7))
-      {
-            Debug.Log("SCP 106 getting path");
+        if (!Escaped || (Escaped && PlayerDistance < 7))
+        {
+            //Debug.Log("SCP 106 getting path");
             _navMeshagent.SetDestination(Player.transform.position);
-      }
+        }
 
     }
 
@@ -281,20 +301,21 @@ public class SCP_106 : Roam_NPC
     {
         if (Vector3.Distance(new Vector3(ActualPath[currentNode].position.x, transform.position.y, ActualPath[currentNode].position.z), transform.position) < Distance)
         {
-            if (currentNode != ActualPath.Length-1)
+            if (currentNode != ActualPath.Length - 1)
                 currentNode += 1;
-            Debug.Log("Nodo " + currentNode + " de " + ActualPath.Length);
+            Debug.Log("Node " + currentNode + " of " + ActualPath.Length);
         }
 
         Vector3 FakePoint = new Vector3(ActualPath[currentNode].position.x, transform.position.y, ActualPath[currentNode].position.z) - transform.position;
 
         Vector3 Point = ActualPath[currentNode].transform.position - transform.position;
 
-  
+        //Debug.Log("CUrrent node " + currentNode + ", pos: " + transform.position);
+
 
         Quaternion lookangle = Quaternion.LookRotation(FakePoint);
 
-        transform.position += (Point.normalized * speed) * Time.deltaTime;
+        transform.position += (Point.normalized * crawlSpeed) * Time.deltaTime;
         transform.rotation = Quaternion.Lerp(transform.rotation, lookangle, 4f * Time.deltaTime);
 
         if ((Vector3.Distance(ActualPath[currentNode].transform.position, transform.position) < Distance) && currentNode == ActualPath.Length - 1)
@@ -314,7 +335,7 @@ public class SCP_106 : Roam_NPC
         if (data.state == npcstate.death)
             return;
 
-        Debug.Log("Iniciando Path");
+        Debug.Log("Starting 106 Path");
         currentNode = 0;
         ActualPath = path;
         isPath = true;
@@ -340,13 +361,13 @@ public class SCP_106 : Roam_NPC
             RaycastHit ray;
             if (Physics.Raycast(here + (Vector3.up * 0.2f), Vector3.down, out ray, 1.5f, Ground, QueryTriggerInteraction.Ignore))
             {
-                DecalSystem.instance.Decal(ray.point + (Vector3.up * 0.1f), new Vector3(90f, 0, 0), 6f, false, 5f, 2, 0);
+                DecalSystem.instance.Decal(ray.point + (Vector3.up * 0.1f), Quaternion.Euler(0f, 0, 0), 6f, false, 5f, 2, 0);
             }
         }
-        
+
         transform.position = here;
         isEvent = true;
-        
+
         sfx.PlayOneShot(Sfx[0]);
         playedHorror = false;
         escapeTimer = 20;
@@ -361,7 +382,7 @@ public class SCP_106 : Roam_NPC
             return;
         isEvent = false;
         col.enabled = true;
-        GameController.instance.ChangeMusic(music);
+        GameController.ins.ChangeMusic(music);
     }
 
 
@@ -373,16 +394,16 @@ public class SCP_106 : Roam_NPC
 
     private void OnTriggerStay(Collider other)
     {
-        if ((isSpawn) && (other.gameObject.CompareTag("Player")) && !isEvent && GameController.instance.isAlive)
+        if ((isSpawn) && (other.gameObject.CompareTag("Player")) && !isEvent && GameController.ins.isAlive)
         {
-            GameController.instance.playercache.Health -= 25;
-            if (GameController.instance.playercache.Health > 0)
+            GameController.ins.currPly.Health -= 25;
+            if (GameController.ins.currPly.Health > 0)
             {
                 _navMeshagent.enabled = false;
-                GameController.instance.Death = DeathEvent.pocketDimension;
-                other.gameObject.GetComponent<Player_Control>().FakeDeath(2);
+                GameController.ins.Death = DeathEvent.pocketDimension;
+                other.gameObject.GetComponent<PlayerControl>().FakeDeath(2);
                 isEvent = true;
-                Debug.Log("You are ded ded ded");
+                //Debug.Log("You are ded ded ded");
             }
         }
     }

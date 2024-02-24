@@ -1165,7 +1165,6 @@ MonoBehaviour:
   OpenSpeed: 1.3
   DoorEndPos: 1.42
   DoorTime: 0
-  id: 0
   Open_AUD:
   - {fileID: 8300000, guid: 8146c0c2bbcd1d54cbfcc94801ea9f93, type: 3}
   - {fileID: 8300000, guid: cba4cbd4019721a44b76ff35bb81b77e, type: 3}
@@ -1184,6 +1183,8 @@ MonoBehaviour:
   scp173: 1
   ignoreSave: 0
   isDisabled: 0
+  IsOpen: 0
+  isMoving: 0
 --- !u!82 &3964567961398870893
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1488,6 +1489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cctv: {fileID: 3338287629755442032}
   screen: {fileID: 9076447709648897325}
+  isReal895: 0
 --- !u!1 &852724037469791571
 GameObject:
   m_ObjectHideFlags: 0
@@ -7527,7 +7529,6 @@ MonoBehaviour:
   OpenSpeed: 1.3
   DoorEndPos: 1.42
   DoorTime: 0
-  id: 0
   Open_AUD:
   - {fileID: 8300000, guid: 8146c0c2bbcd1d54cbfcc94801ea9f93, type: 3}
   - {fileID: 8300000, guid: cba4cbd4019721a44b76ff35bb81b77e, type: 3}
@@ -7546,6 +7547,8 @@ MonoBehaviour:
   scp173: 0
   ignoreSave: 0
   isDisabled: 0
+  IsOpen: 0
+  isMoving: 0
 --- !u!82 &8738311402425508101
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7732,7 +7735,7 @@ Transform:
   m_GameObject: {fileID: 5418750947815618421}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.199997, y: 4.6, z: -3.75}
+  m_LocalPosition: {x: -16.199997, y: 5.4, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8927,6 +8930,7 @@ MonoBehaviour:
   Lights: {fileID: 3900394346573052997}
   Probes: {fileID: 8183005642650716942}
   cutsceneReferences: []
+  spawn: {fileID: 0}
 --- !u!1 &6544573638388239115
 GameObject:
   m_ObjectHideFlags: 0
@@ -9046,7 +9050,6 @@ GameObject:
   - component: {fileID: 6229487184468918747}
   - component: {fileID: 3338287629755442032}
   - component: {fileID: 8948370189470500995}
-  - component: {fileID: 5719744210143415936}
   - component: {fileID: 5411881888276426963}
   m_Layer: 16
   m_Name: Camera
@@ -9131,18 +9134,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 645f632d82359f046b9220a2de01a7ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5719744210143415936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6633984005978644012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 514a97e34f461b84ea9359ea96f5edbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5411881888276426963
@@ -9357,7 +9348,7 @@ Transform:
   m_GameObject: {fileID: 6698263474281991400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: -16.1, y: 4.1, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9957,7 +9948,6 @@ MonoBehaviour:
   OpenSpeed: 1.3
   DoorEndPos: 1.42
   DoorTime: 0
-  id: 0
   Open_AUD:
   - {fileID: 8300000, guid: 8146c0c2bbcd1d54cbfcc94801ea9f93, type: 3}
   - {fileID: 8300000, guid: cba4cbd4019721a44b76ff35bb81b77e, type: 3}
@@ -9976,6 +9966,8 @@ MonoBehaviour:
   scp173: 1
   ignoreSave: 0
   isDisabled: 0
+  IsOpen: 0
+  isMoving: 0
 --- !u!82 &6637466924383246746
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11926,10 +11918,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77807b98212b46a4682b0ef5e686166c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreSave: 0
   controller: {fileID: 329056124129732245}
   screen: {fileID: 9076447709648897325}
   turnOff: {fileID: 2100000, guid: f3c7c1439198d4f419cffb3e3ab04e81, type: 2}
   isOn: 1
+  is895: 0
+  canHack: 1
 --- !u!1 &8183005642650716942
 GameObject:
   m_ObjectHideFlags: 0

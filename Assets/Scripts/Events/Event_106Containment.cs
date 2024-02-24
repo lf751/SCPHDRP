@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Pixelplacement;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,26 +19,32 @@ public class Event_106Containment : Event_Parent
 
     public Animator lureSubject;
 
-    public Transform spawn1061, spawn1062;
+    public Transform spawn1061, spawn1062, decal1, decal2;
 
-    public float audMax, audMin, spawnMin, spawnMax;
+    public float audMax, audMin, spawnMin, spawnMax, decalSize1, decalSize2;
 
     float currTimer, audioTimer;
 
     public override void EventLoad()
     {
         base.EventLoad();
-        cameraCont = GameController.instance.getCutsceneObject(x, y, 0).GetComponent<CameraController>();
-        state = GameController.instance.getValue(x, y, 0);
-        currTimer = GameController.instance.getValue(x, y, 1);
-        leverMag.On = GameController.instance.getValue(x, y, 2) == 1;
-        leverAud.On = GameController.instance.getValue(x, y, 3) == 1;
+        cameraCont = GameController.ins.getCutsceneObject(x, y, 0).GetComponent<CameraController>();
+        decal2 = GameController.ins.getCutsceneObject(x, y, 1).transform;
+        state = GameController.ins.getValue(x, y, 0);
+        currTimer = GameController.ins.getValue(x, y, 1);
+        
+        leverMag.On = GameController.ins.getValue(x, y, 2) == 1;
+        Debug.Log("magnet should be: " + leverMag.On);
+        leverAud.On = GameController.ins.getValue(x, y, 3) == 1;
+
+        decal1.transform.localScale = Vector3.zero;
+        decal2.transform.localScale = Vector3.zero;
     }
 
     public override void EventFinished()
     {
         base.EventFinished();
-        if (state == 5)
+        if (state == 6)
             cameraCont.Switch(false);
         isStarted = false;
     }
@@ -101,10 +108,12 @@ public class Event_106Containment : Event_Parent
                     {
                         if(!leverMag.On)
                         {
-                            GameController.instance.npcController.mainList[(int)npc.scp106].transform.rotation = spawn1061.rotation;
-                            GameController.instance.npcController.mainList[(int)npc.scp106].Event_Spawn(false, spawn1061.position);
+                            GameController.ins.npcController.mainList[(int)npc.scp106].transform.rotation = spawn1061.rotation;
+                            GameController.ins.npcController.mainList[(int)npc.scp106].Event_Spawn(false, spawn1061.position);
+                            Tween.LocalScale(decal1, new Vector3(decalSize1, decalSize1, 1f), 4f, 0f, Tween.EaseOutStrong);
+ 
 
-                            currTimer = 10;
+                            currTimer = 7;
                             state = 5;
                             paSystem2.Stop();
                             paSystem2.clip = attack106;
@@ -112,22 +121,29 @@ public class Event_106Containment : Event_Parent
                         }
                         else
                         {
-                            GameController.instance.npcController.mainList[(int)npc.scp106].Spawn(true, spawn1062.position);
+                            GameController.ins.npcController.mainList[(int)npc.scp106].Spawn(true, spawn1062.position);
                             EventFinished();
                         }
                         break;
                     }
                 case 5:
                     {
+                        Tween.LocalScale(decal2, new Vector3(decalSize2, decalSize2, 1f), 3f, 0f, Tween.EaseOutStrong);
+                        currTimer = 3;
+                        state = 6;
+                        break;
+                    }
+                case 6:
+                    {
                         if (leverMag.On)
                         {
-                            GameController.instance.npcController.mainList[(int)npc.scp106].UnSpawn();
-                            GameController.instance.npcController.mainList[(int)npc.scp106].data.state = npcstate.death;
+                            GameController.ins.npcController.mainList[(int)npc.scp106].UnSpawn();
+                            GameController.ins.npcController.mainList[(int)npc.scp106].data.state = npcstate.death;
                             EventFinished();
                         }
                         else
                         {
-                            GameController.instance.npcController.mainList[(int)npc.scp106].Spawn(true, spawn1062.position);
+                            GameController.ins.npcController.mainList[(int)npc.scp106].Spawn(true, spawn1062.position);
                             EventFinished();
                         }
                         break;
@@ -138,8 +154,8 @@ public class Event_106Containment : Event_Parent
         }
 
 
-        GameController.instance.setValue(x, y, 0, state);
-        GameController.instance.setValue(x, y, 1, (int)currTimer);
+        GameController.ins.setValue(x, y, 0, state);
+        GameController.ins.setValue(x, y, 1, (int)currTimer);
     }
 
     private void Update()
@@ -156,20 +172,20 @@ public class Event_106Containment : Event_Parent
         {
             box.isFloating = true;
             boxSound.PlayOneShot(magUp);
-            GameController.instance.setValue(x, y, 2, (leverMag.On ? 1:0));
+            GameController.ins.setValue(x, y, 2, (leverMag.On ? 1:0));
         }
         if (!leverMag.On && box.isFloating)
         {
             box.isFloating = false;
             boxSound.PlayOneShot(magDown);
-            GameController.instance.setValue(x, y, 2, (leverMag.On ? 1 : 0));
+            GameController.ins.setValue(x, y, 2, (leverMag.On ? 1 : 0));
         }
 
         if(leverAud.On == paSystem.mute)
         {
             paSystem.mute = !leverAud.On;
             paSystem2.mute = !leverAud.On;
-            GameController.instance.setValue(x, y, 3, (leverAud.On ? 1 : 0));
+            GameController.ins.setValue(x, y, 3, (leverAud.On ? 1 : 0));
         }
 
         if ((state == 2 || state == 3 || state == 4)&& !isStarted)
@@ -183,10 +199,10 @@ public class Event_106Containment : Event_Parent
             }
         }
 
-        if (!isStarted && GameController.instance.npcController.mainList[(int)npc.scp106].data.state == npcstate.death && !leverMag.On)
+        if (!isStarted && GameController.ins.npcController.mainList[(int)npc.scp106].data.state == npcstate.death && !leverMag.On)
         {
-            GameController.instance.npcController.mainList[(int)npc.scp106].data.state = npcstate.alive;
-            GameController.instance.npcController.mainList[(int)npc.scp106].Spawn(true, spawn1062.position);
+            GameController.ins.npcController.mainList[(int)npc.scp106].data.state = npcstate.alive;
+            GameController.ins.npcController.mainList[(int)npc.scp106].Spawn(true, spawn1062.position);
         }
     }
 
@@ -198,8 +214,8 @@ public class Event_106Containment : Event_Parent
         if (state==0)
         {
             Debug.Log("Setup 106");
-            leverMag.On = true;
-            GameController.instance.setValue(x, y, 2, 1);
+            leverMag.SwitchState(true);
+            GameController.ins.setValue(x, y, 2, 1);
             state = 1;
         }
         if(state==2)
@@ -218,7 +234,7 @@ public class Event_106Containment : Event_Parent
         }
         if(state == 4)
         {
-            GameController.instance.npcController.mainList[(int)npc.scp106].Event_Spawn(false, spawn1061.position);
+            GameController.ins.npcController.mainList[(int)npc.scp106].Event_Spawn(false, spawn1061.position);
         }
     }
 

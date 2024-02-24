@@ -8,13 +8,14 @@ public class Equipable_Wear : Item
 {
     public Sprite Overlay;
     public bool protectGas;
+    public bool protectCogn;
     public bool autoEquip;
     public bodyPart part;
 
-    public override void Use(ref gameItem currItem)
+    public override void Use(ref GameItem currItem)
     {
-        Player_Control player = GameController.instance.player.GetComponent<Player_Control>();
-        Debug.Log("Player current item " + ((player.equipment[(int)this.part] == null) ? "nada" : ItemController.instance.items[player.equipment[(int)this.part].itemFileName].itemName) + " current Item = " + itemName);
+        PlayerControl player = GameController.ins.currPly;
+        //Debug.Log("Player current item " + ((player.equipment[(int)this.part] == null) ? "nada" : ItemController.instance.items[player.equipment[(int)this.part].itemFileName].itemName) + " current Item = " + itemName);
         if (player.equipment[(int)this.part] == null || ItemController.instance.items[player.equipment[(int)this.part].itemFileName].itemName != this.itemName)
             player.ACT_Equip(currItem);
         else
@@ -22,12 +23,12 @@ public class Equipable_Wear : Item
 
     }
 
-    public virtual void OnEquip(ref gameItem currItem)
+    public virtual void OnEquip(ref GameItem currItem)
     {
 
     }
 
-    public virtual void OnDequip(ref gameItem currItem)
+    public virtual void OnDequip(ref GameItem currItem)
     {
 
     }

@@ -7,16 +7,16 @@ public class Equipable_Elec : Equipable_Wear
     public bool SpendBattery = true;
     public bool ReceiveBattery = true;
     public float SpendFactor = 0.5f;
-    public override void Use(ref gameItem currItem)
+    public override void Use(ref GameItem currItem)
     {
-        Player_Control player = GameController.instance.player.GetComponent<Player_Control>();
+        PlayerControl player = GameController.ins.player.GetComponent<PlayerControl>();
         if (player.equipment[(int)this.part] == null || ItemController.instance.items[player.equipment[(int)this.part].itemFileName].itemName != this.itemName)
             player.ACT_Equip(currItem);
         else
             player.ACT_UnEquip(part);
     }
 
-    public override bool Mix(ref gameItem currItem, ref gameItem toMix)
+    public override bool Mix(ref GameItem currItem, ref GameItem toMix)
     {
         if (!ReceiveBattery)
             return (false);

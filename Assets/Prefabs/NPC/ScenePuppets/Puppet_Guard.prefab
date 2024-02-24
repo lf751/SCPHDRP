@@ -167,6 +167,7 @@ MonoBehaviour:
   isDebuging: 0
   canDoor: 1
   ikManager: {fileID: 2328346684392234006}
+  Audio: {fileID: 8859068396039518605}
 --- !u!82 &8859068396039518605
 AudioSource:
   m_ObjectHideFlags: 0

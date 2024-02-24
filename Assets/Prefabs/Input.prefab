@@ -43,4 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfb05965e453a144acf8359e254a623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseInput: {fileID: 0}
+  inputText: {fileID: 0}
+  rebindScreen: {fileID: 0}
+  playerAsset: {fileID: -944628639613478452, guid: a92405981242a0e47b83af58f631cb2a,
+    type: 3}

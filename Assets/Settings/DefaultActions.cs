@@ -32,7 +32,7 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""8eb988d3-0f64-4d20-a892-f3bfbcef5677"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -206,13 +206,22 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AnyKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba441620-352e-4f39-875d-ab003e4fa1ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": ""KeyboardMove"",
                     ""id"": ""1bca9d89-a484-48b3-bf68-7af20c63c7ed"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -615,6 +624,17 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                     ""action"": ""DebugF1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19bb2f68-c9f9-455c-bec7-79c491936708"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -644,6 +664,15 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                     ""name"": ""Left Click"",
                     ""type"": ""PassThrough"",
                     ""id"": ""922df942-ada5-4ded-9d21-f28c952d38c4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AnyButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d5be4fa-de1f-46da-be74-54b658a28c12"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -681,6 +710,17 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Default"",
                     ""action"": ""Left Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ffe3735c-bf78-4bdd-b879-d94ad4081b31"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -733,11 +773,13 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_Debug = m_Gameplay.FindAction("Debug", throwIfNotFound: true);
         m_Gameplay_DebugF1 = m_Gameplay.FindAction("DebugF1", throwIfNotFound: true);
+        m_Gameplay_AnyKey = m_Gameplay.FindAction("AnyKey", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pointer = m_UI.FindAction("Pointer", throwIfNotFound: true);
         m_UI_RightClick = m_UI.FindAction("Right Click", throwIfNotFound: true);
         m_UI_LeftClick = m_UI.FindAction("Left Click", throwIfNotFound: true);
+        m_UI_AnyButton = m_UI.FindAction("AnyButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -819,6 +861,7 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_Debug;
     private readonly InputAction m_Gameplay_DebugF1;
+    private readonly InputAction m_Gameplay_AnyKey;
     public struct GameplayActions
     {
         private @DefaultActions m_Wrapper;
@@ -843,6 +886,7 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @Debug => m_Wrapper.m_Gameplay_Debug;
         public InputAction @DebugF1 => m_Wrapper.m_Gameplay_DebugF1;
+        public InputAction @AnyKey => m_Wrapper.m_Gameplay_AnyKey;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -912,6 +956,9 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
             @DebugF1.started += instance.OnDebugF1;
             @DebugF1.performed += instance.OnDebugF1;
             @DebugF1.canceled += instance.OnDebugF1;
+            @AnyKey.started += instance.OnAnyKey;
+            @AnyKey.performed += instance.OnAnyKey;
+            @AnyKey.canceled += instance.OnAnyKey;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -976,6 +1023,9 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
             @DebugF1.started -= instance.OnDebugF1;
             @DebugF1.performed -= instance.OnDebugF1;
             @DebugF1.canceled -= instance.OnDebugF1;
+            @AnyKey.started -= instance.OnAnyKey;
+            @AnyKey.performed -= instance.OnAnyKey;
+            @AnyKey.canceled -= instance.OnAnyKey;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -1000,6 +1050,7 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Pointer;
     private readonly InputAction m_UI_RightClick;
     private readonly InputAction m_UI_LeftClick;
+    private readonly InputAction m_UI_AnyButton;
     public struct UIActions
     {
         private @DefaultActions m_Wrapper;
@@ -1007,6 +1058,7 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
         public InputAction @Pointer => m_Wrapper.m_UI_Pointer;
         public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
         public InputAction @LeftClick => m_Wrapper.m_UI_LeftClick;
+        public InputAction @AnyButton => m_Wrapper.m_UI_AnyButton;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1025,6 +1077,9 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
             @LeftClick.started += instance.OnLeftClick;
             @LeftClick.performed += instance.OnLeftClick;
             @LeftClick.canceled += instance.OnLeftClick;
+            @AnyButton.started += instance.OnAnyButton;
+            @AnyButton.performed += instance.OnAnyButton;
+            @AnyButton.canceled += instance.OnAnyButton;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1038,6 +1093,9 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
             @LeftClick.started -= instance.OnLeftClick;
             @LeftClick.performed -= instance.OnLeftClick;
             @LeftClick.canceled -= instance.OnLeftClick;
+            @AnyButton.started -= instance.OnAnyButton;
+            @AnyButton.performed -= instance.OnAnyButton;
+            @AnyButton.canceled -= instance.OnAnyButton;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1086,11 +1144,13 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnDebug(InputAction.CallbackContext context);
         void OnDebugF1(InputAction.CallbackContext context);
+        void OnAnyKey(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnPointer(InputAction.CallbackContext context);
         void OnRightClick(InputAction.CallbackContext context);
         void OnLeftClick(InputAction.CallbackContext context);
+        void OnAnyButton(InputAction.CallbackContext context);
     }
 }

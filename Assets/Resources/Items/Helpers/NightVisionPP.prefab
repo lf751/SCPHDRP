@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8472440192522384558}
+  - component: {fileID: 3511579398368050640}
   m_Layer: 17
   m_Name: NightVisionPP
   m_TagString: Untagged
@@ -23,96 +24,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7251252194504334528}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9220493237988560320}
+  m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3048992479506219505
-PrefabInstance:
+--- !u!114 &3511579398368050640
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 8472440192522384558}
-    m_Modifications:
-    - target: {fileID: 3419918400845343750, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_Name
-      value: NightVision_CustomPass
-      objectReference: {fileID: 0}
-    - target: {fileID: 6072400780922017804, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_IsGlobal
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6072400780922017804, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: useTargetCamera
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14.206614
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7114481
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.147015
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a94904c25dc80c742834dc764c24c05e, type: 3}
---- !u!4 &9220493237988560320 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6171610710443641905, guid: a94904c25dc80c742834dc764c24c05e,
-    type: 3}
-  m_PrefabInstance: {fileID: 3048992479506219505}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251252194504334528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 7c5f2e33a6f70db4fa8ee21e3ed8c42c, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 100

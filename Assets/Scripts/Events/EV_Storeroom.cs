@@ -47,7 +47,7 @@ public class EV_Storeroom : Event_Parent
                     }
                 case 1:
                     {
-                        GameController.instance.GlobalSFX.PlayOneShot(vent);
+                        GameController.ins.GlobalSFX.PlayOneShot(vent);
                         sci.PlaySound(Voice2,true);
                         guard.SetRota(lookat);
                         sci.SetRota(lookat);
@@ -57,7 +57,7 @@ public class EV_Storeroom : Event_Parent
                     }
                 case 2:
                     {
-                        GameController.instance.player.GetComponent<Player_Control>().FakeBlink(time3 + time4 + time5);
+                        GameController.ins.player.GetComponent<PlayerControl>().FakeBlink(time3 + time4 + time5);
                         timer = time3;
                         status = 3;
                         break;
@@ -74,8 +74,8 @@ public class EV_Storeroom : Event_Parent
                     {
                         guard.PlaySFX(cronch);
                         guard.AnimTrigger(-2, true);
-                        GameController.instance.npcController.mainList[(int)npc.scp173].Event_Spawn(true, Spawn173.transform.position);
-                        GameController.instance.npcController.mainList[(int)npc.scp173].transform.rotation = Spawn173.transform.rotation;
+                        GameController.ins.npcController.mainList[(int)npc.scp173].Event_Spawn(true, Spawn173.transform.position);
+                        GameController.ins.npcController.mainList[(int)npc.scp173].transform.rotation = Spawn173.transform.rotation;
                         timer = time5;
                         status = 5;
                         break;

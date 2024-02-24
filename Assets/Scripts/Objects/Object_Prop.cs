@@ -9,7 +9,7 @@ public class Object_Prop : Object_Interact
     // Start is called before the first frame update
     private void Update()
     {
-        if (isHolding==false && stopHold==false)
+        if (isHolding == false && stopHold == false)
         {
             StopHold();
             stopHold = true;
@@ -30,7 +30,7 @@ public class Object_Prop : Object_Interact
     {
         isHolding = true;
         stopHold = false;
-        transform.position = GameController.instance.playercache.handPos.transform.position+(GameController.instance.playercache.handPos.transform.forward*0.6f) ;
+        transform.position = GameController.ins.currPly.handPos.transform.position + (GameController.ins.currPly.handPos.transform.forward * 0.6f);
         body.isKinematic = true;
         body.useGravity = false;
 

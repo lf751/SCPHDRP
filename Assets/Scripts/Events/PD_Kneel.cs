@@ -38,14 +38,14 @@ public class PD_Kneel : MonoBehaviour
 
             if (Timer <= 0 && Played == false && crouched == false)
             {
-                GameController.instance.PlayHorror(kneel,spot106.transform, npc.none);
+                GameController.ins.PlayHorror(kneel,spot106.transform, npc.none);
                 Played = true;
                 SubtitleEngine.instance.playVoice("kneel106", true);
-                GameController.instance.playercache.ForceLook(spot106.transform.position, 2);
+                GameController.ins.currPly.ForceLook(spot106.transform.position, 2);
             }
             if (Played && !crouched)
             {
-                if (GameController.instance.playercache.Crouch)
+                if (GameController.ins.currPly.Crouch)
                 {
                     Timer = 3;
                     crouched = true;
@@ -53,8 +53,8 @@ public class PD_Kneel : MonoBehaviour
             }
             if(Played && crouched && Timer <= 0)
             {
-                GameController.instance.playercache.StopLook();
-                GameController.instance.GlobalSFX.PlayOneShot(laugh);
+                GameController.ins.currPly.StopLook();
+                GameController.ins.GlobalSFX.PlayOneShot(laugh);
                 RenderSettings.fogColor = og;
                 lights.SetActive(false);
                 tele.Teleport();

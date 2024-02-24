@@ -31,7 +31,7 @@ public class EV_Decontamiantion : Event_Parent
                     Instantiate(smokeprefab, pos1.transform.position, pos1.transform.rotation);
                     Instantiate(smokeprefab, pos2.transform.position, pos2.transform.rotation);
                     spawnedsmoke = true;
-                    GameController.instance.GlobalSFX.PlayOneShot(gas);
+                    GameController.ins.GlobalSFX.PlayOneShot(gas);
                 }
 
                 if (Timer <= 1 && !opened)

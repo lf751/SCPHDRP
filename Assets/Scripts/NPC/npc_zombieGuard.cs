@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class npc_zombieGuard : Map_NPC
 {
-    enum zombieState { wakeup, idle, patrol, chase, soundChase, attack, attackCool}
+    enum zombieState { wakeup, idle, patrol, chase, soundChase, attack, attackCool }
 
     //public AudioClip idle, panic, horror, chaseClip, scream;
     Camera mainCamera;
@@ -19,7 +19,7 @@ public class npc_zombieGuard : Map_NPC
     public LayerMask ground, playerMask, soundLayer;
     public bool debugIsTargeting;
     zombieState state, currAnim;
-    float Timer, framerate = 15, distanceFromPlayer = Mathf.Infinity, intMoveSpeed=0, refMoveSpeed=0;
+    float Timer, framerate = 15, distanceFromPlayer = Mathf.Infinity, intMoveSpeed = 0, refMoveSpeed = 0;
     int currNode, currSoundLevel;
     bool onPath, seePlayer, foundSound, hasPath;
     Vector3 currTarget;
@@ -51,7 +51,7 @@ public class npc_zombieGuard : Map_NPC
         else
         {
             state = zombieState.wakeup;
-            Timer = 8;
+            Timer = Random.Range(7f, 10f);
         }
         voiceSource.volume = data.isActive ? 1 : 0;
 
@@ -101,7 +101,7 @@ public class npc_zombieGuard : Map_NPC
             }
             else
             {
-                currTarget = GameController.instance.playercache.transform.position;
+                currTarget = GameController.ins.currPly.transform.position;
             }
 
             if (state != zombieState.chase && state != zombieState.attack && state != zombieState.attackCool && state != zombieState.wakeup && seePlayer)
@@ -218,12 +218,12 @@ public class npc_zombieGuard : Map_NPC
                         Timer = timeToIdle;
                         voiceSource.PlayOneShot(Hit);
 
-                        if (GameController.instance.isAlive && Physics.OverlapSphere(transform.position + transform.forward, 0.8f, playerMask).Length > 0)
+                        if (GameController.ins.isAlive && Physics.OverlapSphere(transform.position + transform.forward, 0.8f, playerMask).Length > 0)
                         {
-                            GameController.instance.playercache.Health -= 25;
-                            if(GameController.instance.playercache.Health <= 0)
+                            GameController.ins.currPly.Health -= 25;
+                            if (GameController.ins.currPly.Health <= 0)
                             {
-                                GameController.instance.deathmsg = Localization.GetString("deathStrings", "death_049_1");
+                                GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_049_1");
                             }
                         }
 
@@ -234,7 +234,7 @@ public class npc_zombieGuard : Map_NPC
                 case zombieState.idle:
                     {
                         state = zombieState.patrol;
-                        Timer = Random.Range(10, 15);
+                        Timer = Random.Range(10f, 15f);
 
                         break;
                     }
@@ -242,7 +242,7 @@ public class npc_zombieGuard : Map_NPC
                     {
 
                         state = zombieState.idle;
-                        Timer = Random.Range(5, 10);
+                        Timer = Random.Range(5f, 10f);
                         break;
                     }
             }
@@ -297,8 +297,8 @@ public class npc_zombieGuard : Map_NPC
     /// <returns></returns>
     bool CanSee()
     {
-        Vector3 playerDir = GameController.instance.playercache.transform.position - transform.position;
-        distanceFromPlayer = Vector3.Distance(transform.position, GameController.instance.playercache.transform.position);
+        Vector3 playerDir = GameController.ins.currPly.transform.position - transform.position;
+        distanceFromPlayer = Vector3.Distance(transform.position, GameController.ins.currPly.transform.position);
         return (Vector3.Dot(playerDir.normalized, transform.forward) > viewLimit) && !Physics.Raycast(transform.position + Vector3.up * 1.5f, playerDir.normalized, distanceFromPlayer, ground) && distanceFromPlayer < 20f;
     }
 

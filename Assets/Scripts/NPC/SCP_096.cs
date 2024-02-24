@@ -33,8 +33,8 @@ public class SCP_096 : Roam_NPC
     bool hasPath, isRota, hasSeen = false, isPanicking = false, isRunning = false;
     Vector3 currTarget, movement, tempMovement;
     NavMeshPath currPath;
-    Quaternion toRota,fromAngle;
-    private const int valState = 1, valIsChase = 2, valTimer = 3, valTeleTimer=4;
+    Quaternion toRota, fromAngle;
+    private const int valState = 1, valIsChase = 2, valTimer = 3, valTeleTimer = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +77,7 @@ public class SCP_096 : Roam_NPC
         Debug.Log("State loaded = " + (scp096State)state.npcvalue[valState]);
         this.state = (scp096State)state.npcvalue[valState];
         if (this.state == scp096State.run)
-            animator.Play("scp096_skeleton|scp096_run",-1,1);
+            animator.Play("scp096_skeleton|scp096_run", -1, 1);
         agent.Warp(state.Pos.toVector3());
     }
 
@@ -90,7 +90,7 @@ public class SCP_096 : Roam_NPC
                 //Debug.Log("currANim = " + currAnim + " new state = " + state);
                 animator.SetBool("panic", false);
             }
-                
+
 
             switch (state)
             {
@@ -102,7 +102,7 @@ public class SCP_096 : Roam_NPC
                 case scp096State.sitting:
                     {
                         if (currAnim != scp096State.attack)
-                        animator.SetTrigger("toSit");
+                            animator.SetTrigger("toSit");
                         break;
                     }
                 case scp096State.patrol:
@@ -134,7 +134,7 @@ public class SCP_096 : Roam_NPC
     private void OnDrawGizmos()
     {
         if (currTarget != null)
-        Gizmos.DrawSphere(currTarget, 0.3f);
+            Gizmos.DrawSphere(currTarget, 0.3f);
     }
 
     void NPCUpdate()
@@ -143,7 +143,7 @@ public class SCP_096 : Roam_NPC
 
 
         //Current State
-        switch(state)
+        switch (state)
         {
             case scp096State.panic:
                 {
@@ -160,7 +160,7 @@ public class SCP_096 : Roam_NPC
                     agent.speed = normalSpeed;
                     agent.acceleration = accel;
                     agent.angularSpeed = turn;
-                    if (!agent.hasPath||agent.pathStatus==NavMeshPathStatus.PathInvalid)
+                    if (!agent.hasPath || agent.pathStatus == NavMeshPathStatus.PathInvalid)
                         agent.SetDestination(getRandomPoint());
 
                     RaycastHit hit;
@@ -180,7 +180,7 @@ public class SCP_096 : Roam_NPC
                     if (Time.frameCount % framerate == 0)
                     {
 
-                        agent.SetDestination(GameController.instance.playercache.transform.position);
+                        agent.SetDestination(GameController.ins.currPly.transform.position);
                     }
 
                     RaycastHit hit;
@@ -191,8 +191,8 @@ public class SCP_096 : Roam_NPC
 
                     if (Physics.OverlapSphere(transform.position + transform.forward, 0.5f, playerMask).Length > 0)
                     {
-                        GameController.instance.deathmsg = Localization.GetString("deathStrings", "death_096");
-                        GameController.instance.playercache.Death(4);
+                        GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_096");
+                        GameController.ins.currPly.Death(4);
                         debugIsTargeting = false;
                         state = scp096State.attack;
                         Timer = 4f;
@@ -205,24 +205,24 @@ public class SCP_096 : Roam_NPC
         teleportTimer += Time.deltaTime;
 
 
-        
+
         if (debugIsTargeting)
         {
             if (Time.frameCount % framerate == 0)
-                playerDis = Vector3.Distance(faceCol.transform.position, GameController.instance.playercache.transform.position);
+                playerDis = Vector3.Distance(faceCol.transform.position, GameController.ins.currPly.transform.position);
 
-            if ((state != scp096State.attack && state != scp096State.panic && state != scp096State.run)&& teleportTimer > levels[data.npcvalue[0]].timeBeforeTele && playerDis > levels[data.npcvalue[0]].distanceTele)
+            if ((state != scp096State.attack && state != scp096State.panic && state != scp096State.run) && teleportTimer > levels[data.npcvalue[0]].timeBeforeTele && playerDis > levels[data.npcvalue[0]].distanceTele)
             {
                 Vector3 teleportTo;
-                teleportTo = GameController.instance.GetPatrol(GameController.instance.player.transform.position, levels[data.npcvalue[0]].maxTele, levels[data.npcvalue[0]].minTele);
+                teleportTo = GameController.ins.GetPatrol(GameController.ins.player.transform.position, levels[data.npcvalue[0]].maxTele, levels[data.npcvalue[0]].minTele);
                 Spawn(true, teleportTo);
                 teleportTimer = 0;
             }
 
-            if (!hasSeen&&(Time.frameCount % framerate2 == 0)&&Encountered())
+            if (!hasSeen && (Time.frameCount % framerate2 == 0) && Encountered())
             {
                 hasSeen = true;
-                GameController.instance.npcController.npcLevel(npc.scp096);
+                GameController.ins.npcController.npcLevel(npc.scp096);
             }
 
             if (playerDis > 30f)
@@ -235,18 +235,18 @@ public class SCP_096 : Roam_NPC
                 Timer = cryTimer;
             }
 
-            if(state==scp096State.panic&&!isPanicking)
+            if (state == scp096State.panic && !isPanicking)
             {
                 isPanicking = true;
                 screamSource.Stop();
-                GameController.instance.ChangeMusic(panic);
-                GameController.instance.PlayHorror(horror, this.transform, npc.none);
-                GameController.instance.playercache.CognitoHazard(true);
+                GameController.ins.ChangeMusic(panic);
+                GameController.ins.PlayHorror(horror, this.transform, npc.none);
+                GameController.ins.currPly.CognitoHazard(true);
             }
-            if(state==scp096State.run&&!isRunning)
+            if (state == scp096State.run && !isRunning)
             {
                 MusicPlayer.instance.ChangeMusic(chaseClip);
-                isRunning=true;
+                isRunning = true;
                 screamSource.Stop();
                 screamSource.clip = scream;
                 screamSource.Play();
@@ -258,7 +258,7 @@ public class SCP_096 : Roam_NPC
         //Next State
         if (Timer < 0)
         {
-            switch(state)
+            switch (state)
             {
                 case scp096State.idle:
                     {
@@ -395,7 +395,7 @@ public class SCP_096 : Roam_NPC
             Debug.Log("I tried to spawn and it worked kinda");
         }
         else
-        Debug.Log("I failed to spawn :C ");
+            Debug.Log("I failed to spawn :C ");
 
         if (spawn)
         {
@@ -451,7 +451,7 @@ public class SCP_096 : Roam_NPC
 
     void ACT_Rotation()
     {
-        Debug.Log("I'm rotating");
+        //Debug.Log("I'm rotating");
         Timer += Time.deltaTime;
         if (Timer > 1f)
         {
@@ -475,14 +475,14 @@ public class SCP_096 : Roam_NPC
     bool OnView()
     {
         frustum = GeometryUtility.CalculateFrustumPlanes(mainCamera);
-        Vector3 playerDir = GameController.instance.playercache.transform.position - faceCol.transform.position;
-        return GeometryUtility.TestPlanesAABB(frustum, faceCol.bounds) && (Vector3.Dot(playerDir.normalized, faceCol.transform.forward) > viewLimit) && !Physics.Raycast(faceCol.transform.position, playerDir, playerDis, ground) && !GameController.instance.playercache.IsBlinking() && playerDis < 15f;
+        Vector3 playerDir = GameController.ins.currPly.transform.position - faceCol.transform.position;
+        return GeometryUtility.TestPlanesAABB(frustum, faceCol.bounds) && (Vector3.Dot(playerDir.normalized, faceCol.transform.forward) > viewLimit) && !Physics.Raycast(faceCol.transform.position, playerDir, playerDis, ground) && !GameController.ins.currPly.IsBlinking() && playerDis < 15f;
     }
 
     bool Encountered()
     {
         frustum = GeometryUtility.CalculateFrustumPlanes(mainCamera);
-        return GeometryUtility.TestPlanesAABB(frustum, faceCol.bounds) && !Physics.Raycast(faceCol.transform.position, GameController.instance.playercache.transform.position - faceCol.transform.position, playerDis, ground) && playerDis < 15f;
+        return GeometryUtility.TestPlanesAABB(frustum, faceCol.bounds) && !Physics.Raycast(faceCol.transform.position, GameController.ins.currPly.transform.position - faceCol.transform.position, playerDis, ground) && playerDis < 15f;
     }
 
 }

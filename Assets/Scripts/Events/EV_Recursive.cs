@@ -11,13 +11,13 @@ public class EV_Recursive : Event_Parent
     public override void EventLoad()
     {
         base.EventLoad();
-        doorRight1 = GameController.instance.getCutsceneObject(x, y, 0).GetComponent<Object_Door>();
-        doorRight2 = GameController.instance.getCutsceneObject(x, y, 1).GetComponent<Object_Door>();
-        doorRight3 = GameController.instance.getCutsceneObject(x, y, 2).GetComponent<Object_Door>();
+        doorRight1 = GameController.ins.getCutsceneObject(x, y, 0).GetComponent<Object_Door>();
+        doorRight2 = GameController.ins.getCutsceneObject(x, y, 1).GetComponent<Object_Door>();
+        doorRight3 = GameController.ins.getCutsceneObject(x, y, 2).GetComponent<Object_Door>();
 
-        doorLeft1 = GameController.instance.getCutsceneObject(x, y, 3).GetComponent<Object_Door>();
-        doorLeft2 = GameController.instance.getCutsceneObject(x, y, 4).GetComponent<Object_Door>();
-        doorLeft3 = GameController.instance.getCutsceneObject(x, y, 5).GetComponent<Object_Door>();
+        doorLeft1 = GameController.ins.getCutsceneObject(x, y, 3).GetComponent<Object_Door>();
+        doorLeft2 = GameController.ins.getCutsceneObject(x, y, 4).GetComponent<Object_Door>();
+        doorLeft3 = GameController.ins.getCutsceneObject(x, y, 5).GetComponent<Object_Door>();
     }
 
     private void Update()
@@ -66,7 +66,7 @@ public class EV_Recursive : Event_Parent
 
     void Switch(Transform start, Transform end)
     {
-        GameController.instance.playercache.playerWarp((end.transform.position + ((end.transform.rotation * Quaternion.Inverse(start.transform.rotation)) * (GameController.instance.playercache.transform.position - start.position))), end.transform.eulerAngles.y - start.transform.eulerAngles.y);
+        GameController.ins.currPly.playerWarp((end.transform.position + ((end.transform.rotation * Quaternion.Inverse(start.transform.rotation)) * (GameController.ins.currPly.transform.position - start.position))), end.transform.eulerAngles.y - start.transform.eulerAngles.y);
         Debug.Log("Diferencia de Rotacion: " + (end.transform.eulerAngles.y - start.transform.eulerAngles.y));
     }
 }

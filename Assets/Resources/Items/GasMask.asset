@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57386a160ab2e541893d65f49ad28d0, type: 3}
   m_Name: GasMask
   m_EditorClassIdentifier: 
-  colCenter: {x: 0, y: 0, z: 0}
-  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  colCenter: {x: 0.0019891001, y: 0.074591145, z: -0.004300624}
+  colSize: {x: 0.19717175, y: 0.12883127, z: 0.28592354}
   mass: 1
   itemName: gasmask1
   icon: {fileID: 21300000, guid: 899c7119eaff67b43ab861249f1428ca, type: 3}
@@ -43,7 +43,9 @@ MonoBehaviour:
   valueFloat: 0
   valueInt: 0
   SFX: 2
+  useTime: 2
   Overlay: {fileID: 21300000, guid: 6a6274d5470782742a737d067fa8fac9, type: 3}
   protectGas: 1
+  protectCogn: 0
   autoEquip: 0
   part: 0

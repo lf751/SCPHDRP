@@ -48,5 +48,7 @@ MonoBehaviour:
   autoEquip: 0
   part: 2
   SpendBattery: 0
+  ReceiveBattery: 0
   SpendFactor: 0.5
   isOnline: 1
+  isRadar: 1

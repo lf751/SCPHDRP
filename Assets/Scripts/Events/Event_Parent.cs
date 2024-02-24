@@ -16,7 +16,7 @@ public abstract class Event_Parent : MonoBehaviour
 
     public virtual void EventStart()
     {
-        Debug.Log("Empezando Evento");
+        //Debug.Log("Empezando Evento");
         isStarted = true;
     }
     public virtual void EventUpdate()
@@ -24,7 +24,17 @@ public abstract class Event_Parent : MonoBehaviour
     }
     public virtual void EventFinished()
     {
-        Debug.Log("Evento Marcado como termninado. X " + x + " Y " + y);
-        GameController.instance.setDone(x, y);
+        //Debug.Log("Evento Marcado como termninado. X " + x + " Y " + y);
+        GameController.ins.setDone(x, y);
+    }
+
+    public int GetValue(int i)
+    {
+        return GameController.ins.getValue(x, y, i);
+    }
+
+    public void SetValue(int i, int value)
+    {
+        GameController.ins.setValue(x, y, i, value);
     }
 }

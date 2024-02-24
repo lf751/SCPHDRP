@@ -7,13 +7,13 @@ public class RebindInput : MonoBehaviour
     public Text prim, sec, inputName, primBind, secBind;
     public gameplayActions bind;
 
-    public bool defaultOnly=false;
+    public bool defaultOnly = false;
     public bool hasAlt;
     // Start is called before the first frame update
     void Start()
     {
         if (!defaultOnly)
-        RepaintText();
+            RepaintText();
     }
 
     public void DefaultBindings()
@@ -30,7 +30,7 @@ public class RebindInput : MonoBehaviour
     {
         SCPInput.instance.onRebindOver += EndRebind;
         SCPInput.instance.DoRebind(bind, isAlt);
-        
+
     }
 
     void RepaintText()

@@ -24,55 +24,70 @@ public class EV_Intro : MonoBehaviour
 
     public float Timer1, Timer1_5, Timer2, Timer3, Timer, TimerSecondary, LastTimer,Refuse1,Refuse2,Refuse3, RunawayTimer;
     bool StopTimer = false, StopTimer2 = false, ActiveTimer = true, ActiveTimer2 = true, Check1 = false, Check2 = false, Check3 = false, Check4 = false, runningAway, back1 = false, Start = false, grabbed = false;
+    public EV_Intro2 intro2;
 
     private void Awake()
     {
-        GameController.instance.startGame.AddListener(StartEvent);
+        GameController.ins.startGame.AddListener(StartEvent);
     }
     private void OnDestroy()
     {
-        GameController.instance.startGame.RemoveListener(StartEvent);
+        GameController.ins.startGame.RemoveListener(StartEvent);
     }
 
     void StartEvent()
     {
-        if (GlobalValues.playIntro)
-        {
-            GameController.instance.ambianceController.ChangeAmbiance(Ambiance, 8);
-            MusicPlayer.instance.StartMusic(MusIntro);
-            GameController.instance.StopTimer = false;
-            GameController.instance.doGameplay = false;
-            GameController.instance.playercache.playerWarp(playerPos.transform.position, playerPos.transform.eulerAngles.y);
-            introEventStart = true;
-        }
-        else
-        {
-            //
-            RenderSettings.fog = true;
-            GameController.instance.DefMusic();
-            GameController.instance.DefaultAmbiance();
-            GameController.instance.StopTimer = true;
-            GameController.instance.doGameplay = true;
-            GameController.instance.canSave = true;
-            GameController.instance.CullerFlag = true;
-            Destroy(introZone);
-            if (!SaveSystem.instance.playData.worldsCreateds[(int)GameController.instance.worldName])
-                GameController.instance.SetMapPos(0, 10);
-            DestroyImmediate(this);
-        }
 
-        Guard1_con = Guard1.GetComponent<EV_Puppet_Controller>();
-        Guard2_con = Guard2.GetComponent<EV_Puppet_Controller>();
-        playerHead = Camera.main.transform;
-        Player = GameController.instance.player;
-        Timer = 5;
+            if (GlobalValues.playIntro)
+            {
+                RenderSettings.fog = false;
+                //RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
+                //DynamicGI.UpdateEnvironment();
+                GameController.ins.ambianceController.ChangeAmbiance(Ambiance, 8);
+                MusicPlayer.instance.StartMusic(MusIntro);
+                GameController.ins.StopTimer = false;
+                GameController.ins.doGameplay = false;
+                GameController.ins.currPly.playerWarp(playerPos.transform.position, playerPos.transform.eulerAngles.y);
+                introEventStart = true;
+            }
+            else
+            {
+                //
+                RenderSettings.fog = true;
 
-        if (GlobalValues.mapseed.Contains("IntroConvo"))
-        {
-            AsyncScene_1();
-            Door1.GetComponent<Object_Door>().DoorSwitch();
-            ActiveTimer = false;
-        }
+                GameController.ins.DefaultAmbiance();
+                GameController.ins.StopTimer = true;
+                GameController.ins.doGameplay = true;
+                GameController.ins.canSave = true;
+                GameController.ins.CullerFlag = true;
+                //RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Trilight;
+                //DynamicGI.UpdateEnvironment();
+                Destroy(introZone);
+                if (!SaveSystem.instance.playData.worldsCreateds[(int)GameController.ins.worldName])
+                {
+                    GameController.ins.SetMapPos(0, 10);
+                    intro2.sci.GetComponent<EV_Puppet_Controller>().Audio.outputAudioMixerGroup = intro2.sfxMixGroup;
+                    intro2.sci.GetComponent<EV_Puppet_Controller>().SetSeq(intro2.Alarm);
+                    ItemController.instance.AddItem(new GameItem("DOC_orientation"), 0, false);
+                }
+                //Debug.Log(intro2.Alarm);
+
+                GameController.ins.DefMusic();
+                Destroy(this.gameObject);
+            }
+
+            Guard1_con = Guard1.GetComponent<EV_Puppet_Controller>();
+            Guard2_con = Guard2.GetComponent<EV_Puppet_Controller>();
+            playerHead = Camera.main.transform;
+            Player = GameController.ins.player;
+            Timer = 5;
+
+            if (GlobalValues.mapseed.Contains("IntroConvo"))
+            {
+                AsyncScene_1();
+                Door1.GetComponent<Object_Door>().DoorSwitch();
+                ActiveTimer = false;
+            }
     }
 
     private void Update()
@@ -254,8 +269,8 @@ public class EV_Intro : MonoBehaviour
             {
                 Guard1_con.StopPursuit();
                 Guard1_con.PlaySound(Gunshot);
-                Player.GetComponent<Player_Control>().Death(0);
-                GameController.instance.deathmsg = Localization.GetString("deathStrings","death_intro");
+                Player.GetComponent<PlayerControl>().Death(0);
+                GameController.ins.deathmsg = Localization.GetString("deathStrings","death_intro");
                 Check4 = false;
                 Check3 = false;
                 Check2 = false;

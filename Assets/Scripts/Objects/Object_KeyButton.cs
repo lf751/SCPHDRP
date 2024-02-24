@@ -13,15 +13,15 @@ public class Object_KeyButton : Object_Interact
     public int ThisValue;
     public override void Pressed()
     {
-        Player_Control player = GameController.instance.player.GetComponent<Player_Control>();
+        PlayerControl player = GameController.ins.player.GetComponent<PlayerControl>();
 
 
-        if (player.equipment[(int)bodyPart.Hand] != null && ItemController.instance.items[player.equipment[(int)bodyPart.Hand].itemFileName] is Equipable_Key key1)
+        if (player.equipment[(int)bodyPart.Hand] != null && ItemController.instance.items[player.equipment[(int)bodyPart.Hand].itemFileName] is Equipable_Key)
         {
-            if (!WaitForBool || (WaitForBool && GameController.instance.globalBools[ThisValue]))
+            if (!WaitForBool || (WaitForBool && GameController.ins.globalBools[ThisValue]))
             {
                 Equipable_Key key;
-                key = key1;
+                key = (Equipable_Key)ItemController.instance.items[player.equipment[(int)bodyPart.Hand].itemFileName];
                 if (key.level >= Clearance)
                 {
                     Door01.GetComponent<Object_Door>().DoorSwitch();

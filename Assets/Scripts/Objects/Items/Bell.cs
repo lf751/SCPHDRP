@@ -7,10 +7,10 @@ using UnityEngine;
 public class Bell : Item
 {
     public AudioClip[] bellSounds;
-    public override void Use(ref gameItem currItem)
+    public override void Use(ref GameItem currItem)
     {
-        GameController.instance.npcController.simpList[(int)SimpNpcList.bell].isActive=true;
-        GameController.instance.PlayHorror(bellSounds[Random.Range(0, bellSounds.Length - 1)], GameController.instance.playercache.transform, npc.none);
+        GameController.ins.npcController.simpList[(int)SimpNpcList.bell].isActive=true;
+        GameController.ins.PlayHorror(bellSounds[Random.Range(0, bellSounds.Length - 1)], GameController.ins.currPly.transform, npc.none);
     }
 
 }

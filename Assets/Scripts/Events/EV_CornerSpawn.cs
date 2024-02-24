@@ -23,12 +23,12 @@ public class EV_CornerSpawn : Event_Parent
     {
         if (side1.GetComponent<BoxTrigger>().GetState())
         {
-            GameController.instance.npcController.mainList[(int)npc.scp173].Spawn(true, corner1.transform.position);
+            GameController.ins.npcController.mainList[(int)npc.scp173].Spawn(true, corner1.transform.position);
             EventFinished();
         }
         if (side2.GetComponent<BoxTrigger>().GetState())
         {
-            GameController.instance.npcController.mainList[(int)npc.scp173].Spawn(true, corner2.transform.position);
+            GameController.ins.npcController.mainList[(int)npc.scp173].Spawn(true, corner2.transform.position);
             EventFinished();
         }
     }

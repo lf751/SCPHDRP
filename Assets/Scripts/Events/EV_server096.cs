@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Pixelplacement;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class EV_server096 : Event_Parent
     int eventState = 0;
     float Timer;
     public BoxTrigger isOut, isIn;
-    public Transform doorCloser1, doorCloser2, doorCloser3, doorCloser4, doorCloser5, contraLookAt, step1, step2, scpSpawn, step3, step4, decal1, decal2, decal3, decal4, decal5;
+    public Transform doorCloser1, doorCloser2, doorCloser3, doorCloser4, doorCloser5, contraLookAt, step1, step2, scpSpawn, step3, step4, decal1, decal2, decalPuddle, decalPuddle2;
     public Transform [] stepSeq, stepSeq2;
     public GameObject Lights;
     public SCP_096 scp;
@@ -21,6 +22,7 @@ public class EV_server096 : Event_Parent
     public ReflectionProbe probe;
     public Material lights;
     public Color32 noLights;
+    public float decalScale, decalSplashSpeed;
     Color oldLights;
     // Start is called before the first frame update
     void Awake()
@@ -29,7 +31,10 @@ public class EV_server096 : Event_Parent
         gen.volume = 0;
         serv.volume = 0;
 
-        scp = (SCP_096)GameController.instance.npcController.mainList[(int)npc.scp096];
+        scp = (SCP_096)GameController.ins.npcController.mainList[(int)npc.scp096];
+
+        decal1.transform.localScale = Vector3.zero;
+        decal2.transform.localScale = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -37,7 +42,7 @@ public class EV_server096 : Event_Parent
     {
         if (isStarted)
         {
-            if (GameController.instance.getValue(x, y, 0) == 1)
+            if (GameController.ins.getValue(x, y, 0) == 1)
                 DoRoomEvent();
             else
                 EventUpdate();
@@ -49,34 +54,37 @@ public class EV_server096 : Event_Parent
     public override void EventLoad()
     {
         base.EventLoad();
-        lights = GameController.instance.getCutsceneObject(x, y, 0).GetComponent<MeshRenderer>().materials[9];
+        lights = GameController.ins.getCutsceneObject(x, y, 0).GetComponent<MeshRenderer>().materials[9];
         oldLights = lights.GetColor("_EmissionColor");
     }
 
     public override void EventUnLoad()
     {
         base.EventUnLoad();
-        GameController.instance.setValue(x, y, 1, leverPump.On ? 1 : 0);
-        GameController.instance.setValue(x, y, 2, leverPower.On ? 1 : 0);
-        GameController.instance.setValue(x, y, 3, leverGen.On ? 1 : 0);
+        GameController.ins.setValue(x, y, 1, leverPump.On ? 1 : 0);
+        GameController.ins.setValue(x, y, 2, leverPower.On ? 1 : 0);
+        GameController.ins.setValue(x, y, 3, leverGen.On ? 1 : 0);
     }
 
     public override void EventFinished()
     {
         Debug.Log("Finished played");
         isStarted = true;
-        GameController.instance.setDone(x, y);
+        GameController.ins.setDone(x, y);
         if(guard!=null)
             Destroy(guard.gameObject);
         Lights.SetActive(false);
         LockDoors(true);
         isBlackOut = true;
         lights.SetColor("_EmissionColor", noLights);
-        GameController.instance.setValue(x, y, 0, 1);
+        GameController.ins.setValue(x, y, 0, 1);
 
-        leverPump.On = GameController.instance.getValue(x, y, 1) == 1;
-        leverPower.On = GameController.instance.getValue(x, y, 2) == 1;
-        leverGen.On = GameController.instance.getValue(x, y, 3) == 1;
+        leverPump.On = GameController.ins.getValue(x, y, 1) == 1;
+        leverPower.On = GameController.ins.getValue(x, y, 2) == 1;
+        leverGen.On = GameController.ins.getValue(x, y, 3) == 1;
+
+        decal1.transform.localScale = new Vector3(decalScale, decalScale, 1f);
+        decal2.transform.localScale = new Vector3(decalScale, decalScale, 1f);
     }
 
     void LockDoors(bool lockValue)
@@ -139,7 +147,7 @@ public class EV_server096 : Event_Parent
             LockDoors(true);
             audSource.PlayOneShot(blackOut);
             isBlackOut = true;
-            GameController.instance.playercache.FakeBlink(0.25f);
+            GameController.ins.currPly.FakeBlink(0.25f);
             lights.SetColor("_EmissionColor", noLights);
             if(probe!=null)
             probe.RenderProbe();
@@ -149,15 +157,15 @@ public class EV_server096 : Event_Parent
             Lights.SetActive(true);
             LockDoors(false);
             isBlackOut = false;
-            GameController.instance.playercache.FakeBlink(0.25f);
+            GameController.ins.currPly.FakeBlink(0.25f);
             lights.SetColor("_EmissionColor", oldLights);
             if (probe != null)
                 probe.RenderProbe();
         }
 
-        GameController.instance.setValue(x, y, 1, leverPump.On ? 1 : 0);
-        GameController.instance.setValue(x, y, 2, leverPower.On ? 1 : 0);
-        GameController.instance.setValue(x, y, 3, leverGen.On ? 1 : 0);
+        GameController.ins.setValue(x, y, 1, leverPump.On ? 1 : 0);
+        GameController.ins.setValue(x, y, 2, leverPower.On ? 1 : 0);
+        GameController.ins.setValue(x, y, 3, leverGen.On ? 1 : 0);
     }
 
     public override void EventStart()
@@ -169,11 +177,11 @@ public class EV_server096 : Event_Parent
         inDoorsClosed = true;
         isStarted = true;
 
-        GameController.instance.canSave = false;
+        GameController.ins.canSave = false;
 
-        GameController.instance.setValue(x, y, 1, 0);
-        GameController.instance.setValue(x, y, 2, 0);
-        GameController.instance.setValue(x, y, 3, 0);
+        GameController.ins.setValue(x, y, 1, 0);
+        GameController.ins.setValue(x, y, 2, 0);
+        GameController.ins.setValue(x, y, 3, 0);
 
     }
 
@@ -298,9 +306,9 @@ public class EV_server096 : Event_Parent
                 door.isDisabled = true;
 
                 audSource.PlayOneShot(blackOut);
-                GameController.instance.canSave = true;
+                GameController.ins.canSave = true;
 
-                GameController.instance.playercache.FakeBlink(0.25f);
+                GameController.ins.currPly.FakeBlink(0.25f);
                 probe.RenderProbe();
 
                 EventFinished();
@@ -390,7 +398,7 @@ public class EV_server096 : Event_Parent
                         guard.AnimTrigger(-3);
                         scp.evWalkTo(stepSeq2[1].position);
                         eventState = 11;
-                        Timer = 0.75f;
+                        Timer = 0.25f;
                         audSource.Stop();
                         audSource.clip = scene2;
                         audSource.Play();
@@ -398,17 +406,13 @@ public class EV_server096 : Event_Parent
                     }
                 case 11:
                     {
-                        DecalSystem.instance.Decal(decal1.transform.position, decal1.transform.rotation.eulerAngles, 2, false, 0.2f, 1, 2);
-                        DecalSystem.instance.Decal(decal1.transform.position, decal1.transform.rotation.eulerAngles-new Vector3(0,180,0), 2, false, 0.2f, 1, 2);
+                        //DecalSystem.instance.Decal(decal1.transform.position, decal1.transform.rotation.eulerAngles, 2, false, 0.2f, 1, 2);
+                        //DecalSystem.instance.Decal(decal1.transform.position, decal1.transform.rotation.eulerAngles-new Vector3(0,180,0), 2, false, 0.2f, 1, 2);
 
-                        DecalSystem.instance.Decal(decal2.transform.position, decal2.transform.rotation.eulerAngles, 2, false, 0.2f, 1, 2);
-                        DecalSystem.instance.Decal(decal2.transform.position, decal2.transform.rotation.eulerAngles - new Vector3(0, 180, 0), 3, false, 0.2f, 1, 2);
-
-                        DecalSystem.instance.Decal(decal3.transform.position, decal3.transform.rotation.eulerAngles, 2, false, 0.2f, 1, 2);
-                        DecalSystem.instance.Decal(decal3.transform.position, decal3.transform.rotation.eulerAngles - new Vector3(0, 180, 0), 3, false, 0.2f, 1, 2);
-
-                        DecalSystem.instance.Decal(decal4.transform.position, decal4.transform.rotation.eulerAngles, 2, false, 0.2f, 1, 2);
-                        DecalSystem.instance.Decal(decal4.transform.position, decal4.transform.rotation.eulerAngles - new Vector3(0, 180, 0), 2, false, 0.2f, 1, 2);
+                        Tween.LocalScale(decal1, new Vector3(decalScale, decalScale, 1f), decalSplashSpeed, 0f, Tween.EaseOutStrong);
+                        Tween.LocalScale(decal2, new Vector3(decalScale, decalScale, 1f), decalSplashSpeed, 0f, Tween.EaseOutStrong);
+                        DecalSystem.instance.Decal(decalPuddle.position, decalPuddle.rotation, 5f, false, 1f, 1, 2);
+                        DecalSystem.instance.Decal(decalPuddle2.position, decalPuddle2.rotation, 4f, false, 1f, 1, 0);
 
                         eventState = 12;
                         Timer = 0.25f;

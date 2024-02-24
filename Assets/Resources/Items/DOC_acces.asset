@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1895ea64f7a9fab4ca4aef18fe09fb0f, type: 3}
   m_Name: DOC_acces
   m_EditorClassIdentifier: 
-  colCenter: {x: 0, y: 0, z: 0}
-  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  colCenter: {x: 0.00023879111, y: 0.0051007606, z: 0.0024784505}
+  colSize: {x: 0.49118653, y: 0.018859543, z: 0.6664501}
   mass: 1
   itemName: docAC
   icon: {fileID: 21300000, guid: bf5a638eefa23484aab1a50d3b583785, type: 3}
@@ -22,30 +22,16 @@ MonoBehaviour:
   isFem: 0
   isUnique: 1
   keepInv: 0
-  Effects:
-  - affected: 0
-    effect:
-      permanent: 0
-      time: 0
-      max: 0
-      min: 0
-      value: 0
-      multiplier: 0
-  - affected: 0
-    effect:
-      permanent: 0
-      time: 0
-      max: 0
-      min: 0
-      value: 0
-      multiplier: 0
+  Effects: []
   ItemModel: {fileID: 719582466875183260, guid: 108bbe53885c50143be12f8f626883de,
     type: 3}
   valueFloat: 0
   valueInt: 0
   SFX: 0
+  useTime: 0
   Overlay: {fileID: 0}
   protectGas: 0
+  protectCogn: 0
   autoEquip: 0
   part: 0
   filename: docAC

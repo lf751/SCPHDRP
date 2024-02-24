@@ -16,7 +16,7 @@ public struct DoctorDifficultyLevels
 
 public class NPC_049 : Roam_NPC
 {
-    enum scp049State { idle, patrol, chase, trail, kill, hearing, soundChase, trailIdle}
+    enum scp049State { idle, patrol, chase, trail, kill, hearing, soundChase, trailIdle }
 
     //public AudioClip idle, panic, horror, chaseClip, scream;
     public DoctorDifficultyLevels[] levels;
@@ -25,18 +25,18 @@ public class NPC_049 : Roam_NPC
     Collider[] closeSounds;
     NavMeshAgent agent;
     AudioSource voiceSource;
-    public AudioClip [] Chase, Search, Kill;
-    public AudioClip chaseSong;
+    public AudioClip[] Chase, Search, Kill;
+    public AudioClip chaseSong, notice714;
     public Animator animator;
-    public float viewLimit, normalSpeed, chaseSpeed, listeningRange, closeRange;
+    public float viewLimit, normalSpeed, chaseSpeed, listeningRange, closeRange, removeRingTime;
     public LayerMask ground, doors, playerMask, soundLayer;
-    public bool debugIsTargeting, allowMapPath=true;
+    public bool debugIsTargeting, allowMapPath = true;
     scp049State state, currAnim;
-    float audTimer, Timer, trailTimer, fallSpeed, framerate = 10, teleportTimer=0, framerate2 = 60, distanceFromPlayer=Mathf.Infinity;
+    float audTimer, Timer, trailTimer, fallSpeed, framerate = 10, teleportTimer = 0, framerate2 = 60, distanceFromPlayer = Mathf.Infinity, currRemRing;
     int currNode, currSoundLevel;
     [System.NonSerialized]
     public bool seePlayer;
-    bool onPath, isRota, foundSound, hasPath,pathIsMap=false,isPlayingChase;
+    bool onPath, isRota, foundSound, hasPath, pathIsMap = false, isPlayingChase, hasNotice714;
     Vector3 currTarget;
     NavMeshPath currPath;
     Quaternion toRota, fromAngle;
@@ -67,7 +67,7 @@ public class NPC_049 : Roam_NPC
 
     private void LateUpdate()
     {
-        animator.SetFloat("moveSpeed", agent.isOnOffMeshLink && !agent.isStopped? 1 : agent.velocity.magnitude);
+        animator.SetFloat("moveSpeed", agent.isOnOffMeshLink && !agent.isStopped ? 1 : agent.velocity.magnitude);
         if (currAnim != state)
         {
             switch (state)
@@ -96,23 +96,26 @@ public class NPC_049 : Roam_NPC
 
     void NPCUpdate()
     {
-        seePlayer = false;
+
         if (debugIsTargeting && Time.frameCount % framerate == 0)
         {
-            distanceFromPlayer = Vector3.Distance(transform.position, GameController.instance.playercache.transform.position);
+            distanceFromPlayer = Vector3.Distance(transform.position, GameController.ins.currPly.transform.position);
             seePlayer = CanSee();
-            if(seePlayer)
+            if (seePlayer)
             {
                 if (!isPlayingChase)
                 {
-                    GameController.instance.npcController.npcLevel(npc.scp049);
-                    GameController.instance.ChangeMusic(chaseSong);
+                    GameController.ins.npcController.npcLevel(npc.scp049);
+                    GameController.ins.ChangeMusic(chaseSong);
                     isPlayingChase = true;
+                    hasNotice714 = false;
+                    currRemRing = removeRingTime;
+                    Debug.Log("049 started chase!");
                 }
-                currTarget = GameController.instance.playercache.transform.position;
+                currTarget = GameController.ins.currPly.transform.position;
                 teleportTimer = 0;
             }
-            
+
             if (state != scp049State.chase && state != scp049State.kill && seePlayer)
             {
                 data.npcvalue[valIsPanic] = 1;
@@ -120,14 +123,16 @@ public class NPC_049 : Roam_NPC
                 audTimer = 0;
             }
 
-            if (distanceFromPlayer > 15f && isPlayingChase)
+            if (distanceFromPlayer > 18f && isPlayingChase)
             {
-                GameController.instance.DefMusic();
+                GameController.ins.DefMusic();
                 isPlayingChase = false;
             }
         }
 
-        
+        //Debug.Log("049 state: " + state);
+
+
 
         teleportTimer += Time.deltaTime;
 
@@ -139,12 +144,13 @@ public class NPC_049 : Roam_NPC
         if (Time.frameCount % framerate2 == 0 && teleportTimer > levels[data.npcvalue[0]].timeBeforeTele && distanceFromPlayer > levels[data.npcvalue[0]].distanceTele)
         {
             Vector3 teleportTo;
-            teleportTo = GameController.instance.GetPatrol(GameController.instance.player.transform.position, levels[data.npcvalue[0]].maxTele, levels[data.npcvalue[0]].minTele);
+            teleportTo = GameController.ins.GetPatrol(GameController.ins.player.transform.position, levels[data.npcvalue[0]].maxTele, levels[data.npcvalue[0]].minTele);
             Spawn(true, teleportTo);
             teleportTimer = 0;
             agent.isStopped = false;
+            allowMapPath = true;
         }
-         ///DEBUG DATA
+        ///DEBUG DATA
         //Debug.DrawRay(transform.position + Vector3.up, (GameController.instance.playercache.transform.position - transform.position));
         //Debug.Log("Dot de vision " + Vector3.Dot((GameController.instance.playercache.transform.position - transform.position).normalized, transform.forward));
 
@@ -158,12 +164,12 @@ public class NPC_049 : Roam_NPC
                     agent.ResetPath();
                     if (foundSound)
                     {
-                        if (currSoundLevel < 2 )
+                        if (currSoundLevel < 2)
                         {
                             audTimer = 0;
                             foundSound = false;
                             state = scp049State.hearing;
-                            Timer = Random.Range(5, 10);
+                            Timer = Random.Range(2, 5);
                         }
                         else
                         {
@@ -200,7 +206,7 @@ public class NPC_049 : Roam_NPC
                         {
                             audTimer = 0;
                             state = scp049State.hearing;
-                            Timer = Random.Range(3, 10);
+                            Timer = Random.Range(1, 4);
                             foundSound = false;
                         }
                         else
@@ -211,7 +217,8 @@ public class NPC_049 : Roam_NPC
                         }
                     }
 
-                    if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out RaycastHit hit, 0.5f, doors))
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, 0.5f, doors))
                     {
                         if (!hit.transform.gameObject.GetComponent<Object_Door>().GetState())
                         {
@@ -239,8 +246,8 @@ public class NPC_049 : Roam_NPC
             case scp049State.patrol:
                 {
                     agent.speed = normalSpeed;
-                    
-                    
+
+
 
                     if (foundSound)
                     {
@@ -248,7 +255,7 @@ public class NPC_049 : Roam_NPC
                         {
                             audTimer = 0;
                             state = scp049State.hearing;
-                            Timer = Random.Range(5, 10);
+                            Timer = Random.Range(2, 4);
                             foundSound = false;
                         }
                         else
@@ -263,10 +270,11 @@ public class NPC_049 : Roam_NPC
                         state = scp049State.idle;
                         onPath = false;
                         hasPath = false;
-                        Timer = Random.Range(5, 10);
+                        Timer = Random.Range(3, 7);
                     }
 
-                    if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out RaycastHit hit, 0.5f, doors))
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, 0.5f, doors))
                     {
                         if (!hit.transform.gameObject.GetComponent<Object_Door>().GetState())
                         {
@@ -300,21 +308,28 @@ public class NPC_049 : Roam_NPC
             case scp049State.soundChase:
                 {
                     agent.speed = normalSpeed;
-                    
+
 
 
                     if (agent.hasPath && agent.remainingDistance < 0.5f)
                     {
                         if (trailTimer > 0)
+                        {
                             state = scp049State.trail;
+                            Timer = Random.Range(5, 10);
+                        }
                         else
+                        {
                             state = scp049State.idle;
+                            Timer = Random.Range(2, 5);
+                        }
                         onPath = false;
                         currSoundLevel = 0;
-                        Timer = Random.Range(5, 10);
+
                     }
 
-                    if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out RaycastHit hit, 0.5f, doors))
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, 0.5f, doors))
                     {
                         if (!hit.transform.gameObject.GetComponent<Object_Door>().GetState())
                         {
@@ -349,25 +364,86 @@ public class NPC_049 : Roam_NPC
                     foundSound = false;
                     currSoundLevel = 0;
                     agent.speed = chaseSpeed;
-                    
 
-                    if (agent.hasPath && agent.remainingDistance < 0.5f && distanceFromPlayer > 6f)
+                    if (Physics.OverlapSphere(transform.position + transform.forward, 0.5f, playerMask).Length > 0 && !GameController.ins.currPly.godmode)
                     {
-                        state = scp049State.trail;
-                        Timer = Random.Range(5, 10);
-                        trailTimer = Random.Range(20, 30);
-                    }
-
-                    animator.SetBool("reach", distanceFromPlayer < 5 && state != scp049State.kill);
-
-
-                    if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out RaycastHit hit, 0.5f, doors))
-                    {
-                        if (!hit.transform.gameObject.GetComponent<Object_Door>().GetState())
+                        bool isProtected = false;
+                        int part = 0;
+                        for (int i = 0; i < 4; i++)
                         {
-                            agent.isStopped = true;
-                            agent.velocity = Vector3.zero;
-                            Timer += Time.deltaTime;
+                            GameItem currItem = GameController.ins.currPly.equipment[i];
+                            if (currItem == null)
+                                continue;
+                            Item itemData = ItemController.instance.items[currItem.itemFileName];
+                            if (itemData is Equipable_Wear && ((Equipable_Wear)itemData).protectCogn)
+                            {
+                                isProtected = true;
+                                part = i;
+                                break;
+                            }
+                        }
+                        agent.isStopped = true;
+                        if (isProtected)
+                        {
+                            currRemRing -= Time.deltaTime;
+                            if (!hasNotice714)
+                            {
+                                hasNotice714 = true;
+                                PlayVoice(4);
+                                Debug.Log("Stop strugling");
+                            }
+
+
+                            if (currRemRing < 0f)
+                            {
+                                GameController.ins.currPly.ACT_UnEquip((bodyPart)part);
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+
+
+                        //agent.isStopped = true;
+                        agent.velocity = Vector3.zero;
+                        GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_049");
+                        GameController.ins.currPly.Death(0);
+                        Debug.Log("Kill");
+                        state = scp049State.kill;
+                        PlayVoice(3);
+                    }
+                    else
+                    {
+                        if (agent.hasPath && agent.remainingDistance < 0.5f && distanceFromPlayer > 6f)
+                        {
+                            state = scp049State.trail;
+                            Timer = Random.Range(5, 10);
+                            trailTimer = Random.Range(20, 30);
+                        }
+
+
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, 0.5f, doors))
+                        {
+                            if (!hit.transform.gameObject.GetComponent<Object_Door>().GetState())
+                            {
+                                agent.isStopped = true;
+                                agent.velocity = Vector3.zero;
+                                Timer += Time.deltaTime;
+                                animator.SetBool("reach", false);
+                            }
+                            else
+                            {
+                                agent.isStopped = false;
+                                if (Time.frameCount % framerate == 0)
+                                {
+                                    if (seePlayer || distanceFromPlayer < 10f)
+                                        agent.SetDestination(GameController.ins.currPly.transform.position);
+                                }
+                                animator.SetBool("reach", distanceFromPlayer < 5 && state != scp049State.kill);
+                            }
+                            hit.transform.gameObject.GetComponent<Object_Door>().ForceOpen(5);
                         }
                         else
                         {
@@ -375,30 +451,9 @@ public class NPC_049 : Roam_NPC
                             if (Time.frameCount % framerate == 0)
                             {
                                 if (seePlayer || distanceFromPlayer < 10f)
-                                    agent.SetDestination(GameController.instance.playercache.transform.position);
+                                    agent.SetDestination(GameController.ins.currPly.transform.position);
                             }
                         }
-                        hit.transform.gameObject.GetComponent<Object_Door>().ForceOpen(5);
-                    }
-                    else
-                    {
-                        agent.isStopped = false;
-                        if (Time.frameCount % framerate == 0)
-                        {
-                            if (seePlayer || distanceFromPlayer < 10f)
-                                agent.SetDestination(GameController.instance.playercache.transform.position);
-                        }
-                    }
-
-                    if (Physics.OverlapSphere(transform.position + transform.forward, 0.5f, playerMask).Length > 0 && !GameController.instance.playercache.godmode)
-                    {
-                        agent.isStopped = true;
-                        agent.velocity = Vector3.zero;
-                        GameController.instance.deathmsg = Localization.GetString("deathStrings", "death_049");
-                        GameController.instance.playercache.Death(0);
-                        Debug.Log("Kill");
-                        state = scp049State.kill;
-                        PlayVoice(3);
                     }
 
                     break;
@@ -412,7 +467,7 @@ public class NPC_049 : Roam_NPC
         if (trailTimer < 0 && (state == scp049State.trailIdle || state == scp049State.trail))
         {
             state = scp049State.idle;
-            Timer = Random.Range(5, 10);
+            Timer = Random.Range(3, 6);
         }
 
         //Next State
@@ -451,7 +506,7 @@ public class NPC_049 : Roam_NPC
                             state = scp049State.trail;
                         else
                             state = scp049State.idle;
-                        Timer = Random.Range(5, 10);
+                        Timer = Random.Range(3, 7);
                         break;
                     }
             }
@@ -528,9 +583,9 @@ public class NPC_049 : Roam_NPC
     {
         if (!hasPath)
         {
-            if (!GameController.instance.mapless && allowMapPath)
+            if (!GameController.ins.mapless && allowMapPath)
             {
-                currTarget = GameController.instance.GetPatrol(transform.position, 4, 0);
+                currTarget = GameController.ins.GetPatrol(transform.position, 4, 0);
                 pathIsMap = true;
                 hasPath = true;
             }
@@ -567,8 +622,13 @@ public class NPC_049 : Roam_NPC
             voiceSource.clip = Kill[Random.Range(0, Kill.Length)];
             delay = 0;
         }
+        if (library == 4)
+        {
+            voiceSource.clip = notice714;
+            delay = 0;
+        }
         voiceSource.PlayDelayed(delay);
-        if(distanceFromPlayer < 15f)
+        if (distanceFromPlayer < 15f)
             SubtitleEngine.instance.playVoice(voiceSource.clip.name, true);
     }
 
@@ -576,8 +636,8 @@ public class NPC_049 : Roam_NPC
     {
         if (Time.frameCount % framerate == 0)
         {
-            
-            distanceFromPlayer = Vector3.Distance(transform.position, GameController.instance.playercache.transform.position);
+
+            distanceFromPlayer = Vector3.Distance(transform.position, GameController.ins.currPly.transform.position);
             //Debug.Log("Distance " + distanceFromPlayer);
             seePlayer = CanSee();
         }
@@ -592,17 +652,17 @@ public class NPC_049 : Roam_NPC
             case scp049State.patrol:
                 {
                     agent.speed = chaseSpeed;
-                    
+
                     if (Time.frameCount % framerate == 0)
                     {
                         agent.SetDestination(currTarget);
                         if (agent.hasPath && agent.remainingDistance < 0.5f)
                         {
-                            Debug.Log("Honey im home");
                             state = scp049State.idle;
                         }
                     }
-                    if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out RaycastHit hit, 4f, doors))
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, 4f, doors))
                     {
                         hit.transform.gameObject.GetComponent<Object_Door>().ForceOpen(5);
                     }
@@ -626,7 +686,7 @@ public class NPC_049 : Roam_NPC
         state = scp049State.idle;
         currAnim = state;
         agent.Warp(warppoint);
-        
+
 
     }
 
@@ -635,10 +695,10 @@ public class NPC_049 : Roam_NPC
         base.Spawn(beActive, warppoint);
         data.isActive = beActive;
         animator.Rebind();
-        agent.isStopped = false;
         state = scp049State.idle;
         currAnim = state;
-        agent.Warp(warppoint);
+        if (agent.Warp(warppoint))
+            agent.isStopped = false;
     }
 
     public override void StopEvent()
@@ -700,6 +760,25 @@ public class NPC_049 : Roam_NPC
         transform.rotation = Quaternion.Lerp(fromAngle, toRota, perc);
     }
 
+    public void ForceTarget(Vector3 target)
+    {
+        currTarget = target;
+        teleportTimer = 0;
+
+        if (state != scp049State.chase && state != scp049State.kill)
+        {
+            data.npcvalue[valIsPanic] = 1;
+            state = scp049State.chase;
+            Timer = 5f;
+            audTimer = 0;
+            seePlayer = true;
+            distanceFromPlayer = 4f;
+        }
+        agent.SetDestination(target);
+        Debug.Log("049 forcing state! target: " + currTarget);
+
+    }
+
 
 
 
@@ -709,8 +788,8 @@ public class NPC_049 : Roam_NPC
     /// <returns></returns>
     public bool CanSee()
     {
-        Vector3 playerDir = (GameController.instance.playercache.transform.position - this.transform.position).normalized;
-        if(distanceFromPlayer < 3 || ((Vector3.Dot(playerDir, this.transform.forward) > viewLimit) && !Physics.Raycast(this.transform.position + Vector3.up, playerDir, distanceFromPlayer, ground) && distanceFromPlayer < 20f))
+        Vector3 playerDir = (GameController.ins.currPly.transform.position - this.transform.position).normalized;
+        if (distanceFromPlayer < 3f || ((Vector3.Dot(playerDir, this.transform.forward) > viewLimit) && !Physics.Raycast(this.transform.position + (Vector3.up * 1.5f), playerDir, distanceFromPlayer, ground) && distanceFromPlayer < 20f))
         {
             //Debug.Log("Intern I see you");
             return true;
@@ -720,7 +799,7 @@ public class NPC_049 : Roam_NPC
             //Debug.Log("I dont see you");
             return (false);
         }
-        
+
     }
 }
 

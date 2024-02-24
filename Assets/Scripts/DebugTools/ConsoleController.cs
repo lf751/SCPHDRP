@@ -43,7 +43,7 @@ public class ConsoleController
     /// How many log lines should be retained?
     /// Note that strings submitted to appendLogLine with embedded newlines will be counted as a single line.
     /// </summary>
-    const int scrollbackSize = 20;
+    const int scrollbackSize = 60;
 
     Queue<string> scrollback = new Queue<string>(scrollbackSize);
     List<string> commandHistory = new List<string>();
@@ -60,8 +60,8 @@ public class ConsoleController
         registerCommand("echo", echo, "echoes arguments back as array (for testing argument parser)");*/
         registerCommand("help", help, "Print this help. Add a command as an argument and get the explanation for that specific command");
         registerCommand("resetoptions", resetPrefs, "Reset player options");
-        registerCommand("noclip", noclip, "Toggles No Clip");
-        registerCommand("godmode", godmode, "Switches godmode");
+        registerCommand("noclip", noclip, "[on/off] Toggles or sets No Clip");
+        registerCommand("godmode", godmode, "[on/off] Switches or sets godmode");
         registerCommand("playsub", playsub, "Plays the specified subtitle from the specified table. Usage: playsub [identifier] [table]   (WITHOUT THE BRACKETS)");
         registerCommand("playvoicesub", playvoicesub, "Plays the specified voice subtitle from the specified character. Usage: playsub [character] [identifier]   (WITHOUT THE BRACKETS)");
         registerCommand("playtuto", playtuto, "Shows the specified tutorial card. Usage: playtuto [identifier] (NO BRACKETS)");
@@ -78,7 +78,11 @@ public class ConsoleController
         registerCommand("spawn096", spawn096, "Spawns SCP-096 at the center of the current room");
         registerCommand("spawn513", spawn513, "Activates SCP-513");
         registerCommand("health", sethealth, "Sets the player current health [0 - 100]");
+        registerCommand("zombie", zombiestate, "Gives player the zombie state");
+        registerCommand("hackall", hackkall, "Hacks every screen in the game");
         registerCommand(repeatCmdName, repeatCommand, "Repeat last command.");
+
+
     }
 
     void registerCommand(string command, CommandHandler handler, string help)
@@ -88,7 +92,7 @@ public class ConsoleController
 
     public void appendLogLine(string line)
     {
-        Debug.Log(line);
+        //Debug.Log(line);
 
         if (scrollback.Count >= ConsoleController.scrollbackSize)
         {
@@ -226,7 +230,7 @@ public class ConsoleController
             appendLogLine("Spawning Item " + item);
             if (ItemController.instance.items.ContainsKey(item))
             {
-                if (ItemController.instance.AddItem(new gameItem(item), 0)==-1)
+                if (ItemController.instance.AddItem(new GameItem(item), 0) == -1)
                     appendLogLine("Inventory full");
             }
             else
@@ -275,7 +279,7 @@ public class ConsoleController
             }
             else
             {
-                SubtitleEngine.instance.playSub(table,id);
+                SubtitleEngine.instance.playSub(table, id);
             }
         }
     }
@@ -302,7 +306,7 @@ public class ConsoleController
             else
             {
 
-                        appendLogLine("Subtitle not found");
+                appendLogLine("Subtitle not found");
             }
         }
     }
@@ -323,7 +327,7 @@ public class ConsoleController
             }
             else
             {
-                GameController.instance.player.GetComponent<Player_Control>().Health = value;
+                GameController.ins.player.GetComponent<PlayerControl>().Health = value;
             }
         }
     }
@@ -342,7 +346,7 @@ public class ConsoleController
         }
         else
         {
-            if (GameController.instance.TeleportRoom(text))
+            if (GameController.ins.TeleportRoom(text))
                 appendLogLine(string.Format("Teleporting to room {0}", text));
             else
                 appendLogLine("Teleport Failed");
@@ -370,7 +374,7 @@ public class ConsoleController
             }
             else
             {
-                GameController.instance.TeleportCoord(x, y);
+                GameController.ins.TeleportCoord(x, y);
                 appendLogLine(string.Format("Teleporting to {0} {1}", x, y));
             }
         }
@@ -389,35 +393,76 @@ public class ConsoleController
 
     void noclip(string[] args)
     {
-        GameController.instance.player.GetComponent<Player_Control>().SwitchNoClip();
+
+        bool valueTo = !GameController.ins.currPly.IsNoClip;
+        if (args.Length > 0)
+        {
+            string text = args[0];
+            if (text == "on")
+            {
+                valueTo = true;
+            }
+            if (text == "off")
+            {
+                valueTo = false;
+            }
+        }
+
+        GameController.ins.player.GetComponent<PlayerControl>().SwitchNoClip(valueTo);
+        appendLogLine("noclip is now " + (valueTo ? "on" : "off"));
     }
 
     void godmode(string[] args)
     {
-        GameController.instance.playercache.godmode = !GameController.instance.playercache.godmode;
+        bool valueTo = !GameController.ins.currPly.godmode;
+        if (args.Length > 0)
+        {
+            string text = args[0];
+            if (text == "on")
+            {
+                valueTo = true;
+            }
+            if (text == "off")
+            {
+                valueTo = false;
+            }
+        }
+
+        GameController.ins.currPly.godmode = valueTo;
+
+        appendLogLine("godmode is now " + (valueTo ? "on" : "off"));
     }
 
     void spawn106(string[] args)
     {
-        GameController.instance.CL_spawn106();
+        GameController.ins.CL_spawn106();
     }
 
     void spawn173(string[] args)
     {
-        GameController.instance.CL_spawn173();
+        GameController.ins.CL_spawn173();
     }
 
     void spawn513(string[] args)
     {
-        GameController.instance.CL_spawn513();
+        GameController.ins.CL_spawn513();
     }
     void spawn049(string[] args)
     {
-        GameController.instance.CL_spawn049();
+        GameController.ins.CL_spawn049();
     }
     void spawn096(string[] args)
     {
-        GameController.instance.CL_spawn096();
+        GameController.ins.CL_spawn096();
+    }
+
+    void hackkall(string[] args)
+    {
+        CameraController[] cams = GameObject.FindObjectsByType<CameraController>(FindObjectsSortMode.None);
+        foreach (CameraController camera in cams)
+        {
+            camera.Switch895(true);
+        }
     }
 
 
@@ -445,10 +490,10 @@ public class ConsoleController
 
         }
         else
-        foreach (CommandRegistration reg in commands.Values)
-        {
-            appendLogLine(string.Format("{0}: {1}", reg.command, reg.help));
-        }
+            foreach (CommandRegistration reg in commands.Values)
+            {
+                appendLogLine(string.Format("{0}: {1}", reg.command, reg.help));
+            }
     }
 
     void hide(string[] args)
@@ -461,17 +506,25 @@ public class ConsoleController
 
     void safeplace(string[] args)
     {
-        GameController.instance.GoSafePlace();
+        GameController.ins.GoSafePlace();
+    }
+
+    void zombiestate(string[] args)
+    {
+        GameController.ins.currPly.hasZombie = true;
+        GameController.ins.currPly.zombieTimer = 350;
     }
 
     void goPocket(string[] args)
     {
-        GameController.instance.GoPocket();
+        SaveSystem.instance.playData = GameController.ins.QuickSave();
+        GlobalValues.worldState = SaveSystem.instance.playData;
+        GameController.ins.GoPocket();
     }
 
     void safereturn(string[] args)
     {
-        GameController.instance.WorldReturn();
+        GameController.ins.WorldReturn();
     }
 
     void repeatCommand(string[] args)
@@ -488,7 +541,7 @@ public class ConsoleController
         }
     }
 
-    void subcheck(string [] args)
+    void subcheck(string[] args)
     {
         Localization.AddMissing();
     }
@@ -497,6 +550,12 @@ public class ConsoleController
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
+    }
+
+    public void Callback(string condition, string stackTrace, LogType type)
+    {
+        if (type == LogType.Log || type == LogType.Error || type == LogType.Exception)
+            appendLogLine("system: " + condition);
     }
 
     #endregion

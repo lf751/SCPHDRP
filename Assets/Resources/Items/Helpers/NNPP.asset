@@ -21,21 +21,55 @@ MonoBehaviour:
     value: {x: 1, y: 98.99999}
   minLuminance:
     overrideState: 1
-    value: 0
+    value: 2.6
   maxLuminance:
     overrideState: 1
-    value: 0
+    value: 8.95
   keyValue:
     overrideState: 1
-    value: 5.16
+    value: 6
   eyeAdaptation:
     overrideState: 1
-    value: 1
+    value: 0
   speedUp:
     overrideState: 1
     value: 2
   speedDown:
     overrideState: 1
+    value: 1
+--- !u!114 &-5230425196561548695
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
+  m_Name: LensDistortion
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 31
+  intensityX:
+    overrideState: 0
+    value: 1
+  intensityY:
+    overrideState: 0
+    value: 1
+  centerX:
+    overrideState: 0
+    value: 0
+  centerY:
+    overrideState: 0
+    value: 0
+  scale:
+    overrideState: 0
     value: 1
 --- !u!114 &-5157938130264154577
 MonoBehaviour:
@@ -87,8 +121,8 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   tonemapper:
-    overrideState: 1
-    value: 0
+    overrideState: 0
+    value: 1
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -134,7 +168,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: -2.31
+    value: 0
   contrast:
     overrideState: 0
     value: 100
@@ -172,7 +206,7 @@ MonoBehaviour:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0}
   gain:
-    overrideState: 1
+    overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 1}
   masterCurve:
     overrideState: 0
@@ -1387,13 +1421,13 @@ MonoBehaviour:
   m_Name: NNPP
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 8533605743741637314}
   - {fileID: -5157938130264154577}
   - {fileID: 4128069080574768095}
   - {fileID: -2796966392373415787}
   - {fileID: 6070453894715519661}
   - {fileID: -8845324280786303306}
   - {fileID: 5566815465302620869}
+  - {fileID: -5230425196561548695}
 --- !u!114 &4128069080574768095
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1412,16 +1446,16 @@ MonoBehaviour:
     value: 1
   m_NVColor:
     overrideState: 1
-    value: {r: 0, g: 1, b: 0.116751194, a: 0}
+    value: {r: 0, g: 1, b: 0.11764717, a: 0}
   m_TargetBleachColor:
     overrideState: 1
     value: {r: 0.33707735, g: 1, b: 0.3254717, a: 1}
   m_baseLightingContribution:
     overrideState: 1
-    value: 0.1
+    value: 0
   m_LightSensitivityMultiplier:
     overrideState: 1
-    value: 123.8
+    value: 5
 --- !u!114 &5566815465302620869
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1459,9 +1493,9 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.09
+    value: 0.1
   threshold:
-    overrideState: 0
+    overrideState: 1
     value: 1
   softKnee:
     overrideState: 0
@@ -1471,10 +1505,10 @@ MonoBehaviour:
     value: 65472
   diffusion:
     overrideState: 1
-    value: 4.34
+    value: 2.5
   anamorphicRatio:
     overrideState: 1
-    value: -1
+    value: 0
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -1488,37 +1522,3 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
---- !u!114 &8533605743741637314
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
-  m_Name: LensDistortion
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 36
-  intensityX:
-    overrideState: 0
-    value: 1
-  intensityY:
-    overrideState: 0
-    value: 1
-  centerX:
-    overrideState: 0
-    value: 0
-  centerY:
-    overrideState: 0
-    value: 0
-  scale:
-    overrideState: 0
-    value: 1

@@ -5,15 +5,14 @@ using UnityEngine;
 public class Equipable_Loader : Equipable_Wear
 {
     public string assetName;
-    Object loadedAsset, spawnedAsset;
+    GameObject spawnedAsset;
     // Start is called before the first frame update
-    public override void OnEquip(ref gameItem currItem)
+    public override void OnEquip(ref GameItem currItem)
     {
-        loadedAsset = Resources.Load<GameObject>(string.Concat("Items/Helpers/", assetName));
-        spawnedAsset = Instantiate(loadedAsset, SCP_UI.instance.CanvasPos);
+        spawnedAsset = Instantiate(Resources.Load<GameObject>(string.Concat("Items/Helpers/", assetName)));
     }
 
-    public override void OnDequip(ref gameItem currItem)
+    public override void OnDequip(ref GameItem currItem)
     {
         DestroyImmediate(spawnedAsset);
         Resources.UnloadUnusedAssets();

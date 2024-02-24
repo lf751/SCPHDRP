@@ -19,7 +19,7 @@ public class EV_Tunnel_Gas : Event_Parent
 
     public override void EventFinished()
     {
-        GameController.instance.GlobalSFX.PlayOneShot(gasLeak);
+        GameController.ins.GlobalSFX.PlayOneShot(gasLeak);
         cont.Switch(true);
         base.EventFinished();
         isStarted = false;

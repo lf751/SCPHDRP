@@ -8,6 +8,7 @@ public class Object_Elevator : Object_Persistent
     public Transform Floor1, Floor2;
     public Object_Button_Trigger Out1, Out2, Switch1, Switch2;
     public Object_Door Door1, Door2;
+    public GameObject Door1Objects, Door2Objects;
     public bool FloorUp;
     public float MovingTime;
     bool Ignoreinputs = false;
@@ -19,15 +20,15 @@ public class Object_Elevator : Object_Persistent
     float Timer;
     public override void Start()
     {
-        State = FloorUp;
+        State = FloorUp ? 1 : 0;
         base.Start();
 
     }
 
-    public override void resetState()
+    public override void ResetState()
     {
-        base.resetState();
-        FloorUp = State;
+        base.ResetState();
+        FloorUp = State == 1 ? true : false;
     }
 
     // Update is called once per frame
@@ -63,7 +64,7 @@ public class Object_Elevator : Object_Persistent
                     Door2.DoorSwitch();
             }
 
-            if ((Switch1.GetComponent<Object_Button_Trigger>().activated == true || Switch2.GetComponent<Object_Button_Trigger>().activated == true) && !Ignoreinputs && Timer <= 0)
+            if (((Switch1.GetComponent<Object_Button_Trigger>().activated == true && Door1.IsOpen) || (Switch2.GetComponent<Object_Button_Trigger>().activated == true && Door2.IsOpen)) && !Ignoreinputs && Timer <= 0)
             {
                 //SwitchFloor(Floor1.transform, Floor2.transform);
                 CloseDoors();
@@ -81,7 +82,7 @@ public class Object_Elevator : Object_Persistent
 
         if (Timer <= (MovingTime - 2) && !soundPlayed)
         {
-            GameController.instance.GlobalSFX.PlayOneShot(elev);
+            GameController.ins.GlobalSFX.PlayOneShot(elev);
             soundPlayed = true;
         }
 
@@ -91,38 +92,45 @@ public class Object_Elevator : Object_Persistent
             Door2.isDisabled = false;
 
             FloorUp = !FloorUp;
-            State = !State;
-            GameController.instance.SetObjectState(State, id);
+            State = FloorUp ? 1 : 0;
+            GameController.ins.SetObjectState(State, id);
 
             if (insideElev)
             {
                 if (FloorUp)
-                    StartCoroutine(SwitchFloor(Floor2, Floor1));
+                {
+                    Door1Objects.SetActive(true);
+                    SwitchFloor(Floor2, Floor1);
+                }
                 else
-                    StartCoroutine(SwitchFloor(Floor1, Floor2));
+                {
+                    Door2Objects.SetActive(true);
+                    SwitchFloor(Floor1, Floor2);
+                }
             }
 
             if (FloorUp)
             {
                 Door1.DoorSwitch();
-                GameController.instance.holdRoom = false;
+                GameController.ins.holdRoom = false;
             }
             else
             {
                 Door2.DoorSwitch();
-                GameController.instance.holdRoom = true;
+                GameController.ins.holdRoom = true;
             }
 
-            GameController.instance.GlobalSFX.PlayOneShot(ding);
+            GameController.ins.GlobalSFX.PlayOneShot(ding);
             Ignoreinputs = false;
         }
     }
 
-    IEnumerator SwitchFloor(Transform start, Transform end)
+    void SwitchFloor(Transform start, Transform end)
     {
-        yield return null;
-        GameObject objPlayer = GameController.instance.player;
-        objPlayer.GetComponent<Player_Control>().playerWarp((end.transform.position + ((end.transform.rotation * Quaternion.Inverse(start.transform.rotation)) * (objPlayer.transform.position - start.position))), end.transform.eulerAngles.y - start.transform.eulerAngles.y);
+        //yield return null;
+        GameObject objPlayer = GameController.ins.player;
+        objPlayer.GetComponent<PlayerControl>().playerWarp((end.transform.position + ((end.transform.rotation * Quaternion.Inverse(start.transform.rotation)) * (objPlayer.transform.position - start.position))), end.transform.eulerAngles.y - start.transform.eulerAngles.y);
+
         //Debug.Log("Diferencia de Rotacion: " + (end.transform.eulerAngles.y - start.transform.eulerAngles.y));
 
     }

@@ -23,7 +23,8 @@ public class ScreenRenderer : MonoBehaviour
     {
 
         plane = GameObject.CreatePrimitive(PrimitiveType.Quad);
-        plane.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        plane.transform.position = transform.position;
+        plane.transform.rotation = transform.rotation;
         plane.transform.localScale = transform.localScale;
     }
 

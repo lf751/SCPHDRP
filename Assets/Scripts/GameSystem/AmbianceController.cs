@@ -25,7 +25,7 @@ public class AmbianceController : MonoBehaviour
     void Update()
     {
         if (enableAmbiance && AmbianceLibrary.Length != 0)
-        DoAmbiance();
+            DoAmbiance();
 
     }
 
@@ -35,7 +35,7 @@ public class AmbianceController : MonoBehaviour
         if (ambiancetimer <= 0)
         {
             int i = Random.Range(0, AmbianceLibrary.Length);
-            GameController.instance.MixAmbiance.PlayOneShot(AmbianceLibrary[i]);
+            GameController.ins.MixAmbiance.PlayOneShot(AmbianceLibrary[i]);
             ambiancetimer = ambiancefreq * Random.Range(1, 5);
         }
     }
@@ -47,7 +47,7 @@ public class AmbianceController : MonoBehaviour
         {
             int i = Random.Range(0, GenericAmbiance.Length);
 
-            GameController.instance.MixAmbiance.PlayOneShot(GenericAmbiance[i]);
+            GameController.ins.MixAmbiance.PlayOneShot(GenericAmbiance[i]);
             GENambiancetimer = GENambiancefreq * Random.Range(2, 5);
         }
     }

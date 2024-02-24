@@ -24,12 +24,12 @@ public class EV_Tunnel106 : Event_Parent
         base.EventUpdate();
         if(trigger1.GetState())
         {
-            GameController.instance.npcController.mainList[(int)npc.scp106].Spawn(true, spawn1.position);
+            GameController.ins.npcController.mainList[(int)npc.scp106].Spawn(true, spawn1.position);
             EventFinished();
         }
         if (trigger2.GetState())
         {
-            GameController.instance.npcController.mainList[(int)npc.scp106].Spawn(true, spawn2.position);
+            GameController.ins.npcController.mainList[(int)npc.scp106].Spawn(true, spawn2.position);
             EventFinished();
         }
     }

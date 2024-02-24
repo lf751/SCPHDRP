@@ -30,18 +30,18 @@ public class MatChange : MonoBehaviour
                 else
                     frame = 1;
 
-                HeavyLockMat.materials[1].SetTexture("_MainTex", frames[frame]);
+                HeavyLockMat.sharedMaterials[1].SetTexture("_EmissionMap", frames[frame]);
                 Timer = 1;
             }
         }
 
-        if (lightLock != GameController.instance.globalBools[globalToCheck])
+        if (lightLock != GameController.ins.globalBools[globalToCheck])
         {
-            lightLock = GameController.instance.globalBools[globalToCheck];
+            lightLock = GameController.ins.globalBools[globalToCheck];
 
             if (lightLock == true)
             {
-                    HeavyLockMat.materials[1].SetTexture("_MainTex", frames[0]);
+                HeavyLockMat.sharedMaterials[1].SetTexture("_EmissionMap", frames[0]);
             }
         }
     }

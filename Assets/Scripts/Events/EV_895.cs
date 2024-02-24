@@ -2,55 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EV_895 : MonoBehaviour
+public class EV_895 : Event_Parent
 {
-    public float perc = 0, percAffectedTime, normalTime, speed;
-    public AnimationCurve Curve;
-    public Transform Target, Orig;
-    Quaternion lookAt;
-    public Mesh quad;
-    public Material mat;
-    public Texture[] text;
-    Vector3 moving;
-    Camera cam;
-    // Start is called before the first frame update
-    /*void Start()
-    {
-        
-    }*/
-    float Timer = 0;
-    bool showing = false;
+    public Object_LeverV lever;
+    public BoxTrigger trigger;
+    public Transform spawn106;
+    bool spawned = false;
 
-    private void Start()
+    /*public override void EventLoad()
     {
-        cam = Camera.main;
+        base.EventLoad();
+        Debug.Log("Getting Cutscene Object");
+        lever.On = GameController.ins.globalBools[7];
+    }*/
+
+    public override void EventStart()
+    {
+        base.EventStart();
+        EventFinished();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Timer -= Time.deltaTime;
-        if (Timer < 0 && showing == false)
+        if (isStarted)
         {
-            showing = true;
-            Timer = 3;
-            moving = Orig.position;
-            mat.mainTexture = text[Random.Range(0, text.Length - 1)];
+            EventUpdate();
         }
+    }
 
-        float movePerc = (3-Timer) / 3;
+    public override void EventUpdate()
+    {
+        GameController.ins.globalBools[7] = lever.On;
+        //Debug.Log("Is lever?: " + lever.On);
 
-        if (Timer < 0 && showing == true)
+        if (spawned == false && trigger.GetComponent<BoxTrigger>().GetState())
         {
-            showing = false;
-            Timer = normalTime - (percAffectedTime*perc);
+            GameController.ins.npcController.mainList[(int)npc.scp106].Spawn(true, spawn106.transform.position);
+            GameController.ins.npcController.mainList[(int)npc.scp106].transform.rotation = spawn106.transform.rotation;
+            spawned = true;
+            SetValue(0, 1);
         }
+    }
 
-        //create the rotation we need to be in to look at the target
-        lookAt = Quaternion.LookRotation((Orig.position- Target.position).normalized);
-
-        moving = Vector3.Lerp(moving, Target.position, Curve.Evaluate(movePerc));
-        Graphics.DrawMesh(quad, moving, lookAt, mat, 0, null, 0, null, false, false, false);
+    public override void EventFinished()
+    {
+        base.EventFinished();
+        lever.SwitchState(GameController.ins.globalBools[7]);
+        spawned = (GetValue(0) == 1);
+        isStarted = true;
     }
 
 }

@@ -22,7 +22,7 @@ public class RadioController : MonoBehaviour
     public float dotTimer;
 
     Equipable_Radio _Radio;
-    gameItem currRadio;
+    GameItem currRadio;
     // Start is called before the first frame update
     void Start()
     {
@@ -275,7 +275,7 @@ public class RadioController : MonoBehaviour
         
         radio.SetActive(true);
         TurnRadio();
-        currRadio = GameController.instance.player.GetComponent<Player_Control>().equipment[(int)bodyPart.Hand];
+        currRadio = GameController.ins.player.GetComponent<PlayerControl>().equipment[(int)bodyPart.Hand];
         _Radio = ((Equipable_Radio)ItemController.instance.items[currRadio.itemFileName]);
         sfxStatic.PlayOneShot(change);
     }

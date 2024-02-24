@@ -28,9 +28,9 @@ public class EventHandler : MonoBehaviour
     public int EventSet()
     {
         EventChosen = -1;
-        for (int i=0; i < EventList.Length; i++)
+        for (int i = 0; i < EventList.Length; i++)
         {
-            if (EventList[i].Chance > Random.Range(0,100))
+            if (EventList[i].Chance > Random.Range(0, 100))
             {
                 EventChosen = i;
                 break;
@@ -56,7 +56,7 @@ public class EventHandler : MonoBehaviour
 
     public void EventLoad(int x, int y, bool isDone)
     {
-        
+
         if (Spawned == false)
         {
             if (EventChosen == -2)
@@ -77,15 +77,15 @@ public class EventHandler : MonoBehaviour
     {
         Event = Resources.Load<GameObject>(string.Concat("Events/", scp_event));
 
-        Debug.Log("Evento " + scp_event + " cargado en " + x + " " + y);
-        
+        //Debug.Log("Evento " + scp_event + " cargado en " + x + " " + y);
+
         if (pos == null)
         {
-            Event = Instantiate(Event, this.transform.position, this.transform.rotation, GameController.instance.eventParent.transform);
+            Event = Instantiate(Event, this.transform.position, this.transform.rotation, GameController.ins.eventParent.transform);
 
         }
         else
-            Event = Instantiate(Event, pos.position, pos.rotation, GameController.instance.eventParent.transform);
+            Event = Instantiate(Event, pos.position, pos.rotation, GameController.ins.eventParent.transform);
 
         Event.GetComponent<Event_Parent>().x = x;
         Event.GetComponent<Event_Parent>().y = y;
@@ -96,7 +96,7 @@ public class EventHandler : MonoBehaviour
     {
         if (Event)
         {
-            Debug.Log("Evento iniciado " + Event.name);
+            Debug.Log("Starting Event " + Event.name);
             Event.GetComponent<Event_Parent>().EventStart();
         }
     }
@@ -105,13 +105,13 @@ public class EventHandler : MonoBehaviour
     {
         if (Event)
         {
-            Debug.Log("Eliminando evento " + Event.name);
+            //Debug.Log("Eliminando evento " + Event.name);
             Event.GetComponent<Event_Parent>().EventUnLoad();
             Destroy(Event);
         }
         Event = null;
         Spawned = false;
-        
+
 
     }
 

@@ -16,15 +16,15 @@ public class EV_Tunnel173 : Event_Parent
         {
             isTimer = true;
             Timer = 2;
-            GameController.instance.GlobalSFX.PlayOneShot(blackOut);
-            GameController.instance.playercache.FakeBlink(4);
+            GameController.ins.GlobalSFX.PlayOneShot(blackOut);
+            GameController.ins.currPly.FakeBlink(4);
         }
         if(isTimer)
         {
             Timer -= Time.deltaTime;
             if(Timer < 0)
             {
-                GameController.instance.npcController.mainList[(int)npc.scp173].Spawn(true, transform.position);
+                GameController.ins.npcController.mainList[(int)npc.scp173].Spawn(true, transform.position);
                 EventFinished();
             }
 

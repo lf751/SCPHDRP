@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60f9225f8652da499c4b4b6bf76c929, type: 3}
+  m_Name: NightVision
+  m_EditorClassIdentifier: 
+  colCenter: {x: 0, y: 0.08082068, z: 0.030173019}
+  colSize: {x: 0.25087738, y: 0.1790657, z: 0.31405756}
+  mass: 1
+  itemName: nv
+  icon: {fileID: 21300000, guid: 654f43939883c4a41a589356dc751858, type: 3}
+  deleteUse: 0
+  hasEffect: 0
+  isFem: 0
+  isUnique: 0
+  keepInv: 0
+  Effects: []
+  ItemModel: {fileID: -927199367670048503, guid: 4d0ae54fecce5ff4fb6ce1b2e2f060e0,
+    type: 3}
+  valueFloat: 50
+  valueInt: 0
+  SFX: 1
+  useTime: 3
+  Overlay: {fileID: 21300000, guid: d47917be02994474fb28f430bcdb1372, type: 3}
+  protectGas: 0
+  protectCogn: 0
+  autoEquip: 0
+  part: 0
+  SpendBattery: 1
+  ReceiveBattery: 1
+  SpendFactor: 1.25
+  assetName: NightVisionHUD

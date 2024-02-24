@@ -26,10 +26,10 @@ public class EV_BreachStart : Event_Parent
         base.EventStart();
         ded.AnimTrigger(-7, true);
         ded.DeactivateCollision();
-        GameController.instance.QuickSave();
+        GameController.ins.QuickSave();
 
-        DecalSystem.instance.Decal(Anchor2.transform.position+Vector3.right*0.1f, Anchor2.transform.rotation.eulerAngles, 6f, false, 5f, 2, 0);
-        DecalSystem.instance.Decal(Anchor2.transform.position, Anchor2.transform.rotation.eulerAngles, 6f, false, 5f, 2, 0);
+        //DecalSystem.instance.Decal(Anchor2.transform.position+Vector3.right*0.1f, Anchor2.transform.rotation, 6f, false, 5f, 2, 0);
+        //DecalSystem.instance.Decal(Anchor2.transform.position, Anchor2.transform.rotation, 6f, false, 5f, 2, 0);
     }
 
     void Update()
@@ -45,10 +45,10 @@ public class EV_BreachStart : Event_Parent
 
         if (Timer <= 0.0f && StopTimer == false)
         {
-            GameController.instance.player.GetComponent<Player_Control>().FakeBlink(1f);
-            GameController.instance.ambianceController.ChangeAmbiance(NewAmbiance, 6);
-            GameController.instance.GlobalSFX.PlayOneShot(blackout);
-            GameController.instance.npcController.mainList[(int)npc.scp173].Spawn(false, GameController.instance.transform.position);
+            GameController.ins.player.GetComponent<PlayerControl>().FakeBlink(1f);
+            GameController.ins.ambianceController.ChangeAmbiance(NewAmbiance, 6);
+            GameController.ins.GlobalSFX.PlayOneShot(blackout);
+            GameController.ins.npcController.mainList[(int)npc.scp173].Spawn(false, GameController.ins.transform.position);
             StopTimer = true;
             SCP_UI.instance.ShowTutorial("tutorun");
             EventFinished();
@@ -56,9 +56,9 @@ public class EV_BreachStart : Event_Parent
 
         if (Timer <= 4f && step == false && StopTimer == false)
         {
-            GameController.instance.player.GetComponent<Player_Control>().FakeBlink(1f);
-            GameController.instance.GlobalSFX.PlayOneShot(blackout);
-            GameController.instance.npcController.mainList[(int)npc.scp173].Spawn(false, Anchor2.transform.position);
+            GameController.ins.player.GetComponent<PlayerControl>().FakeBlink(1f);
+            GameController.ins.GlobalSFX.PlayOneShot(blackout);
+            GameController.ins.npcController.mainList[(int)npc.scp173].Spawn(false, Anchor2.transform.position);
             step = true;
         }
 
@@ -74,11 +74,11 @@ public class EV_BreachStart : Event_Parent
                 Gua_.PlaySound(Dialog);
                 SubtitleEngine.instance.playVoice("scene_BreachStart_1", true);
 
-                GameController.instance.npcController.mainList[(int)npc.scp173].Spawn(false, Anchor1.transform.position);
-                GameController.instance.player.GetComponent<Player_Control>().FakeBlink(0.5f);
-                GameController.instance.GlobalSFX.PlayOneShot(blackout);
+                GameController.ins.npcController.mainList[(int)npc.scp173].Spawn(false, Anchor1.transform.position);
+                GameController.ins.player.GetComponent<PlayerControl>().FakeBlink(0.5f);
+                GameController.ins.GlobalSFX.PlayOneShot(blackout);
 
-                GameController.instance.npcController.mainList[(int)npc.scp173].transform.rotation = Anchor1.transform.rotation;
+                GameController.ins.npcController.mainList[(int)npc.scp173].transform.rotation = Anchor1.transform.rotation;
                 check2 = false;
                 StopTimer = false;
                 Timer = 10;

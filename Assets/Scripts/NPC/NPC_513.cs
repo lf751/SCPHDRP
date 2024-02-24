@@ -32,14 +32,14 @@ public class NPC_513 : SimpleNPC
     {
         base.NPCUpdate();
 
-        transform.rotation = Quaternion.Inverse(GameController.instance.playercache.transform.rotation);
+        transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(Lib.DirectionTo(transform.position, GameController.ins.currPly.transform.position), Vector3.up).normalized);
         ghostModel.position = new Vector3(transform.position.x + (Mathf.Sin(speedUpDown * (Time.time * random1)) * distanceLeftRight), transform.position.y + (Mathf.Sin(speedUpDown * Time.time) * distanceUpDown), transform.position.z + ((Mathf.Sin(speedUpDown * (Time.time * random2))) * distanceForwardBackwards));
 
         Timer -= Time.deltaTime;
         if (Timer < 0 && !seen)
         {
-            float dotF = Vector3.Dot(Vector3.forward, GameController.instance.playercache.transform.forward);
-            float dotR = Vector3.Dot(Vector3.right, GameController.instance.playercache.transform.forward);
+            float dotF = Vector3.Dot(Vector3.forward, GameController.ins.currPly.transform.forward);
+            float dotR = Vector3.Dot(Vector3.right, GameController.ins.currPly.transform.forward);
 
             bool invertRight = false, invertForw = false, goUp = true;
 
@@ -57,7 +57,7 @@ public class NPC_513 : SimpleNPC
             if (dotR > dotF)
                 goUp = false;
 
-            transform.position = new Vector3((goUp ? (GameController.instance.roomsize * GameController.instance.xPlayer) : (GameController.instance.roomsize * (GameController.instance.xPlayer + (invertRight ? -2 : 2)))), 0, (!goUp ? (GameController.instance.roomsize * GameController.instance.yPlayer) : (GameController.instance.roomsize * (GameController.instance.yPlayer + (invertForw ? -2 : 2)))));
+            transform.position = new Vector3((goUp ? (GameController.ins.roomsize * GameController.ins.xPlayer) : (GameController.ins.roomsize * (GameController.ins.xPlayer + (invertRight ? -2 : 2)))), 0, (!goUp ? (GameController.ins.roomsize * GameController.ins.yPlayer) : (GameController.ins.roomsize * (GameController.ins.yPlayer + (invertForw ? -2 : 2)))));
 
             Timer = waitForSeen;
 
@@ -67,18 +67,18 @@ public class NPC_513 : SimpleNPC
 
         if (!seen && Time.frameCount % framerate == 0)
         {
-            float dis = Vector3.Distance(GameController.instance.playercache.transform.position, transform.position);
-            if (dis < 14 && (!Physics.Raycast(transform.position + Vector3.up, ((GameController.instance.playercache.transform.position + Vector3.up)- (transform.position + Vector3.up)).normalized, dis, col)))
+            float dis = Vector3.Distance(GameController.ins.currPly.transform.position, transform.position);
+            if (dis < 14 && (!Physics.Raycast(transform.position + Vector3.up, ((GameController.ins.currPly.transform.position + Vector3.up) - (transform.position + Vector3.up)).normalized, dis, col)))
             {
                 seen = true;
                 Timer = 10f;
-                GameController.instance.PlayHorror(bell, transform, npc.none);
+                GameController.ins.PlayHorror(bell, transform, npc.none);
             }
         }
 
         if (seen)
         {
-            transform.position += (GameController.instance.playercache.transform.forward * speed) * Time.deltaTime;
+            transform.position += (GameController.ins.currPly.transform.forward * speed) * Time.deltaTime;
             if (Timer < 0)
             {
                 transform.position = new Vector3(0, -100, 0);
@@ -88,5 +88,5 @@ public class NPC_513 : SimpleNPC
         }
     }
 
-    
+
 }

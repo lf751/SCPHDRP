@@ -22,14 +22,14 @@ public class EV_light_testroom : Event_Parent
             Timer -= Time.deltaTime;
         if (Timer <= 0.0f && StopTimer == false)
         {
-            if (GameController.instance.player.GetComponent<Player_Control>().IsBlinking())
+            if (GameController.ins.player.GetComponent<PlayerControl>().IsBlinking())
             {
-                GameController.instance.player.GetComponent<Player_Control>().FakeBlink(0.3f);
-                GameController.instance.npcController.mainList[(int)npc.scp173].Event_Spawn(true, Anchor2.transform.position);
+                GameController.ins.player.GetComponent<PlayerControl>().FakeBlink(0.3f);
+                GameController.ins.npcController.mainList[(int)npc.scp173].Event_Spawn(true, Anchor2.transform.position);
                 StopTimer = true;
                 Screen.SetActive(false);
-                GameController.instance.PlayHorror(SFX[0],Anchor2.transform, npc.none);
-                GameController.instance.PlayHorror(SFX[1],Anchor2.transform, npc.none);
+                GameController.ins.PlayHorror(SFX[0],Anchor2.transform, npc.none);
+                GameController.ins.PlayHorror(SFX[1],Anchor2.transform, npc.none);
                 SCP_UI.instance.ShowTutorial("tutoinv2");
                 EventFinished();
             }
@@ -40,7 +40,7 @@ public class EV_light_testroom : Event_Parent
     public override void EventStart()
     {
         base.EventStart();
-        GameController.instance.npcController.mainList[(int)npc.scp173].Event_Spawn(true, Anchor1.transform.position);
+        GameController.ins.npcController.mainList[(int)npc.scp173].Event_Spawn(true, Anchor1.transform.position);
     }
 
     public override void EventFinished()

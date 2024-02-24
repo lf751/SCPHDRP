@@ -30,8 +30,8 @@ public class EndlessHallway : MonoBehaviour
 
     void Switch(Transform start, Transform end)
     {
-        GameObject objPlayer = GameController.instance.player;
-        objPlayer.GetComponent<Player_Control>().playerWarp((end.transform.position + ((end.transform.rotation * Quaternion.Inverse(start.transform.rotation)) * (objPlayer.transform.position - start.position))), end.transform.eulerAngles.y - start.transform.eulerAngles.y);
+        GameObject objPlayer = GameController.ins.player;
+        objPlayer.GetComponent<PlayerControl>().playerWarp((end.transform.position + ((end.transform.rotation * Quaternion.Inverse(start.transform.rotation)) * (objPlayer.transform.position - start.position))), end.transform.eulerAngles.y - start.transform.eulerAngles.y);
         Debug.Log("Diferencia de Rotacion: " + (end.transform.eulerAngles.y - start.transform.eulerAngles.y));
     }
 }

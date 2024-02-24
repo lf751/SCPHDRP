@@ -40,16 +40,16 @@ public class EV_DemoEnd : Event_Parent
             }
         }
 
-        if (GameController.instance.globalBools[2])
+        if (GameController.ins.globalBools[2])
         {
             if (trigger.GetState() && !Started)
             {
                 Started = true;
                 Timer = TimerEnd;
-                GameController.instance.GlobalSFX.PlayOneShot(DemoEnd);
+                GameController.ins.GlobalSFX.PlayOneShot(DemoEnd);
                 LoadingSystem.instance.FadeOut(1, new Vector3Int(0, 0, 0));
-                GameController.instance.globalBools[2] = false;
-                GameController.instance.Action_QuickSave();
+                GameController.ins.globalBools[2] = false;
+                GameController.ins.Action_QuickSave();
 
             }
         }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d38e1b7dfdb52459f8d83fecf4118c, type: 3}
   m_Name: DOC_SCP372NEW
   m_EditorClassIdentifier: 
-  colCenter: {x: 0, y: 0, z: 0}
-  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  colCenter: {x: 0.00023879111, y: 0.0051007606, z: 0.0024784505}
+  colSize: {x: 0.49118653, y: 0.018859543, z: 0.6664501}
   mass: 0.1
   itemName: doc372
   icon: {fileID: 21300000, guid: 6384ac8a73f6e0a45b8e4a8abd446ef4, type: 3}
@@ -27,8 +27,10 @@ MonoBehaviour:
   valueFloat: 0
   valueInt: 0
   SFX: 0
+  useTime: 0
   Overlay: {fileID: 0}
   protectGas: 0
+  protectCogn: 0
   autoEquip: 0
   part: 2
   assetName: text372

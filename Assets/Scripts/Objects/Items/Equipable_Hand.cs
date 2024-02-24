@@ -7,9 +7,9 @@ public class Equipable_Hand : Equipable_Wear
 {
     public int handID;
 
-    public override void Use(ref gameItem currItem)
+    public override void Use(ref GameItem currItem)
     {
-        Player_Control player = GameController.instance.player.GetComponent<Player_Control>();
+        PlayerControl player = GameController.ins.player.GetComponent<PlayerControl>();
 
         if (player.equipment[(int)this.part] == null || ItemController.instance.items[player.equipment[(int)this.part].itemFileName].itemName != this.itemName)
             player.ACT_Equip(currItem);

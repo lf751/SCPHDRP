@@ -8,7 +8,7 @@ using UnityEngine;
 
 
 [System.Serializable]
-public enum Worlds { facility, pocket, russia, dontCare=-1 };
+public enum Worlds { facility, pocket, russia, dontCare = -1 };
 
 
 /// <summary>
@@ -19,7 +19,12 @@ public enum Worlds { facility, pocket, russia, dontCare=-1 };
 public class ItemList
 {
     public float X, Y, Z;
-    public gameItem item;
+    [SerializeReference]
+    public GameItem item;
+    public ItemList()
+    {
+        item = null;
+    }
 }
 
 [System.Serializable]
@@ -65,13 +70,16 @@ public class saveMeta
 [System.Serializable]
 public class WorldData
 {
+    [SerializeReference]
     public ItemList[] worldItems;
+    [SerializeReference]
     public NPC_Data[] npcData;
+    [SerializeReference]
     public NPC_Data[] mainData;
     public bool[] simpData;
 
     public List<savedDoor> doorState;
-    public List<savedObject> persState;
+    public List<int> persState;
 
     public SeriVector playerPos;
     public float angle;
@@ -80,22 +88,25 @@ public class WorldData
 [System.Serializable]
 public class SaveData
 {
-    
+
     public string saveName;
     public string saveSeed;
     public room[,] savedMap;
     public int[,] navMap;
     public MapSize savedSize;
-    public float Health, bloodLoss, zombieTime, leftRun, leftBlink;
-    
+    public float Health, bloodLoss, zombieTime, leftRun, leftBlink, coffinTime;
+
     public int mapX, mapY;
-    public List<gameItem[]> items;
+    [SerializeReference]
+    public List<GameItem[]> items;
+
     public List<bool[]> equips;
 
     public Worlds currentWorld;
+    //[SerializeReference]
     public WorldData[] worlds;
     public bool[] worldsCreateds;
-    
+
     public bool holdRoom;
     public Random.State seedState;
 
@@ -110,7 +121,7 @@ public class SaveSystem : MonoBehaviour
 {
     public const int worldQ = 3;
 
-    public SaveData playData = new();
+    public SaveData playData = new SaveData();
     public static SaveSystem instance = null;
 
 
@@ -140,18 +151,20 @@ public class SaveSystem : MonoBehaviour
 
         string jsonString = JsonUtility.ToJson(new saveMeta(GlobalValues.mapseed, dataPath));
 
-        using StreamWriter streamWriter = File.CreateText(metaPath);
-        streamWriter.Write(jsonString);
+        using (StreamWriter streamWriter = File.CreateText(metaPath))
+        {
+            streamWriter.Write(jsonString);
+        }
     }
 
-    public  void LoadState()
+    public void LoadState()
     {
         /*string[] filePaths = GetFilePaths();
 
         if (filePaths.Length > 0)
         {*/
         playData = LoadSaveFile(GlobalValues.pathfile);
-        Debug.Log("Lo cargue! " + GlobalValues.pathfile);
+        //Debug.Log("Lo cargue! " + GlobalValues.pathfile);
         /*}
         else
             Debug.Log("No encontre nada");*/
@@ -162,20 +175,25 @@ public class SaveSystem : MonoBehaviour
 
     void WriteSaveFile(SaveData data, string path)
     {
-        BinaryFormatter binaryFormatter = new();
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-        using FileStream fileStream = File.Open(path, FileMode.OpenOrCreate);
-        binaryFormatter.Serialize(fileStream, data);
-        Debug.Log("ArchivoGuardado en " + path);
+        using (FileStream fileStream = File.Open(path, FileMode.OpenOrCreate))
+        {
+            binaryFormatter.Serialize(fileStream, data);
+            Debug.Log("Saved in " + path);
+        }
     }
 
     static SaveData LoadSaveFile(string path)
     {
-        BinaryFormatter binaryFormatter = new();
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-        using FileStream fileStream = File.Open(path, FileMode.Open);
-        Debug.Log("Abriendo de " + path);
-        return (SaveData)binaryFormatter.Deserialize(fileStream);
+        using (FileStream fileStream = File.Open(path, FileMode.Open))
+        {
+            Debug.Log("Loading from " + path);
+            return (SaveData)binaryFormatter.Deserialize(fileStream);
+
+        }
     }
 
     /*string[] GetFilePaths()

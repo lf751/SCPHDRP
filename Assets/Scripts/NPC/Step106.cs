@@ -15,12 +15,12 @@ public class Step106 : MonoBehaviour
     }
     void StepSound()
     {
-        
+
         foot.clip = steps[Random.Range(0, steps.Length)];
         foot.Play();
         if (Physics.Raycast(transform.position + (Vector3.up), Vector3.down, out ray, 1.5f, Collision, QueryTriggerInteraction.Ignore))
         {
-            DecalSystem.instance.Decal(ray.point + (Vector3.up * 0.05f), new Vector3(90f, 0, 0), 2f, false, 0.4f, 2, 0);
+            DecalSystem.instance.Decal(ray.point, Quaternion.Euler(0f, Random.Range(-180f, 180f), 0f), Random.Range(1.8f, 2.3f), false, 0.6f, 2, 0);
         }
 
     }

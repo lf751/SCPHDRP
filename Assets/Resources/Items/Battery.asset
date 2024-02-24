@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212984bd537ceae4d9be38226d17bba7, type: 3}
   m_Name: Battery
   m_EditorClassIdentifier: 
-  colCenter: {x: 0, y: 0, z: 0}
-  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  colCenter: {x: -0.0024863668, y: 0.017901875, z: 0.00017482787}
+  colSize: {x: 0.08478776, y: 0.047278263, z: 0.07010655}
   mass: 1
   itemName: bat_nor
   icon: {fileID: 21300000, guid: fd151096f4b8a1449a91643733b08cb6, type: 3}
@@ -22,24 +22,9 @@ MonoBehaviour:
   isFem: 1
   isUnique: 0
   keepInv: 0
-  Effects:
-  - affected: 0
-    effect:
-      permanent: 0
-      time: 0
-      max: 0
-      min: 0
-      value: 0
-      multiplier: 0
-  - affected: 0
-    effect:
-      permanent: 0
-      time: 0
-      max: 0
-      min: 0
-      value: 0
-      multiplier: 0
+  Effects: []
   ItemModel: {fileID: 100000, guid: 7c8c007a1a4a2b34fa9f31c4fb7e76c8, type: 3}
   valueFloat: 0
   valueInt: 0
   SFX: 1
+  useTime: 0

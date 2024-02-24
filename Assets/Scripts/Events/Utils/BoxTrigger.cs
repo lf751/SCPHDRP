@@ -11,13 +11,19 @@ public class BoxTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
+        {
+            //Debug.Log("Player exited", this.gameObject);
             Triggered = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
+        {
             Triggered = true;
+            //Debug.Log("Player entered trigger", this.gameObject);
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -26,17 +32,18 @@ public class BoxTrigger : MonoBehaviour
             Triggered = true;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (autoFalse)
-            Triggered = false;
+        {
+            Triggered = false; 
+            //Debug.Log("Auto Updating boxtrigger", this.gameObject);
+        }
     }
 
     public bool GetState()
     {
-        bool value = Triggered;
-        
-        return value;
+        return Triggered;
         
     }
 }

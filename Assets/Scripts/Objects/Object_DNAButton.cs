@@ -12,9 +12,9 @@ public class Object_DNAButton : Object_Interact
     public int ThisValue;
     public override void Pressed()
     {
-        Player_Control player = GameController.instance.player.GetComponent<Player_Control>();
+        PlayerControl player = GameController.ins.player.GetComponent<PlayerControl>();
 
-        if (!WaitForBool || (WaitForBool && GameController.instance.globalBools[ThisValue]))
+        if (!WaitForBool || (WaitForBool && GameController.ins.globalBools[ThisValue]))
         {
             if (player.equipment[(int)bodyPart.Hand] != null && ItemController.instance.items[player.equipment[(int)bodyPart.Hand].itemFileName] is Equipable_Hand)
             {

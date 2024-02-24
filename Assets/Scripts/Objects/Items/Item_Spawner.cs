@@ -25,7 +25,7 @@ public class Item_Spawner : MonoBehaviour
                 if (gend < table[i].items[j].Rate)
                 {
                     GameObject newObject;
-                    newObject = Instantiate(GameController.instance.itemSpawner, positions[i].position, positions[i].rotation);
+                    newObject = Instantiate(GameController.ins.itemSpawner, positions[i].position, positions[i].rotation);
                     Helper(newObject, table[i].items[j].Spawn, positions[i].position);
                     j = table[i].items.Length + 1;
                 }
@@ -35,10 +35,10 @@ public class Item_Spawner : MonoBehaviour
 
     void Helper(GameObject newObject, Item item, Vector3 position)
     {
-        gameItem newItem = new gameItem(item.name);
+        GameItem newItem = new GameItem(item.name);
         newObject.GetComponent<Object_Item>().item = newItem;
-        newObject.GetComponent<Object_Item>().id = GameController.instance.AddItem(position, newItem);
-        Debug.Log(newObject.GetComponent<Object_Item>().id);
+        newObject.GetComponent<Object_Item>().id = GameController.ins.AddItem(position, newItem);
+        //Debug.Log(newObject.GetComponent<Object_Item>().id);
         newObject.GetComponent<Object_Item>().Spawn();
     }
 }

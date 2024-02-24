@@ -6,9 +6,9 @@ using UnityEngine;
 [CreateAssetMenu (fileName = "new Consumable", menuName = "Items/Consumable")]
 public class Consumable : Item
 {
-    public override void Use(ref gameItem currItem)
+    public override void Use(ref GameItem currItem)
     {
-        GameController.instance.playercache.SetEffect(this);
+        GameController.ins.currPly.SetEffect(this);
     }
 
 }

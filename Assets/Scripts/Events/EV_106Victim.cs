@@ -25,7 +25,7 @@ public class EV_106Victim : Event_Parent
             {
 
                 victim.PlaySFX(hit);
-                GameController.instance.PlayHorror(horror, victim.transform, npc.none);
+                GameController.ins.PlayHorror(horror, victim.transform, npc.none);
                 Hit = true;
                 
             }
@@ -36,8 +36,8 @@ public class EV_106Victim : Event_Parent
     {
         if (!isStarted)
         {
-            DecalSystem.instance.Decal(decal.position, decal.rotation.eulerAngles, 8f, false, 5f, 2, 0);
-            GameController.instance.GlobalSFX.PlayOneShot(corrosion);
+            DecalSystem.instance.Decal(decal.position, decal.rotation, 10f, false, 5f, 2, 0);
+            GameController.ins.GlobalSFX.PlayOneShot(corrosion);
             StartCoroutine(Spawning());
             isStarted = true;
         }

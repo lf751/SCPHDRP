@@ -10,10 +10,10 @@ public class EV_ElevJanitor : Event_Parent
     public override void EventLoad()
     {
         base.EventLoad();
-        if (GameController.instance.getValue(x, y, 0) == 0)
+        if (GameController.ins.getValue(x, y, 0) == 0)
         {
-            GameController.instance.getCutsceneObject(x, y, 0).GetComponent<Object_Door>().DoorSwitch();
-            GameController.instance.setValue(x, y, 0, 1);
+            GameController.ins.getCutsceneObject(x, y, 0).GetComponent<Object_Door>().DoorSwitch();
+            GameController.ins.setValue(x, y, 0, 1);
         }
     }
 
@@ -27,8 +27,8 @@ public class EV_ElevJanitor : Event_Parent
     }
     public override void EventFinished()
     {
-        DecalSystem.instance.Decal(decal1.position, decal1.rotation.eulerAngles, 2.5f, true, 3.5f, 1, 2);
-        DecalSystem.instance.Decal(decal2.position, decal2.rotation.eulerAngles, 2f, true, 2f, 0, 2);
+        DecalSystem.instance.Decal(decal1.position, decal1.rotation, 2.5f, true, 3.5f, 1, 2);
+        DecalSystem.instance.Decal(decal2.position, decal2.rotation, 2f, true, 2f, 0, 2);
         janitor.AnimTrigger(-8, true);
         base.EventFinished();
     }

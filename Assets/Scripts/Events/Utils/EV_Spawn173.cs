@@ -8,7 +8,7 @@ public class EV_Spawn173 : Event_Parent
     public override void EventStart()
     {
         base.EventStart();
-        GameController.instance.npcController.mainList[(int)npc.scp173].Spawn(true, transform.position);
+        GameController.ins.npcController.mainList[(int)npc.scp173].Spawn(true, transform.position);
 
         EventFinished();
     }

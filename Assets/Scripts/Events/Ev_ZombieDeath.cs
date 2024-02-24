@@ -15,10 +15,10 @@ public class Ev_ZombieDeath : MonoBehaviour
 
     private void OnEnable()
     {
-        GameController.instance.player.GetComponent<Player_Control>().ForceWalk(Path);
-        GameController.instance.playercache.ForceLook(viewTarget.position, 5f);
-        GameController.instance.playercache.allowMove = false;
-        GameController.instance.playercache.forceWalkSpeed = 0.5f;
+        GameController.ins.player.GetComponent<PlayerControl>().ForceWalk(Path);
+        GameController.ins.currPly.ForceLook(viewTarget.position, 5f);
+        GameController.ins.currPly.allowMove = false;
+        GameController.ins.currPly.forceWalkSpeed = 0.5f;
 
         Timer = 1f;
     }
@@ -42,7 +42,7 @@ public class Ev_ZombieDeath : MonoBehaviour
                 case 1:
                     {
                         state = 2;
-                        GameController.instance.playercache.FakeBlink(3);
+                        GameController.ins.currPly.FakeBlink(3);
                         Timer = 8f;
                         break;
                     }
@@ -57,7 +57,7 @@ public class Ev_ZombieDeath : MonoBehaviour
                 case 3:
                     {
                         scientist.SetTrigger("die");
-                        GameController.instance.playercache.FakeBlink(5);
+                        GameController.ins.currPly.FakeBlink(5);
                         Timer = 6f;
                         state = 4;
                         break;
@@ -65,8 +65,8 @@ public class Ev_ZombieDeath : MonoBehaviour
                 case 4:
                     {
                         state = 5;
-                        GameController.instance.deathmsg = Localization.GetString("deathStrings", "death_008");
-                        GameController.instance.playercache.Death(0);
+                        GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_008");
+                        GameController.ins.currPly.Death(0);
                         break;
                     }
 

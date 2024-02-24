@@ -10,8 +10,9 @@
                     "type": "Value",
                     "id": "8eb988d3-0f64-4d20-a892-f3bfbcef5677",
                     "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
+                    "processors": "StickDeadzone",
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Look",
@@ -19,7 +20,8 @@
                     "id": "eb48c530-b410-4022-b1fd-e9ebc6cd1698",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Blink",
@@ -27,7 +29,8 @@
                     "id": "d79f775f-fcbf-4271-a604-6eac5c462383",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Inventory",
@@ -35,7 +38,8 @@
                     "id": "cbdb562a-a2c1-4b7e-938d-e010320a94f1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "InteractYes",
@@ -43,7 +47,8 @@
                     "id": "e88bcb32-64f9-43d2-8444-62103ec62881",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "InteractHold",
@@ -51,7 +56,8 @@
                     "id": "10a89798-5151-4f86-b646-cc47aacac10b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold"
+                    "interactions": "Hold",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "InteractNo",
@@ -59,7 +65,8 @@
                     "id": "2c3d3ef8-037a-461f-af13-03feb227c298",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RunHold",
@@ -67,7 +74,8 @@
                     "id": "1e83261e-ab3b-4f3f-8001-072aff7e928e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold"
+                    "interactions": "Hold",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "CrouchTrigger",
@@ -75,7 +83,8 @@
                     "id": "a8d7367c-b155-48c8-913f-ae6f5dc597e8",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Radio1",
@@ -83,7 +92,8 @@
                     "id": "dc94ade9-f3d5-4e5c-aabf-58beaaf4f38d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Radio2",
@@ -91,7 +101,8 @@
                     "id": "5c75436b-4bce-4025-a56e-da506d98d3cd",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Radio3",
@@ -99,7 +110,8 @@
                     "id": "56c5d0df-0b13-4661-92e7-4ec07036f845",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Radio4",
@@ -107,7 +119,8 @@
                     "id": "430b2c86-8e1e-476c-8859-9e32377d8848",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Radio5",
@@ -115,7 +128,8 @@
                     "id": "08375e61-4356-48ce-87cb-d79dbe0b1392",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RadioNext",
@@ -123,7 +137,8 @@
                     "id": "172dc72e-919e-46c8-be86-459b619b4d8d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RadioBack",
@@ -131,7 +146,8 @@
                     "id": "caef411b-4ec5-4b45-bbab-29411fb0af3c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Save",
@@ -139,7 +155,8 @@
                     "id": "fbba3364-dd51-4bfb-8a50-7935aecabace",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Pause",
@@ -147,7 +164,8 @@
                     "id": "c43547c1-86a0-4f8b-93bc-03080514adb4",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Debug",
@@ -155,7 +173,8 @@
                     "id": "1d464f3c-3912-4792-aba0-8356d1495c4f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "DebugF1",
@@ -163,14 +182,24 @@
                     "id": "34bc8862-dde0-4dcf-bc0e-8b3ba8052453",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AnyKey",
+                    "type": "Button",
+                    "id": "ba441620-352e-4f39-875d-ab003e4fa1ae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "KeyboardMove",
                     "id": "1bca9d89-a484-48b3-bf68-7af20c63c7ed",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -573,6 +602,17 @@
                     "action": "DebugF1",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "19bb2f68-c9f9-455c-bec7-79c491936708",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -586,7 +626,8 @@
                     "id": "44778a53-12c1-43e3-8f88-6b1f7352280c",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Right Click",
@@ -594,7 +635,8 @@
                     "id": "d90b440a-e60b-431d-a4d2-9db4ed176009",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Left Click",
@@ -602,7 +644,17 @@
                     "id": "922df942-ada5-4ded-9d21-f28c952d38c4",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AnyButton",
+                    "type": "Button",
+                    "id": "7d5be4fa-de1f-46da-be74-54b658a28c12",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -636,6 +688,17 @@
                     "processors": "",
                     "groups": "Default",
                     "action": "Left Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ffe3735c-bf78-4bdd-b879-d94ad4081b31",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 public enum gameplayActions { MoveVector, ViewVector, MoveU, MoveD, MoveL, MoveR, Blink, Run, ActionMain, ActionHold, ActionCancel, Inventory, Pause, Save, Crouch, RadioNext, RadioPast }
-
 public delegate void OnRebindOver();
 public class SCPInput : MonoBehaviour
 {
+
     /// <summary>
     /// Private wrapper class for json serialization of the overrides
     /// </summary>
@@ -38,6 +39,7 @@ public class SCPInput : MonoBehaviour
     public static SCPInput instance;
     public Text inputText;
     public GameObject rebindScreen;
+    public InputActionAsset playerAsset;
 
     public event OnRebindOver onRebindOver;
 
@@ -50,11 +52,14 @@ public class SCPInput : MonoBehaviour
             playerInput = new DefaultActions();
             LoadRebinds();
             DontDestroyOnLoad(this.gameObject);
+            playerInput.Enable();
+            //playerInput.UI.AnyButton.Disable();
         }
         else
         {
             DestroyImmediate(this.gameObject);
         }
+
     }
 
     public void ToGameplay()
@@ -263,11 +268,12 @@ public class SCPInput : MonoBehaviour
     void RemapButtonClicked(InputAction actionToRebind, bool isAlt, string controlType, int specificTarget = -1)
     {
         int target = (specificTarget == -1 ? (isAlt ? 1 : 0) : specificTarget);
+        Debug.Log("Rebiding " + actionToRebind.bindings[target] + ", is it interactYes?: " + (actionToRebind == playerInput.Gameplay.InteractYes));
         Debug.Log("Target to rebind " + target);
         actionToRebind.Disable();
-        inputText.text = string.Format(Localization.GetString("uiStrings", "ui_input_rebind"), actionToRebind.name);
+        inputText.text = string.Format(Localization.GetString("uiStrings", "ui_input_rebind"), (Localization.GetString("uiStrings", "ui_input_" + actionToRebind.name)));
         rebindScreen.SetActive(true);
-        var rebindOperation = actionToRebind.PerformInteractiveRebinding()
+        InputActionRebindingExtensions.RebindingOperation rebind = actionToRebind.PerformInteractiveRebinding()
                     // To avoid accidental input from mouse motion
                     //.WithControlsExcluding("Mouse")
                     .WithTargetBinding(target)
@@ -276,14 +282,24 @@ public class SCPInput : MonoBehaviour
                     .OnComplete(
                    operation =>
                    {
-                       Debug.Log($"Rebound '{actionToRebind}' to '{operation.selectedControl}'");
+                       Debug.Log($"Rebound '{actionToRebind.bindings[target]}' to '{operation.selectedControl}'");
                        operation.Dispose();
+                       if (actionToRebind == playerInput.Gameplay.InteractYes)
+                       {
+                           //InputActionMap map = playerInput.asset.FindActionMap(playerInput.Gameplay.Get().id);
+                           //map.ApplyBindingOverride(
+                           //playerInput.Gameplay.InteractHold.bindings[target].overridePath = playerInput.Gameplay.InteractYes.bindings[target].overridePath;
+                           playerInput.Gameplay.InteractHold.ApplyBindingOverride(target, playerInput.Gameplay.InteractYes.bindings[target].overridePath);
+                       }
+
+                       InputAction assetAct = playerAsset.FindAction(actionToRebind.id);
+                       assetAct.ApplyBindingOverride(target, actionToRebind.bindings[target].overridePath);
                        StopRebind(actionToRebind);
                    });
         /*if (excludeMouse)                   
             rebindOperation.WithControlsExcluding("Mouse");*/
 
-        rebindOperation.Start();
+        rebind.Start();
     }
 
     public void StopRebind(InputAction actionToRebind)
@@ -359,14 +375,14 @@ public class SCPInput : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
         playerInput.Enable();
     }
 
     private void OnDisable()
     {
-        if(playerInput!=null)
+        if (playerInput != null)
             playerInput.Disable();
-    }
+    }*/
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FogChange : MonoBehaviour
 {
     bool closeFog = false;
-    new Camera camera;
+    Camera camera;
     // Start is called before the first frame update
     void Start()
     {

@@ -10,19 +10,19 @@ public class Item : ScriptableObject
     public float mass = 1;
     public string itemName;
     public Sprite icon;
-    public bool deleteUse, hasEffect, isFem = false, isUnique=false, keepInv = false;
+    public bool deleteUse, hasEffect, isFem = false, isUnique = false, keepInv = false;
     public List<EfectTable> Effects;
     public GameObject ItemModel;
     public float valueFloat;
     public int valueInt;
     public int SFX;
-
-    public virtual void Use(ref gameItem currItem)
+    public float useTime = 0f;
+    public virtual void Use(ref GameItem currItem)
     {
 
     }
 
-    public virtual bool Mix(ref gameItem currItem, ref gameItem toMix)
+    public virtual bool Mix(ref GameItem currItem, ref GameItem toMix)
     {
         return false;
     }

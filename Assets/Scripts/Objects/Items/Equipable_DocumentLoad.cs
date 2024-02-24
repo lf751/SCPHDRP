@@ -7,27 +7,25 @@ using UnityEngine.UI;
 public class Equipable_DocumentLoad : Equipable_Wear
 {
     public string assetName;
-    Object loadedAsset;
     GameObject spawnedAsset;
     public int stringIndex;
     public string filename;
 
-    public override void Use(ref gameItem currItem)
+    public override void Use(ref GameItem currItem)
     {
         this.part = bodyPart.Hand;
         base.Use(ref currItem);
     }
 
 
-    public override void OnEquip(ref gameItem currItem)
+    public override void OnEquip(ref GameItem currItem)
     {
-        loadedAsset = Resources.Load(string.Concat("Items/Helpers/", assetName));
-        spawnedAsset = Instantiate((GameObject)loadedAsset, SCP_UI.instance.CanvasPos);
+        spawnedAsset = Instantiate((GameObject)Resources.Load(string.Concat("Items/Helpers/", assetName)));
         this.Overlay = Resources.Load<Sprite>(string.Concat("Items/Docs/", filename));
-        spawnedAsset.GetComponent<Text>().text = GameController.instance.globalStrings[stringIndex];
+        spawnedAsset.transform.GetChild(0).GetComponent<Text>().text = GameController.ins.globalStrings[stringIndex];
     }
 
-    public override void OnDequip(ref gameItem currItem)
+    public override void OnDequip(ref GameItem currItem)
     {
         Resources.UnloadAsset(this.Overlay);
         DestroyImmediate(spawnedAsset);

@@ -12,7 +12,7 @@ public class EV_Storage939 : Event_Parent
     public Transform[] path1, path2, path3;
     public AudioClip[] hello1, hello2, hello3, heard1, heard2, heard3, found1, found2, found3, attack1, attack2, attack3;
 
-    bool active_lev1, active_lev2, up_ele1 = true, up_ele2 = true;
+    bool active_lev1, active_lev2, up_ele1=true, up_ele2=true;
 
     public override void EventLoad()
     {
@@ -34,13 +34,13 @@ public class EV_Storage939 : Event_Parent
         base.EventLoad();
         if (isStarted)
         {
-
-            int firstSCP = GameController.instance.getValue(x, y, 3);
+            
+            int firstSCP = GameController.ins.getValue(x, y, 3);
             Debug.Log("Dynamic NPC number = " + firstSCP);
 
-            ((NPC_939)GameController.instance.npcController.NPCS[firstSCP]).NpcDisable();
-            ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 1]).NpcDisable();
-            ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 2]).NpcDisable();
+            ((NPC_939)GameController.ins.npcController.NPCS[firstSCP]).NpcDisable();
+            ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 1]).NpcDisable();
+            ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 2]).NpcDisable();
         }
     }
 
@@ -48,9 +48,9 @@ public class EV_Storage939 : Event_Parent
     public override void EventStart()
     {
         base.EventStart();
-        GameController.instance.setValue(x, y, 3, GameController.instance.npcController.AddNpc(npctype.scp939, scp1.transform.position));
-        GameController.instance.npcController.AddNpc(npctype.scp939, scp2.transform.position);
-        GameController.instance.npcController.AddNpc(npctype.scp939, scp3.transform.position);
+        GameController.ins.setValue(x, y, 3, GameController.ins.npcController.AddNpc(npctype.scp939, scp1.transform.position));
+        GameController.ins.npcController.AddNpc(npctype.scp939, scp2.transform.position);
+        GameController.ins.npcController.AddNpc(npctype.scp939, scp3.transform.position);
 
 
         EventFinished();
@@ -62,10 +62,10 @@ public class EV_Storage939 : Event_Parent
         if (trigger1.GetComponent<BoxTrigger>().GetState())
         {
             audio.SetActive(true);
-            if (GameController.instance.getValue(x, y, 2) == 0)
+            if (GameController.ins.getValue(x, y, 2) == 0)
             {
                 SCP_UI.instance.ShowTutorial("tutohide2");
-                GameController.instance.setValue(x, y, 2, 1);
+                GameController.ins.setValue(x, y, 2, 1);
             }
         }
         else
@@ -76,7 +76,7 @@ public class EV_Storage939 : Event_Parent
 
         if (active_lev1 != lever1.On)
         {
-            GameController.instance.setValue(x, y, 0, lever1.On ? 1 : 0);
+            GameController.ins.setValue(x, y, 0, lever1.On ? 1 : 0);
             if (lever1.On || lever2.On)
             {
                 if (!door.switchOpen)
@@ -90,7 +90,7 @@ public class EV_Storage939 : Event_Parent
 
         if (active_lev2 != lever2.On)
         {
-            GameController.instance.setValue(x, y, 1, lever2.On ? 1 : 0);
+            GameController.ins.setValue(x, y, 1, lever2.On ? 1 : 0);
             if (lever1.On || lever2.On)
             {
                 if (!door.switchOpen)
@@ -107,8 +107,8 @@ public class EV_Storage939 : Event_Parent
     {
         base.EventFinished();
         isStarted = true;
-        active_lev1 = (GameController.instance.getValue(x, y, 0) == 1);
-        active_lev2 = (GameController.instance.getValue(x, y, 1) == 1);
+        active_lev1 = (GameController.ins.getValue(x, y, 0) == 1);
+        active_lev2 = (GameController.ins.getValue(x, y, 1) == 1);
 
         lever1.On = active_lev1;
         lever2.On = active_lev2;
@@ -119,31 +119,31 @@ public class EV_Storage939 : Event_Parent
                 door.DoorSwitch();
         }
 
-        int firstSCP = GameController.instance.getValue(x, y, 3);
+        int firstSCP = GameController.ins.getValue(x, y, 3);
         Debug.Log("Dynamic NPC number loaded = " + firstSCP);
 
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP]).patrol = path1;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP]).Hello = hello1;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP]).Heard = heard1;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP]).Found = found1;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP]).Attack = attack1;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP]).patrol = path1;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP]).Hello = hello1;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP]).Heard = heard1;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP]).Found = found1;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP]).Attack = attack1;
 
 
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 1]).patrol = path2;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 1]).Hello = hello2;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 1]).Heard = heard2;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 1]).Found = found2;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 1]).Attack = attack2;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP+1]).patrol = path2;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 1]).Hello = hello2;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 1]).Heard = heard2;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 1]).Found = found2;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 1]).Attack = attack2;
 
 
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 2]).patrol = path3;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 2]).Hello = hello3;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 2]).Heard = heard3;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 2]).Found = found3;
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 2]).Attack = attack3;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP+2]).patrol = path3;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 2]).Hello = hello3;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 2]).Heard = heard3;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 2]).Found = found3;
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 2]).Attack = attack3;
 
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP]).NpcEnable();
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 1]).NpcEnable();
-        ((NPC_939)GameController.instance.npcController.NPCS[firstSCP + 2]).NpcEnable();
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP]).NpcEnable();
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 1]).NpcEnable();
+        ((NPC_939)GameController.ins.npcController.NPCS[firstSCP + 2]).NpcEnable();
     }
 }

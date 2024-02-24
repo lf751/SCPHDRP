@@ -21,10 +21,10 @@ public class EV_Chamber049 : Event_Parent
     // Start is called before the first frame update
     void Start()
     {
-        elev1 = GameController.instance.getCutsceneObject(x, y, 0).GetComponent<Object_Elevator>();
-        elev2 = GameController.instance.getCutsceneObject(x, y, 1).GetComponent<Object_Elevator>();
+        elev1 = GameController.ins.getCutsceneObject(x, y, 0).GetComponent<Object_Elevator>();
+        elev2 = GameController.ins.getCutsceneObject(x, y, 1).GetComponent<Object_Elevator>();
 
-        lightMat = GameController.instance.getCutsceneObject(x, y, 2).GetComponent<MeshRenderer>().materials[10];
+        lightMat = GameController.ins.getCutsceneObject(x, y, 2).GetComponent<MeshRenderer>().materials[10];
         oldLights = lightMat.GetColor("_EmissionColor");
 
     }
@@ -48,8 +48,8 @@ public class EV_Chamber049 : Event_Parent
     public override void EventStart()
     {
         base.EventStart();
-        GameController.instance.setValue(x, y, 2, energyPump.On ? 1 : 0);
-        GameController.instance.setValue(x, y, 3, elev.On ? 1 : 0);
+        GameController.ins.setValue(x, y, 2, energyPump.On ? 1 : 0);
+        GameController.ins.setValue(x, y, 3, elev.On ? 1 : 0);
     }
 
     public override void EventUpdate()
@@ -58,7 +58,7 @@ public class EV_Chamber049 : Event_Parent
         {
             Timer = shutDownTimer;
             blackoutSet = true;
-            GameController.instance.ChangeMusic(chamberMusic);
+            GameController.ins.ChangeMusic(chamberMusic);
             elev1.isDisabled = true;
             elev2.isDisabled = true;
             isMusic = true;
@@ -70,20 +70,21 @@ public class EV_Chamber049 : Event_Parent
         {
             lightMat.SetColor("_EmissionColor", noLights);
             isBlackout = true;
-            GameController.instance.playercache.FakeBlink(0.25f);
-            audSource.PlayOneShot(blackOut);
+            blackoutSet = false;
+            GameController.ins.currPly.FakeBlink(0.25f);
+            GameController.ins.GlobalSFX.PlayOneShot(blackOut);
             lights.SetActive(false);
             EventFinished();
 
-            int firstID = GameController.instance.npcController.AddNpc(npctype.zombie, zombie1.transform.position);
+            int firstID = GameController.ins.npcController.AddNpc(npctype.zombie, zombie1.transform.position);
 
-            GameController.instance.setValue(x, y, 0, firstID);
-            GameController.instance.npcController.AddNpc(npctype.zombie, zombie2.transform.position);
-            GameController.instance.npcController.AddNpc(npctype.zombie, zombie3.transform.position);
+            GameController.ins.setValue(x, y, 0, firstID);
+            GameController.ins.npcController.AddNpc(npctype.zombie, zombie2.transform.position);
+            GameController.ins.npcController.AddNpc(npctype.zombie, zombie3.transform.position);
 
-            GameController.instance.npcController.NPCS[firstID].NpcDisable();
-            GameController.instance.npcController.NPCS[firstID+1].NpcDisable();
-            GameController.instance.npcController.NPCS[firstID+2].NpcDisable();
+            GameController.ins.npcController.NPCS[firstID].NpcDisable();
+            GameController.ins.npcController.NPCS[firstID+1].NpcDisable();
+            GameController.ins.npcController.NPCS[firstID+2].NpcDisable();
 
         }
     }
@@ -93,34 +94,38 @@ public class EV_Chamber049 : Event_Parent
         base.EventFinished();
         eventSet = true;
 
-        energyPump.On = GameController.instance.getValue(x, y, 2) == 1;
-        elev.On = GameController.instance.getValue(x, y, 3) == 1;
+        energyPump.On = GameController.ins.getValue(x, y, 2) == 1;
+        elev.On = GameController.ins.getValue(x, y, 3) == 1;
     }
 
     public override void EventUnLoad()
     {
         base.EventUnLoad();
-        GameController.instance.setValue(x, y, 2, energyPump.On ? 1 : 0);
-        GameController.instance.setValue(x, y, 3, elev.On ? 1 : 0);
+        GameController.ins.setValue(x, y, 2, energyPump.On ? 1 : 0);
+        GameController.ins.setValue(x, y, 3, elev.On ? 1 : 0);
+        Debug.Log("Event finished!");
     }
 
     void EventLast()
     {
-        if(isDown.GetState())
+        //Debug.Log("isDown state: " + isDown.GetState(), this.gameObject);
+        if (isDown.GetState())
         {
             if (!isMusic)
             {
-                GameController.instance.ChangeMusic(chamberMusic);
+                GameController.ins.ChangeMusic(chamberMusic);
                 isMusic = true;
+                Debug.Log("Starting playing 049 music");
             }
         }
         else
         {
             if (isMusic)
             {
-                Debug.Log("ApagandoMusica");
-                MusicPlayer.instance.StopMusic();
-                //GameController.instance.DefMusic();
+                //Debug.Log("ApagandoMusica");
+                //MusicPlayer.instance.StopMusic();
+                GameController.ins.DefMusic();
+                Debug.Log("Stoping playing 049 music");
                 isMusic = false;
             }
         }
@@ -135,22 +140,22 @@ public class EV_Chamber049 : Event_Parent
             lights.SetActive(false);
             audSource.PlayOneShot(blackOut);
             isBlackout = true;
-            GameController.instance.playercache.FakeBlink(0.25f);
+            GameController.ins.currPly.FakeBlink(0.25f);
         }
         if (!blackoutSet && isBlackout)
         {
             lightMat.SetColor("_EmissionColor", oldLights);
             lights.SetActive(true);
             isBlackout = false;
-            GameController.instance.playercache.FakeBlink(0.25f);
-            if (GameController.instance.getValue(x, y, 1) != 1)
+            GameController.ins.currPly.FakeBlink(0.25f);
+            if (GameController.ins.getValue(x, y, 1) != 1)
             {
-                int firstID = GameController.instance.getValue(x, y, 0);
-                GameController.instance.setValue(x, y, 1, 1);
+                int firstID = GameController.ins.getValue(x, y, 0);
+                GameController.ins.setValue(x, y, 1, 1);
 
-                GameController.instance.npcController.NPCS[firstID].NpcEnable();
-                GameController.instance.npcController.NPCS[firstID + 1].NpcEnable();
-                GameController.instance.npcController.NPCS[firstID + 2].NpcEnable();
+                GameController.ins.npcController.NPCS[firstID].NpcEnable();
+                GameController.ins.npcController.NPCS[firstID + 1].NpcEnable();
+                GameController.ins.npcController.NPCS[firstID + 2].NpcEnable();
             }
         }
 
@@ -168,8 +173,9 @@ public class EV_Chamber049 : Event_Parent
                 elev2.OpenDoors();
 
                 isSpawn049 = true;
-                GameController.instance.npcController.mainList[(int)npc.scp049].Spawn(true, spawn1.position);
-                ((NPC_049)GameController.instance.npcController.mainList[(int)npc.scp049]).allowMapPath = false;
+                GameController.ins.npcController.mainList[(int)npc.scp049].Spawn(true, spawn1.position);
+                ((NPC_049)GameController.ins.npcController.mainList[(int)npc.scp049]).allowMapPath = false;
+                ((NPC_049)GameController.ins.npcController.mainList[(int)npc.scp049]).ForceTarget(GameController.ins.currPly.transform.position);
             }
             if (!isSpawn049 && trigger2.GetState())
             {
@@ -180,8 +186,9 @@ public class EV_Chamber049 : Event_Parent
 
                 elev2.OpenDoors();
                 isSpawn049 = true;
-                GameController.instance.npcController.mainList[(int)npc.scp049].Spawn(true, spawn2.position);
-                ((NPC_049)GameController.instance.npcController.mainList[(int)npc.scp049]).allowMapPath = false;
+                GameController.ins.npcController.mainList[(int)npc.scp049].Spawn(true, spawn2.position);
+                ((NPC_049)GameController.ins.npcController.mainList[(int)npc.scp049]).allowMapPath = false;
+                ((NPC_049)GameController.ins.npcController.mainList[(int)npc.scp049]).ForceTarget(GameController.ins.currPly.transform.position);
             }
         }
     }

@@ -5,30 +5,30 @@ using UnityEngine;
 public class Object_Persistent : MonoBehaviour
 {
     protected int id;
-    protected bool State;
+    protected int State;
     public bool ignoreSave;
 
     public virtual void Start()
     {
         if (!ignoreSave)
         {
-            id = GameController.instance.GetObjectID();
-            transform.parent = GameController.instance.persParent.transform;
-            resetState();
+            id = GameController.ins.GetObjectID();
+            transform.parent = GameController.ins.persParent.transform;
+            ResetState();
         }
     }
 
-    public virtual void resetState()
+    public virtual void ResetState()
     {
-        Debug.Log("Resetting state of " + this.gameObject.name);
-        int newState = GameController.instance.GetObjectState(id);
+        //Debug.Log("Resetting state of " + this.gameObject.name);
+        int newState = GameController.ins.GetObjectState(id);
         if (newState != -1)
         {
-            State = newState == 1;
+            State = newState;
         }
         else
         {
-            GameController.instance.SetObjectState(State, id);
+            GameController.ins.SetObjectState(State, id);
         }
     }
 }

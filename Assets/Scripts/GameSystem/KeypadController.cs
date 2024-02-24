@@ -42,7 +42,7 @@ public class KeypadController : MonoBehaviour
 
     public void AddDigit(string digit)
     {
-        GameController.instance.MenuSFX.PlayOneShot(buttonClick);
+        GameController.ins.MenuSFX.PlayOneShot(buttonClick);
         if (currentCode.Length < 4)
         {
             currentCode += digit;
@@ -52,14 +52,14 @@ public class KeypadController : MonoBehaviour
 
     public void ClearDigits()
     {
-        GameController.instance.MenuSFX.PlayOneShot(buttonClick);
+        GameController.ins.MenuSFX.PlayOneShot(buttonClick);
         codeDisplay.text = "";
         currentCode = "";
     }
 
     public void SubmitCode()
     {
-        GameController.instance.MenuSFX.PlayOneShot(buttonClick);
+        GameController.ins.MenuSFX.PlayOneShot(buttonClick);
         objectKeypad.checkCode(currentCode);
         //SCP_UI.instance.ToggleKeypad(null);
     }

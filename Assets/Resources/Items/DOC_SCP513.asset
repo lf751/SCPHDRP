@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1895ea64f7a9fab4ca4aef18fe09fb0f, type: 3}
   m_Name: DOC_SCP513
   m_EditorClassIdentifier: 
-  colCenter: {x: 0, y: 0, z: 0}
-  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  colCenter: {x: 0.00023879111, y: 0.0051007606, z: 0.0024784505}
+  colSize: {x: 0.49118653, y: 0.018859543, z: 0.6664501}
   mass: 1
   itemName: doc513
   icon: {fileID: 21300000, guid: 6384ac8a73f6e0a45b8e4a8abd446ef4, type: 3}
@@ -43,8 +43,10 @@ MonoBehaviour:
   valueFloat: 0
   valueInt: 0
   SFX: 0
+  useTime: 0
   Overlay: {fileID: 0}
   protectGas: 0
+  protectCogn: 0
   autoEquip: 0
   part: 0
   filename: doc513

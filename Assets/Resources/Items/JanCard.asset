@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6b71342f24acd489409bc763b48b92, type: 3}
   m_Name: JanCard
   m_EditorClassIdentifier: Assembly-CSharp::Equipable_Key
-  colCenter: {x: 0, y: 0.05, z: 0}
-  colSize: {x: 0.3, y: 0.15, z: 0.5}
+  colCenter: {x: -0.0010363907, y: 0.0051007606, z: -0.0013471171}
+  colSize: {x: 0.34071395, y: 0.018859543, z: 0.24053614}
   mass: 1
   itemName: key0
   icon: {fileID: 21300000, guid: 5819d3ab6deafdd41a846bae84ba4160, type: 3}
@@ -44,8 +44,10 @@ MonoBehaviour:
   valueFloat: 0
   valueInt: 0
   SFX: 1
+  useTime: 0
   Overlay: {fileID: 21300000, guid: 5819d3ab6deafdd41a846bae84ba4160, type: 3}
   protectGas: 0
+  protectCogn: 0
   autoEquip: 0
   part: 2
   level: 0

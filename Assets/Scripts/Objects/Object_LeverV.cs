@@ -16,6 +16,7 @@ public class Object_LeverV : Object_Interact
 
     float changing = 0;
     bool start, change, cooldown;
+    // Start is called before the first frame update
 
     public void HandleUpdate(float value)
     {
@@ -32,6 +33,22 @@ public class Object_LeverV : Object_Interact
         else
         {
             Tween.Value(posUp, posDown, HandleUpdate, changeSpeed, 0f, Tween.EaseInStrong, Tween.LoopType.None, null);
+            isUp = false;
+        }
+    }
+
+    public void SwitchState(bool value)
+    {
+        On = value;
+        if ((!On && !OnUp) || (On && OnUp))
+        {
+            Tween.Value(posDown, posUp, HandleUpdate, changeSpeed, 0f, Tween.EaseInStrong, Tween.LoopType.None, null);
+            isUp = true;
+        }
+        else
+        {
+            Tween.Value(posUp, posDown, HandleUpdate, changeSpeed, 0f, Tween.EaseInStrong, Tween.LoopType.None, null);
+            isUp = false;
         }
     }
 
@@ -39,6 +56,7 @@ public class Object_LeverV : Object_Interact
     // Update is called once per frame
     public override void Hold()
     {
+        //Debug.Log("MOving!");
         if (SCPInput.instance.playerInput.Gameplay.Look.ReadValue<Vector2>().y != 0)
         {
             changing -= Time.deltaTime;
@@ -72,7 +90,7 @@ public class Object_LeverV : Object_Interact
                         Tween.Value(posDown, posUp, HandleUpdate, changeSpeed, 0f, Tween.EaseInStrong, Tween.LoopType.None, null);
                         Debug.Log("GoingUp");
                         cooldown = true;
-                        changing = 0.4f;
+                        changing = 0.6f;
                         isUp = true;
                     }
                 }
@@ -89,7 +107,7 @@ public class Object_LeverV : Object_Interact
 
                         Tween.Value(posUp, posDown, HandleUpdate, changeSpeed, 0, Tween.EaseInStrong, Tween.LoopType.None, null);
                         cooldown = true;
-                        changing = 0.4f;
+                        changing = 0.6f;
                         isUp = false;
                     }
                 }

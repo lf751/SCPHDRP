@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6b71342f24acd489409bc763b48b92, type: 3}
   m_Name: Keycard 5
   m_EditorClassIdentifier: Assembly-CSharp::Equipable_Key
-  colCenter: {x: 0, y: 0, z: 0}
-  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  colCenter: {x: -0.0010363907, y: 0.0051007606, z: -0.0013471171}
+  colSize: {x: 0.34071395, y: 0.018859543, z: 0.24053614}
   mass: 1
   itemName: key5
   icon: {fileID: 21300000, guid: d32c2fe6f04d27a439aba55d0912623c, type: 3}
@@ -44,8 +44,10 @@ MonoBehaviour:
   valueFloat: 0
   valueInt: 0
   SFX: 1
+  useTime: 0
   Overlay: {fileID: 21300000, guid: d32c2fe6f04d27a439aba55d0912623c, type: 3}
   protectGas: 0
+  protectCogn: 0
   autoEquip: 0
   part: 2
   level: 5

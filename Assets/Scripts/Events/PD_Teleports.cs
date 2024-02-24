@@ -27,10 +27,10 @@ public class PD_Teleports : MonoBehaviour
     {
         int hall = Random.Range(0, teleporters.Length);
 
-        if (GameController.instance.globalBools[5] == false)
+        if (GameController.ins.globalBools[5] == false)
         {
             objectSpawn.transform.position = spawners[hall].transform.position;
-            GameController.instance.globalBools[5] = true;
+            GameController.ins.globalBools[5] = true;
         }
         
         teleporter.transform.position = teleporters[hall].transform.position;
@@ -38,13 +38,14 @@ public class PD_Teleports : MonoBehaviour
 
 
         if (!IsTesting)
-            GameController.instance.ChangeMusic(music);
+            GameController.ins.ChangeMusic(music);
         if (!IsTesting)
             LoadingSystem.instance.FadeIn(2f, new Vector3Int(0, 0, 0));
         if (IsTesting)
-            GameController.instance.playercache.isGameplay = true;
+            GameController.ins.currPly.isGameplay = true;
 
-        GameController.instance.GlobalSFX.PlayOneShot(enter);
+        GameController.ins.GlobalSFX.PlayOneShot(enter);
+        GameController.ins.ambianceController.enableAmbiance = false;
     }
 
     // Update is called once per frame
@@ -95,7 +96,7 @@ public class PD_Teleports : MonoBehaviour
             }
             else
             {
-                GameController.instance.player.GetComponent<Player_Control>().playerWarp(zones[place].transform.position, 0);
+                GameController.ins.player.GetComponent<PlayerControl>().playerWarp(zones[place].transform.position, 0);
                 currentZone = place;
             }
 
@@ -115,14 +116,14 @@ public class PD_Teleports : MonoBehaviour
     IEnumerator Escape()
     {
         Debug.Log("Escaping");
-        GameController.instance.GlobalSFX.PlayOneShot(escape);
+        GameController.ins.GlobalSFX.PlayOneShot(escape);
         LoadingSystem.instance.FadeOut(2, new Vector3Int((int)fadecolor.r, (int)fadecolor.g, (int)fadecolor.b));
 
         yield return new WaitForSeconds(4);
         Debug.Log("CoroutineDone");
 
         GlobalValues.worldState.items = ItemController.instance.GetItems();
-        GlobalValues.worldState = GameController.instance.QuickSave();
+        GlobalValues.worldState = GameController.ins.QuickSave();
 
         GlobalValues.isNewGame = false;
         GlobalValues.LoadType = LoadType.otherworld;

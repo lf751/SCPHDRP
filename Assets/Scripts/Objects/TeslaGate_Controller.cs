@@ -15,7 +15,7 @@ public class TeslaGate_Controller : Event_Parent
     // Update is called once per frame
     void Update()
     {
-        if (!ActiveTimer && Time.frameCount % framerate == 0 && Vector3.Distance(GameController.instance.npcController.mainList[(int)npc.scp106].transform.position, transform.position) < 6f)
+        if (!ActiveTimer && Time.frameCount % framerate == 0 && Vector3.Distance(GameController.ins.npcController.mainList[(int)npc.scp106].transform.position, transform.position) < 6f)
         {
             ActiveTimer = true;
             Timer = 0;
@@ -30,9 +30,9 @@ public class TeslaGate_Controller : Event_Parent
 
                 if (Timer >= 0.5 && !shocked && !endshock)
                 {
-                    GameController.instance.deathmsg = Localization.GetString("deathStrings", "death_tesla");
-                    if (Vector3.Distance(GameController.instance.npcController.mainList[(int)npc.scp106].transform.position, transform.position) < 6f)
-                        GameController.instance.npcController.mainList[(int)npc.scp106].UnSpawn();
+                    GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_tesla");
+                    if (Vector3.Distance(GameController.ins.npcController.mainList[(int)npc.scp106].transform.position, transform.position) < 6f)
+                        GameController.ins.npcController.mainList[(int)npc.scp106].UnSpawn();
                     shocked = true;
                     audio.PlayOneShot(shock);
                     Shock.SetActive(true);
@@ -50,8 +50,8 @@ public class TeslaGate_Controller : Event_Parent
                 }
                 if (Timer >= 3)
                 {
-                    if (GameController.instance.isAlive)
-                        GameController.instance.deathmsg = "";
+                    if (GameController.ins.isAlive)
+                        GameController.ins.deathmsg = "";
                     endshock = false;
                     shocked = false;
                     started = false;

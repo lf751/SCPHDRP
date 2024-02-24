@@ -19,7 +19,7 @@ public class Event_106 : Event_Parent
     {
         if (spawned == false && trigger.GetComponent<BoxTrigger>().GetState())
         {
-            GameController.instance.npcController.mainList[(int)npc.scp106].Spawn(true, spawnHere.transform.position);
+            GameController.ins.npcController.mainList[(int)npc.scp106].Spawn(true, spawnHere.transform.position);
             spawned = true;
             EventFinished();
         }

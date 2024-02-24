@@ -35,3 +35,4 @@ MonoBehaviour:
   valueFloat: 0
   valueInt: 0
   SFX: 2
+  useTime: 4

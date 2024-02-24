@@ -1,143 +1,165 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 [System.Serializable]
-public class GameDecal
+public struct GameDecal
 {
-    public enum Kind
-    {
-        OnlyPBR, OnlyNormals, PBRNormals, Plane
-    }
-    public Kind decalType;
-    public float Duration;
-    public float time;
-    public bool Instant;
-    public float Scale;
-    public Vector3 rotation;
-    public int h, v;
+    public float duration;
+    public float startingTime;
+    public bool instant;
+    public float scale;
     public Vector3 position;
-    public bool isPermanent;
+    public Quaternion rotation;
+    public int h, v;
 }
-
-
-
 
 public class DecalSystem : MonoBehaviour
 {
-    public const int maxDecals = 1024;
+    public const int defDecals = 512;
+    public const int defStaDecals = 512;
     public static DecalSystem instance = null;
+    public Action staSpheresUpdate, staCountUpdate, dinCountUpdate;
 
     public Material DecalAtlas;
-    public GameDecal[] DecalPool;
-    int currDecal = 0;
-    int currMaxDecals = 0;
-    public int avaiDecals { get { return currMaxDecals; } }
-    BoundingSphere[] spheres;
-    CullingGroup decalsGroup;
+    public GameDecal[] dinDecals;
+    public GameDecal[] staDecals;
+    public int coluCount = 3;
+    public int rowCount = 4;
+    int dinCount = 0, staCount = 0, staCap, currIdx = 0;
+    public int dinDecalsCount { get { return dinCount; } }
+    public int staDecalsCount { get { return staCount; } }
+    public BoundingSphere[] dinSpheres;
+    public BoundingSphere[] staSpheres;
     // Start is called before the first frame update
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else if (instance != null)
-            Destroy(gameObject);
+        instance = this;
+
+        dinDecals = new GameDecal[defDecals];
+        staDecals = new GameDecal[defStaDecals];
+        dinSpheres = new BoundingSphere[defDecals];
+        staSpheres = new BoundingSphere[defStaDecals];
+
+        dinCount = 0;
+        staCount = 0;
+        staCap = defStaDecals;
     }
 
-    void Start()
+    private void OnDestroy()
     {
-        DecalPool = new GameDecal[maxDecals];
-        decalsGroup = new CullingGroup();
-        spheres = new BoundingSphere[maxDecals];
-        decalsGroup.SetBoundingSpheres(spheres);
-        decalsGroup.SetBoundingSphereCount(0);
-        decalsGroup.targetCamera = Camera.main;
-        currMaxDecals = 0;
-        currDecal = 0;
-
-        /*for (int j = 0; j < 10; j++)
-        {
-            SpawnDecal(new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.7f * j));
-        }
-        CombineDecals();
-
-
-        Decal(new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.7f), new Vector3(90f, 0, 0), 5f, false, 6f, 2, 0);
-        Decal(new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.7f), new Vector3(90f, 0, 0), 1f, true, 6f, 0, 3);*/
+        instance = null;
     }
 
-    public void Decal(Vector3 position, Vector3 rotation, float scale, bool Instant, float Time, int h, int v, bool isPermanent = false)
+    private void Update()
     {
-
-        while (DecalPool[currDecal] != null && DecalPool[currDecal].isPermanent)
+        for (int i = 0; i < dinCount; i++)
         {
-            currDecal++;
+            dinDecals[i].startingTime = Mathf.Min(dinDecals[i].duration, dinDecals[i].startingTime += Time.deltaTime);
         }
+    }
 
-        if(DecalPool[currDecal] == null)
-            DecalPool[currDecal] = new GameDecal();
-
-        spheres[currDecal] = new BoundingSphere(position, scale);
-        DecalPool[currDecal].Scale = scale;
-        DecalPool[currDecal].rotation = rotation;
-        DecalPool[currDecal].Instant = Instant;
-        DecalPool[currDecal].Duration = Time;
-        DecalPool[currDecal].h = h;
-        DecalPool[currDecal].v = v;
-        DecalPool[currDecal].position = position;
-        DecalPool[currDecal].isPermanent = isPermanent;
-
-        currDecal++;
-
-        if (currDecal > currMaxDecals)
+    public void Decal(Vector3 position, Quaternion rotation, float scale, bool Instant, float Time, int h, int v, bool isPermanent = false)
+    {
+        if (currIdx >= defDecals)
+            currIdx = 0;
+        if (currIdx >= dinCount)
         {
-            currMaxDecals = currDecal;
-            decalsGroup.SetBoundingSphereCount(currMaxDecals);
+            dinDecals[dinCount] = new GameDecal();
+            dinSpheres[dinCount] = new BoundingSphere(position, scale);
+
+            dinCount++;
+            dinCountUpdate?.Invoke();
         }
 
-        if (currDecal == maxDecals)
-            currDecal = 0;
+        dinSpheres[currIdx].position = position;
+        dinSpheres[currIdx].radius = scale;
+        dinDecals[currIdx].position = position;
+        dinDecals[currIdx].scale = scale;
+        dinDecals[currIdx].rotation = rotation;
+        dinDecals[currIdx].instant = Instant;
+        dinDecals[currIdx].duration = Instant ? 1 : Time;
+        dinDecals[currIdx].startingTime = Instant ? 1 : 0;
+        dinDecals[currIdx].h = h;
+        dinDecals[currIdx].v = v;
+
+        currIdx++;
     }
 
-    private void OnDisable()
-    {
-        decalsGroup.Dispose();
-        decalsGroup = null;
-    }
 
     public void SpawnDecal(Vector3 here)
     {
-        /*Vector2[] uvs;
-        GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Quad);
-        plane.transform.position = here;
-        plane.transform.parent = transform;
-        plane.transform.rotation = Quaternion.Euler(90.0f, 0, 0);
-        Renderer render = plane.GetComponent<Renderer>();
-        render.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-        Mesh mesh = plane.GetComponent<MeshFilter>().mesh;
-        Destroy(plane.GetComponent<MeshCollider>());
-        uvs = mesh.uv;
-        plane.transform.localScale = new Vector3(2f, 2f, 2f);
 
-        /*
-         *UV 0 ESQUINA INFERIOR IZQUIERDA
-         *UV 1 ESQUINA SUPERIOR DERECHA
-         *UV 2 ESQUINA INFERIOR DERECHA
-         *UV 3 ESQUINA SUPERIOR IZQUIERDA
-         * */
-         /*
-        float uvH = 0.33f * (Random.Range(0, 4));
-        float uvV = 0.25f * (Random.Range(0, 5));
+        staSpheres[staCount] = new BoundingSphere(here, 2f);
+        staDecals[staCount] = new GameDecal();
 
-        uvs[0] = new Vector2(uvH, uvV- 0.25f);
-        uvs[1] = new Vector2(uvH, uvV);
-        uvs[2] = new Vector2(uvH + 0.33f, uvV- 0.25f);
-        uvs[3] = new Vector2(uvH + 0.33f, uvV);
+        staDecals[staCount].scale = 2f;
+        staDecals[staCount].rotation = Quaternion.identity;
+        staDecals[staCount].instant = true;
+        staDecals[staCount].duration = 1f;
+        staDecals[staCount].startingTime = 1f;
+        staDecals[staCount].h = Random.Range(0, coluCount);
+        staDecals[staCount].v = Random.Range(0, rowCount);
+        staDecals[staCount].position = here;
 
-        mesh.uv = uvs;
-        render.material = DecalAtlas;*/
+        staCount++;
+        staCountUpdate?.Invoke();
+
+        if (staCount >= staCap)
+            ExpandArray();
+    }
+
+    public void DecalStatic(Vector3 position, Quaternion rotation, float scale, int h, int v)
+    {
+
+        staSpheres[staCount] = new BoundingSphere(position, scale);
+        staDecals[staCount] = new GameDecal();
+
+        staDecals[staCount].scale = scale;
+        staDecals[staCount].rotation = rotation;
+        staDecals[staCount].instant = true;
+        staDecals[staCount].duration = 1f;
+        staDecals[staCount].startingTime = 1f;
+        staDecals[staCount].h = h;
+        staDecals[staCount].v = v;
+        staDecals[staCount].position = position;
+
+        staCount++;
+        staCountUpdate?.Invoke();
+
+        if (staCount >= staCap)
+            ExpandArray();
+    }
+
+    void ExpandArray()
+    {
+        staCap = Mathf.NextPowerOfTwo(staCount + 1);
+        Array.Resize<BoundingSphere>(ref staSpheres, staCap);
+        Array.Resize<GameDecal>(ref staDecals, staCap);
+        staSpheresUpdate?.Invoke();
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3.one);
+        Gizmos.color = Color.gray;
+        for (int i = 0; i < staCount; i++)
+        {
+            Gizmos.DrawWireCube(staSpheres[i].position, new Vector3(staSpheres[i].radius, 0.1f, staSpheres[i].radius));
+        }
+
+        Gizmos.color = Color.blue;
+
+        for (int i = 0; i < dinCount; i++)
+        {
+            float currScale = Mathf.Lerp(0, dinDecals[i].scale, dinDecals[i].startingTime / dinDecals[i].duration);
+            Gizmos.DrawWireCube(dinSpheres[i].position, new Vector3(currScale, 0.2f, currScale));
+        }
+
     }
 
 }

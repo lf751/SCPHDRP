@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57386a160ab2e541893d65f49ad28d0, type: 3}
+  m_Name: Ring
+  m_EditorClassIdentifier: 
+  colCenter: {x: -0.000517264, y: 0.008276224, z: 0.0010345131}
+  colSize: {x: 0.053448863, y: 0.015859246, z: 0.055594385}
+  mass: 1
+  itemName: ring
+  icon: {fileID: 21300000, guid: 8c0f676317ebf7e47972ecb97c06062a, type: 3}
+  deleteUse: 0
+  hasEffect: 1
+  isFem: 0
+  isUnique: 1
+  keepInv: 0
+  Effects:
+  - affected: 1
+    effect:
+      permanent: 0
+      time: -1
+      max: 1
+      min: -1
+      value: -1
+      multiplier: -1
+  ItemModel: {fileID: -927199367670048503, guid: d58f51c182488cf46b4d1eae394c1388,
+    type: 3}
+  valueFloat: 0
+  valueInt: 0
+  SFX: 3
+  useTime: 0
+  Overlay: {fileID: 0}
+  protectGas: 0
+  protectCogn: 1
+  autoEquip: 0
+  part: 3

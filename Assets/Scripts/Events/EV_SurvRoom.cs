@@ -28,10 +28,10 @@ public class EV_SurvRoom : Event_Parent
 
     public override void EventUpdate()
     {
-        if (state < 3 && ((NPC_049)GameController.instance.npcController.mainList[(int)npc.scp049]).seePlayer)
+        if (state < 3 && ((NPC_049)GameController.ins.npcController.mainList[(int)npc.scp049]).seePlayer)
         {
             Debug.Log("I saw u");
-            GameController.instance.npcController.mainList[(int)npc.scp049].StopEvent();
+            GameController.ins.npcController.mainList[(int)npc.scp049].StopEvent();
             EventFinished();
         }
         /*else
@@ -39,15 +39,15 @@ public class EV_SurvRoom : Event_Parent
 
         if (status == 0 && lever.On == false)
         {
-            GameController.instance.globalBools[0] = true;
+            GameController.ins.globalBools[0] = true;
             status = 1;
             Timer = 5;
             blockscreen.animate = false;
             blockscreen.SetFrame(0, 0);
             blockscreen2.animate = false;
             blockscreen2.SetFrame(0, 0);
-            GameController.instance.canSave = false;
-            GameController.instance.npcController.mainList[(int)npc.scp049].Event_Spawn(true, spawn1.position);
+            GameController.ins.canSave = false;
+            GameController.ins.npcController.mainList[(int)npc.scp049].Event_Spawn(true, spawn1.position);
         }
 
         if (status != 0)
@@ -59,7 +59,7 @@ public class EV_SurvRoom : Event_Parent
             {
                 case 1:
                     {
-                        ((NPC_049)GameController.instance.npcController.mainList[(int)npc.scp049]).evWalkTo(reach049.transform.position);
+                        ((NPC_049)GameController.ins.npcController.mainList[(int)npc.scp049]).evWalkTo(reach049.transform.position);
                         status = 2;
 
                         Timer = 0.1f;
@@ -68,14 +68,14 @@ public class EV_SurvRoom : Event_Parent
                     }
                 case 2:
                     {
-                        GameController.instance.ChangeMusic(eventMusic);
+                        GameController.ins.ChangeMusic(eventMusic);
                         Timer = timeForReach;
                         status = 3;
                         break;
                     }
                 case 3:
                     {
-                        ((NPC_049)GameController.instance.npcController.mainList[(int)npc.scp049]).evChangeState(5);
+                        ((NPC_049)GameController.ins.npcController.mainList[(int)npc.scp049]).evChangeState(5);
                         SubtitleEngine.instance.playVoice(dialog1.name, true);
                         dialogGenerator.clip = dialog1;
                         dialogGenerator.Play();
@@ -85,7 +85,7 @@ public class EV_SurvRoom : Event_Parent
                     }
                 case 4:
                     {
-                        ((NPC_049)GameController.instance.npcController.mainList[(int)npc.scp049]).evChangeState(0);
+                        ((NPC_049)GameController.ins.npcController.mainList[(int)npc.scp049]).evChangeState(0);
                         dialogGenerator.clip = dialog2;
                         SubtitleEngine.instance.playVoice(dialog2.name, true);
                         dialogGenerator.Play();
@@ -96,7 +96,7 @@ public class EV_SurvRoom : Event_Parent
                 case 5:
                     {
                         status = 6;
-                        GameController.instance.npcController.mainList[(int)npc.scp049].StopEvent();
+                        GameController.ins.npcController.mainList[(int)npc.scp049].StopEvent();
                         EventFinished();
                         break;
                     }
@@ -114,7 +114,7 @@ public class EV_SurvRoom : Event_Parent
 
         if (endtrigger.GetState() && status != 0)
         {
-            GameController.instance.npcController.mainList[(int)npc.scp049].StopEvent();
+            GameController.ins.npcController.mainList[(int)npc.scp049].StopEvent();
             EventFinished();
         }
 
@@ -123,8 +123,8 @@ public class EV_SurvRoom : Event_Parent
     public override void EventFinished()
     {
         base.EventFinished();
-        GameController.instance.DefMusic();
-        GameController.instance.canSave = true;
+        GameController.ins.DefMusic();
+        GameController.ins.canSave = true;
         isStarted = false;
     }
 }

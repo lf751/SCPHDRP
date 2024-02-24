@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-    
+
 public class NPC_939 : Map_NPC
 {
 
@@ -15,7 +15,7 @@ public class NPC_939 : Map_NPC
     Vector3 currentTarget;
     Collider[] CloseSounds;
     public Transform[] patrol;
-    public AudioClip [] Hello;
+    public AudioClip[] Hello;
     public AudioClip[] Heard;
     public AudioClip[] Found;
     public AudioClip[] Attack;
@@ -45,8 +45,7 @@ public class NPC_939 : Map_NPC
     private static int valState = 2;
     private static int valTimer = 3;
     private static int valSoundLevel = 4;
-
-
+    private NavMeshPath path;
 
     private void Awake()
     {
@@ -55,6 +54,7 @@ public class NPC_939 : Map_NPC
         data.npcvalue[2] = 0;
         data.npcvalue[3] = 0;
         data.npcvalue[4] = 0;
+        path = new NavMeshPath();
     }
 
     // Start is called before the first frame update
@@ -75,6 +75,7 @@ public class NPC_939 : Map_NPC
         this.state = (state_939)state.npcvalue[valState];
         Agent.Warp(state.Pos.toVector3());
         currentTarget = state.Target.toVector3();
+        GetComponent<CapsuleCollider>().isTrigger = true;
         base.setData(state);
     }
 
@@ -102,9 +103,9 @@ public class NPC_939 : Map_NPC
     {
         if (!debugGameLoaded)
         {
-            if (GameController.instance.doGameplay)
+            if (GameController.ins.doGameplay)
             {
-                Player = GameController.instance.player;
+                Player = GameController.ins.player;
                 debugGameLoaded = true;
                 checkPlayer = true;
             }
@@ -116,22 +117,23 @@ public class NPC_939 : Map_NPC
             {
                 case state_939.idle:
                     {
+                        Animator.SetBool("move", Agent.velocity.magnitude > 0.05f);
                         if (!stateSet)
                         {
                             playerCheck = foundPlayer;
-                            Animator.SetBool("move", false);
+
                             Agent.isStopped = true;
                             data.npcvalue[valDestSet] = 0;
                             stateSet = true;
                             Timer = Random.Range(defIdle, defIdle + 3);
-                            if (isDebuggin)
-                                Debug.Log("Volviendo a Idle");
+                            //if (isDebuggin)
+                            //Debug.Log("Volviendo a Idle");
                         }
                         break;
                     }
                 case state_939.attack:
                     {
-                        Animator.SetBool("move", true);
+                        Animator.SetBool("move", Agent.velocity.magnitude > 0.05f);
                         Animator.SetTrigger("reset");
 
                         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookAt), 5 * Time.deltaTime);
@@ -156,7 +158,7 @@ public class NPC_939 : Map_NPC
                                 {
                                     stateSet = false;
                                     state = state_939.idle;
-                                    GameController.instance.DefMusic();
+                                    GameController.ins.DefMusic();
                                 }
                             }
                         }
@@ -167,14 +169,13 @@ public class NPC_939 : Map_NPC
                         if (!stateSet)
                         {
                             playerCheck = foundPlayer;
-                            Animator.SetBool("move", true);
                             Agent.isStopped = false;
                             Agent.speed = walkSpeed;
                             Agent.SetDestination(patrol[data.npcvalue[valCurrNode]].position);
                             Timer = Random.Range(defWalk, defWalk + 3);
                             stateSet = true;
-                            if (isDebuggin)
-                                Debug.Log("Caminata");
+                            //if (isDebuggin)
+                            //Debug.Log("Caminata");
 
                         }
                         else if (Agent.remainingDistance < 1)
@@ -184,6 +185,7 @@ public class NPC_939 : Map_NPC
                                 data.npcvalue[valCurrNode] = 0;
                             stateSet = false;
                         }
+                        Animator.SetBool("move", Agent.velocity.magnitude > 0.05f);
                         break;
                     }
                 case state_939.run:
@@ -191,13 +193,12 @@ public class NPC_939 : Map_NPC
                         if (data.npcvalue[valDestSet] == 0)
                         {
                             playerCheck = foundPlayerRun;
-                            Animator.SetBool("move", true);
                             Agent.isStopped = false;
                             Agent.speed = runSpeed;
                             Agent.SetDestination(currentTarget);
                             data.npcvalue[valDestSet] = 1;
-                            if (isDebuggin)
-                                Debug.Log(soundlevel + "Corro hacia el!");
+                            //if (isDebuggin)
+                            //Debug.Log(soundlevel + "Corro hacia el!");
                             PlayVoice(4);
                         }
                         else if (Agent.remainingDistance < 0.5)
@@ -206,19 +207,20 @@ public class NPC_939 : Map_NPC
                             foundTarget = false;
                             state = state_939.idle;
                         }
+                        Animator.SetBool("move", Agent.velocity.magnitude > 0.05f);
                         break;
                     }
                 case state_939.walk:
                     {
+                        playerCheck = foundPlayer * 2;
                         if (data.npcvalue[valDestSet] == 0)
                         {
-                            playerCheck = foundPlayer;
                             PlayVoice(3);
-                            Animator.SetBool("move", true);
                             Agent.isStopped = false;
                             Agent.speed = walkSpeed;
                             Agent.SetDestination(currentTarget);
                             data.npcvalue[valDestSet] = 1;
+                            Timer = 60f;
                             if (isDebuggin)
                                 Debug.Log(soundlevel + "Camino hacia el!");
                         }
@@ -228,19 +230,22 @@ public class NPC_939 : Map_NPC
                             foundTarget = false;
                             state = state_939.idle;
                         }
+                        Animator.SetBool("move", Agent.velocity.magnitude > 0.05f);
                         break;
                     }
                 case state_939.hearing:
                     {
+                        playerCheck = foundPlayer;
+                        Animator.SetBool("move", Agent.velocity.magnitude > 0.05f);
                         if (!stateSet)
                         {
                             Agent.isStopped = true;
-                            Animator.SetBool("move", false);
+                            //Animator.SetBool("move", false);
                             Animator.SetTrigger("look");
                             data.npcvalue[valDestSet] = 0;
                             Timer = HearingTimer;
-                            if (isDebuggin)
-                                Debug.Log(soundlevel + "Escuche algo?");
+                            //if (isDebuggin)
+                            //Debug.Log(soundlevel + "Escuche algo?");
                             stateSet = true;
                             PlayVoice(1);
                         }
@@ -248,15 +253,17 @@ public class NPC_939 : Map_NPC
                     }
                 case state_939.hearing2:
                     {
+                        playerCheck = foundPlayer * 2;
+                        Animator.SetBool("move", Agent.velocity.magnitude > 0.05f);
                         if (!stateSet)
                         {
                             Agent.isStopped = true;
-                            Animator.SetBool("move", false);
+                            //Animator.SetBool("move", false);
                             Animator.SetTrigger("vocal");
                             data.npcvalue[valDestSet] = 0;
                             Timer = Hearing2Timer;
-                            if (isDebuggin)
-                                Debug.Log(soundlevel + "Si escuche!");
+                            //if (isDebuggin)
+                            //Debug.Log(soundlevel + "Si escuche!");
                             stateSet = true;
                             PlayVoice(2);
                         }
@@ -267,7 +274,7 @@ public class NPC_939 : Map_NPC
             Timer -= Time.deltaTime;
             AttackTimer -= Time.deltaTime;
 
-            if ((state != state_939.run && state != state_939.walk && state != state_939.attack) && patrol != null && Timer <= 0)
+            if ((state != state_939.run && state != state_939.attack) && Timer <= 0)
             {
                 foundTarget = false;
                 stateSet = false;
@@ -276,9 +283,11 @@ public class NPC_939 : Map_NPC
                 {
                     case state_939.idle:
                         {
-                            state = state_939.patrol;
+                            if (patrol != null)
+                                state = state_939.patrol;
                             break;
                         }
+                    case state_939.walk:
                     case state_939.patrol:
                         {
                             state = state_939.idle;
@@ -309,6 +318,7 @@ public class NPC_939 : Map_NPC
                     {
                         switch (state)
                         {
+                            case state_939.walk:
                             case state_939.hearing2:
                                 {
                                     state = state_939.walk;
@@ -316,7 +326,7 @@ public class NPC_939 : Map_NPC
                                 }
                             case state_939.run:
                                 {
-                                    state = state_939.hearing2;
+                                    state = state_939.walk;
                                     break;
                                 }
                             case state_939.hearing:
@@ -326,7 +336,7 @@ public class NPC_939 : Map_NPC
                                 }
                             default:
                                 {
-                                    Debug.Log("Cambiando a hearing!");
+                                    //Debug.Log("Cambiando a hearing!");
                                     state = state_939.hearing;
                                     break;
                                 }
@@ -388,14 +398,17 @@ public class NPC_939 : Map_NPC
             }
 
             if (checkPlayer)
-            playerDistance = Vector3.Distance(Player.transform.position, transform.position);
+                playerDistance = Vector3.Distance(Player.transform.position, transform.position);
             lookAt = new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z) - transform.position;
-            if (debugPlayerPos)
-                Debug.Log("Producto dot " + Vector3.Dot(transform.forward, lookAt.normalized));
+            //if (debugPlayerPos)
+            //Debug.Log("Producto dot " + Vector3.Dot(transform.forward, lookAt.normalized));
+
+
 
             if (playerDistance < playerCheck)
             {
-                if (state != state_939.attack && Vector3.Dot(transform.forward, lookAt.normalized) > 0.5f && CheckPlayer())
+                bool check = CheckPlayer();
+                if (state != state_939.attack && (Vector3.Dot(transform.forward, lookAt.normalized) > 0.5f || playerDistance <= AttackDistance) && check)
                 {
                     WaitTimer = WaitTimerBase;
                     foundTarget = false;
@@ -416,10 +429,10 @@ public class NPC_939 : Map_NPC
     void PlayVoice(int library)
     {
         Audio.Stop();
-        float delay=0;
+        float delay = 0;
         if (library == 1)
         {
-            Audio.clip = Hello[Random.Range(0,Hello.Length)];
+            Audio.clip = Hello[Random.Range(0, Hello.Length)];
             delay = 0.5f;
             if (playerDistance < 15f)
                 StartCoroutine(playDelayedScript(delay, Audio.clip.name));
@@ -428,7 +441,7 @@ public class NPC_939 : Map_NPC
         {
             Audio.clip = Heard[Random.Range(0, Heard.Length)];
             delay = 2;
-            if(playerDistance < 15f)
+            if (playerDistance < 15f)
                 StartCoroutine(playDelayedScript(delay, Audio.clip.name));
         }
         if (library == 3)
@@ -491,11 +504,25 @@ public class NPC_939 : Map_NPC
 
                 if (data.npcvalue[valSoundLevel] < currentSoundLevel)
                 {
-                    if (currdistance < lastdistance)
+                    bool pathExist = NavMesh.CalculatePath(transform.position, CloseSounds[i].transform.position, NavMesh.AllAreas, path);
+                    float dis = 0f;
+                    if (pathExist)
+                    {
+                        for (int n = 1; n < path.corners.Length; n++)
+                        {
+                            dis += (path.corners[n] - path.corners[n - 1]).sqrMagnitude;
+                        }
+                    }
+                    else
+                        dis = float.PositiveInfinity;
+
+                    //Debug.Log("Sound heard at: " + Mathf.Sqrt(dis) + "meters");
+
+                    if (currdistance < lastdistance && ((15f * 15f) > dis))
                     {
                         currentTarget = CloseSounds[i].gameObject.transform.position;
                         data.npcvalue[valSoundLevel] = currentSoundLevel;
-                        soundlevel = "sonido " + data.npcvalue[valSoundLevel] + " distancia " + currdistance + " ";
+                        //soundlevel = "sonido " + data.npcvalue[valSoundLevel] + " distancia " + currdistance + " ";
                         foundTarget = true;
                     }
 
@@ -509,21 +536,37 @@ public class NPC_939 : Map_NPC
     {
         if (other.gameObject.CompareTag("Player") && AttackTimer <= 0)
         {
-            if (GameController.instance.isAlive)
+            if (GameController.ins.isAlive)
             {
                 Animator.SetTrigger("attack" + Random.Range(1, 3));
-                other.gameObject.GetComponent<Player_Control>().Health -= 25;
+                other.gameObject.GetComponent<PlayerControl>().Health -= 25;
                 AttackTimer = AttackCool;
                 Audio.PlayOneShot(Hit);
 
-                if (other.gameObject.GetComponent<Player_Control>().Health <= 0)
+                if (state != state_939.attack)
                 {
-                    GameController.instance.deathmsg = Localization.GetString("deathStrings", "death_939");
+                    WaitTimer = WaitTimerBase;
+                    foundTarget = false;
+                    stateSet = false;
+                    PlayVoice(4);
+                    MusicPlayer.instance.Music.PlayOneShot(AttackTheme);
+
+                    if (state == state_939.run)
+                        Animator.SetTrigger("leap");
+                    state = state_939.attack;
+                }
+
+                if (other.gameObject.GetComponent<PlayerControl>().Health <= 0)
+                {
+                    GetComponent<CapsuleCollider>().isTrigger = false;
+                    GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_939");
                     checkPlayer = false;
                     playerDistance = 100;
                     stateSet = false;
                     state = state_939.patrol;
                 }
+
+
             }
             else if (checkPlayer)
             {

@@ -13,9 +13,9 @@ public class Object_Keypad : Object_Captive
 
     private void Start()
     {
-        if(fromGlobal)
+        if (fromGlobal)
         {
-            code = GameController.instance.globalStrings[globalIndex];
+            code = GameController.ins.globalStrings[globalIndex];
         }
     }
 

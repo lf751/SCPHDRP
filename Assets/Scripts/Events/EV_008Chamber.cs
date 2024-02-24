@@ -28,9 +28,9 @@ public class EV_008Chamber : Event_Parent
     {
         base.EventLoad();
         Debug.Log("Getting Cutscene Object");
-        doorChamber = GameController.instance.getCutsceneObject(x, y, 0).GetComponent<Object_Door>();
-        doorRoom = GameController.instance.getCutsceneObject(x, y, 1).GetComponent<Object_Door>();
-        lever.On = GameController.instance.globalBools[1];
+        doorChamber = GameController.ins.getCutsceneObject(x, y, 0).GetComponent<Object_Door>();
+        doorRoom = GameController.ins.getCutsceneObject(x, y, 1).GetComponent<Object_Door>();
+        lever.On = GameController.ins.globalBools[1];
     }
 
     public override void EventUpdate()
@@ -39,7 +39,7 @@ public class EV_008Chamber : Event_Parent
 
         if (!spawned && airLock.GetState() && doorChamber.switchOpen)
         {
-            GameController.instance.npcController.mainList[(int)npc.scp173].Event_Spawn(true, spawn173.transform.position);
+            GameController.ins.npcController.mainList[(int)npc.scp173].Event_Spawn(true, spawn173.transform.position);
             spawned = true;
         }
 
@@ -55,17 +55,17 @@ public class EV_008Chamber : Event_Parent
             Timer -= Time.deltaTime;
             if(Timer < 0)
             {
-                if (GameController.instance.playercache.IsBlinking())
+                if (GameController.ins.currPly.IsBlinking())
                 {
                     //Debug.Log("Finishing");
-                    GameController.instance.playercache.FakeBlink(0.3f);
-                    GameController.instance.npcController.mainList[(int)npc.scp173].Event_Spawn(true, crash173.transform.position);
-                    GameController.instance.PlayHorror(glassCrash, crash173.transform, npc.none);
+                    GameController.ins.currPly.FakeBlink(0.3f);
+                    GameController.ins.npcController.mainList[(int)npc.scp173].Event_Spawn(true, crash173.transform.position);
+                    GameController.ins.PlayHorror(glassCrash, crash173.transform, npc.none);
 
-                    if(chamber.GetState() && ((GameController.instance.playercache.equipment[(int)bodyPart.Head]==null) ? true : (ItemController.instance.items[GameController.instance.playercache.equipment[(int)bodyPart.Head].itemFileName].itemName!="hazmat")))
+                    if(chamber.GetState() && ((GameController.ins.currPly.equipment[(int)bodyPart.Head]==null) ? true : (ItemController.instance.items[GameController.ins.currPly.equipment[(int)bodyPart.Head].itemFileName].itemName!="hazmat")))
                     {
                         Debug.Log("Zombie now");
-                        GameController.instance.playercache.hasZombie = true;
+                        GameController.ins.currPly.hasZombie = true;
                         SubtitleEngine.instance.playSub("playStrings", "play_zombie_cut");
                     }
 
@@ -83,7 +83,7 @@ public class EV_008Chamber : Event_Parent
         scrambleArea.SetActive(!doorRoom.GetState());
 
         isActive = !lever.On;
-        GameController.instance.globalBools[1] = lever.On;
+        GameController.ins.globalBools[1] = lever.On;
 
         if (isActive!=isEmmiting)
         {

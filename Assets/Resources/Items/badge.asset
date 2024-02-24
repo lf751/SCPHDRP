@@ -22,29 +22,15 @@ MonoBehaviour:
   isFem: 1
   isUnique: 0
   keepInv: 0
-  Effects:
-  - affected: 0
-    effect:
-      permanent: 0
-      time: 0
-      max: 0
-      min: 0
-      value: 0
-      multiplier: 0
-  - affected: 0
-    effect:
-      permanent: 0
-      time: 0
-      max: 0
-      min: 0
-      value: 0
-      multiplier: 0
+  Effects: []
   ItemModel: {fileID: 3751624436181185535, guid: 0abe03dc324eced4e8d091b350664deb,
     type: 3}
   valueFloat: 0
   valueInt: 0
   SFX: 1
+  useTime: 0
   Overlay: {fileID: 21300000, guid: 4e1ba534d7f496e4187c422407a7557f, type: 3}
   protectGas: 0
+  protectCogn: 0
   autoEquip: 0
   part: 2

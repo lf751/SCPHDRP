@@ -11,9 +11,9 @@ public class EV_682Room : Event_Parent
     public override void EventLoad()
     {
         base.EventLoad();
-        smoke1 = GameController.instance.getCutsceneObject(x, y, 0).GetComponent<SmokeController>();
-        smoke2 = GameController.instance.getCutsceneObject(x, y, 1).GetComponent<SmokeController>();
-        smoke3 = GameController.instance.getCutsceneObject(x, y, 2).GetComponent<SmokeController>();
+        smoke1 = GameController.ins.getCutsceneObject(x, y, 0).GetComponent<SmokeController>();
+        smoke2 = GameController.ins.getCutsceneObject(x, y, 1).GetComponent<SmokeController>();
+        smoke3 = GameController.ins.getCutsceneObject(x, y, 2).GetComponent<SmokeController>();
     }
 
     private void Update()
@@ -27,7 +27,7 @@ public class EV_682Room : Event_Parent
         base.EventUpdate();
         if(trigger.GetState())
         {
-            GameController.instance.GlobalSFX.PlayOneShot(scp079);
+            GameController.ins.GlobalSFX.PlayOneShot(scp079);
             EventFinished();
         }
     }

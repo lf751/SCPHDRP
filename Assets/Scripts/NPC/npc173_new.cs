@@ -10,12 +10,12 @@ public struct StatueDifficultyLevels
     public int minTele, maxTele;
     public bool canPatrol;
 }
-    
+
 
 
 public class npc173_new : Roam_NPC
 {
-    public CharacterController controller;
+    public CapsuleCollider controller;
     public int frameInterval;
     //public float maxStep, stepWait;
     public LayerMask groundMask, doorMask;
@@ -24,17 +24,20 @@ public class npc173_new : Roam_NPC
     public AudioClip[] horrorNearClips, horrorFarClips;
     public AudioClip teleportClip;
     public StatueDifficultyLevels[] statueLevels;
+    public Transform head;
+
+    Collider scrambleBox;
 
     AudioSource stoneDrag;
     RaycastHit colHit;
     Camera mainCamera;
     Plane[] frustum;
     NavMeshPath path;
-    bool hasPath, needsPath, targetingPlayer, horrorNear = false, horrorFar = true, directView = false, onPursuit, currCanPatrol, hasDoor, newTarget = false, isVisible = false, doScramble=false, onPath, readyForTele;
+    bool hasPath, needsPath, targetingPlayer, horrorNear = false, horrorFar = true, directView = false, onPursuit, currCanPatrol, hasDoor, newTarget = false, isVisible = false, doScramble = false, onPath, readyForTele;
     Vector3 currentPoint, currentTarget, nextMove, randomPoint;
     Quaternion nextRotation;
     int currentPathNode, currMinTele, currMaxTele;
-    float currTimer, currMaxStep, currStepWait, distanceToPlayer=Mathf.Infinity, doorTimer, currDoorTime, currDoorCooldown, doorCoolTimer, currTeleCool, teleTimer;
+    float currTimer, currMaxStep, currStepWait, distanceToPlayer = Mathf.Infinity, doorTimer, currDoorTime, currDoorCooldown, doorCoolTimer, currTeleCool, teleTimer;
 
 
     // Start is called before the first frame update
@@ -57,10 +60,10 @@ public class npc173_new : Roam_NPC
 
         if (data.isActive)
         {
-            
+
             if (!debugNoTargeting)
             {
-                distanceToPlayer = Vector3.Distance(transform.position, GameController.instance.player.transform.position);
+                distanceToPlayer = Vector3.Distance(transform.position, GameController.ins.player.transform.position);
                 directView = CheckDirectView();
                 isVisible = OnView();
             }
@@ -72,10 +75,10 @@ public class npc173_new : Roam_NPC
             //Debug.DrawLine(new Vector3(transform.position.x, GameController.instance.player.transform.position.y, transform.position.z) - (transform.forward * (controller.radius + 0.5f)), new Vector3(transform.position.x, GameController.instance.player.transform.position.y, transform.position.z) - (transform.forward * (controller.radius + 0.5f)) + (Vector3.up * 0.6f), Color.red);
 
 
-            if (hasPath)
+            /*if (hasPath)
             {
                 ACT_PathDebugging();
-            }
+            }*/
 
             if (horrorNear == true && distanceToPlayer > horrorFarDistance)
                 horrorNear = false;
@@ -98,7 +101,7 @@ public class npc173_new : Roam_NPC
 
                 if (horrorNear == false && distanceToPlayer < horrorNearDistance && directView)
                 {
-                    GameController.instance.PlayHorror(horrorNearClips[Random.Range(0, horrorNearClips.Length)], transform, npc.scp173);
+                    GameController.ins.PlayHorror(horrorNearClips[Random.Range(0, horrorNearClips.Length)], head, npc.scp173);
                     horrorNear = true;
                 }
             }
@@ -110,7 +113,7 @@ public class npc173_new : Roam_NPC
 
                 if (horrorFar == false && distanceToPlayer < horrorFarDistance && directView)
                 {
-                    GameController.instance.PlayHorror(horrorFarClips[Random.Range(0, horrorFarClips.Length)], transform, npc.scp173);
+                    GameController.ins.PlayHorror(horrorFarClips[Random.Range(0, horrorFarClips.Length)], head, npc.scp173);
                     horrorFar = true;
                     horrorNear = false;
                 }
@@ -137,12 +140,12 @@ public class npc173_new : Roam_NPC
                 }
                 if (teleTimer < 0)
                 {
-                    Debug.Log("Preparing for 173 teleport");
+                    //Debug.Log("Preparing for 173 teleport");
                     do
                     {
-                        currentTarget = GameController.instance.GetPatrol(GameController.instance.player.transform.position, currMaxTele, currMinTele);
+                        currentTarget = GameController.ins.GetPatrol(GameController.ins.player.transform.position, currMaxTele, currMinTele);
                     }
-                    while (!GameController.instance.PlayerNotHere(currentTarget));
+                    while (!GameController.ins.PlayerNotHere(currentTarget));
                     Debug.Log("Teleporting 173 teleported!");
                     Spawn(true, currentTarget);
                     teleTimer = currTeleCool;
@@ -151,12 +154,12 @@ public class npc173_new : Roam_NPC
 
             if (onPursuit)
             {
-                currentTarget = GameController.instance.playercache.gameObject.transform.position;
+                currentTarget = GameController.ins.currPly.gameObject.transform.position;
                 needsPath = true;
             }
             else if ((currCanPatrol) && newTarget)
             {
-                currentTarget = GameController.instance.GetPatrol(transform.position, 4, 0);
+                currentTarget = GameController.ins.GetPatrol(transform.position, 4, 0);
                 needsPath = true;
                 newTarget = false;
             }
@@ -168,7 +171,7 @@ public class npc173_new : Roam_NPC
             if (needsPath)
             {
                 currentPathNode = 0;
-                Debug.Log("SCP 173 getting path");
+                //Debug.Log("SCP 173 getting path");
                 hasPath = NavMesh.CalculatePath(transform.position, currentTarget, NavMesh.AllAreas, path);
                 needsPath = !hasPath;
                 newTarget = !hasPath;
@@ -180,10 +183,10 @@ public class npc173_new : Roam_NPC
 
     void ACT_Move()
     {
-        float distance=0, distanceTarget;
+        float distance = 0, distanceTarget;
         if (hasPath && !needsPath && currentPathNode < path.corners.Length && !doScramble)
         {
-            
+
             onPath = true;
             do
             {
@@ -196,7 +199,7 @@ public class npc173_new : Roam_NPC
                 distance = Vector3.Distance(currentPoint, transform.position);
                 if (distance < 1)
                     currentPathNode++;
-                }
+            }
             while (distance < 1 && !needsPath);
         }
         else
@@ -205,7 +208,13 @@ public class npc173_new : Roam_NPC
             needsPath = true;
             currentPoint = transform.position + Random.insideUnitSphere * 5;
             currentPoint.y = transform.position.y;
-            Debug.Log("173 Random Point!");
+            if (doScramble)
+            {
+                currentPoint = scrambleBox.ClosestPoint(currentPoint);
+                /* if ((closePoint-currentPoint).sqrMagnitude < 0.5)
+                     currentPoint = */
+            }
+            //Debug.Log("173 Random Point!");
         }
 
         distanceTarget = Vector3.Distance(currentTarget, transform.position);
@@ -242,37 +251,49 @@ public class npc173_new : Roam_NPC
                 {
                     needsPath = true;
                     newTarget = true;
-                    nextMove = colHit.point + (((transform.position-currentTarget).normalized) * (controller.radius + 0.5f));
+                    nextMove = colHit.point + (((transform.position - currentTarget).normalized) * (controller.radius + 0.5f));
                     currTimer = targetSnap * currStepWait;
                     //Debug.Log("Snap! " + distanceTarget);
                 }
             }
 
-            nextRotation = Quaternion.LookRotation(new Vector3(nextMove.x, transform.position.y, nextMove.z) - transform.position);
+            Vector3 movement = new Vector3(nextMove.x, transform.position.y, nextMove.z) - transform.position;
+
+            if (movement.sqrMagnitude > Mathf.Epsilon)
+            {
+                nextRotation = Quaternion.LookRotation(movement.normalized);
+            }
         }
-
-        if (Physics.Raycast(transform.position + (Vector3.up * 0.6f), (currentPoint - transform.position).normalized, out colHit, distance, doorMask))
+        if (!doScramble)
         {
-            if (!colHit.transform.gameObject.GetComponent<Object_Door>().GetState())
+            if (Physics.Raycast(transform.position + (Vector3.up * 0.6f), (currentPoint - transform.position).normalized, out colHit, distance, doorMask))
+            {
+                if (!colHit.transform.gameObject.GetComponent<Object_Door>().GetState())
                 {
-                needsPath = false;
-                if (hasDoor == false)
-                {
-                    hasDoor = true;
-                    doorTimer = currDoorTime;
-                }
-                else if (doorTimer < 0)
-                {
-
-                    hasDoor = false;
-                    if (colHit.transform.gameObject.GetComponent<Object_Door>().Door173())
+                    needsPath = false;
+                    if (hasDoor == false)
                     {
-                        doorCoolTimer = currDoorCooldown;
-                        needsPath = true;
+                        hasDoor = true;
+                        doorTimer = currDoorTime;
                     }
+                    else if (doorTimer < 0)
+                    {
+
+                        hasDoor = false;
+                        if (colHit.transform.gameObject.GetComponent<Object_Door>().Door173())
+                        {
+                            doorCoolTimer = currDoorCooldown;
+                            needsPath = true;
+                        }
+                    }
+                    nextMove = transform.position;
+                    nextRotation = Quaternion.LookRotation(new Vector3(colHit.point.x, transform.position.y, colHit.point.z) - transform.position);
                 }
-                nextMove = transform.position;
-                nextRotation = Quaternion.LookRotation(new Vector3(colHit.point.x, transform.position.y, colHit.point.z) - transform.position);
+                else
+                {
+                    hasDoor = false;
+                    doorTimer = 0;
+                }
             }
             else
             {
@@ -289,13 +310,13 @@ public class npc173_new : Roam_NPC
 
         if (Physics.Raycast(nextMove + (Vector3.up * 0.6f), Vector3.down, out colHit, 2, groundMask))
         {
-            transform.SetPositionAndRotation(colHit.point, nextRotation);
+            transform.position = colHit.point;
+            transform.rotation = nextRotation;
         }
         else
         {
             needsPath = true;
         }
-        doScramble = false;
     }
 
     /// <summary>
@@ -319,7 +340,7 @@ public class npc173_new : Roam_NPC
     /// <returns></returns>
     bool CanMove()
     {
-        return (GameController.instance.playercache.IsBlinking() || !isVisible) && doorCoolTimer < 0;
+        return (GameController.ins.currPly.IsBlinking() || !isVisible) && doorCoolTimer < 0;
     }
 
     /// <summary>
@@ -338,34 +359,43 @@ public class npc173_new : Roam_NPC
     /// <returns></returns>
     bool CheckDirectView()
     {
-        if (!Physics.Raycast(GameController.instance.player.transform.position + new Vector3(0, 0.6f, 0), (transform.position + new Vector3(0, 0.6f, 0)) - GameController.instance.player.transform.position, distanceToPlayer + 1, groundMask))
+        Vector3 playerPos = GameController.ins.player.transform.position + new Vector3(0, 0.5f, 0);
+        if (!Physics.Raycast(playerPos, head.position - playerPos, (head.position - playerPos).magnitude, groundMask))
             return true;
         else
             return false;
     }
 
+    private void FixedUpdate()
+    {
+        doScramble = false;
+    }
     private void OnTriggerStay(Collider other)
     {
-        if ((CanMove() && (other.gameObject.CompareTag("Player")) && data.isActive && GameController.instance.isAlive && !GameController.instance.playercache.godmode))
+        if ((CanMove() && (other.gameObject.CompareTag("Player")) && data.isActive && GameController.ins.isAlive && !GameController.ins.currPly.godmode))
         {
-            GameController.instance.playercache.playerWarp(new Vector3(transform.position.x, GameController.instance.player.transform.position.y, transform.position.z) + (transform.forward * (controller.radius + 0.7f)), 180);
+            GameController.ins.currPly.playerWarp(new Vector3(transform.position.x, GameController.ins.player.transform.position.y, transform.position.z) + (transform.forward * (controller.radius + 0.7f)), 180);
 
-            GameController.instance.deathmsg = Localization.GetString("deathStrings", "death_173");
-            if (GameController.instance.currentRoom.Equals("Light_2-Way_Doors"))
-                GameController.instance.deathmsg = Localization.GetString("deathStrings", "death_173_doors");
-            if (GameController.instance.playercache.onCam)
-                GameController.instance.deathmsg = Localization.GetString("deathStrings", "death_173_surv");
-            if (!GameController.instance.doGameplay)
-                GameController.instance.deathmsg = Localization.GetString("deathStrings", "death_173_intro");
+            GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_173");
+            if (GameController.ins.currentRoom.Equals("Light_2-Way_Doors"))
+                GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_173_doors");
+            if (GameController.ins.currPly.onCam)
+                GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_173_surv");
+            if (!GameController.ins.doGameplay)
+                GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_173_intro");
 
             data.isActive = false;
 
-            other.gameObject.GetComponent<Player_Control>().Death(1);
+            if (stoneDrag.isPlaying)
+                stoneDrag.Pause();
+
+            other.gameObject.GetComponent<PlayerControl>().Death(1);
             //data.isActive = false;
         }
 
         if (other.gameObject.CompareTag("Scramble"))
         {
+            scrambleBox = other;
             doScramble = true;
         }
     }
@@ -392,34 +422,35 @@ public class npc173_new : Roam_NPC
             {
                 data.isActive = beActive;
 
-                Debug.Log("173 Trying to spawn");
-                if (NavMesh.SamplePosition(warppoint, out NavMeshHit here, 0.5f, NavMesh.AllAreas))
+                NavMeshHit here;
+                //Debug.Log("173 Trying to spawn");
+                if (NavMesh.SamplePosition(warppoint, out here, 0.5f, NavMesh.AllAreas))
                 {
                     transform.position = warppoint;
 
-                    Debug.Log("173 I tried to spawn and it worked");
+                    //Debug.Log("173 I tried to spawn and it worked");
                 }
                 else if (NavMesh.SamplePosition(warppoint, out here, 15f, NavMesh.AllAreas))
                 {
                     transform.position = here.position;
                     data.isActive = beActive;
-                    Debug.Log("173 I tried to spawn and it worked kinda");
+                    //Debug.Log("173 I tried to spawn and it worked kinda");
                 }
                 else
                     Debug.Log("173 I failed to spawn :C ");
 
                 if (beActive)
                 {
-                    GameController.instance.GlobalSFX.PlayOneShot(teleportClip);
+                    stoneDrag.PlayOneShot(teleportClip);
                 }
             }
-            else
-                Debug.Log("173 Im too close to respawn!");
+            /*else
+                Debug.Log("173 Im too close to respawn!");*/
         }
     }
 
     public override void Event_Spawn(bool instant, Vector3 here)
-    { 
+    {
         if (Physics.Raycast(here + (Vector3.up * 0.6f), Vector3.down, out colHit, 2, groundMask))
         {
             transform.position = colHit.point;

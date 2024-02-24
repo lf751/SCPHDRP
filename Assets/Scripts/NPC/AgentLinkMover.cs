@@ -14,7 +14,6 @@ public enum OffMeshLinkMoveMethod
 public class AgentLinkMover : MonoBehaviour
 {
     public OffMeshLinkMoveMethod m_Method = OffMeshLinkMoveMethod.Parabola;
-    public AnimationCurve m_Curve = new();
     [SerializeField]
     private bool stopAtDoors = true;
 
@@ -26,13 +25,11 @@ public class AgentLinkMover : MonoBehaviour
         {
             if (agent.isOnOffMeshLink)
             {
-               // Debug.Log(gameObject.name + " starting off-mesh travel");
+                // Debug.Log(gameObject.name + " starting off-mesh travel");
                 if (m_Method == OffMeshLinkMoveMethod.NormalSpeed)
                     yield return StartCoroutine(NormalSpeed(agent));
                 else if (m_Method == OffMeshLinkMoveMethod.Parabola)
                     yield return StartCoroutine(Parabola(agent, 2.0f, 0.5f));
-                else if (m_Method == OffMeshLinkMoveMethod.Curve)
-                    yield return StartCoroutine(Curve(agent, 0.5f));
 
                 if (agent.enabled)
                     agent.CompleteOffMeshLink();
@@ -56,12 +53,12 @@ public class AgentLinkMover : MonoBehaviour
         float normalizedTime = 0.0f;
         while (normalizedTime < 1.0f)
         {
-            if(!agent.enabled)
+            if (!agent.enabled)
             {
                 normalizedTime = 2;
                 yield break;
             }
-            if (stopAtDoors && data.offMeshLink!=null && data.offMeshLink.area==Object_Door.closedDoorFlag)
+            if (stopAtDoors && data.offMeshLink != null && data.offMeshLink.area == Object_Door.closedDoorFlag)
             {
                 agent.Warp(startPos);
                 normalizedTime = 2;
@@ -72,7 +69,8 @@ public class AgentLinkMover : MonoBehaviour
                 yield return null;
             }
 
-            agent.transform.SetPositionAndRotation(Vector3.Lerp(startPos, endPos, normalizedTime), Quaternion.Lerp(startRota, endRota, normalizedTime));
+            agent.transform.position = Vector3.Lerp(startPos, endPos, normalizedTime);
+            agent.transform.rotation = Quaternion.Lerp(startRota, endRota, normalizedTime);
             normalizedTime += Time.deltaTime / duration;
             yield return null;
         }
@@ -87,21 +85,6 @@ public class AgentLinkMover : MonoBehaviour
         while (normalizedTime < 1.0f)
         {
             float yOffset = height * 4.0f * (normalizedTime - normalizedTime * normalizedTime);
-            agent.transform.position = Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up;
-            normalizedTime += Time.deltaTime / duration;
-            yield return null;
-        }
-    }
-
-    IEnumerator Curve(NavMeshAgent agent, float duration)
-    {
-        OffMeshLinkData data = agent.currentOffMeshLinkData;
-        Vector3 startPos = agent.transform.position;
-        Vector3 endPos = data.endPos + Vector3.up * agent.baseOffset;
-        float normalizedTime = 0.0f;
-        while (normalizedTime < 1.0f)
-        {
-            float yOffset = m_Curve.Evaluate(normalizedTime);
             agent.transform.position = Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up;
             normalizedTime += Time.deltaTime / duration;
             yield return null;

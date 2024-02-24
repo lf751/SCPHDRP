@@ -16,6 +16,7 @@ TagManager:
   - Camera
   - Item
   - IOC TAG
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
@@ -39,7 +40,7 @@ TagManager:
   - Bones
   - SoundLayer
   - Death
-  - ACSCulling
+  - RealtimeOnlyLights
   - 
   - 
   - 

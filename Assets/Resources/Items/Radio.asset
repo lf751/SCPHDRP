@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332e401254c407d4691d61ca0882cacc, type: 3}
   m_Name: Radio
   m_EditorClassIdentifier: 
-  colCenter: {x: 0, y: 0, z: 0}
-  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
+  colCenter: {x: 0, y: 0.041790627, z: 0.018573627}
+  colSize: {x: 0.25087738, y: 0.08682324, z: 0.3559107}
   mass: 1
   itemName: radio
   icon: {fileID: 21300000, guid: 0a1d94dd5b12cbd439d24a55bcdba752, type: 3}
@@ -43,9 +43,12 @@ MonoBehaviour:
   valueFloat: 10
   valueInt: 0
   SFX: 1
+  useTime: 0
   Overlay: {fileID: 0}
   protectGas: 0
+  protectCogn: 0
   autoEquip: 0
   part: 2
   SpendBattery: 1
+  ReceiveBattery: 1
   SpendFactor: 0.3

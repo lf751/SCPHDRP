@@ -4,19 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public enum Menu { None, Pause, Inv , Death, Screen, Debug, Options, Keypad};
+public enum Menu { None, Pause, Inv, Death, Screen, Debug, Options, Keypad };
 
 public class SCP_UI : MonoBehaviour
 {
 
     public static SCP_UI instance = null;
     public Image eyes, eyegraphics, infectiongraphic;
-    public Canvas PauseM;
-    public Transform CanvasPos;
-    public GameObject canvas, SNav, notifprefab;
-    public Canvas Death, Screen, Options, Inventory;
+    public GameObject NotifPrefab, Canvas, SNav;
+    public Canvas Inventory, Death, Screen, Options, PauseM, HUD;
     public Image ScreenText;
-    public Canvas HUD;
     public EventSystem menu;
     public AudioClip[] inventory;
     public AudioClip menublip;
@@ -24,15 +21,14 @@ public class SCP_UI : MonoBehaviour
     public Button save;
     public RadioController radio;
     public KeypadController keypad;
-    public 
-    Menu currMenu = Menu.None;
+    public Menu currMenu = Menu.None;
 
     bool canConsole, canTuto, canPause;
 
-    public Image Overlay, handEquip, navBar;
-    public SegmentedSlider blinkBar, runBar;
+    public Image blinkBar, Overlay, handEquip, runBar, navBar;
 
     public GameObject defInv, defPause, hand;
+    public HashSet<GameObject> loadedEquips;
     // Start is called before the first frame update
 
     void Awake()
@@ -51,7 +47,7 @@ public class SCP_UI : MonoBehaviour
 
     public void ItemSFX(int sfx)
     {
-        GameController.instance.MenuSFX.PlayOneShot(inventory[sfx]);
+        GameController.ins.MenuSFX.PlayOneShot(inventory[sfx]);
     }
 
     public void TogglePauseMenu()
@@ -59,7 +55,7 @@ public class SCP_UI : MonoBehaviour
         if (currMenu == Menu.Pause)
         {
             SCPInput.instance.ToGameplay();
-            GameController.instance.MenuSFX.PlayOneShot(menublip);
+            GameController.ins.MenuSFX.PlayOneShot(menublip);
             PauseM.enabled = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -68,7 +64,7 @@ public class SCP_UI : MonoBehaviour
             AudioListener.pause = false;
             return;
         }
-        if (currMenu == Menu.None&&canPause)
+        if (currMenu == Menu.None && canPause)
         {
             Info1.text = string.Format(Localization.GetString("uiStrings", "ui_in_info"), GlobalValues.design, GlobalValues.playername, GlobalValues.mapname, GlobalValues.mapseed);
 
@@ -87,7 +83,7 @@ public class SCP_UI : MonoBehaviour
     {
         if (currMenu == Menu.Options)
         {
-            GameController.instance.MenuSFX.PlayOneShot(menublip);
+            GameController.ins.MenuSFX.PlayOneShot(menublip);
             Options.enabled = false;
             PauseM.enabled = true;
             Cursor.lockState = CursorLockMode.None;
@@ -95,12 +91,12 @@ public class SCP_UI : MonoBehaviour
             Time.timeScale = 0f;
             currMenu = Menu.Pause;
             AudioListener.pause = true;
-            GameController.instance.LoadUserValues();
+            GameController.ins.LoadUserValues();
             return;
         }
         if (currMenu == Menu.None || currMenu == Menu.Pause)
         {
-            GameController.instance.MenuSFX.PlayOneShot(menublip);
+            GameController.ins.MenuSFX.PlayOneShot(menublip);
             PauseM.enabled = false;
             Options.enabled = true;
             Cursor.lockState = CursorLockMode.None;
@@ -130,8 +126,8 @@ public class SCP_UI : MonoBehaviour
         if (currMenu == Menu.None)
         {
             SCPInput.instance.ToUI();
-            ItemController.instance.OpenInv();
             Inventory.enabled = true;
+            ItemController.instance.OpenInv();
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -148,7 +144,7 @@ public class SCP_UI : MonoBehaviour
         if (currMenu == Menu.Death)
         {
             SCPInput.instance.ToGameplay();
-            DeathMSG.text = GameController.instance.deathmsg;
+            DeathMSG.text = GameController.ins.deathmsg;
             Death.enabled = false;
             Time.timeScale = 1.0f;
 
@@ -165,7 +161,7 @@ public class SCP_UI : MonoBehaviour
             else
                 save.interactable = true;
             Info2.text = string.Format(Localization.GetString("uiStrings", "ui_in_info"), GlobalValues.design, GlobalValues.playername, GlobalValues.mapname, GlobalValues.mapseed);
-            DeathMSG.text = GameController.instance.deathmsg;
+            DeathMSG.text = GameController.ins.deathmsg;
             Death.enabled = true;
             Time.timeScale = 1.0f;
             Cursor.lockState = CursorLockMode.None;
@@ -180,8 +176,8 @@ public class SCP_UI : MonoBehaviour
         if (currMenu == Menu.Screen)
         {
             Screen.enabled = false;
-
-            GameController.instance.MenuSFX.PlayOneShot(menublip);
+            hand.SetActive(true);
+            GameController.ins.MenuSFX.PlayOneShot(menublip);
             /*Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;*/
             currMenu = Menu.None;
@@ -189,6 +185,7 @@ public class SCP_UI : MonoBehaviour
         }
         if (currMenu == Menu.None)
         {
+            hand.SetActive(false);
             Screen.enabled = true;
             /*Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;*/
@@ -202,10 +199,11 @@ public class SCP_UI : MonoBehaviour
         if (currMenu == Menu.Keypad)
         {
             SCPInput.instance.ToGameplay();
-            GameController.instance.MenuSFX.PlayOneShot(menublip);
+            GameController.ins.MenuSFX.PlayOneShot(menublip);
             keypad.disableKeypad();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            hand.SetActive(true);
             /*GameController.instance.player.GetComponent<Player_Control>().Freeze = false;
             GameController.instance.player.GetComponent<Player_Control>().checkObjects = true;
             GameController.instance.player.GetComponent<Player_Control>().StopLook();*/
@@ -215,6 +213,7 @@ public class SCP_UI : MonoBehaviour
         if (currMenu == Menu.None)
         {
             SCPInput.instance.ToUI();
+            hand.SetActive(false);
             keypad.enableKeypad(keypadObject);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -239,6 +238,7 @@ public class SCP_UI : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 currMenu = Menu.None;
+                AudioListener.pause = false;
                 return (false);
             }
             if (currMenu == Menu.None)
@@ -248,6 +248,7 @@ public class SCP_UI : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 currMenu = Menu.Debug;
+                AudioListener.pause = true;
                 return (true);
             }
         }
@@ -267,8 +268,8 @@ public class SCP_UI : MonoBehaviour
     {
         if (canTuto)
         {
-            GameObject notif = Instantiate(notifprefab, canvas.transform);
-            NotifSystem notifval = notif.GetComponent<NotifSystem>();
+            GameObject notif = Instantiate(NotifPrefab, Canvas.transform);
+            NotifSystem notifval = notif.transform.GetChild(0).GetComponent<NotifSystem>();
             notifval.image.sprite = Resources.Load<Sprite>("Tutorials/" + tuto);
             notifval.body.text = Localization.GetString("tutoStrings", tuto);
         }
