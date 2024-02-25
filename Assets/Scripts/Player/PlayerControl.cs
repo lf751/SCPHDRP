@@ -146,8 +146,8 @@ public class PlayerControl : MonoBehaviour
     int currentNode;
     Quaternion PathAngle;
     public float NodeDistance;
-    public float fovAdjustSpeed = 1f;
-    public float defFov = 60f;
+    //public float fovAdjustSpeed = 1f;
+    //public float defFov = 75f;
 
     private Object_Captive currCaptive;
 
@@ -158,9 +158,9 @@ public class PlayerControl : MonoBehaviour
     public bool IsNoClip = false;
     bool movementMode = false;
 
-    [System.NonSerialized]
-    public float AddedFov;
-    float currentAddedFov, targetFovSet, targetFovVel, targetFovCur;
+    //[System.NonSerialized]
+    //public float AddedFov;
+    //float currentAddedFov, targetFovSet, targetFovVel, targetFovCur;
 
 
     // Start is called before the first frame update
@@ -235,7 +235,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (IsNoClip == false)
             {
-                AddedFov = 0;
+                //AddedFov = 0;
                 ACT_Effects();
                 ACT_HUD();
                 ACT_CaptiveObject();
@@ -529,7 +529,7 @@ public class PlayerControl : MonoBehaviour
         if (cognitoEffect == false)
         {
             //PlayerCam.fieldOfView = 60;
-            AddedFov = 0;
+            //AddedFov = 0;
         }
     }
 
@@ -567,27 +567,27 @@ public class PlayerControl : MonoBehaviour
             //Debug.Log("Expected pos = " + headPos + " Internal Timer " + InternalTimer + " headBob " + headBob + " ((101 - Health) / HurtDivisor) = " + ((101 - Health) / HurtDivisor));
             Debug.DrawRay(headPos, transform.forward);
 
-            if (cognitoEffect)
-            {
-                AddedFov = (Camplitude * Mathf.Sin(Cspeed * Time.time));
-                //PlayerCam.fieldOfView = 60 + (Camplitude * Mathf.Sin(Cspeed * Time.time));
-            }
-            else
-            {
-                AddedFov = 0f;
-            }
+            //if (cognitoEffect)
+            //{
+            //    AddedFov = (Camplitude * Mathf.Sin(Cspeed * Time.time));
+            //    //PlayerCam.fieldOfView = 60 + (Camplitude * Mathf.Sin(Cspeed * Time.time));
+            //}
+            //else
+            //{
+            //    AddedFov = 0f;
+            //}
 
-            if (AddedFov != 0f)
-            {
-                currentAddedFov = AddedFov;
-                targetFovSet = 1f;
-            }
-            else
-                targetFovSet = 0f;
+            //if (AddedFov != 0f)
+            //{
+            //    currentAddedFov = AddedFov;
+            //    targetFovSet = 1f;
+            //}
+            //else
+            //    targetFovSet = 0f;
 
-            targetFovCur = Mathf.SmoothDamp(targetFovCur, targetFovSet, ref targetFovVel, fovAdjustSpeed, Mathf.Infinity, Time.deltaTime);
+            //targetFovCur = Mathf.SmoothDamp(targetFovCur, targetFovSet, ref targetFovVel, fovAdjustSpeed, Mathf.Infinity, Time.deltaTime);
 
-            PlayerCam.fieldOfView = (Camera.HorizontalToVerticalFieldOfView(defFov + (targetFovCur * currentAddedFov), PlayerCam.aspect));
+            //PlayerCam.fieldOfView = (Camera.HorizontalToVerticalFieldOfView(defFov + (targetFovCur * currentAddedFov), PlayerCam.aspect));
 
 
             if ((((InputX != 0 || InputY != 0)) || walkAnim) && !Freeze)

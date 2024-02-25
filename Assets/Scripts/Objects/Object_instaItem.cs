@@ -9,6 +9,8 @@ public class Object_instaItem : Object_Interact
     public int id;
 
     public Mesh itemMesh;
+    public MeshFilter itemFilter;
+    public MeshRenderer itemRenderer;
     public Material[] itemMats;
     public BoxCollider col;
     public Rigidbody body;
@@ -23,10 +25,12 @@ public class Object_instaItem : Object_Interact
     {
         item = new GameItem(itemOG.name);
         GameObject model = ItemController.instance.items[item.itemFileName].ItemModel;
-        MeshFilter mesh = model.GetComponentInChildren<MeshFilter>(true);
-        MeshRenderer renderer = model.GetComponentInChildren<MeshRenderer>(true);
+        MeshFilter mesh = ItemController.instance.items[item.itemFileName].ItemModel.GetComponentInChildren<MeshFilter>(true);
+        MeshRenderer renderer = ItemController.instance.items[item.itemFileName].ItemModel.GetComponentInChildren<MeshRenderer>(true);
+        itemFilter = mesh;
         itemMesh = mesh.sharedMesh;
         itemMats = renderer.sharedMaterials;
+        itemRenderer = renderer;
         col.center = ItemController.instance.items[item.itemFileName].colCenter;
         col.size = ItemController.instance.items[item.itemFileName].colSize;
         body.mass = ItemController.instance.items[item.itemFileName].mass;

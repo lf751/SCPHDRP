@@ -40,7 +40,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 0
   intensity:
     m_OverrideState: 1
     m_Value: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   m_SampleCount:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 4
 --- !u!114 &-7067484914666467843
 MonoBehaviour:
@@ -166,22 +166,22 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.3}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.5}
   midtones:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   highlights:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0
   shadowsEnd:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.3
   highlightsStart:
     m_OverrideState: 1
-    m_Value: 0.84
+    m_Value: 0.55
   highlightsEnd:
     m_OverrideState: 1
     m_Value: 1
@@ -311,7 +311,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -344,7 +344,7 @@ MonoBehaviour:
     m_Value: 0.15
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 6
+    m_Value: 4
 --- !u!114 &-592654018456798977
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -360,7 +360,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -378,16 +378,16 @@ MonoBehaviour:
     m_Value: 1
   m_MaxRaySteps:
     m_OverrideState: 1
-    m_Value: 128
+    m_Value: 32
   m_DenoiseSS:
     m_OverrideState: 1
     m_Value: 1
   m_HalfResolutionDenoiserSS:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   m_DenoiserRadiusSS:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.75
   m_SecondDenoiserPassSS:
     m_OverrideState: 1
     m_Value: 1
@@ -596,7 +596,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 1
   enabled:
     m_OverrideState: 1
     m_Value: 1
@@ -638,7 +638,7 @@ MonoBehaviour:
     m_Value: 0.2
   speedSmoothReject:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   speedSurfaceOnly:
     m_OverrideState: 1
     m_Value: 1
@@ -650,7 +650,7 @@ MonoBehaviour:
     m_Value: 0
   m_RayMaxIterations:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 6
   rayMiss:
     m_OverrideState: 1
     m_Value: 3
@@ -887,7 +887,7 @@ MonoBehaviour:
     m_Value: 1
   meteringMode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   luminanceSource:
     m_OverrideState: 0
     m_Value: 1
@@ -902,7 +902,7 @@ MonoBehaviour:
     m_Value: -2.5
   limitMax:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 4.5
   curveMap:
     m_OverrideState: 0
     m_Value:
@@ -1112,7 +1112,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   rayTracing:
     m_OverrideState: 1
     m_Value: 1
@@ -1153,31 +1153,31 @@ MonoBehaviour:
     m_Value: 1
   m_StepCount:
     m_OverrideState: 1
-    m_Value: 6
+    m_Value: 4
   m_FullResolution:
     m_OverrideState: 1
     m_Value: 0
   m_MaximumRadiusInPixels:
     m_OverrideState: 1
-    m_Value: 40
+    m_Value: 32
   m_BilateralUpsample:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   m_DirectionCount:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1
   m_RayLength:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0.5
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1
   m_Denoise:
     m_OverrideState: 1
     m_Value: 1
   m_DenoiserRadius:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.25
 --- !u!114 &7542669330009093999
 MonoBehaviour:
   m_ObjectHideFlags: 3

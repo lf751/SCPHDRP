@@ -7,6 +7,8 @@ public class Object_Item : Object_Interact
     public int id;
 
     public Mesh itemMesh;
+    public MeshFilter itemFilter;
+    public MeshRenderer itemRenderer;
     public BoxCollider col;
     public Rigidbody body;
     public Material[] itemMats;
@@ -19,10 +21,14 @@ public class Object_Item : Object_Interact
     public void Spawn()
     {
         GameObject model = ItemController.instance.items[item.itemFileName].ItemModel;
-        MeshFilter mesh = model.GetComponentInChildren<MeshFilter>(true);
-        MeshRenderer renderer = model.GetComponentInChildren<MeshRenderer>(true);
+        MeshFilter mesh = ItemController.instance.items[item.itemFileName].ItemModel.GetComponentInChildren<MeshFilter>(true);
+        MeshRenderer renderer = ItemController.instance.items[item.itemFileName].ItemModel.GetComponentInChildren<MeshRenderer>(true);
         itemMesh = mesh.sharedMesh;
         itemMats = renderer.sharedMaterials;
+        gameObject.AddComponent<MeshFilter>();
+        gameObject.GetComponents<MeshFilter>()[0].mesh = itemMesh;
+        gameObject.AddComponent<MeshRenderer>();
+        gameObject.GetComponents<MeshRenderer>()[0].materials = itemMats;
         col.center = ItemController.instance.items[item.itemFileName].colCenter;
         col.size = ItemController.instance.items[item.itemFileName].colSize;
         body.mass = ItemController.instance.items[item.itemFileName].mass;
