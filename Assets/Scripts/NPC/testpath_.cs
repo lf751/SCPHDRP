@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class testpath_ : MonoBehaviour
 {
 
-    private enum state_fakeagent { idle, patrol, hearing, hearing2, walk, run, attack, dopath, ignoreall };
+    private enum state_fakeagent { idle, patrol, hearing, hearing2, walk, run, attack , dopath, ignoreall};
 
     public NavMeshAgent Agent;
     public AudioSource Audio;
@@ -79,7 +79,7 @@ public class testpath_ : MonoBehaviour
                             Agent.isStopped = true;
                             destSet = false;
                             stateSet = true;
-                            Timer = Random.Range(defIdle, defIdle + 3);
+                            Timer = Random.Range(defIdle, defIdle+3);
                             if (isDebuggin)
                                 Debug.Log("Volviendo a Idle");
                         }
@@ -150,7 +150,7 @@ public class testpath_ : MonoBehaviour
                                 Agent.SetDestination(patrol[currentNode].position);
                             else
                                 Agent.SetDestination(GameController.ins.GetPatrol(transform.position, 6, 0));
-                            Timer = Random.Range(defWalk, defWalk + 3);
+                            Timer = Random.Range(defWalk, defWalk+3);
                             if (!WorldSearch)
                                 Timer = Random.Range(1, defWalk - 2);
 
@@ -260,7 +260,7 @@ public class testpath_ : MonoBehaviour
             Timer -= Time.deltaTime;
             AttackTimer -= Time.deltaTime;
 
-            if ((state != state_fakeagent.run && state != state_fakeagent.walk && state != state_fakeagent.attack && state != state_fakeagent.dopath) && Timer <= 0)
+            if ((state != state_fakeagent.run && state != state_fakeagent.walk && state != state_fakeagent.attack && state != state_fakeagent.dopath ) && Timer <= 0)
             {
                 foundTarget = false;
                 stateSet = false;

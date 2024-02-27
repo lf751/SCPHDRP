@@ -1129,7 +1129,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 79.57747
+  m_Intensity: 63.661976
   m_Range: 6
   m_SpotAngle: 99.63954
   m_InnerSpotAngle: 80.80362
@@ -1194,16 +1194,16 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 1000
+  m_Intensity: 800
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
-  m_VolumetricDimmer: 1
+  m_VolumetricDimmer: 0.1
   m_LightUnit: 0
   m_FadeDistance: 20
-  m_VolumetricFadeDistance: 10
+  m_VolumetricFadeDistance: 6
   m_AffectDiffuse: 1
   m_AffectSpecular: 1
   m_NonLightmappedOnly: 0
@@ -1472,7 +1472,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 79.57747
+  m_Intensity: 63.661976
   m_Range: 6
   m_SpotAngle: 99.63954
   m_InnerSpotAngle: 80.80362
@@ -1537,16 +1537,16 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 1000
+  m_Intensity: 800
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
-  m_VolumetricDimmer: 1
+  m_VolumetricDimmer: 0.1
   m_LightUnit: 0
   m_FadeDistance: 20
-  m_VolumetricFadeDistance: 10
+  m_VolumetricFadeDistance: 6
   m_AffectDiffuse: 1
   m_AffectSpecular: 1
   m_NonLightmappedOnly: 0
@@ -3801,7 +3801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7496093489855991384
 Transform:
   m_ObjectHideFlags: 0
@@ -5084,7 +5084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7496093490134124969
 Transform:
   m_ObjectHideFlags: 0
@@ -12485,6 +12485,7 @@ MonoBehaviour:
   Lights: {fileID: 7496093490134124970}
   Probes: {fileID: 7496093489855991385}
   cutsceneReferences: []
+  spawn: {fileID: 0}
 --- !u!114 &9005123637732886074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43509,7 +43510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7313913902790158150, guid: d957b80083d093d48815a52c4fe33f96, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6666667
+      value: -2.8
       objectReference: {fileID: 0}
     - target: {fileID: 7313913902790158150, guid: d957b80083d093d48815a52c4fe33f96, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44215,7 +44216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4160725207012044007, guid: f79a26bed4e413c4cbb1c73c5f34f849, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6666667
+      value: -2.8
       objectReference: {fileID: 0}
     - target: {fileID: 4160725207012044007, guid: f79a26bed4e413c4cbb1c73c5f34f849, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44921,6 +44922,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.41438675
       objectReference: {fileID: 0}
+    - target: {fileID: 8431967954715470539, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
+      propertyPath: Door1Objects
+      value: 
+      objectReference: {fileID: 5147864043086457916}
+    - target: {fileID: 8431967954715470539, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
+      propertyPath: Door2Objects
+      value: 
+      objectReference: {fileID: 8367879198195144150}
     - target: {fileID: 9208468642897077053, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3
@@ -44975,9 +44984,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3345821126244899779, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
   m_PrefabInstance: {fileID: 7564040596156353673}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5147864043086457916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3425055455358230709, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
+  m_PrefabInstance: {fileID: 7564040596156353673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6839359264564633575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3896343595005662062, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
+  m_PrefabInstance: {fileID: 7564040596156353673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8367879198195144150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2078537753930619231, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
   m_PrefabInstance: {fileID: 7564040596156353673}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8486521777604423328 stripped
@@ -45237,6 +45256,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 360
       objectReference: {fileID: 0}
+    - target: {fileID: 8431967954715470539, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
+      propertyPath: Door1Objects
+      value: 
+      objectReference: {fileID: 5147864043001511130}
+    - target: {fileID: 8431967954715470539, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
+      propertyPath: Door2Objects
+      value: 
+      objectReference: {fileID: 8367879198013752624}
     - target: {fileID: 8660942382183164284, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
       propertyPath: m_Radius
       value: 0.03
@@ -45291,9 +45318,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3345821126244899779, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
   m_PrefabInstance: {fileID: 7564040596344036463}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5147864043001511130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3425055455358230709, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
+  m_PrefabInstance: {fileID: 7564040596344036463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6839359264378982145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3896343595005662062, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
+  m_PrefabInstance: {fileID: 7564040596344036463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8367879198013752624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2078537753930619231, guid: ad306b3ba405bb2418fd85734260d6fe, type: 3}
   m_PrefabInstance: {fileID: 7564040596344036463}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8486521777517411910 stripped

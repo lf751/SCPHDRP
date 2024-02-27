@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8214699397547222933}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.00002807378, y: -0.70694435, z: -0.000028274946, w: 0.7072692}
   m_LocalPosition: {x: 0.90000004, y: 31.6, z: 9.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: -89.974, z: -0.005}
 --- !u!114 &8214699397547222932
 MonoBehaviour:
@@ -45,13 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: dbf6009a553ee1748ba313c3b4ee82b4, type: 2}
-  m_DrawDistance: 1000
+  m_DrawDistance: 25
   m_FadeScale: 0.9
   m_StartAngleFade: 180
   m_EndAngleFade: 180
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
   m_AffectsTransparency: 0
+  m_TransparentTextureResolution:
+    m_Override: 256
+    m_UseOverride: 1
+    m_Level: 0
   m_DecalLayerMask: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0}

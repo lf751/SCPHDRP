@@ -15,7 +15,7 @@ public class Step106 : MonoBehaviour
     }
     void StepSound()
     {
-
+        
         foot.clip = steps[Random.Range(0, steps.Length)];
         foot.Play();
         if (Physics.Raycast(transform.position + (Vector3.up), Vector3.down, out ray, 1.5f, Collision, QueryTriggerInteraction.Ignore))

@@ -1295,7 +1295,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 1
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -2442,7 +2442,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -8688,7 +8688,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -9804,7 +9804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa5c7ac0bc11e54d99fb483e2557f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewContainer: {fileID: 6735209824662787636}
+  viewContainer: {fileID: 691837784884921266}
   logTextArea: {fileID: 2248540048168944707}
   inputField: {fileID: 7310669279975975785}
 --- !u!114 &7018069561138267814
@@ -9822,7 +9822,7 @@ MonoBehaviour:
   eyes: {fileID: 5101691938991941918}
   eyegraphics: {fileID: 1742070313342372445}
   infectiongraphic: {fileID: 7131517682138400674}
-  NotifPrefab: {fileID: 6279994982100594944, guid: 05e940bcce3d40446a3628470a34032b, type: 3}
+  NotifPrefab: {fileID: 6279994982100594944, guid: 2c9e64ce6832eba4d8fee366812b7a31, type: 3}
   Canvas: {fileID: 8060341766327747617}
   SNav: {fileID: 895055788666805454}
   Inventory: {fileID: 1742070313509683003}
@@ -13038,8 +13038,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5433792194975670006, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5433792194975670006, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5433792194975670006, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5433792194975670010, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_Name
@@ -13268,13 +13276,44 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5433792194975670010, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5072451697834484996}
   m_SourcePrefab: {fileID: 100100000, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
 --- !u!223 &7207718295372466530 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 5433792194975670006, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
   m_PrefabInstance: {fileID: 3417740290806650772}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7207718295372466542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5433792194975670010, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+  m_PrefabInstance: {fileID: 3417740290806650772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5072451697834484996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7207718295372466542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1280, y: 720}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0.84
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!224 &7207718295372466543 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5433792194975670011, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}

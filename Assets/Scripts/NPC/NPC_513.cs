@@ -32,7 +32,7 @@ public class NPC_513 : SimpleNPC
     {
         base.NPCUpdate();
 
-        transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(Lib.DirectionTo(transform.position, GameController.ins.currPly.transform.position), Vector3.up).normalized);
+        transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(Lib.DirectionTo(transform.position, GameController.ins.currPly.transform.position),Vector3.up).normalized);
         ghostModel.position = new Vector3(transform.position.x + (Mathf.Sin(speedUpDown * (Time.time * random1)) * distanceLeftRight), transform.position.y + (Mathf.Sin(speedUpDown * Time.time) * distanceUpDown), transform.position.z + ((Mathf.Sin(speedUpDown * (Time.time * random2))) * distanceForwardBackwards));
 
         Timer -= Time.deltaTime;
@@ -68,7 +68,7 @@ public class NPC_513 : SimpleNPC
         if (!seen && Time.frameCount % framerate == 0)
         {
             float dis = Vector3.Distance(GameController.ins.currPly.transform.position, transform.position);
-            if (dis < 14 && (!Physics.Raycast(transform.position + Vector3.up, ((GameController.ins.currPly.transform.position + Vector3.up) - (transform.position + Vector3.up)).normalized, dis, col)))
+            if (dis < 14 && (!Physics.Raycast(transform.position + Vector3.up, ((GameController.ins.currPly.transform.position + Vector3.up)- (transform.position + Vector3.up)).normalized, dis, col)))
             {
                 seen = true;
                 Timer = 10f;
@@ -88,5 +88,5 @@ public class NPC_513 : SimpleNPC
         }
     }
 
-
+    
 }

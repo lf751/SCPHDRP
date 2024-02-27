@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6405059875739310395}
   - component: {fileID: 7672384580959190725}
   - component: {fileID: 1205383878346144926}
-  m_Layer: 13
+  m_Layer: 19
   m_Name: LightTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 35, y: 20, z: 35}
+  m_Size: {x: 45, y: 20, z: 45}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1205383878346144926
 MonoBehaviour:

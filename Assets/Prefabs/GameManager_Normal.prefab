@@ -1508,7 +1508,6 @@ MonoBehaviour:
   globalStrings: []
   mapFull: {fileID: 7018069562166520189}
   tile: {fileID: 11400000, guid: e1e405f7b0402934b9650020b2cce8d7, type: 2}
-  HDRPAsset: {fileID: 0}
   deathmsg: 
   currentRoom: 
   particleController: {fileID: 7018069562246037061}

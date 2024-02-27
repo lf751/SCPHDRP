@@ -91,6 +91,7 @@ MonoBehaviour:
   Lights: {fileID: 5743789782072309720}
   Probes: {fileID: 6249566411246100434}
   cutsceneReferences: []
+  spawn: {fileID: 0}
 --- !u!1 &1375765365845923015
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +604,7 @@ Light:
   serializedVersion: 11
   m_Type: 6
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 50
+  m_Intensity: 150
   m_Range: 10
   m_SpotAngle: 71.39759
   m_InnerSpotAngle: 21.80208
@@ -668,7 +669,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 2
   m_AreaLightShape: 0
-  m_Intensity: 50
+  m_Intensity: 150
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -2948,7 +2949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 828607345020274229, guid: 6252f4f46e1750b4999002ebd31e8aeb, type: 3}
       propertyPath: varbase
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 828607345020274229, guid: 6252f4f46e1750b4999002ebd31e8aeb, type: 3}
       propertyPath: amplitude

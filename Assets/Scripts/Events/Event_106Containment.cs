@@ -32,7 +32,7 @@ public class Event_106Containment : Event_Parent
         decal2 = GameController.ins.getCutsceneObject(x, y, 1).transform;
         state = GameController.ins.getValue(x, y, 0);
         currTimer = GameController.ins.getValue(x, y, 1);
-        
+
         leverMag.On = GameController.ins.getValue(x, y, 2) == 1;
         Debug.Log("magnet should be: " + leverMag.On);
         leverAud.On = GameController.ins.getValue(x, y, 3) == 1;
@@ -60,7 +60,7 @@ public class Event_106Containment : Event_Parent
         {
             if (state == 1)
             {
-                paSystem2.clip = lureIdle[Random.Range(0, lureIdle.Length-1)];
+                paSystem2.clip = lureIdle[Random.Range(0, lureIdle.Length - 1)];
                 paSystem2.Play();
                 audioTimer = paSystem2.clip.length + Random.Range(audMin, audMax);
             }
@@ -72,8 +72,8 @@ public class Event_106Containment : Event_Parent
             }*/
         }
 
-        
-        if(state==1&&buttonBreak.activated)
+
+        if (state == 1 && buttonBreak.activated)
         {
             state = 2;
             paSystem2.Stop();
@@ -84,7 +84,7 @@ public class Event_106Containment : Event_Parent
 
         if (currTimer < 0)
         {
-            switch(state)
+            switch (state)
             {
                 case 2:
                     {
@@ -106,12 +106,12 @@ public class Event_106Containment : Event_Parent
                     }
                 case 4:
                     {
-                        if(!leverMag.On)
+                        if (!leverMag.On)
                         {
                             GameController.ins.npcController.mainList[(int)npc.scp106].transform.rotation = spawn1061.rotation;
                             GameController.ins.npcController.mainList[(int)npc.scp106].Event_Spawn(false, spawn1061.position);
                             Tween.LocalScale(decal1, new Vector3(decalSize1, decalSize1, 1f), 4f, 0f, Tween.EaseOutStrong);
- 
+
 
                             currTimer = 7;
                             state = 5;
@@ -172,7 +172,7 @@ public class Event_106Containment : Event_Parent
         {
             box.isFloating = true;
             boxSound.PlayOneShot(magUp);
-            GameController.ins.setValue(x, y, 2, (leverMag.On ? 1:0));
+            GameController.ins.setValue(x, y, 2, (leverMag.On ? 1 : 0));
         }
         if (!leverMag.On && box.isFloating)
         {
@@ -181,14 +181,14 @@ public class Event_106Containment : Event_Parent
             GameController.ins.setValue(x, y, 2, (leverMag.On ? 1 : 0));
         }
 
-        if(leverAud.On == paSystem.mute)
+        if (leverAud.On == paSystem.mute)
         {
             paSystem.mute = !leverAud.On;
             paSystem2.mute = !leverAud.On;
             GameController.ins.setValue(x, y, 3, (leverAud.On ? 1 : 0));
         }
 
-        if ((state == 2 || state == 3 || state == 4)&& !isStarted)
+        if ((state == 2 || state == 3 || state == 4) && !isStarted)
         {
             audioTimer -= Time.deltaTime;
             if (audioTimer < 0)
@@ -211,14 +211,14 @@ public class Event_106Containment : Event_Parent
     public override void EventStart()
     {
         base.EventStart();
-        if (state==0)
+        if (state == 0)
         {
             Debug.Log("Setup 106");
             leverMag.SwitchState(true);
             GameController.ins.setValue(x, y, 2, 1);
             state = 1;
         }
-        if(state==2)
+        if (state == 2)
         {
             paSystem2.Stop();
             paSystem2.clip = attack106;
@@ -229,10 +229,10 @@ public class Event_106Containment : Event_Parent
         {
             paSystem2.Stop();
             paSystem2.clip = attack106;
-            paSystem2.time = 3.4f+currTimer;
+            paSystem2.time = 3.4f + currTimer;
             paSystem2.Play();
         }
-        if(state == 4)
+        if (state == 4)
         {
             GameController.ins.npcController.mainList[(int)npc.scp106].Event_Spawn(false, spawn1061.position);
         }

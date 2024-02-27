@@ -16,7 +16,7 @@ public struct DoctorDifficultyLevels
 
 public class NPC_049 : Roam_NPC
 {
-    enum scp049State { idle, patrol, chase, trail, kill, hearing, soundChase, trailIdle }
+    enum scp049State { idle, patrol, chase, trail, kill, hearing, soundChase, trailIdle}
 
     //public AudioClip idle, panic, horror, chaseClip, scream;
     public DoctorDifficultyLevels[] levels;
@@ -25,18 +25,18 @@ public class NPC_049 : Roam_NPC
     Collider[] closeSounds;
     NavMeshAgent agent;
     AudioSource voiceSource;
-    public AudioClip[] Chase, Search, Kill;
+    public AudioClip [] Chase, Search, Kill;
     public AudioClip chaseSong, notice714;
     public Animator animator;
     public float viewLimit, normalSpeed, chaseSpeed, listeningRange, closeRange, removeRingTime;
     public LayerMask ground, doors, playerMask, soundLayer;
-    public bool debugIsTargeting, allowMapPath = true;
+    public bool debugIsTargeting, allowMapPath=true;
     scp049State state, currAnim;
-    float audTimer, Timer, trailTimer, fallSpeed, framerate = 10, teleportTimer = 0, framerate2 = 60, distanceFromPlayer = Mathf.Infinity, currRemRing;
+    float audTimer, Timer, trailTimer, fallSpeed, framerate = 10, teleportTimer=0, framerate2 = 60, distanceFromPlayer=Mathf.Infinity, currRemRing;
     int currNode, currSoundLevel;
     [System.NonSerialized]
     public bool seePlayer;
-    bool onPath, isRota, foundSound, hasPath, pathIsMap = false, isPlayingChase, hasNotice714;
+    bool onPath, isRota, foundSound, hasPath,pathIsMap=false,isPlayingChase, hasNotice714;
     Vector3 currTarget;
     NavMeshPath currPath;
     Quaternion toRota, fromAngle;
@@ -67,7 +67,7 @@ public class NPC_049 : Roam_NPC
 
     private void LateUpdate()
     {
-        animator.SetFloat("moveSpeed", agent.isOnOffMeshLink && !agent.isStopped ? 1 : agent.velocity.magnitude);
+        animator.SetFloat("moveSpeed", agent.isOnOffMeshLink && !agent.isStopped? 1 : agent.velocity.magnitude);
         if (currAnim != state)
         {
             switch (state)
@@ -96,12 +96,12 @@ public class NPC_049 : Roam_NPC
 
     void NPCUpdate()
     {
-
+        
         if (debugIsTargeting && Time.frameCount % framerate == 0)
         {
             distanceFromPlayer = Vector3.Distance(transform.position, GameController.ins.currPly.transform.position);
             seePlayer = CanSee();
-            if (seePlayer)
+            if(seePlayer)
             {
                 if (!isPlayingChase)
                 {
@@ -115,7 +115,7 @@ public class NPC_049 : Roam_NPC
                 currTarget = GameController.ins.currPly.transform.position;
                 teleportTimer = 0;
             }
-
+            
             if (state != scp049State.chase && state != scp049State.kill && seePlayer)
             {
                 data.npcvalue[valIsPanic] = 1;
@@ -150,7 +150,7 @@ public class NPC_049 : Roam_NPC
             agent.isStopped = false;
             allowMapPath = true;
         }
-        ///DEBUG DATA
+         ///DEBUG DATA
         //Debug.DrawRay(transform.position + Vector3.up, (GameController.instance.playercache.transform.position - transform.position));
         //Debug.Log("Dot de vision " + Vector3.Dot((GameController.instance.playercache.transform.position - transform.position).normalized, transform.forward));
 
@@ -164,7 +164,7 @@ public class NPC_049 : Roam_NPC
                     agent.ResetPath();
                     if (foundSound)
                     {
-                        if (currSoundLevel < 2)
+                        if (currSoundLevel < 2 )
                         {
                             audTimer = 0;
                             foundSound = false;
@@ -246,8 +246,8 @@ public class NPC_049 : Roam_NPC
             case scp049State.patrol:
                 {
                     agent.speed = normalSpeed;
-
-
+                    
+                    
 
                     if (foundSound)
                     {
@@ -308,7 +308,7 @@ public class NPC_049 : Roam_NPC
             case scp049State.soundChase:
                 {
                     agent.speed = normalSpeed;
-
+                    
 
 
                     if (agent.hasPath && agent.remainingDistance < 0.5f)
@@ -325,7 +325,7 @@ public class NPC_049 : Roam_NPC
                         }
                         onPath = false;
                         currSoundLevel = 0;
-
+                        
                     }
 
                     RaycastHit hit;
@@ -383,8 +383,7 @@ public class NPC_049 : Roam_NPC
                             }
                         }
                         agent.isStopped = true;
-                        if (isProtected)
-                        {
+                        if (isProtected){
                             currRemRing -= Time.deltaTime;
                             if (!hasNotice714)
                             {
@@ -392,7 +391,7 @@ public class NPC_049 : Roam_NPC
                                 PlayVoice(4);
                                 Debug.Log("Stop strugling");
                             }
-
+                            
 
                             if (currRemRing < 0f)
                             {
@@ -403,7 +402,7 @@ public class NPC_049 : Roam_NPC
                                 break;
                             }
                         }
-
+                        
 
                         //agent.isStopped = true;
                         agent.velocity = Vector3.zero;
@@ -413,8 +412,7 @@ public class NPC_049 : Roam_NPC
                         state = scp049State.kill;
                         PlayVoice(3);
                     }
-                    else
-                    {
+                    else{
                         if (agent.hasPath && agent.remainingDistance < 0.5f && distanceFromPlayer > 6f)
                         {
                             state = scp049State.trail;
@@ -628,7 +626,7 @@ public class NPC_049 : Roam_NPC
             delay = 0;
         }
         voiceSource.PlayDelayed(delay);
-        if (distanceFromPlayer < 15f)
+        if(distanceFromPlayer < 15f)
             SubtitleEngine.instance.playVoice(voiceSource.clip.name, true);
     }
 
@@ -636,7 +634,7 @@ public class NPC_049 : Roam_NPC
     {
         if (Time.frameCount % framerate == 0)
         {
-
+            
             distanceFromPlayer = Vector3.Distance(transform.position, GameController.ins.currPly.transform.position);
             //Debug.Log("Distance " + distanceFromPlayer);
             seePlayer = CanSee();
@@ -652,7 +650,7 @@ public class NPC_049 : Roam_NPC
             case scp049State.patrol:
                 {
                     agent.speed = chaseSpeed;
-
+                    
                     if (Time.frameCount % framerate == 0)
                     {
                         agent.SetDestination(currTarget);
@@ -686,7 +684,7 @@ public class NPC_049 : Roam_NPC
         state = scp049State.idle;
         currAnim = state;
         agent.Warp(warppoint);
-
+        
 
     }
 
@@ -697,8 +695,8 @@ public class NPC_049 : Roam_NPC
         animator.Rebind();
         state = scp049State.idle;
         currAnim = state;
-        if (agent.Warp(warppoint))
-            agent.isStopped = false;
+        if(agent.Warp(warppoint))
+            agent.isStopped=false;
     }
 
     public override void StopEvent()
@@ -764,7 +762,7 @@ public class NPC_049 : Roam_NPC
     {
         currTarget = target;
         teleportTimer = 0;
-
+    
         if (state != scp049State.chase && state != scp049State.kill)
         {
             data.npcvalue[valIsPanic] = 1;
@@ -789,7 +787,7 @@ public class NPC_049 : Roam_NPC
     public bool CanSee()
     {
         Vector3 playerDir = (GameController.ins.currPly.transform.position - this.transform.position).normalized;
-        if (distanceFromPlayer < 3f || ((Vector3.Dot(playerDir, this.transform.forward) > viewLimit) && !Physics.Raycast(this.transform.position + (Vector3.up * 1.5f), playerDir, distanceFromPlayer, ground) && distanceFromPlayer < 20f))
+        if(distanceFromPlayer < 3f || ((Vector3.Dot(playerDir, this.transform.forward) > viewLimit) && !Physics.Raycast(this.transform.position + (Vector3.up*1.5f), playerDir, distanceFromPlayer, ground) && distanceFromPlayer < 20f))
         {
             //Debug.Log("Intern I see you");
             return true;
@@ -799,7 +797,7 @@ public class NPC_049 : Roam_NPC
             //Debug.Log("I dont see you");
             return (false);
         }
-
+        
     }
 }
 

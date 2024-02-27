@@ -21,7 +21,8 @@ public class SimpleNPC : MonoBehaviour
 
     public virtual void Spawn(Vector3 here, Vector3 rota)
     {
-        transform.SetPositionAndRotation(here, Quaternion.Euler(rota));
+        transform.position = here;
+        transform.rotation = Quaternion.Euler(rota);
         isActive = true;
     }
 

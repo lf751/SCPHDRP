@@ -98,6 +98,7 @@ MonoBehaviour:
     state: 0
     isActive: 0
     npcvalue: 0000000000000000000000000000000000000000
+  charName: SCP-173
   isEvent: 0
   controller: {fileID: 6720124247980411252}
   frameInterval: 15

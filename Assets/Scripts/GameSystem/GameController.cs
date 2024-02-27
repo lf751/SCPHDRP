@@ -34,19 +34,19 @@ public class savedDoor
 
 }
 
-[System.Serializable]
+/*[System.Serializable]
 public class savedObject
 {
-    public int id;
+    //public int id;
     public bool State;
 
     public savedObject(int _id)
     {
         State = false;
-        id = _id;
+        //id = _id;
     }
 
-}
+}*/
 
 public class GameController : MonoBehaviour
 {
@@ -170,9 +170,6 @@ public class GameController : MonoBehaviour
     [Header("SNav Values")]
     public Tilemap mapFull;
     public TileBase tile;
-
-    [Header("Graphics Settings")]
-    public HDRenderPipelineAsset HDRPAsset;
 
     [HideInInspector]
     public string deathmsg = "";
@@ -1643,13 +1640,8 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < probes.Length; i++)
         {
             ReflectionProbe probe = probes[i];
-            probe.shadowDistance = 25f;
-            probe.farClipPlane = 25f;
-            probe.backgroundColor = Color.black;
             probe.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.ViaScripting;
-            probe.clearFlags = UnityEngine.Rendering.ReflectionProbeClearFlags.SolidColor;
             probe.mode = UnityEngine.Rendering.ReflectionProbeMode.Realtime;
-            probe.intensity = 1f;
         }
 
         for (int i = 0; i < probes.Length; i++)
@@ -1675,6 +1667,8 @@ public class GameController : MonoBehaviour
 
         }
     }
+
+
 
     IEnumerator HidAfterProbeRendering()
     {

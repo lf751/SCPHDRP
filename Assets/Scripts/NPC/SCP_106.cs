@@ -8,7 +8,7 @@ public class SCP_106 : Roam_NPC
     NavMeshAgent _navMeshagent;
     [SerializeField]
     private LayerMask Ground;
-    float PlayerDistance = 20, timer, ambianceTimer, crackTimer;
+    float PlayerDistance= 20, timer, ambianceTimer, crackTimer;
     [SerializeField]
     private GameObject Eyes;
     private PlayerControl Player;
@@ -18,10 +18,10 @@ public class SCP_106 : Roam_NPC
     private float normalSpeed, crawlSpeed, spawntimer, Distance, crackDistance;
     private float speed;
     float escapeTimer;
-    bool Escaped = false, lastDest, isChase = false;
+    bool Escaped=false, lastDest, isChase=false;
     AudioSource sfx;
     Vector3 Destination;
-    int frameInterval = 20;
+    int frameInterval=20;
     [SerializeField]
     private AudioClip[] Horror, Sfx, Decay;
     [SerializeField]
@@ -67,7 +67,7 @@ public class SCP_106 : Roam_NPC
 
         if (data.isActive)
         {
-
+           
             if (!isEvent)
             {
                 if (Time.frameCount % 10 == 0)
@@ -159,7 +159,7 @@ public class SCP_106 : Roam_NPC
                             UnSpawn();
                     }
 
-
+                    
 
                 }
 
@@ -178,7 +178,7 @@ public class SCP_106 : Roam_NPC
             }
         }
 
-
+        
     }
 
 
@@ -204,7 +204,7 @@ public class SCP_106 : Roam_NPC
                 Vector3 decayPos = transform.position + new Vector3(randCirc.x, 0, randCirc.y);
                 if (Physics.Raycast(decayPos + (Vector3.up * 0.2f), Vector3.down, out ray, 1.5f, Ground, QueryTriggerInteraction.Ignore))
                 {
-                    DecalSystem.instance.Decal(ray.point, Quaternion.Euler(0f, Random.Range(-180f, 180f), 0), Random.Range(2.5f, 3.5f), false, 0.1f, 0, 3);
+                    DecalSystem.instance.Decal(ray.point, Quaternion.Euler(0f, Random.Range(-180f,180f), 0), Random.Range(2.5f, 3.5f), false, 0.1f, 0, 3);
                 }
             }
         }
@@ -214,11 +214,11 @@ public class SCP_106 : Roam_NPC
     {
         if (PlayerDistance < 16 && PlayerDistance > 4)
         {
-            if (playedHorror == false)
-            {
-                GameController.ins.PlayHorror(Horror[Random.Range(0, Horror.Length)], this.transform, npc.scp106);
-                playedHorror = true;
-            }
+                if (playedHorror == false)
+                {
+                    GameController.ins.PlayHorror(Horror[Random.Range(0, Horror.Length)], this.transform, npc.scp106);
+                    playedHorror = true;
+                }
         }
     }
 
@@ -262,11 +262,11 @@ public class SCP_106 : Roam_NPC
             playedHorror = false;
             crackTimer = Random.Range(0.5f, 1.25f);
             RaycastHit ray;
-            if (Physics.Raycast(here + (Vector3.up * 0.2f), Vector3.down, out ray, 1.5f, Ground, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(here + (Vector3.up*0.2f), Vector3.down, out ray, 1.5f, Ground, QueryTriggerInteraction.Ignore))
             {
                 DecalSystem.instance.Decal(ray.point, Quaternion.Euler(0f, 0, 0), 6f, false, 5f, 2, 0);
             }
-
+            
             if (isChase == false)
             {
                 timer = spawntimer;
@@ -289,11 +289,11 @@ public class SCP_106 : Roam_NPC
 
     private void SetDestination()
     {
-        if (!Escaped || (Escaped && PlayerDistance < 7))
-        {
+      if (!Escaped || (Escaped && PlayerDistance < 7))
+      {
             //Debug.Log("SCP 106 getting path");
             _navMeshagent.SetDestination(Player.transform.position);
-        }
+      }
 
     }
 
@@ -311,7 +311,7 @@ public class SCP_106 : Roam_NPC
         Vector3 Point = ActualPath[currentNode].transform.position - transform.position;
 
         //Debug.Log("CUrrent node " + currentNode + ", pos: " + transform.position);
-
+  
 
         Quaternion lookangle = Quaternion.LookRotation(FakePoint);
 
@@ -364,10 +364,10 @@ public class SCP_106 : Roam_NPC
                 DecalSystem.instance.Decal(ray.point + (Vector3.up * 0.1f), Quaternion.Euler(0f, 0, 0), 6f, false, 5f, 2, 0);
             }
         }
-
+        
         transform.position = here;
         isEvent = true;
-
+        
         sfx.PlayOneShot(Sfx[0]);
         playedHorror = false;
         escapeTimer = 20;

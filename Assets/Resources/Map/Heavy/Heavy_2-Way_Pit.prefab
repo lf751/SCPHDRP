@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5866732821864727717}
   - component: {fileID: 5866732821864727718}
-  - component: {fileID: 5927390335378368823}
+  - component: {fileID: 8982108261832285214}
   m_Layer: 0
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5866732821864727717
 Transform:
@@ -45,7 +45,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 47.746483
-  m_Range: 8
+  m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -94,7 +94,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &5927390335378368823
+--- !u!114 &8982108261832285214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,8 +189,8 @@ MonoBehaviour:
   m_MaxDepthBias: 0.001
   m_ShadowResolution:
     m_Override: 512
-    m_UseOverride: 0
-    m_Level: 2
+    m_UseOverride: 1
+    m_Level: 0
   m_ShadowDimmer: 1
   m_VolumetricShadowDimmer: 1
   m_ShadowFadeDistance: 25
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
-  m_Version: 11
+  m_Version: 12
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
@@ -392,6 +392,7 @@ MonoBehaviour:
   Lights: {fileID: 5866732822341520115}
   Probes: {fileID: 5866732823024336473}
   cutsceneReferences: []
+  spawn: {fileID: 0}
 --- !u!1 &5866732822581276495
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,13 +566,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5866732823024336474}
   - component: {fileID: 5866732823024336452}
-  - component: {fileID: 7574974434762458087}
+  - component: {fileID: 5364896082486638578}
   m_Layer: 0
   m_Name: Reflection Probe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!4 &5866732823024336474
 Transform:
@@ -582,7 +583,7 @@ Transform:
   m_GameObject: {fileID: 5866732823024336473}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.10863519, y: 0.72, z: -0.111792564}
+  m_LocalPosition: {x: 0, y: 0.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -598,13 +599,13 @@ ReflectionProbe:
   m_Enabled: 1
   serializedVersion: 2
   m_Type: 0
-  m_Mode: 2
+  m_Mode: 1
   m_RefreshMode: 2
   m_TimeSlicingMode: 0
   m_Resolution: 32
   m_UpdateFrequency: 0
   m_BoxSize: {x: 2.4789166, y: 10, z: 14.242384}
-  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_BoxOffset: {x: -0.10863519, y: 0, z: -0.111792564}
   m_NearClip: 0.3
   m_FarClip: 1000
   m_ShadowDistance: 100
@@ -614,14 +615,14 @@ ReflectionProbe:
     serializedVersion: 2
     m_Bits: 8369463
   m_IntensityMultiplier: 1
-  m_BlendDistance: 0
+  m_BlendDistance: 1
   m_HDR: 1
-  m_BoxProjection: 0
-  m_RenderDynamicObjects: 1
+  m_BoxProjection: 1
+  m_RenderDynamicObjects: 0
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
---- !u!114 &7574974434762458087
+--- !u!114 &5364896082486638578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -640,18 +641,18 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
-    realtimeMode: 1
-    timeSlicing: 1
+    mode: 0
+    realtimeMode: 0
+    timeSlicing: 0
     lighting:
       multiplier: 1
       weight: 1
       lightLayer: 1
-      fadeDistance: 20
+      fadeDistance: 10000
       rangeCompressionFactor: 1
     influence:
       m_Shape: 0
-      m_BoxSize: {x: 2.4789166, y: 10, z: 14.242384}
+      m_BoxSize: {x: 10, y: 10, z: 10}
       m_BoxBlendDistancePositive: {x: 0, y: 0, z: 0}
       m_BoxBlendDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
@@ -672,7 +673,7 @@ MonoBehaviour:
       m_EditorAdvancedModeFaceFadeNegative: {x: 1, y: 1, z: 1}
       m_Version: 1
       m_ObsoleteSphereBaseOffset: {x: 0, y: 0, z: 0}
-      m_ObsoleteOffset: {x: -0.10863519, y: 0, z: -0.111792564}
+      m_ObsoleteOffset: {x: 0, y: 0, z: 0}
     proxy:
       m_Shape: 0
       m_BoxSize: {x: 1, y: 1, z: 1}
@@ -682,7 +683,7 @@ MonoBehaviour:
       m_ObsoleteBoxInfiniteProjection: 0
     proxySettings:
       useInfluenceVolumeAsProxyVolume: 1
-      capturePositionProxySpace: {x: 0.10863519, y: 0, z: 0.111792564}
+      capturePositionProxySpace: {x: 0, y: 0, z: 0}
       captureRotationProxySpace: {x: 0, y: 0, z: 0, w: 1}
       mirrorPositionProxySpace: {x: 0, y: 0, z: 0}
       mirrorRotationProxySpace: {x: 0, y: 0, z: 0, w: 0}
@@ -699,8 +700,8 @@ MonoBehaviour:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
         bitDatas:
-          data1: 72058620536094784
-          data2: 9223372052960870424
+          data1: 5770166122053453
+          data2: 13799031440106553368
         lodBias: 1
         lodBiasMode: 0
         lodBiasQualityLevel: 0
@@ -724,13 +725,13 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 1
+          m_Bits: 4294967295
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
         aspect: 1
-        farClipPlaneRaw: 20
-        nearClipPlaneRaw: 0.3
+        farClipPlaneRaw: 1000
+        nearClipPlaneRaw: 0.1
         fieldOfView: 90
         projectionMatrix:
           e00: 1
@@ -753,7 +754,7 @@ MonoBehaviour:
         useOcclusionCulling: 1
         cullingMask:
           serializedVersion: 2
-          m_Bits: 8369463
+          m_Bits: 4294967295
         sceneCullingMaskOverride: 0
       invertFaceCulling: 0
       flipYMode: 0
@@ -925,13 +926,13 @@ MonoBehaviour:
     'sh[26]': 0
   m_SHValidForCapturePosition: {x: 0, y: 0, z: 0}
   m_SHValidForSourcePosition: {x: 0, y: 0, z: 0}
-  m_HDProbeVersion: 3
-  m_ObsoleteInfiniteProjection: 0
+  m_HDProbeVersion: 0
+  m_ObsoleteInfiniteProjection: 1
   m_ObsoleteInfluenceVolume:
     m_Shape: 0
-    m_BoxSize: {x: 2.4789166, y: 10, z: 14.242384}
-    m_BoxBlendDistancePositive: {x: 1, y: 1, z: 1}
-    m_BoxBlendDistanceNegative: {x: 1, y: 1, z: 1}
+    m_BoxSize: {x: 10, y: 10, z: 10}
+    m_BoxBlendDistancePositive: {x: 0, y: 0, z: 0}
+    m_BoxBlendDistanceNegative: {x: 0, y: 0, z: 0}
     m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
     m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
     m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -950,7 +951,7 @@ MonoBehaviour:
     m_EditorAdvancedModeFaceFadeNegative: {x: 1, y: 1, z: 1}
     m_Version: 1
     m_ObsoleteSphereBaseOffset: {x: 0, y: 0, z: 0}
-    m_ObsoleteOffset: {x: -0.10863519, y: 0, z: -0.111792564}
+    m_ObsoleteOffset: {x: 0, y: 0, z: 0}
   m_ObsoleteFrameSettings:
     overrides: 0
     enableShadow: 0
@@ -998,7 +999,7 @@ MonoBehaviour:
       isFptlEnabled: 0
   m_ObsoleteMultiplier: 1
   m_ObsoleteWeight: 1
-  m_ObsoleteMode: 1
+  m_ObsoleteMode: 0
   m_ObsoleteLightLayers: 1
   m_ObsoleteCaptureSettings:
     overrides: 0
@@ -1007,7 +1008,7 @@ MonoBehaviour:
     clearDepth: 1
     cullingMask:
       serializedVersion: 2
-      m_Bits: 8369463
+      m_Bits: 4294967295
     useOcclusionCulling: 1
     volumeLayerMask:
       serializedVersion: 2
@@ -1020,11 +1021,11 @@ MonoBehaviour:
     orthographicSize: 5
     renderingPath: 0
     shadowDistance: 100
-  m_ReflectionProbeVersion: 9
+  m_ReflectionProbeVersion: 0
   m_ObsoleteInfluenceShape: 0
   m_ObsoleteInfluenceSphereRadius: 3
-  m_ObsoleteBlendDistancePositive: {x: 1, y: 1, z: 1}
-  m_ObsoleteBlendDistanceNegative: {x: 1, y: 1, z: 1}
+  m_ObsoleteBlendDistancePositive: {x: 0, y: 0, z: 0}
+  m_ObsoleteBlendDistanceNegative: {x: 0, y: 0, z: 0}
   m_ObsoleteBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
   m_ObsoleteBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
   m_ObsoleteBoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -1105,13 +1106,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5866732823699542992}
   - component: {fileID: 5866732823699542993}
-  - component: {fileID: 6928383824851862726}
+  - component: {fileID: 5769943797257754895}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5866732823699542992
 Transform:
@@ -1140,7 +1141,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 47.746483
-  m_Range: 8
+  m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1189,7 +1190,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &6928383824851862726
+--- !u!114 &5769943797257754895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1284,8 +1285,8 @@ MonoBehaviour:
   m_MaxDepthBias: 0.001
   m_ShadowResolution:
     m_Override: 512
-    m_UseOverride: 0
-    m_Level: 2
+    m_UseOverride: 1
+    m_Level: 0
   m_ShadowDimmer: 1
   m_VolumetricShadowDimmer: 1
   m_ShadowFadeDistance: 25
@@ -1325,7 +1326,7 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
-  m_Version: 11
+  m_Version: 12
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512

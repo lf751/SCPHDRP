@@ -10,7 +10,7 @@ public struct StatueDifficultyLevels
     public int minTele, maxTele;
     public bool canPatrol;
 }
-
+    
 
 
 public class npc173_new : Roam_NPC
@@ -33,11 +33,11 @@ public class npc173_new : Roam_NPC
     Camera mainCamera;
     Plane[] frustum;
     NavMeshPath path;
-    bool hasPath, needsPath, targetingPlayer, horrorNear = false, horrorFar = true, directView = false, onPursuit, currCanPatrol, hasDoor, newTarget = false, isVisible = false, doScramble = false, onPath, readyForTele;
+    bool hasPath, needsPath, targetingPlayer, horrorNear = false, horrorFar = true, directView = false, onPursuit, currCanPatrol, hasDoor, newTarget = false, isVisible = false, doScramble=false, onPath, readyForTele;
     Vector3 currentPoint, currentTarget, nextMove, randomPoint;
     Quaternion nextRotation;
     int currentPathNode, currMinTele, currMaxTele;
-    float currTimer, currMaxStep, currStepWait, distanceToPlayer = Mathf.Infinity, doorTimer, currDoorTime, currDoorCooldown, doorCoolTimer, currTeleCool, teleTimer;
+    float currTimer, currMaxStep, currStepWait, distanceToPlayer=Mathf.Infinity, doorTimer, currDoorTime, currDoorCooldown, doorCoolTimer, currTeleCool, teleTimer;
 
 
     // Start is called before the first frame update
@@ -60,7 +60,7 @@ public class npc173_new : Roam_NPC
 
         if (data.isActive)
         {
-
+            
             if (!debugNoTargeting)
             {
                 distanceToPlayer = Vector3.Distance(transform.position, GameController.ins.player.transform.position);
@@ -183,10 +183,10 @@ public class npc173_new : Roam_NPC
 
     void ACT_Move()
     {
-        float distance = 0, distanceTarget;
+        float distance=0, distanceTarget;
         if (hasPath && !needsPath && currentPathNode < path.corners.Length && !doScramble)
         {
-
+            
             onPath = true;
             do
             {
@@ -199,7 +199,7 @@ public class npc173_new : Roam_NPC
                 distance = Vector3.Distance(currentPoint, transform.position);
                 if (distance < 1)
                     currentPathNode++;
-            }
+                }
             while (distance < 1 && !needsPath);
         }
         else
@@ -208,11 +208,11 @@ public class npc173_new : Roam_NPC
             needsPath = true;
             currentPoint = transform.position + Random.insideUnitSphere * 5;
             currentPoint.y = transform.position.y;
-            if (doScramble)
+            if(doScramble)
             {
                 currentPoint = scrambleBox.ClosestPoint(currentPoint);
-                /* if ((closePoint-currentPoint).sqrMagnitude < 0.5)
-                     currentPoint = */
+               /* if ((closePoint-currentPoint).sqrMagnitude < 0.5)
+                    currentPoint = */
             }
             //Debug.Log("173 Random Point!");
         }
@@ -251,7 +251,7 @@ public class npc173_new : Roam_NPC
                 {
                     needsPath = true;
                     newTarget = true;
-                    nextMove = colHit.point + (((transform.position - currentTarget).normalized) * (controller.radius + 0.5f));
+                    nextMove = colHit.point + (((transform.position-currentTarget).normalized) * (controller.radius + 0.5f));
                     currTimer = targetSnap * currStepWait;
                     //Debug.Log("Snap! " + distanceTarget);
                 }
@@ -450,7 +450,7 @@ public class npc173_new : Roam_NPC
     }
 
     public override void Event_Spawn(bool instant, Vector3 here)
-    {
+    { 
         if (Physics.Raycast(here + (Vector3.up * 0.6f), Vector3.down, out colHit, 2, groundMask))
         {
             transform.position = colHit.point;

@@ -88,6 +88,7 @@ MonoBehaviour:
     state: 0
     isActive: 0
     npcvalue: 0000000000000000000000000000000000000000
+  charName: SCP-939
   Agent: {fileID: 2684671997497195737}
   Audio: {fileID: 9194301488807307008}
   patrol: []
@@ -272,12 +273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Method: 1
-  m_Curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   stopAtDoors: 1
 --- !u!1001 &8902592724610640069
 PrefabInstance:

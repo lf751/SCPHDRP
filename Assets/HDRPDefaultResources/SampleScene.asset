@@ -168,10 +168,10 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   midtones:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   highlights:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   shadowsStart:
     m_OverrideState: 1
@@ -326,7 +326,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 3
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -350,10 +350,10 @@ MonoBehaviour:
     m_Value: 1
   m_HalfResolutionDenoiserSS:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   m_DenoiserRadiusSS:
     m_OverrideState: 1
-    m_Value: 0.75
+    m_Value: 0.5
   m_SecondDenoiserPassSS:
     m_OverrideState: 1
     m_Value: 1
@@ -852,7 +852,7 @@ MonoBehaviour:
     m_Value: 1
   meteringMode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   luminanceSource:
     m_OverrideState: 0
     m_Value: 1
@@ -864,10 +864,10 @@ MonoBehaviour:
     m_Value: 0
   limitMin:
     m_OverrideState: 1
-    m_Value: -1.5
+    m_Value: -3.2
   limitMax:
     m_OverrideState: 1
-    m_Value: 2.5
+    m_Value: 4.2
   curveMap:
     m_OverrideState: 0
     m_Value:
@@ -966,7 +966,7 @@ MonoBehaviour:
     m_Value: 1
   targetMidGray:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   centerAroundExposureTarget:
     m_OverrideState: 0
     m_Value: 0

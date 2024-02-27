@@ -1245,6 +1245,7 @@ Transform:
   - {fileID: 4774020854762565578}
   - {fileID: 8313533571082442635}
   - {fileID: 7263721970589401674}
+  - {fileID: 3865380921286132935}
   - {fileID: 86641029442604515}
   - {fileID: 7263721970715404846}
   - {fileID: 7263721970456242405}
@@ -1344,6 +1345,7 @@ MonoBehaviour:
   Lights: {fileID: 9093542341413035521}
   Probes: {fileID: 8793866249501185157}
   cutsceneReferences: []
+  spawn: {fileID: 0}
 --- !u!1 &4253081958186282802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,7 +2263,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3865380921286132935}
   - {fileID: 7263721970972292067}
   - {fileID: 7263721969940668058}
   - {fileID: 7263721970889429983}
@@ -2788,7 +2789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4774020854762565578
 Transform:
   m_ObjectHideFlags: 0
@@ -2821,7 +2822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8313533571082442635
 Transform:
   m_ObjectHideFlags: 0
@@ -13117,7 +13118,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7263721970715148714}
+    m_TransformParent: {fileID: 4208623615329534767}
     m_Modifications:
     - target: {fileID: 575005292292672094, guid: e975ec10717902d498e734f0817b70d3, type: 3}
       propertyPath: m_LocalPosition.z

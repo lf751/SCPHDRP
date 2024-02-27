@@ -16,6 +16,8 @@ public class Map_NPC : MonoBehaviour
 {
     [HideInInspector]
     public NPC_Data data;
+
+    public string charName;
     // Start is called before the first frame update
     public virtual void createData()
     {
@@ -25,7 +27,8 @@ public class Map_NPC : MonoBehaviour
     public virtual void setData(NPC_Data state)
     {
         data = state;
-        transform.SetPositionAndRotation(state.Pos.toVector3(), Quaternion.Euler(state.Rotation.toVector3()));
+        transform.position = state.Pos.toVector3();
+        transform.rotation = Quaternion.Euler(state.Rotation.toVector3());
     }
 
     public virtual NPC_Data getData()

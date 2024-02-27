@@ -88,6 +88,7 @@ MonoBehaviour:
     state: 0
     isActive: 0
     npcvalue: 0000000000000000000000000000000000000000
+  charName: SCP-049
   isEvent: 0
   levels:
   - distanceTele: 45
@@ -120,12 +121,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a90eeb9c632eba04894588a5944b86a1, type: 3}
   - {fileID: 8300000, guid: 57841b659b9e22b448ab75c72718260f, type: 3}
   chaseSong: {fileID: 8300000, guid: fdcd6fae321a44c4e88b9fa743092484, type: 3}
+  notice714: {fileID: 8300000, guid: b15e22a993e3580409e84ff8dd001258, type: 3}
   animator: {fileID: 6019327152740774024}
-  viewLimit: -0.5
-  normalSpeed: 1
+  viewLimit: 0.2
+  normalSpeed: 1.5
   chaseSpeed: 2.4
-  listeningRange: 30
-  closeRange: 15
+  listeningRange: 22
+  closeRange: 12
+  removeRingTime: 4
   ground:
     serializedVersion: 2
     m_Bits: 1024
@@ -300,30 +303,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Method: 1
-  m_Curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   stopAtDoors: 1
 --- !u!1001 &8680764321912272616
 PrefabInstance:

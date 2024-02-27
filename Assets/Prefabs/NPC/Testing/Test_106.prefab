@@ -294,16 +294,17 @@ MonoBehaviour:
     state: 0
     isActive: 0
     npcvalue: 0000000000000000000000000000000000000000
+  charName: 
   isEvent: 0
   Ground:
     serializedVersion: 2
     m_Bits: 1024
-  Player: {fileID: 0}
   Eyes: {fileID: 292636684423363208}
   normalSpeed: 2.2
   crawlSpeed: 1.8
   spawntimer: 8
   Distance: 0.1
+  crackDistance: 0
   Horror:
   - {fileID: 8300000, guid: 46baa80bf1c7745408116b31abcd3cc6, type: 3}
   - {fileID: 8300000, guid: 18de8107a83b38640aa640f49b9258e5, type: 3}
@@ -314,6 +315,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 63fe62e4b30dbf746b8afacbd6fa1606, type: 3}
   - {fileID: 8300000, guid: d3f1a758877ec2543970be76ea5ccf7e, type: 3}
   - {fileID: 8300000, guid: cbe6782158fdc014f802baab075a4536, type: 3}
+  Decay:
+  - {fileID: 8300000, guid: ab0b7f215aeda544190f458406e21cbd, type: 3}
+  - {fileID: 8300000, guid: c0af4af625439fa4ca6a4a03a28b4fdb, type: 3}
+  - {fileID: 8300000, guid: 63fe62e4b30dbf746b8afacbd6fa1606, type: 3}
   music: {fileID: 8300000, guid: 615ac0af03e4b3049930dea51788dc93, type: 3}
   anim: {fileID: 9014384198455723662}
   col: {fileID: 4410468405966494153}
@@ -380,12 +385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Method: 1
-  m_Curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   stopAtDoors: 0
 --- !u!1001 &9014384198446347246
 PrefabInstance:

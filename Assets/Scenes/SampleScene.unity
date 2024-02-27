@@ -10572,7 +10572,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 0
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
@@ -11187,6 +11187,10 @@ PrefabInstance:
       propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1891974346598881068, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3889445489191965137, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -24.86853
@@ -11207,6 +11211,58 @@ PrefabInstance:
       propertyPath: priority
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5213927540151462165, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: visSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: FlickSounds.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: HackingSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: 'FlickSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 642c4bfbd8d9a9f45a593b698d82070a, type: 3}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: 'FlickSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ff0eabd7ea670d341809e137036d40ea, type: 3}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: 'FlickSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ec156552a18bbe54eb194ab2f127a774, type: 3}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: 'FlickSounds.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d3086f2592695545a04adcfe8c18fde, type: 3}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: 'FlickSounds.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 121d526234363c445b11962823d0536c, type: 3}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: 'FlickSounds.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: aec67af1c8a95a940aab9c3668b87cc2, type: 3}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: 'FlickSounds.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9379b4bfebb46cb4285adff6293923ac, type: 3}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: 'HackingSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 642c4bfbd8d9a9f45a593b698d82070a, type: 3}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: 'HackingSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ff0eabd7ea670d341809e137036d40ea, type: 3}
+    - target: {fileID: 5707046209782374794, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: 'HackingSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ec156552a18bbe54eb194ab2f127a774, type: 3}
     - target: {fileID: 7018069560671411313, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
       propertyPath: 'spawnPos.Array.data[0]'
       value: 
@@ -21252,7 +21308,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 0
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
@@ -49387,7 +49443,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 0
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
@@ -49475,7 +49531,7 @@ MonoBehaviour:
       frustum:
         mode: 0
         aspect: 1
-        farClipPlaneRaw: 40
+        farClipPlaneRaw: 20
         nearClipPlaneRaw: 0.3
         fieldOfView: 90
         projectionMatrix:
@@ -78999,7 +79055,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 0
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
@@ -79010,8 +79066,8 @@ MonoBehaviour:
     influence:
       m_Shape: 0
       m_BoxSize: {x: 16.952438, y: 12, z: 33.06602}
-      m_BoxBlendDistancePositive: {x: 0.1, y: 0.1, z: 0.1}
-      m_BoxBlendDistanceNegative: {x: 0.1, y: 0.1, z: 0.1}
+      m_BoxBlendDistancePositive: {x: 0, y: 0, z: 0}
+      m_BoxBlendDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -97926,7 +97982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2129910545
 Transform:
   m_ObjectHideFlags: 0
@@ -100335,7 +100391,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 0
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
@@ -102067,7 +102123,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 0
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
@@ -102078,8 +102134,8 @@ MonoBehaviour:
     influence:
       m_Shape: 0
       m_BoxSize: {x: 7.721756, y: 4.5, z: 4.5}
-      m_BoxBlendDistancePositive: {x: 0.15, y: 0.15, z: 0.15}
-      m_BoxBlendDistanceNegative: {x: 0.15, y: 0.15, z: 0.15}
+      m_BoxBlendDistancePositive: {x: 0, y: 0, z: 0}
+      m_BoxBlendDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -102776,7 +102832,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 0
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
@@ -102787,10 +102843,10 @@ MonoBehaviour:
     influence:
       m_Shape: 0
       m_BoxSize: {x: 12.623524, y: 9, z: 17.258429}
-      m_BoxBlendDistancePositive: {x: 0.25, y: 0.25, z: 0.25}
-      m_BoxBlendDistanceNegative: {x: 0.25, y: 0.25, z: 0.25}
-      m_BoxBlendNormalDistancePositive: {x: 0.07445097, y: 0.07445097, z: 0.07445097}
-      m_BoxBlendNormalDistanceNegative: {x: 0.07445097, y: 0.07445097, z: 0.07445097}
+      m_BoxBlendDistancePositive: {x: 0, y: 0, z: 0}
+      m_BoxBlendDistanceNegative: {x: 0, y: 0, z: 0}
+      m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
+      m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
       m_BoxSideFadeNegative: {x: 1, y: 1, z: 1}
       m_SphereRadius: 3
@@ -104111,7 +104167,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 0
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
@@ -104820,7 +104876,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 0
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
@@ -107244,7 +107300,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 0
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1

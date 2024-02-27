@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class npc_zombieGuard : Map_NPC
 {
-    enum zombieState { wakeup, idle, patrol, chase, soundChase, attack, attackCool }
+    enum zombieState { wakeup, idle, patrol, chase, soundChase, attack, attackCool}
 
     //public AudioClip idle, panic, horror, chaseClip, scream;
     Camera mainCamera;
@@ -19,7 +19,7 @@ public class npc_zombieGuard : Map_NPC
     public LayerMask ground, playerMask, soundLayer;
     public bool debugIsTargeting;
     zombieState state, currAnim;
-    float Timer, framerate = 15, distanceFromPlayer = Mathf.Infinity, intMoveSpeed = 0, refMoveSpeed = 0;
+    float Timer, framerate = 15, distanceFromPlayer = Mathf.Infinity, intMoveSpeed=0, refMoveSpeed=0;
     int currNode, currSoundLevel;
     bool onPath, seePlayer, foundSound, hasPath;
     Vector3 currTarget;
@@ -221,7 +221,7 @@ public class npc_zombieGuard : Map_NPC
                         if (GameController.ins.isAlive && Physics.OverlapSphere(transform.position + transform.forward, 0.8f, playerMask).Length > 0)
                         {
                             GameController.ins.currPly.Health -= 25;
-                            if (GameController.ins.currPly.Health <= 0)
+                            if(GameController.ins.currPly.Health <= 0)
                             {
                                 GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_049_1");
                             }

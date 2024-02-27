@@ -25,7 +25,7 @@ public class AgentLinkMover : MonoBehaviour
         {
             if (agent.isOnOffMeshLink)
             {
-                // Debug.Log(gameObject.name + " starting off-mesh travel");
+               // Debug.Log(gameObject.name + " starting off-mesh travel");
                 if (m_Method == OffMeshLinkMoveMethod.NormalSpeed)
                     yield return StartCoroutine(NormalSpeed(agent));
                 else if (m_Method == OffMeshLinkMoveMethod.Parabola)
@@ -53,12 +53,12 @@ public class AgentLinkMover : MonoBehaviour
         float normalizedTime = 0.0f;
         while (normalizedTime < 1.0f)
         {
-            if (!agent.enabled)
+            if(!agent.enabled)
             {
                 normalizedTime = 2;
                 yield break;
             }
-            if (stopAtDoors && data.offMeshLink != null && data.offMeshLink.area == Object_Door.closedDoorFlag)
+            if (stopAtDoors && data.offMeshLink!=null && data.offMeshLink.area==Object_Door.closedDoorFlag)
             {
                 agent.Warp(startPos);
                 normalizedTime = 2;
