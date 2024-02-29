@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 4c079593aa8e90c40b439b2a505ffdd0
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 9801397f829a1ed42984340315cbf362, type: 3}
+  iesMetaData:
+    FileFormatVersion: LM-63-1995
+    IESPhotometricType: Type C
+    IESMaximumIntensity: 25200
+    IESMaximumIntensityUnit: Lumens
+    Manufacturer: LeoMoon Studios
+    LuminaireCatalogNumber: PHLB32-840LTT-120-EB-PM4
+    LuminaireDescription: 8/40W TWINTUBE CF 32"DIA PENDANT MNT AREALIGHT LUMINAIRE
+      ANODIZED BRIGHT DIP REFLECTOR w/DROP DISH PRISMATIC LENS 4 ADVANCE BALLAST
+      #ICF-2S42-M2-LD    WATTS=272
+    LampCatalogNumber: FT40W/2G11/RS/835
+    LampDescription: 
+    PrefabLightType: 0
+    SpotAngle: 120
+    iesSize: 128
+    ApplyLightAttenuation: 1
+    UseIESMaximumIntensity: 1
+    CookieCompression: 2
+    LightAimAxisRotation: -90

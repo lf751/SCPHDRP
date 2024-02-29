@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 85b07305be3163a4482a96e2bf7dfb3e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 9801397f829a1ed42984340315cbf362, type: 3}
+  iesMetaData:
+    FileFormatVersion: LM-63-2002
+    IESPhotometricType: Type C
+    IESMaximumIntensity: 9000
+    IESMaximumIntensityUnit: Lumens
+    Manufacturer: LeoMoon Studios
+    LuminaireCatalogNumber: HLSC15-100PSMH120-BLK
+    LuminaireDescription: 1/100W CLEAR ED17PS MH HORIZ LAMP LS SERIES POST LUMINAIRE
+      WHITE TOP REFLECTOR w/FROSTED GLASS CHIMNEY CLEAR ACRYLIC PANELS
+    LampCatalogNumber: M90
+    LampDescription: 
+    PrefabLightType: 0
+    SpotAngle: 120
+    iesSize: 128
+    ApplyLightAttenuation: 1
+    UseIESMaximumIntensity: 1
+    CookieCompression: 2
+    LightAimAxisRotation: -90

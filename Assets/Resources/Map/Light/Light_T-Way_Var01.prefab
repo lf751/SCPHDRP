@@ -2948,6 +2948,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 828607345020274229, guid: 6252f4f46e1750b4999002ebd31e8aeb, type: 3}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 828607345020274229, guid: 6252f4f46e1750b4999002ebd31e8aeb, type: 3}
       propertyPath: varbase
       value: 0
       objectReference: {fileID: 0}
@@ -2960,8 +2964,24 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 828607345020274229, guid: 6252f4f46e1750b4999002ebd31e8aeb, type: 3}
-      propertyPath: waveFunction
+      propertyPath: offColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 828607345020274229, guid: 6252f4f46e1750b4999002ebd31e8aeb, type: 3}
+      propertyPath: offColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 828607345020274229, guid: 6252f4f46e1750b4999002ebd31e8aeb, type: 3}
+      propertyPath: offColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 828607345020274229, guid: 6252f4f46e1750b4999002ebd31e8aeb, type: 3}
+      propertyPath: offColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 828607345020274229, guid: 6252f4f46e1750b4999002ebd31e8aeb, type: 3}
+      propertyPath: waveFunction
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 828607345020274229, guid: 6252f4f46e1750b4999002ebd31e8aeb, type: 3}
       propertyPath: lights.Array.size

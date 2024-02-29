@@ -77,7 +77,7 @@ MonoBehaviour:
     supportTerrainHole: 0
     lightProbeSystem: 1
     oldLightProbeSystem: 1
-    probeVolumeMemoryBudget: 1024
+    probeVolumeMemoryBudget: 512
     supportProbeVolumeGPUStreaming: 1
     supportProbeVolumeDiskStreaming: 1
     probeVolumeSHBands: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
     supportVFXRayTracing: 0
     supportedRayTracingMode: 3
     lightLoopSettings:
-      cookieAtlasSize: 4096
+      cookieAtlasSize: 1024
       cookieFormat: 74
       cookieAtlasLastValidMip: 0
       cookieTexArraySize: 1
@@ -102,12 +102,12 @@ MonoBehaviour:
       reflectionProbeTexLastValidCubeMip: 3
       reflectionProbeTexLastValidPlanarMip: 0
       reflectionProbeDecreaseResToFit: 1
-      skyReflectionSize: 512
+      skyReflectionSize: 256
       skyLightingOverrideLayerMask:
         serializedVersion: 2
         m_Bits: 0
       supportFabricConvolution: 0
-      maxDirectionalLightsOnScreen: 32
+      maxDirectionalLightsOnScreen: 16
       maxPunctualLightsOnScreen: 24
       maxAreaLightsOnScreen: 24
       maxCubeReflectionOnScreen: 20
@@ -115,23 +115,23 @@ MonoBehaviour:
       maxDecalsOnScreen: 32
       maxLightsPerClusterCell: 4
       maxLocalVolumetricFogSize: 64
-      maxLocalVolumetricFogOnScreen: 32
+      maxLocalVolumetricFogOnScreen: 16
     hdShadowInitParams:
-      maxShadowRequests: 200
+      maxShadowRequests: 164
       directionalShadowsDepthBits: 32
-      punctualShadowFilteringQuality: 2
-      directionalShadowFilteringQuality: 2
+      punctualShadowFilteringQuality: 1
+      directionalShadowFilteringQuality: 1
       areaShadowFilteringQuality: 0
       punctualLightShadowAtlas:
         shadowAtlasResolution: 4096
         shadowAtlasDepthBits: 32
         useDynamicViewportRescale: 1
       areaLightShadowAtlas:
-        shadowAtlasResolution: 4096
+        shadowAtlasResolution: 2048
         shadowAtlasDepthBits: 32
         useDynamicViewportRescale: 1
-      cachedPunctualLightShadowAtlas: 4096
-      cachedAreaLightShadowAtlas: 4096
+      cachedPunctualLightShadowAtlas: 8192
+      cachedAreaLightShadowAtlas: 2048
       allowDirectionalMixedCachedShadows: 1
       shadowResolutionDirectional:
         m_Values: 00010000000200000004000000080000
@@ -150,7 +150,7 @@ MonoBehaviour:
       maxAreaShadowMapResolution: 2048
       supportScreenSpaceShadows: 1
       maxScreenSpaceShadowSlots: 4
-      screenSpaceShadowBufferFormat: 48
+      screenSpaceShadowBufferFormat: 8
     decalSettings:
       drawDistance: 25
       atlasWidth: 2048
@@ -213,7 +213,7 @@ MonoBehaviour:
       ChromaticAberrationMaxSamples: 030000000400000006000000
     lightSettings:
       useContactShadow:
-        m_Values: 010000
+        m_Values: 010101
         m_SchemaId:
           m_Id: With3Levels
     maximumLODLevel:

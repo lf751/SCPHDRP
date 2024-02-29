@@ -55,11 +55,11 @@ MonoBehaviour:
     customBufferFormat: 8
     supportedLitShaderMode: 2
     planarReflectionResolution:
-      m_Values: 000100000001000000010000
+      m_Values: 400000008000000000010000
       m_SchemaId:
         m_Id: With3Levels
     cubeReflectionResolution:
-      m_Values: 800000000001000000020000
+      m_Values: 800000008000000000010000
       m_SchemaId:
         m_Id: With3Levels
     supportDecals: 1
@@ -79,7 +79,7 @@ MonoBehaviour:
     oldLightProbeSystem: 1
     probeVolumeMemoryBudget: 512
     supportProbeVolumeGPUStreaming: 1
-    supportProbeVolumeDiskStreaming: 0
+    supportProbeVolumeDiskStreaming: 1
     probeVolumeSHBands: 1
     supportProbeVolumeScenarios: 0
     supportProbeVolumeScenarioBlending: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
     supportVFXRayTracing: 0
     supportedRayTracingMode: 3
     lightLoopSettings:
-      cookieAtlasSize: 1024
+      cookieAtlasSize: 256
       cookieFormat: 74
       cookieAtlasLastValidMip: 0
       cookieTexArraySize: 1
@@ -96,9 +96,9 @@ MonoBehaviour:
       reflectionProbeCacheSize: 32
       reflectionCubemapSize: 128
       maxEnvLightsOnScreen: 8
-      reflectionCacheCompressed: 0
+      reflectionCacheCompressed: 1
       reflectionProbeFormat: 74
-      reflectionProbeTexCacheSize: 4096
+      reflectionProbeTexCacheSize: 1024
       reflectionProbeTexLastValidCubeMip: 3
       reflectionProbeTexLastValidPlanarMip: 0
       reflectionProbeDecreaseResToFit: 1

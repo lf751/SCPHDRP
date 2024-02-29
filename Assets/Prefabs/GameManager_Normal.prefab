@@ -427,8 +427,18 @@ MonoBehaviour:
   doorMaxTime: 120
   currDoorTime: 0
   doorDis: 2.25
-  HackingSounds: []
-  FlickSounds: []
+  HackingSounds:
+  - {fileID: 8300000, guid: 642c4bfbd8d9a9f45a593b698d82070a, type: 3}
+  - {fileID: 8300000, guid: ff0eabd7ea670d341809e137036d40ea, type: 3}
+  - {fileID: 8300000, guid: ec156552a18bbe54eb194ab2f127a774, type: 3}
+  FlickSounds:
+  - {fileID: 8300000, guid: 642c4bfbd8d9a9f45a593b698d82070a, type: 3}
+  - {fileID: 8300000, guid: ff0eabd7ea670d341809e137036d40ea, type: 3}
+  - {fileID: 8300000, guid: ec156552a18bbe54eb194ab2f127a774, type: 3}
+  - {fileID: 8300000, guid: 8d3086f2592695545a04adcfe8c18fde, type: 3}
+  - {fileID: 8300000, guid: 121d526234363c445b11962823d0536c, type: 3}
+  - {fileID: 8300000, guid: aec67af1c8a95a940aab9c3668b87cc2, type: 3}
+  - {fileID: 8300000, guid: 9379b4bfebb46cb4285adff6293923ac, type: 3}
   DoorJumpscare: {fileID: 8300000, guid: 3ed8b6826c77f28448310e4a5692652f, type: 3}
   scp079Picture: {fileID: 2800000, guid: be1f8a810ab49304786b03f28adfb8de, type: 3}
 --- !u!1 &725808809521632786
@@ -632,7 +642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5517319336174075576
 Transform:
   m_ObjectHideFlags: 0
@@ -665,7 +675,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -840,7 +850,7 @@ MonoBehaviour:
   m_ShadowVariant: 0
   m_ShadowPrecision: 0
   useOldInspector: 0
-  useVolumetric: 1
+  useVolumetric: 0
   featuresFoldout: 1
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
@@ -895,7 +905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defRad: 2
-  visSize: 45
+  visSize: 30
 --- !u!1 &6273306732239430159
 GameObject:
   m_ObjectHideFlags: 0
@@ -36742,7 +36752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 1
+  priority: 0
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: c85b4ddd2d0eacd47ac4cbdc4b5a4314, type: 2}
@@ -37152,7 +37162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 1
   blendDistance: 0
   weight: 0
   sharedProfile: {fileID: 11400000, guid: a897c7214cef05b4fb7a40b3f8b36815, type: 2}
@@ -37351,7 +37361,7 @@ PrefabInstance:
     - target: {fileID: 1742070313509683002, guid: 049874557cdacee40b2ac94e53a7c76f, type: 3}
       propertyPath: equipBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6483838307921243905}
     - target: {fileID: 1801880899146493313, guid: 049874557cdacee40b2ac94e53a7c76f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -37503,6 +37513,10 @@ PrefabInstance:
     - target: {fileID: 5408714210431051997, guid: 049874557cdacee40b2ac94e53a7c76f, type: 3}
       propertyPath: m_SizeDelta.x
       value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6097635325396948740, guid: 049874557cdacee40b2ac94e53a7c76f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24.86853
       objectReference: {fileID: 0}
     - target: {fileID: 6182933208181934249, guid: 049874557cdacee40b2ac94e53a7c76f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -37832,7 +37846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7665070325468356728, guid: aeb3408b34da18f41be8741cf8e79afd, type: 3}
       propertyPath: field of view
-      value: 65
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7665070325468356728, guid: aeb3408b34da18f41be8741cf8e79afd, type: 3}
       propertyPath: near clip plane

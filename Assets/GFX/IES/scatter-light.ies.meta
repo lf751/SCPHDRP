@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 550feeb8cf6b5e54593607a0b6923ff9
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 9801397f829a1ed42984340315cbf362, type: 3}
+  iesMetaData:
+    FileFormatVersion: LM-63-2002
+    IESPhotometricType: Type C
+    IESMaximumIntensity: 22000
+    IESMaximumIntensityUnit: Lumens
+    Manufacturer: LeoMoon Studios
+    LuminaireCatalogNumber: OER1717-250PSMH120-TFT
+    LuminaireDescription: 1/250W ED28 PS MH LAMP 17x17x10"SQ AREA LUMINAIRE MIRO4
+      SPECULAR FORWARD THROW DISTRIBUTION REFLECTOR CLEAR FLAT GLASS LENS
+    LampCatalogNumber: M153/E MH250W/H75/P
+    LampDescription: 
+    PrefabLightType: 0
+    SpotAngle: 120
+    iesSize: 128
+    ApplyLightAttenuation: 1
+    UseIESMaximumIntensity: 1
+    CookieCompression: 2
+    LightAimAxisRotation: -90

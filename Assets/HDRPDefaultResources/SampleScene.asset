@@ -166,12 +166,12 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.5}
   midtones:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   highlights:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   shadowsStart:
     m_OverrideState: 1
@@ -277,7 +277,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -292,13 +292,13 @@ MonoBehaviour:
     m_Value: 0.5
   maxDistance:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 5
   minDistance:
     m_OverrideState: 1
     m_Value: 0
   fadeDistance:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 2
   fadeInDistance:
     m_OverrideState: 1
     m_Value: 0
@@ -310,7 +310,7 @@ MonoBehaviour:
     m_Value: 0.15
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 6
 --- !u!114 &-592654018456798977
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -849,10 +849,10 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 4
   meteringMode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 4
   luminanceSource:
     m_OverrideState: 0
     m_Value: 1
@@ -863,11 +863,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   limitMin:
-    m_OverrideState: 1
-    m_Value: -3.2
+    m_OverrideState: 0
+    m_Value: -2.5
   limitMax:
-    m_OverrideState: 1
-    m_Value: 4.2
+    m_OverrideState: 0
+    m_Value: 4.5
   curveMap:
     m_OverrideState: 0
     m_Value:
@@ -960,7 +960,7 @@ MonoBehaviour:
     m_Value: {fileID: 0}
   histogramPercentages:
     m_OverrideState: 1
-    m_Value: {x: 20, y: 50}
+    m_Value: {x: 30, y: 60}
   histogramUseCurveRemapping:
     m_OverrideState: 0
     m_Value: 1
@@ -974,17 +974,17 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   proceduralRadii:
-    m_OverrideState: 0
-    m_Value: {x: 0.3, y: 0.3}
+    m_OverrideState: 1
+    m_Value: {x: 0.6, y: 0.6}
   maskMinIntensity:
-    m_OverrideState: 0
-    m_Value: -30
+    m_OverrideState: 1
+    m_Value: -3
   maskMaxIntensity:
-    m_OverrideState: 0
-    m_Value: 30
+    m_OverrideState: 1
+    m_Value: 1.2
   proceduralSoftness:
-    m_OverrideState: 0
-    m_Value: 0.5
+    m_OverrideState: 1
+    m_Value: 0.6
 --- !u!114 &5792300203058227160
 MonoBehaviour:
   m_ObjectHideFlags: 3

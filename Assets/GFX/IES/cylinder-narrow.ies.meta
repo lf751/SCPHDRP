@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 50f6d1c6d5d0fd241b54e5844a78c894
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 9801397f829a1ed42984340315cbf362, type: 3}
+  iesMetaData:
+    FileFormatVersion: LM-63-1995
+    IESPhotometricType: Type C
+    IESMaximumIntensity: 5000
+    IESMaximumIntensityUnit: Lumens
+    Manufacturer: LeoMoon Studios
+    LuminaireCatalogNumber: 'CATALOG NO. : TH75-250-T4 NARROW w/SPACER I'
+    LuminaireDescription: 1/250W HALOGEN CLEAR MINICAN 7.5"DIA RECESSED LUMINAIRE
+      FACETED HYDROFORMED SEMI-SPECULAR REFLECTOR CLEAR GLASS LENS w/4"DEEPSPUN SPECULAR
+      ALUMINUM CONE
+    LampCatalogNumber: 'LAMP CODE : 250Q/CL/MC (EHT)'
+    LampDescription: 
+    PrefabLightType: 0
+    SpotAngle: 120
+    iesSize: 128
+    ApplyLightAttenuation: 1
+    UseIESMaximumIntensity: 1
+    CookieCompression: 2
+    LightAimAxisRotation: -90

@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 3a13a67dad37ef441b536e26da08f942
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 9801397f829a1ed42984340315cbf362, type: 3}
+  iesMetaData:
+    FileFormatVersion: LM-63-2002
+    IESPhotometricType: Type C
+    IESMaximumIntensity: 40000
+    IESMaximumIntensityUnit: Lumens
+    Manufacturer: LeoMoon Studios
+    LuminaireCatalogNumber: WPTZ3-PSMH-400-MED-FD-120
+    LuminaireDescription: '1/400W CLEAR ED37 PS MH  18x17x9"WALL PACK AREA LUMINAIRE
+      HAMMERTONE REFLECTOR w/FLAT CLEAR GLASS LENS '
+    LampCatalogNumber: M155/E MH400W/H75/P
+    LampDescription: 
+    PrefabLightType: 0
+    SpotAngle: 120
+    iesSize: 128
+    ApplyLightAttenuation: 1
+    UseIESMaximumIntensity: 1
+    CookieCompression: 2
+    LightAimAxisRotation: -90

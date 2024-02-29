@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 04b0a324425d1cb4d95beabc2d66260b
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 9801397f829a1ed42984340315cbf362, type: 3}
+  iesMetaData:
+    FileFormatVersion: LM-63-2002
+    IESPhotometricType: Type C
+    IESMaximumIntensity: 6200
+    IESMaximumIntensityUnit: Lumens
+    Manufacturer: LeoMoon Studios
+    LuminaireCatalogNumber: IFW 4FT 2L 32W T8 (NBF)
+    LuminaireDescription: IFW 2/32W T8 LAMP 52x7x4"SUSPENDED ENCLOSED/GASKETED LUMINAIRE
+      WHITE REFLECTOR w/CLEAR LINEAL RIBBED ACRYLIC DROP LENS SYLVANIA BALLAST #QTP2x32T8/UNV
+      ISH-SC  WATTS=67 REFL=88%
+    LampCatalogNumber: F32T8/835/RS
+    LampDescription: 
+    PrefabLightType: 0
+    SpotAngle: 120
+    iesSize: 128
+    ApplyLightAttenuation: 1
+    UseIESMaximumIntensity: 1
+    CookieCompression: 2
+    LightAimAxisRotation: -90

@@ -1570,11 +1570,11 @@ public class GameController : MonoBehaviour
         if (hold.Probes != null)
         {
             hold.Probes.SetActive(false);
-            ReflectionProbe[] probes = hold.Probes.GetComponentsInChildren<ReflectionProbe>();
+            HDProbe[] probes = hold.Probes.GetComponentsInChildren<HDAdditionalReflectionData>();
             for (int idx = 0; idx < probes.Length; idx++)
             {
-                ReflectionProbe probe = probes[idx];
-                probe.mode = UnityEngine.Rendering.ReflectionProbeMode.Custom;
+                HDProbe probe = probes[idx];
+                probe.realtimeMode = ProbeSettings.RealtimeMode.OnDemand;
             }
         }
 
@@ -1617,16 +1617,17 @@ public class GameController : MonoBehaviour
         if (hold.Probes != null)
         {
             //Debug.Log("Will bake probes at x" + i + " y" + j + "? " + lightsOn+" now?: " + now);
-            if (QualitySettings.realtimeReflectionProbes && lightsOn)
+            if (lightsOn)
             {
-                ReflectionProbe[] probes = hold.Probes.GetComponentsInChildren<ReflectionProbe>();
+                HDProbe[] probes = hold.Probes.GetComponentsInChildren<HDAdditionalReflectionData>();
                 for (int idx = 0; idx < probes.Length; idx++)
                 {
-                    ReflectionProbe probe = probes[idx];
-                    probe.mode = UnityEngine.Rendering.ReflectionProbeMode.Custom;
+                    HDProbe probe = probes[idx];
+                    probe.mode = ProbeSettings.Mode.Realtime;
+                    probe.realtimeMode = ProbeSettings.RealtimeMode.EveryFrame;
                 }
                 hold.Probes.SetActive(true);
-                yield return RenderProbe(probes, now);
+                yield return null;
             }
             else
             {
@@ -1634,41 +1635,6 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
-    IEnumerator RenderProbe(ReflectionProbe[] probes, bool now = false)
-    {
-        for (int i = 0; i < probes.Length; i++)
-        {
-            ReflectionProbe probe = probes[i];
-            probe.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.ViaScripting;
-            probe.mode = UnityEngine.Rendering.ReflectionProbeMode.Realtime;
-        }
-
-        for (int i = 0; i < probes.Length; i++)
-        {
-
-            ReflectionProbe probe = probes[i];
-            probe.timeSlicingMode = now ? UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.NoTimeSlicing : UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.IndividualFaces;
-            int renderID;
-
-            renderID = probe.RenderProbe();
-            //int waitFrames = lazy ? 6 : 1;
-            /*for (int i = 0; i < waitFrames;i++)
-            {
-                yield return null;
-            }*/
-            float timeout = 0;
-            while (!now && (!probe.IsFinishedRendering(renderID) && timeout < 20))
-            {
-                timeout++;
-                yield return null;
-            }
-            yield return null;
-
-        }
-    }
-
-
 
     IEnumerator HidAfterProbeRendering()
     {

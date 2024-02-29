@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 0f8ae38850e780241b95cb7aa91b14f5
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 9801397f829a1ed42984340315cbf362, type: 3}
+  iesMetaData:
+    FileFormatVersion: LM-63-1995
+    IESPhotometricType: Type C
+    IESMaximumIntensity: 41000
+    IESMaximumIntensityUnit: Lumens
+    Manufacturer: LeoMoon Studios
+    LuminaireCatalogNumber: KH40A-Type III
+    LuminaireDescription: KH40 with Adjustable Reflector in Type III position
+    LampCatalogNumber: 
+    LampDescription: 400W Venture Uni-Form Pulse Start Lamp, Rated at 41,000 Lumens
+    PrefabLightType: 0
+    SpotAngle: 120
+    iesSize: 128
+    ApplyLightAttenuation: 1
+    UseIESMaximumIntensity: 1
+    CookieCompression: 2
+    LightAimAxisRotation: -90

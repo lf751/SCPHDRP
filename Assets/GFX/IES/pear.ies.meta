@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: af608ff0be331474ca7015c3595b6dea
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 9801397f829a1ed42984340315cbf362, type: 3}
+  iesMetaData:
+    FileFormatVersion: LM-63-1995
+    IESPhotometricType: Type C
+    IESMaximumIntensity: 12000
+    IESMaximumIntensityUnit: Lumens
+    Manufacturer: LeoMoon Studios
+    LuminaireCatalogNumber: 'CATALOG NO. : MPG-S22-1/150I                          
+      LER'
+    LuminaireDescription: 1/150W ICETRON LAMP 2x2 DIRECT RECESSED LUMINAIRE SPECULAR
+      REFLECTOR w/PRISMATIC ACRYLIC PAT-12 LENS SYLVANIA BALLAST #QT1x150/120-240
+      ICE    WATTS=155
+    LampCatalogNumber: 'LAMP CODE : ICE150/835'
+    LampDescription: 
+    PrefabLightType: 0
+    SpotAngle: 120
+    iesSize: 128
+    ApplyLightAttenuation: 1
+    UseIESMaximumIntensity: 1
+    CookieCompression: 2
+    LightAimAxisRotation: -90

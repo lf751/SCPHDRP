@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 0963fb3a5394c4946b0d27e0b8989939
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 9801397f829a1ed42984340315cbf362, type: 3}
+  iesMetaData:
+    FileFormatVersion: LM-63-1995
+    IESPhotometricType: Type C
+    IESMaximumIntensity: 12800
+    IESMaximumIntensityUnit: Lumens
+    Manufacturer: LeoMoon Studios
+    LuminaireCatalogNumber: WPSQ-MH-175-MED-120
+    LuminaireDescription: 1/175W CLEAR ED17 MH LAMP 16x16"DIRECT WALL MNT LUMINAIRE
+      SEMI-SPECULAR REFLECTOR SYSTEMS w/BLACK BLADE BAFFLES .1875"THICK CLEAR TEMPERED
+      GLASS LENS
+    LampCatalogNumber: M57 (M175/U/MED)
+    LampDescription: 
+    PrefabLightType: 0
+    SpotAngle: 120
+    iesSize: 128
+    ApplyLightAttenuation: 1
+    UseIESMaximumIntensity: 1
+    CookieCompression: 2
+    LightAimAxisRotation: -90
