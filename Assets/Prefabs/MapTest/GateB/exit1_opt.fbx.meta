@@ -355,7 +355,7 @@ ModelImporter:
     generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
-    weldVertices: 0
+    weldVertices: 1
     bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0

@@ -108,14 +108,14 @@ MonoBehaviour:
         m_Bits: 0
       supportFabricConvolution: 0
       maxDirectionalLightsOnScreen: 16
-      maxPunctualLightsOnScreen: 24
+      maxPunctualLightsOnScreen: 32
       maxAreaLightsOnScreen: 24
       maxCubeReflectionOnScreen: 20
       maxPlanarReflectionOnScreen: 15
       maxDecalsOnScreen: 32
       maxLightsPerClusterCell: 8
       maxLocalVolumetricFogSize: 64
-      maxLocalVolumetricFogOnScreen: 16
+      maxLocalVolumetricFogOnScreen: 24
     hdShadowInitParams:
       maxShadowRequests: 164
       directionalShadowsDepthBits: 16
@@ -127,11 +127,11 @@ MonoBehaviour:
         shadowAtlasDepthBits: 32
         useDynamicViewportRescale: 1
       areaLightShadowAtlas:
-        shadowAtlasResolution: 2048
+        shadowAtlasResolution: 4096
         shadowAtlasDepthBits: 32
         useDynamicViewportRescale: 1
-      cachedPunctualLightShadowAtlas: 8192
-      cachedAreaLightShadowAtlas: 2048
+      cachedPunctualLightShadowAtlas: 2048
+      cachedAreaLightShadowAtlas: 1024
       allowDirectionalMixedCachedShadows: 1
       shadowResolutionDirectional:
         m_Values: 00020000000400000008000000100000
@@ -168,7 +168,7 @@ MonoBehaviour:
       enabled: 1
       useMipBias: 0
       enableDLSS: 1
-      DLSSPerfQualitySetting: 1
+      DLSSPerfQualitySetting: 2
       DLSSInjectionPoint: 0
       DLSSUseOptimalSettings: 1
       DLSSSharpness: 0.5
@@ -213,7 +213,7 @@ MonoBehaviour:
       ChromaticAberrationMaxSamples: 030000000400000006000000
     lightSettings:
       useContactShadow:
-        m_Values: 010101
+        m_Values: 000000
         m_SchemaId:
           m_Id: With3Levels
     maximumLODLevel:

@@ -9,6 +9,7 @@ using UnityEngine.Rendering.HighDefinition;
 using Pixelplacement.TweenSystem;
 using System.Drawing.Text;
 using System.Linq;
+using UnityEngine.NVIDIA;
 
 public class OptionController : MonoBehaviour
 {
@@ -25,13 +26,22 @@ public class OptionController : MonoBehaviour
     public AudioSource player;
     public AudioClip click;
 
+    [Header("DynamicRes")]
+    private Camera mainCamera;
+    private HDAdditionalCameraData cameraData;
+    private bool hDDynamicResolution;
+    private uint deepLearningSuperSamplingQuality;
+    private int dlssquality;
+    public Toggle dynamicResolutionToggle;
+    public Dropdown dynamicResolutionQualityDropdown;
 
     [Header("Graphics Menu")]
     public Dropdown textureLevelDropdown;
     public Dropdown anisotropicDropdown;
     public Dropdown fullscreenDropdown;
     public Dropdown quality;
-    public Dropdown resolutionsDropdown;
+    public Dropdown resolutionDropdown;
+    private Resolution[] resolutions;
     public Dropdown language;
     public Toggle vsync;
     public Toggle frame;
@@ -86,18 +96,20 @@ public class OptionController : MonoBehaviour
 
         textureLevelDropdown.value = PlayerPrefs.GetInt("TextureLevel", 0);
 
-        //resolutions.value = PlayerPrefs.GetInt("Res", 0);
+        //resolutionDropdown.value = PlayerPrefs.GetInt("Res", 0);
 
         vsync.isOn = (PlayerPrefs.GetInt("Vsync", 1) == 1);
         framelimit.text = PlayerPrefs.GetInt("Framerate", 60).ToString();
         frame.isOn = (PlayerPrefs.GetInt("Frame", 1) == 1);
-        
 
+        hDDynamicResolution = (PlayerPrefs.GetInt("DResToggle") != 0);
+        int savedQualityIndex = PlayerPrefs.GetInt("DLSSQualityIndex", 0);
+        dynamicResolutionQualityDropdown.value = savedQualityIndex;
 
-        //////////////////////MUSIC SETUP
-        ///
+    //////////////////////MUSIC SETUP
+    ///
 
-        subtitles.isOn = (PlayerPrefs.GetInt("Sub", 1) == 1);
+    subtitles.isOn = (PlayerPrefs.GetInt("Sub", 1) == 1);
         ////////////////////////////////INPUT SETUP
         ///
         invert.isOn = (PlayerPrefs.GetInt("Invert", 0) == 1);
@@ -112,6 +124,7 @@ public class OptionController : MonoBehaviour
 
     private void Start()
     {
+        dlssquality = PlayerPrefs.GetInt("DLSSQualityIndex", 0);
         music.value = PlayerPrefs.GetFloat("MusicVolume", 1);
         ambiance.value = PlayerPrefs.GetFloat("AmbianceVolume", 1);
         sfx.value = PlayerPrefs.GetFloat("SFXVolume", 1);
@@ -245,51 +258,74 @@ public class OptionController : MonoBehaviour
         PlayerPrefs.SetInt("TextureLevel", textureLevel);
     }
 
+    public void SetDynamicResQuality(int dlssquality)
+    {
+        
+        mainCamera = Camera.main;
+        cameraData = mainCamera.GetComponent<HDAdditionalCameraData>();
+        dynamicResolutionQualityDropdown.value = dlssquality;
+        deepLearningSuperSamplingQuality = (uint)dlssquality;
+        cameraData.deepLearningSuperSamplingQuality = deepLearningSuperSamplingQuality;
+        PlayerPrefs.SetInt("DLSSQualityIndex", dlssquality);
+        PlayerPrefs.Save();
+    }
+
+    public enum DLSSQuality
+    {
+        Ultra,
+        High,
+        Medium,
+        Low
+    }
+
+    public void ToggleDynamicResolution(bool isOn)
+    {
+        mainCamera = Camera.main;
+        cameraData = mainCamera.GetComponent<HDAdditionalCameraData>();
+        cameraData.allowDynamicResolution = isOn;
+        hDDynamicResolution = isOn;
+        PlayerPrefs.SetInt("DResToggle", (hDDynamicResolution ? 1 : 0));
+    }
+
     public void SetResolutions()
     {
-        resolutionsDropdown.ClearOptions();
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
 
-        // Get distinct resolutions
-        var distinctResolutions = Screen.resolutions
-            .Select(resolution => new { resolution.width, resolution.height, resolution.refreshRate })
-            .Distinct()
-            .ToArray();
-
-        List<Dropdown.OptionData> options = new List<Dropdown.OptionData>();
+        List<string> options = new List<string>();
         int currentResolutionIndex = 0;
 
-        for (int i = 0; i < distinctResolutions.Length; i++)
+        for (int i = 0; i < resolutions.Length; i++)
         {
-            var resolution = distinctResolutions[i];
-            string optionText = resolution.width + "x" + resolution.height + "x" + resolution.refreshRate + "Hz";
-            options.Add(new Dropdown.OptionData(optionText));
+            string option = $"{resolutions[i].width} x {resolutions[i].height}";
+            options.Add(option);
 
-            // Check if this is the current screen resolution
-            if (resolution.width == Screen.currentResolution.width &&
-                resolution.height == Screen.currentResolution.height &&
-                resolution.refreshRate == Screen.currentResolution.refreshRate)
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
                 currentResolutionIndex = i;
             }
         }
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+        // Load the saved resolution index
+        int savedResolutionIndex = PlayerPrefs.GetInt("SelectedResolutionIndex", 0);
+        resolutionDropdown.value = savedResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+     }
 
-        resolutionsDropdown.AddOptions(options);
-
-        // Load the saved resolution index from PlayerPrefs
-        int savedResolutionIndex = PlayerPrefs.GetInt("ResolutionIndex", currentResolutionIndex);
-        resolutionsDropdown.value = savedResolutionIndex;
-
-        resolutionsDropdown.RefreshShownValue();
+    public void SaveResolutionToPlayerPrefs()
+    {
+        int selectedResolutionIndex = resolutionDropdown.value;
+        PlayerPrefs.SetInt("SelectedResolutionIndex", selectedResolutionIndex);
+        PlayerPrefs.Save();
     }
 
-    public void OnResolutionChange()
+    public void SetResolution(int resolutionIndex)
     {
-        // Save the selected resolution index to PlayerPrefs when the dropdown value changes
-        PlayerPrefs.SetInt("ResolutionIndex", resolutionsDropdown.value);
-
-        // Apply the selected resolution
-        var selectedResolution = Screen.resolutions[resolutionsDropdown.value];
-        Screen.SetResolution(selectedResolution.width, selectedResolution.height, PlayerPrefs.GetInt("FullscreenMode", 0) == 0);
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, PlayerPrefs.GetInt("FullscreenMode", 0) == 0);
+        SaveResolutionToPlayerPrefs();
     }
 
     /// <summary>

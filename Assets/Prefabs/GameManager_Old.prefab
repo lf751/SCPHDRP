@@ -2791,11 +2791,14 @@ MonoBehaviour:
   inputtab: {fileID: 1851661658976757048}
   player: {fileID: 8487307110429643815}
   click: {fileID: 8300000, guid: e5fe7496a5f470444bf38def2103322e, type: 3}
+  cameraData: {fileID: 0}
+  dynamicResolutionToggle: {fileID: 0}
+  dynamicResolutionQualityDropdown: {fileID: 0}
   textureLevelDropdown: {fileID: 3955119504913465478}
   anisotropicDropdown: {fileID: 8747728765428565692}
   fullscreenDropdown: {fileID: 1793887459068374307}
   quality: {fileID: 6335538010805815363}
-  resolutionsDropdown: {fileID: 8670996921387537309}
+  resolutionDropdown: {fileID: 0}
   language: {fileID: 5966592351848024250}
   vsync: {fileID: 6490686628485059829}
   frame: {fileID: 3411915885145897772}
@@ -34470,7 +34473,6 @@ MonoBehaviour:
   globalStrings: []
   mapFull: {fileID: 5937329904422540403}
   tile: {fileID: 11400000, guid: e1e405f7b0402934b9650020b2cce8d7, type: 2}
-  HDRPAsset: {fileID: 0}
   deathmsg: 
   currentRoom: 
   particleController: {fileID: 8362661523845949287}

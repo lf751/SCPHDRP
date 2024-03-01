@@ -115,7 +115,7 @@ MonoBehaviour:
       maxDecalsOnScreen: 24
       maxLightsPerClusterCell: 2
       maxLocalVolumetricFogSize: 32
-      maxLocalVolumetricFogOnScreen: 64
+      maxLocalVolumetricFogOnScreen: 16
     hdShadowInitParams:
       maxShadowRequests: 32
       directionalShadowsDepthBits: 16
@@ -130,8 +130,8 @@ MonoBehaviour:
         shadowAtlasResolution: 1024
         shadowAtlasDepthBits: 16
         useDynamicViewportRescale: 1
-      cachedPunctualLightShadowAtlas: 1024
-      cachedAreaLightShadowAtlas: 1024
+      cachedPunctualLightShadowAtlas: 512
+      cachedAreaLightShadowAtlas: 512
       allowDirectionalMixedCachedShadows: 0
       shadowResolutionDirectional:
         m_Values: 00010000000200000004000000080000
@@ -168,7 +168,7 @@ MonoBehaviour:
       enabled: 1
       useMipBias: 0
       enableDLSS: 1
-      DLSSPerfQualitySetting: 1
+      DLSSPerfQualitySetting: 2
       DLSSInjectionPoint: 2
       DLSSUseOptimalSettings: 1
       DLSSSharpness: 0.5

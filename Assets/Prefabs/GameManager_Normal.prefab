@@ -37042,7 +37042,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -37162,7 +37162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 1
+  priority: 5
   blendDistance: 0
   weight: 0
   sharedProfile: {fileID: 11400000, guid: a897c7214cef05b4fb7a40b3f8b36815, type: 2}
@@ -37497,6 +37497,14 @@ PrefabInstance:
     - target: {fileID: 4569547733520580633, guid: 049874557cdacee40b2ac94e53a7c76f, type: 3}
       propertyPath: m_SizeDelta.y
       value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5072451697834484996, guid: 049874557cdacee40b2ac94e53a7c76f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5072451697834484996, guid: 049874557cdacee40b2ac94e53a7c76f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 5088456021198088250, guid: 049874557cdacee40b2ac94e53a7c76f, type: 3}
       propertyPath: m_Size

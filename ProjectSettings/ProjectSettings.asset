@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 21300000, guid: 4358b1277eb41664486a1a64039aaefa, type: 3}
+  - logo: {fileID: 21300000, guid: bc61ac2051ca4a147b4d96c0f287df88, type: 3}
     duration: 2
   - logo: {fileID: 10404, guid: 0000000000000000f000000000000000, type: 0}
     duration: 2
@@ -111,7 +111,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 1
+  fullscreenMode: 0
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -779,7 +779,7 @@ PlayerSettings:
     PS5: UNITY_POST_PROCESSING_STACK_V2
     QNX: UNITY_POST_PROCESSING_STACK_V2
     Stadia: UNITY_POST_PROCESSING_STACK_V2
-    Standalone: GSPAWN_HDRP;CROSS_PLATFORM_INPUT;UNITY_POST_PROCESSING_STACK_V2;SUBSTANCE_PLUGIN_ENABLED;PWB_HDRP;AMPLIFY_SHADER_EDITOR
+    Standalone: GSPAWN_HDRP;CROSS_PLATFORM_INPUT;SUBSTANCE_PLUGIN_ENABLED;PWB_HDRP;AMPLIFY_SHADER_EDITOR
     WebGL: UNITY_POST_PROCESSING_STACK_V2
     Windows Store Apps: MOBILE_INPUT;UNITY_POST_PROCESSING_STACK_V2
     XboxOne: UNITY_POST_PROCESSING_STACK_V2
@@ -790,7 +790,8 @@ PlayerSettings:
   scriptingBackend:
     Android: 0
     Standalone: 1
-  il2cppCompilerConfiguration: {}
+  il2cppCompilerConfiguration:
+    Standalone: 2
   il2cppCodeGeneration: {}
   il2cppStacktraceInformation: {}
   managedStrippingLevel:

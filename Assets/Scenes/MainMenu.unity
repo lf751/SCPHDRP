@@ -2273,8 +2273,8 @@ MonoBehaviour:
   screenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
   screenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   allowDeepLearningSuperSampling: 1
-  deepLearningSuperSamplingUseCustomQualitySettings: 0
-  deepLearningSuperSamplingQuality: 1
+  deepLearningSuperSamplingUseCustomQualitySettings: 1
+  deepLearningSuperSamplingQuality: 2
   deepLearningSuperSamplingUseCustomAttributes: 0
   deepLearningSuperSamplingUseOptimalSettings: 1
   deepLearningSuperSamplingSharpening: 0
@@ -7131,6 +7131,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 256355173}
     m_Modifications:
+    - target: {fileID: 1712395840374605273, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712395840374605273, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1102406990}
+    - target: {fileID: 1712395840374605273, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetResolution
+      objectReference: {fileID: 0}
     - target: {fileID: 2272775373843230502, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7143,12 +7155,32 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2368303778754940796, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000061035156
+      objectReference: {fileID: 0}
     - target: {fileID: 2381817059094331523, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2381817059094331523, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690918632469212305, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[0].m_Text
+      value: Maximum Performance
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690918632469212305, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: Balanced
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690918632469212305, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[2].m_Text
+      value: Maximum Quality
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690918632469212305, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5052627635864811848, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
@@ -7191,6 +7223,18 @@ PrefabInstance:
       propertyPath: ppvolume
       value: 
       objectReference: {fileID: 337403521}
+    - target: {fileID: 5433792194975670007, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: cameraData
+      value: 
+      objectReference: {fileID: 7010811743231411557, guid: aeb3408b34da18f41be8741cf8e79afd, type: 3}
+    - target: {fileID: 5433792194975670007, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: dynamicResolutionToggle
+      value: 
+      objectReference: {fileID: 1102406985}
+    - target: {fileID: 5433792194975670007, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: dynamicResolutionQualityDropdown
+      value: 
+      objectReference: {fileID: 1102406984}
     - target: {fileID: 5433792194975670010, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_Name
       value: OptionsMenu
@@ -7315,6 +7359,10 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7304358585984396019, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_Text
+      value: Maximum Performance
+      objectReference: {fileID: 0}
     - target: {fileID: 7380844028828592535, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7344,6 +7392,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5433792194975670011, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
   m_PrefabInstance: {fileID: 1102406982}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1102406984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2690918632469212305, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+  m_PrefabInstance: {fileID: 1102406982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1102406985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4319721287797590719, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+  m_PrefabInstance: {fileID: 1102406982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!223 &1102406986 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 5433792194975670006, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
@@ -7372,6 +7442,17 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
+--- !u!114 &1102406990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5433792194975670007, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+  m_PrefabInstance: {fileID: 1102406982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770963112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5856346ceab3b0143ba3465dc8275007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1105207017
 GameObject:
   m_ObjectHideFlags: 0

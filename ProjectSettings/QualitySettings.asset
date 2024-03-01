@@ -146,7 +146,7 @@ QualitySettings:
     streamingMipmapsRenderersPerFrame: 256
     streamingMipmapsMaxLevelReduction: 3
     streamingMipmapsMaxFileIORequests: 1024
-    particleRaycastBudget: 128
+    particleRaycastBudget: 64
     asyncUploadTimeSlice: 2
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
@@ -198,7 +198,7 @@ QualitySettings:
     streamingMipmapsRenderersPerFrame: 256
     streamingMipmapsMaxLevelReduction: 3
     streamingMipmapsMaxFileIORequests: 1024
-    particleRaycastBudget: 128
+    particleRaycastBudget: 64
     asyncUploadTimeSlice: 2
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
