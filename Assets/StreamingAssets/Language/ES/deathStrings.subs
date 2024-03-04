@@ -12,6 +12,7 @@
     "death_mtf": "Sujeto: D-9341. \nTerminated by Nine-Tailed Fox.",
     "death_008": "Sujeto D-9341 encontrado ingeriendo al Dr. [ELIMINADO] en Sector [Eliminado]. \nSujeto liquidado por unidad Nine-Tailed Fox y enviado para autopsia. \nSe confirmo infeccion por SCP-008, y se incinero el cuerpo",
     "death_049": "Se detecto una entidad activa SCP-049-2 en [ELIMINADO]. \nLiquidado por Nine-Tailed Fox.",
-    "death_049_1": "Sujeto D-9341. \nCausa de muerte: Multiples laceraciones y trauma causado por una entidad SCP-049-2",
-    "death_096": "Enorme cantidad de sangre encontrada en [DATO ELIMINADO]. \nADN identificado como Sujeto D-9341. Se asume fue [DATO ELIMINADO] por SCP-096."
+    "death_049_1": "Sujeto D-9341. \nCausa de muerte: Múltiples lasceraciones y trauma causado por una entidad SCP-049-2",
+    "death_096": "Enorme cantidad de sangre encontrada en [DATO ELIMINADO]. \nADN identificado como Sujeto D-9341. Se asume fue [DATO ELIMINADO] por SCP-096.", 
+	"death_fall": "\" [...]<i>el cuerpo exhibe varias heridas: fractura masiva del cráneo, tres costillas rotas, cuello fracturado y múltiples lasceraciones.</i>\"",
 }

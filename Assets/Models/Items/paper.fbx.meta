@@ -1,32 +1,8 @@
 fileFormatVersion: 2
 guid: 89ab7a504d47aea42b6e9a8a4a18bbfd
 ModelImporter:
-  serializedVersion: 22103
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: Brush1
-  - first:
-      1: 100002
-    second: //RootNode
-  - first:
-      4: 400000
-    second: Brush1
-  - first:
-      4: 400002
-    second: //RootNode
-  - first:
-      21: 2100000
-    second: material_1
-  - first:
-      23: 2300000
-    second: Brush1
-  - first:
-      33: 3300000
-    second: Brush1
-  - first:
-      43: 4300000
-    second: Brush1
+  serializedVersion: 22200
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -50,8 +26,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -74,12 +48,13 @@ ModelImporter:
     addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
     nodeNameCollisionStrategy: 0
-    fileIdsGeneration: 1
+    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -104,11 +79,11 @@ ModelImporter:
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
+    blendShapeNormalImportMode: 0
     normalSmoothingSource: 1
   referencedClips: []
   importAnimation: 0
@@ -134,7 +109,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
-  importBlendShapeDeformPercent: 0
+  importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 

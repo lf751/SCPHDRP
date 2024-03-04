@@ -304,7 +304,7 @@ MonoBehaviour:
   crawlSpeed: 1.8
   spawntimer: 8
   Distance: 0.1
-  crackDistance: 0
+  crackDistance: 4
   Horror:
   - {fileID: 8300000, guid: 46baa80bf1c7745408116b31abcd3cc6, type: 3}
   - {fileID: 8300000, guid: 18de8107a83b38640aa640f49b9258e5, type: 3}

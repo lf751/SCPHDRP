@@ -5501,9 +5501,8 @@ GameObject:
   m_Component:
   - component: {fileID: 807742391}
   - component: {fileID: 807742390}
-  - component: {fileID: 807742389}
-  - component: {fileID: 807742392}
   - component: {fileID: 807742393}
+  - component: {fileID: 807742394}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -5511,25 +5510,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &807742389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807742388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ca8d3eb59aefab47af9731827700f55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveFunction: 5
-  varbase: 1
-  amplitude: 0.5
-  phase: 1
-  frequency: 0.5
-  shake: 1
-  shakeMult: {x: 0.1, y: 0, z: 0}
 --- !u!108 &807742390
 Light:
   m_ObjectHideFlags: 0
@@ -5606,28 +5586,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1217771376}
   m_LocalEulerAnglesHint: {x: 50, y: -400, z: 9.43}
---- !u!95 &807742392
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807742388}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 81ba42ec6d2dbfa4280375a5f6208c86, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &807742393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5769,6 +5727,29 @@ MonoBehaviour:
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+--- !u!114 &807742394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807742388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ed9d48dd4956c4981a69edd869d67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveFunction: 5
+  varbase: 0
+  amplitude: 0.5
+  phase: 1
+  frequency: 0.5
+  speed: 3
+  noise: 6
+  offColor: {r: 0, g: 0, b: 0, a: 0}
+  lights:
+  - {fileID: 807742390}
+  emissiveObjects: []
 --- !u!1 &820967285
 GameObject:
   m_ObjectHideFlags: 0

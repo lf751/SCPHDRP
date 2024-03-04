@@ -50,7 +50,7 @@ public class room_dat
 public class room
 {
     public RoomType type;
-    public int angle, Event = -1, Zone, items = 0, EventState = 0;
+    public int angle, Event = -1, Zone = 1, items = 0, EventState = 0;
     public bool empty = true, eventDone = false, isSpecial = false;
     public float customFog;
     public int[] neighbours = new int[4];
@@ -274,7 +274,7 @@ public class NewMapGen : MonoBehaviour
 
             walker_list.Add(new walker_dat(mapSize.xSize / 2, mapSize.ySize - 1, (mapSize.xSize / 2) * 3, minHall, (int)Directions.Down, true));
             //From left, 173 room
-            walker_list.Add(new walker_dat(1, mapSize.ySize / 2, (mapSize.xSize / 2) * 2, minHall, 0, true));
+            walker_list.Add(new walker_dat(1, mapSize.ySize / 2, (mapSize.xSize / 2) * 2, maxHall, 0, true));
             //walker_list.Add(new walker_dat(mapSize.xSize, mapSize.ySize / 2, (mapSize.xSize / 2) * 3, minHall, 2, true));
         }
         else

@@ -22,6 +22,8 @@ public class PlayerMouseLook : MonoBehaviour
             rotation.x = (rotation.x > 180) ? rotation.x - 360 : rotation.x;
         }
 
+        rotation.y = (rotation.y > 180) ? rotation.y - 360 : rotation.y;
+
         //Debug.Log("Mouse Vector = " + SCPInput.instance.playerInput.Gameplay.Look.ReadValue<Vector2>());
         if (inputActive == true)
         {

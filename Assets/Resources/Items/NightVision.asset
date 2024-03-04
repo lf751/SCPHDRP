@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c60f9225f8652da499c4b4b6bf76c929, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bab2ab234b64b54eafa41de8a58bc8c, type: 3}
   m_Name: NightVision
   m_EditorClassIdentifier: 
-  colCenter: {x: 0, y: 0.08082068, z: 0.030173019}
-  colSize: {x: 0.25087738, y: 0.1790657, z: 0.31405756}
+  colCenter: {x: -0.04888153, y: -0.03777958, z: -0.05219725}
+  colSize: {x: 0.250877, y: 0.1208749, z: 0.4735436}
   mass: 1
   itemName: nv
   icon: {fileID: 21300000, guid: 654f43939883c4a41a589356dc751858, type: 3}
@@ -23,8 +23,7 @@ MonoBehaviour:
   isUnique: 0
   keepInv: 0
   Effects: []
-  ItemModel: {fileID: -927199367670048503, guid: 4d0ae54fecce5ff4fb6ce1b2e2f060e0,
-    type: 3}
+  ItemModel: {fileID: -927199367670048503, guid: 4d0ae54fecce5ff4fb6ce1b2e2f060e0, type: 3}
   valueFloat: 50
   valueInt: 0
   SFX: 1

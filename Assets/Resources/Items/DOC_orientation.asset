@@ -39,14 +39,14 @@ MonoBehaviour:
       min: 0
       value: 0
       multiplier: 0
-  ItemModel: {fileID: 100002, guid: 89ab7a504d47aea42b6e9a8a4a18bbfd, type: 3}
+  ItemModel: {fileID: 919132149155446097, guid: 89ab7a504d47aea42b6e9a8a4a18bbfd, type: 3}
   valueFloat: 0
   valueInt: 0
   SFX: 0
   useTime: 0
-  Overlay: {fileID: 0}
+  Overlay: {fileID: 21300000, guid: 529fed7f7ede7e4408624387d9ff64ad, type: 3}
   protectGas: 0
   protectCogn: 0
   autoEquip: 0
-  part: 0
+  part: 2
   filename: docORI

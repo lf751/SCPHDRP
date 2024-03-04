@@ -147,6 +147,8 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 				Always:SetShaderProperty:_ZTestTransparent,8
 			Option:Double-Sided:Disabled,Enabled,Flipped Normals,Mirrored Normals:Disabled
 				Disabled,disable:RemoveDefine:ASE_NEED_CULLFACE 1
+				Disabled,disable:RemoveDefine:pragma shader_feature_local _DOUBLESIDED_ON
+				Enabled,Flipped Normals,Mirrored Normals:SetDefine:pragma shader_feature_local _DOUBLESIDED_ON
 				Enabled,Flipped Normals,Mirrored Normals:SetDefine:ASE_NEED_CULLFACE 1
 				Enabled,Flipped Normals,Mirrored Normals:SetShaderProperty:_DoubleSidedEnable,1
 				Flipped Normals:SetShaderProperty:_DoubleSidedNormalMode,0
@@ -154,8 +156,10 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 			Option:Alpha Clipping:false,true:false
 				true:ShowOption:  Use Shadow Threshold
 				true:ShowPort:ForwardOnly:Alpha Clip Threshold
+				true:SetDefine:pragma shader_feature_local _ALPHATEST_ON
 				false:HideOption:  Use Shadow Threshold
 				false:HidePort:ForwardOnly:Alpha Clip Threshold
+				false:RemoveDefine:pragma shader_feature_local _ALPHATEST_ON
 			Option:  Use Shadow Threshold:false,true:false
 				true:SetDefine:_ALPHATEST_SHADOW_ON 1
 				true:ShowPort:ForwardOnly:Alpha Clip Threshold Shadow
@@ -427,8 +431,8 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 				"LightMode" = "ForwardOnly" 
 			}
 
-            Blend [_SrcBlend] [_DstBlend], [_AlphaSrcBlend] [_AlphaDstBlend]
-            Blend 1 One OneMinusSrcAlpha
+			Blend [_SrcBlend] [_DstBlend], [_AlphaSrcBlend] [_AlphaDstBlend]
+			Blend 1 One OneMinusSrcAlpha
             Blend 2 One [_DstBlend2]
             Blend 3 One [_DstBlend2]
             Blend 4 One OneMinusSrcAlpha
@@ -455,8 +459,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
             #pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 	        #pragma multi_compile_fragment PUNCTUAL_SHADOW_LOW PUNCTUAL_SHADOW_MEDIUM PUNCTUAL_SHADOW_HIGH
@@ -480,7 +482,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -1240,8 +1242,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
             #pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile _ WRITE_MSAA_DEPTH
 
@@ -1255,7 +1255,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -1688,7 +1688,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 				/*ase_local_var:wt*/float4 tangentWS = packedInput.interp02.xyzw;
 
 				FragInputs input;
-				ZERO_INITIALIZE( FragInputs, input );
+				ZERO_INITIALIZE(FragInputs, input);
 
 				input.tangentToWorld = k_identity3x3;
 				input.positionSS = packedInput.positionCS;
@@ -1707,7 +1707,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 
 				PositionInputs posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, input.positionSS.z, input.positionSS.w, input.positionRWS);
 
-				/*ase_local_var:wvd*/float3 V = GetWorldSpaceNormalizeViewDir( input.positionRWS );
+				/*ase_local_var:wvd*/float3 V = GetWorldSpaceNormalizeViewDir(input.positionRWS);
 
 				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
 				/*ase_frag_code:packedInput=VertexOutput*/
@@ -1774,8 +1774,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
             #pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma editor_sync_compilation
 
@@ -1789,7 +1787,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -2244,8 +2242,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
             #pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma vertex Vert
 			#pragma fragment Frag
@@ -2257,7 +2253,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -2746,22 +2742,20 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 		/*ase_pass*/
 		Pass
 		{
-		    /*ase_hide_pass*/
-		    Name "META"
-		    Tags 
+			/*ase_hide_pass*/
+			Name "META"
+			Tags 
 			{ 
 				"LightMode" = "Meta" 
 			}
 
-		    Cull Off
+			Cull Off
 
 			HLSLPROGRAM
 
-            #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
+			#pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma shader_feature EDITOR_VISUALIZATION
 
@@ -2775,7 +2769,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -3293,11 +3287,11 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 				"LightMode" = "TransparentBackface" 
 			}
 
-            Blend [_SrcBlend] [_DstBlend], [_AlphaSrcBlend] [_AlphaDstBlend]
-            Blend 1 One OneMinusSrcAlpha
-            Blend 2 One OneMinusSrcAlpha
-            Blend 3 One OneMinusSrcAlpha
-            Blend 4 One OneMinusSrcAlpha
+			Blend [_SrcBlend] [_DstBlend], [_AlphaSrcBlend] [_AlphaDstBlend]
+			Blend 1 One OneMinusSrcAlpha
+			Blend 2 One OneMinusSrcAlpha
+			Blend 3 One OneMinusSrcAlpha
+			Blend 4 One OneMinusSrcAlpha
 
 			Cull Front
 			ZTest [_ZTestTransparent]
@@ -3311,8 +3305,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
             #pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 	        #pragma multi_compile_fragment PUNCTUAL_SHADOW_LOW PUNCTUAL_SHADOW_MEDIUM PUNCTUAL_SHADOW_HIGH
@@ -3340,7 +3332,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -4092,8 +4084,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
             #pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma vertex Vert
 			#pragma fragment Frag
@@ -4105,7 +4095,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -4598,8 +4588,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
             #pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma vertex Vert
 			#pragma fragment Frag
@@ -4611,7 +4599,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -5105,8 +5093,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
             #pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile _ WRITE_NORMAL_BUFFER
 			#pragma multi_compile_fragment _ WRITE_MSAA_DEPTH
@@ -5126,7 +5112,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Hair" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 

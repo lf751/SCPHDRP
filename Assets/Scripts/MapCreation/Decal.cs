@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Pixelplacement;
+using UnityEngine.Rendering.HighDefinition;
 
 public class Decal : MonoBehaviour
 {
@@ -13,56 +12,40 @@ public class Decal : MonoBehaviour
     public Vector3 position;
     public Material DecalAtlas;
     GameObject plane;
-    // Start is called before the first frame update
+    DecalProjector projector;
+
     void Awake()
     {
-        
-        plane = GameObject.CreatePrimitive(PrimitiveType.Quad);
+        // Create the plane GameObject
+        plane = new GameObject("DecalPlane");
+        projector = plane.AddComponent<DecalProjector>();
         plane.transform.position = transform.position;
         plane.transform.parent = transform;
-
     }
 
     public void SetDecal()
     {
+        projector.scaleMode = DecalScaleMode.InheritFromHierarchy;
         transform.position = position;
 
+        // Set rotation
         plane.transform.rotation = Quaternion.Euler(rotation);
 
         if (!Instant)
         {
+            projector.size = Vector3.zero;
             plane.transform.localScale = Vector3.zero;
             Tween.LocalScale(plane.transform, new Vector3(Scale, Scale, Scale), Duration, 0, Tween.EaseOut);
         }
         else
+        {
             transform.localScale = new Vector3(Scale, Scale, Scale);
+        }
+        // Apply UV offset and tiling if needed
+        projector.uvBias = new Vector2(0.33f * h, 1 - 0.25f * v);
+        projector.uvScale = new Vector2(0.35f, 0.25f);
 
-        Vector2[] uvs;
-        Renderer render = plane.GetComponent<Renderer>();
-        Destroy(plane.GetComponent<MeshCollider>());
-        render.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-        Mesh mesh = plane.GetComponent<MeshFilter>().mesh;
-        uvs = mesh.uv;
-
-        /*
-         *UV 0 ESQUINA INFERIOR IZQUIERDA
-         *UV 1 ESQUINA SUPERIOR DERECHA
-         *UV 2 ESQUINA INFERIOR DERECHA
-         *UV 3 ESQUINA SUPERIOR IZQUIERDA
-         * */
-
-        float uvH = 0.33f * h;
-        float uvV = 1-(0.25f * v);
-
-
-        uvs[0] = new Vector2(uvH, uvV-0.25f);
-        uvs[1] = new Vector2(uvH, uvV );
-        uvs[2] = new Vector2(uvH + 0.33f, uvV-0.25f);
-        uvs[3] = new Vector2(uvH + 0.33f, uvV);
-
-
-        mesh.uv = uvs;
-        render.material = DecalAtlas;
-        render.material = DecalAtlas;
+        // Assign material
+        projector.material = DecalAtlas;
     }
 }

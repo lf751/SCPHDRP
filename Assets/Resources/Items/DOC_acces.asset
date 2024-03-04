@@ -23,8 +23,7 @@ MonoBehaviour:
   isUnique: 1
   keepInv: 0
   Effects: []
-  ItemModel: {fileID: 719582466875183260, guid: 108bbe53885c50143be12f8f626883de,
-    type: 3}
+  ItemModel: {fileID: 377477327103028079, guid: 108bbe53885c50143be12f8f626883de, type: 3}
   valueFloat: 0
   valueInt: 0
   SFX: 0

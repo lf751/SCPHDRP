@@ -321,7 +321,7 @@ MonoBehaviour:
   runSpeed: 4.2
   speedMul: 1
   forceWalkSpeed: 1.6
-  HurtDivisor: 60
+  HurtDivisor: 40
   baseAmplitude: 0.04
   bobSpeed: 3.5
   headBobmult: 4

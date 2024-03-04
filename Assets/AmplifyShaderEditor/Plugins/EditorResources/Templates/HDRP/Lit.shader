@@ -183,6 +183,8 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				Always:SetShaderProperty:_ZTestTransparent,8
 			Option:Double-Sided:Disabled,Enabled,Flipped Normals,Mirrored Normals:Disabled
 				Disabled,disable:RemoveDefine:ASE_NEED_CULLFACE 1
+				Disabled,disable:RemoveDefine:pragma shader_feature_local _DOUBLESIDED_ON
+				Enabled,Flipped Normals,Mirrored Normals:SetDefine:pragma shader_feature_local _DOUBLESIDED_ON
 				Enabled,Flipped Normals,Mirrored Normals:SetDefine:ASE_NEED_CULLFACE 1
 				Enabled,Flipped Normals,Mirrored Normals:SetShaderProperty:_DoubleSidedEnable,1
 				Flipped Normals:SetShaderProperty:_DoubleSidedNormalMode,0
@@ -190,8 +192,10 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			Option:Alpha Clipping:false,true:false
 				true:ShowOption:  Use Shadow Threshold
 				true:ShowPort:GBuffer:Alpha Clip Threshold
+				true:SetDefine:pragma shader_feature_local _ALPHATEST_ON
 				false:HideOption:  Use Shadow Threshold
 				false:HidePort:GBuffer:Alpha Clip Threshold
+				false:RemoveDefine:pragma shader_feature_local _ALPHATEST_ON
 			Option:  Use Shadow Threshold:false,true:false
 				true:SetDefine:_ALPHATEST_SHADOW_ON 1
 				true:ShowPort:GBuffer:Alpha Clip Threshold Shadow
@@ -240,21 +244,23 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				true:SetPropertyOnPass:DepthOnly:ChangeTagValue,LightMode,DepthForwardOnly
 				true:ExcludePass:GBuffer
 			Option:Receive Decals:false,true:true
-				true:RemoveDefine:_DISABLE_DECALS
-				false:SetDefine:_DISABLE_DECALS
+				true:RemoveDefine:shader_feature_local _DISABLE_DECALS
+				false:SetDefine:shader_feature_local _DISABLE_DECALS
 			Option:Receives SSR:false,true:true
-				false:SetDefine:_DISABLE_SSR 1
-				false:SetShaderProperty:_ReceivesSSR,0
-				true:RemoveDefine:_DISABLE_SSR 1
 				true:SetShaderProperty:_ReceivesSSR,1
+				true:RemoveDefine:shader_feature_local_fragment _DISABLE_SSR
+				true:RemoveDefine:shader_feature_local_raytracing _DISABLE_SSR
+				false:SetShaderProperty:_ReceivesSSR,1
+				false:SetDefine:shader_feature_local_raytracing _DISABLE_SSR
+				false:SetDefine:shader_feature_local_fragment _DISABLE_SSR
 			Option:Receive SSR Transparent:false,true:false
-				false:SetDefine:_DISABLE_SSR_TRANSPARENT 1
-				false:SetShaderProperty:_ReceivesSSRTransparent,0
-				false:SetOption:  Transparent Depth Prepass,0
-				true:RemoveDefine:_DISABLE_SSR_TRANSPARENT 1
-				true:SetShaderProperty:_ReceivesSSRTransparent,1
+			    true:SetShaderProperty:_ReceivesSSRTransparent,1
+			    true:RemoveDefine:shader_feature_local _DISABLE_SSR_TRANSPARENT
 				true:SetOption:  Transparent Depth Prepass,1
 				true:SetOption:  Rendering Pass,0
+				false:SetShaderProperty:_ReceivesSSRTransparent,0
+				false:SetDefine:shader_feature_local _DISABLE_SSR_TRANSPARENT
+				false:SetOption:  Transparent Depth Prepass,0
 			Option:Motion Vectors:false,true:true
 				true:SetShaderProperty:_AddPrecomputedVelocity,[HideInInspector][ToggleUI] _AddPrecomputedVelocity("Add Precomputed Velocity", Float) = 1
 				false:SetShaderProperty:_AddPrecomputedVelocity,//[HideInInspector][ToggleUI] _AddPrecomputedVelocity("Add Precomputed Velocity", Float) = 1
@@ -264,18 +270,14 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				false:ExcludePass:MotionVectors
 				true:SetOption:Tessellation,0
 			Option:  Add Precomputed Velocity:false,true:false
-				false,disable:RemoveDefine:_ADD_PRECOMPUTED_VELOCITY 1
-				true:SetDefine:_ADD_PRECOMPUTED_VELOCITY 1
+				false,disable:RemoveDefine:shader_feature_local _ADD_PRECOMPUTED_VELOCITY
+				true:SetDefine:shader_feature_local _ADD_PRECOMPUTED_VELOCITY
 				true:SetShaderProperty:_AddPrecomputedVelocity,1
 			Option:Specular AA:false,true:false
-				true:SetDefine:GBuffer:_ENABLE_GEOMETRIC_SPECULAR_AA 1
-				true:SetDefine:Forward:_ENABLE_GEOMETRIC_SPECULAR_AA 1
-				true:SetDefine:META:_ENABLE_GEOMETRIC_SPECULAR_AA 1
+				true:SetDefine:shader_feature_local_fragment _ENABLE_GEOMETRIC_SPECULAR_AA
 				true:ShowPort:GBuffer:Specular AA Screen Space Variance
 				true:ShowPort:GBuffer:Specular AA Threshold
-				false:RemoveDefine:GBuffer:_ENABLE_GEOMETRIC_SPECULAR_AA 1
-				false:RemoveDefine:Forward:_ENABLE_GEOMETRIC_SPECULAR_AA 1
-				false:RemoveDefine:META:_ENABLE_GEOMETRIC_SPECULAR_AA 1
+				false:RemoveDefine:shader_feature_local_fragment _ENABLE_GEOMETRIC_SPECULAR_AA
 				false:HidePort:GBuffer:Specular AA Screen Space Variance
 				false:HidePort:GBuffer:Specular AA Threshold
 			Option:Specular Occlusion Mode:Off,From AO,From AO And Bent Normal,Custom:From AO
@@ -612,8 +614,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
             #pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 			#pragma multi_compile_fragment _ RENDERING_LAYERS
@@ -635,7 +635,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -782,7 +782,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				float3 normalWS : TEXCOORD1;
 				float4 tangentWS : TEXCOORD2;
@@ -924,7 +924,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -953,13 +952,14 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				surfaceData.perceptualSmoothness = GeometricNormalFiltering( surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[ 2 ], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold );
 				#endif
 
-				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -1150,7 +1150,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			void Frag( PackedVaryingsMeshToPS packedInput,
 						OUTPUT_GBUFFER(outGBuffer)
 						#ifdef _DEPTHOFFSET_ON
-						, out float outputDepth : SV_Depth
+						, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 						#endif
 						/*ase_frag_input*/
 						)
@@ -1295,8 +1295,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma shader_feature EDITOR_VISUALIZATION
 
@@ -1310,7 +1308,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -1457,7 +1455,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				#ifdef EDITOR_VISUALIZATION
 				float2 VizUV : TEXCOORD0;
 				float4 LightCoord : TEXCOORD1;
@@ -1594,7 +1592,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -1625,11 +1622,13 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -1939,8 +1938,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 
@@ -1955,7 +1952,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			//#define USE_LEGACY_UNITY_MATRIX_VARIABLES
 
@@ -2101,7 +2098,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				/*ase_interp(1,):sp=sp.xyzw;rwp=tc0*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -2201,7 +2198,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -2220,11 +2216,13 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -2406,7 +2404,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 						#endif
 
 						#if defined(_DEPTHOFFSET_ON) && !defined(SCENEPICKINGPASS)
-						, out float outputDepth : SV_Depth
+						, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 						#endif
 						/*ase_frag_input*/
 					)
@@ -2507,8 +2505,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma editor_sync_compilation
 
@@ -2522,7 +2518,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -2668,7 +2664,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				/*ase_interp(1,):sp=sp.xyzw;rwp=tc0*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -2768,7 +2764,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -2787,11 +2782,13 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -2951,7 +2948,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			void Frag( PackedVaryingsMeshToPS packedInput
 						, out float4 outColor : SV_Target0
 						#if defined(_DEPTHOFFSET_ON) && !defined(SCENEPICKINGPASS)
-						, out float outputDepth : SV_Depth
+						, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 						#endif
 						/*ase_frag_input*/
 					)
@@ -3036,8 +3033,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile _ WRITE_NORMAL_BUFFER
 			#pragma multi_compile_fragment _ WRITE_MSAA_DEPTH
@@ -3053,7 +3048,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -3198,7 +3193,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				float3 normalWS : TEXCOORD1;
 				float4 tangentWS : TEXCOORD2;
@@ -3302,7 +3297,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -3321,11 +3315,13 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -3516,7 +3512,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 						#endif
 
 						#if defined(_DEPTHOFFSET_ON) && !defined(SCENEPICKINGPASS)
-						, out float outputDepth : SV_Depth
+						, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 						#endif
 						/*ase_frag_input*/
 					)
@@ -3628,8 +3624,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile _ WRITE_NORMAL_BUFFER
 			#pragma multi_compile_fragment _ WRITE_MSAA_DEPTH
@@ -3649,7 +3643,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -3795,7 +3789,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 vmeshPositionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 vmeshPositionCS : SV_Position;
 				float3 vmeshInterp00 : TEXCOORD0;
 				float3 vpassInterpolators0 : TEXCOORD1; //interpolators0
 				float3 vpassInterpolators1 : TEXCOORD2; //interpolators1
@@ -3898,7 +3892,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -3917,11 +3910,13 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -4175,7 +4170,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 					#endif
 
 					#ifdef _DEPTHOFFSET_ON
-					, out float outputDepth : SV_Depth
+					, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 					#endif
 				/*ase_frag_input*/
 				)
@@ -4269,11 +4264,11 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				"LightMode" = "TransparentBackface" 
 		    }
 
-            Blend [_SrcBlend] [_DstBlend], [_AlphaSrcBlend] [_AlphaDstBlend]
-            Blend 1 One OneMinusSrcAlpha
-            Blend 2 One OneMinusSrcAlpha
-            Blend 3 One OneMinusSrcAlpha
-            Blend 4 One OneMinusSrcAlpha
+			Blend [_SrcBlend] [_DstBlend], [_AlphaSrcBlend] [_AlphaDstBlend]
+			Blend 1 One OneMinusSrcAlpha
+			Blend 2 One OneMinusSrcAlpha
+			Blend 3 One OneMinusSrcAlpha
+			Blend 4 One OneMinusSrcAlpha
 
 			Cull Front
 			ZTest [_ZTestTransparent]
@@ -4287,8 +4282,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 	        #pragma multi_compile_fragment PUNCTUAL_SHADOW_LOW PUNCTUAL_SHADOW_MEDIUM PUNCTUAL_SHADOW_HIGH
@@ -4317,7 +4310,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -4474,7 +4467,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				float3 normalWS : TEXCOORD1;
 				float4 tangentWS : TEXCOORD2;
@@ -4618,7 +4611,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -4649,11 +4641,13 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -4896,7 +4890,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#endif
 				#endif
 				#ifdef _DEPTHOFFSET_ON
-					, out float outputDepth : SV_Depth
+					, out float outputDepth : DEPTH_OFFSET_SEMANTIC
             #endif
 
 			/*ase_frag_input*/
@@ -5160,8 +5154,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma vertex Vert
 			#pragma fragment Frag
@@ -5173,7 +5165,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -5321,7 +5313,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				float3 normalWS : TEXCOORD1;
 				float4 tangentWS : TEXCOORD2;
@@ -5425,7 +5417,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -5445,11 +5436,13 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -5647,7 +5640,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
             #endif
 
             #if defined(_DEPTHOFFSET_ON) && !defined(SCENEPICKINGPASS)
-				, out float outputDepth : SV_Depth
+				, out float outputDepth : DEPTH_OFFSET_SEMANTIC
             #endif
 
 			/*ase_frag_input*/
@@ -5748,8 +5741,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma vertex Vert
 			#pragma fragment Frag
@@ -5761,7 +5752,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -5906,7 +5897,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				/*ase_interp(1,):sp=sp.xyzw;rwp=tc0*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -6007,7 +5998,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -6027,11 +6017,13 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -6220,7 +6212,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 						#endif
 
 						#if defined(_DEPTHOFFSET_ON) && !defined(SCENEPICKINGPASS)
-						, out float outputDepth : SV_Depth
+						, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 						#endif
 						/*ase_frag_input*/
 					)
@@ -6304,11 +6296,11 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				"LightMode" = "Forward" 
 		    }
 
-            Blend [_SrcBlend] [_DstBlend], [_AlphaSrcBlend] [_AlphaDstBlend]
-            Blend 1 One OneMinusSrcAlpha
-            Blend 2 One [_DstBlend2]
-            Blend 3 One [_DstBlend2]
-            Blend 4 One OneMinusSrcAlpha
+			Blend [_SrcBlend] [_DstBlend], [_AlphaSrcBlend] [_AlphaDstBlend]
+			Blend 1 One OneMinusSrcAlpha
+			Blend 2 One [_DstBlend2]
+			Blend 3 One [_DstBlend2]
+			Blend 4 One OneMinusSrcAlpha
 
 			Cull [_CullModeForward]
 			ZTest [_ZTestDepthEqualForOpaque]
@@ -6332,8 +6324,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 	        #pragma multi_compile_fragment PUNCTUAL_SHADOW_LOW PUNCTUAL_SHADOW_MEDIUM PUNCTUAL_SHADOW_HIGH
@@ -6364,7 +6354,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -6520,7 +6510,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				float3 normalWS : TEXCOORD1;
 				float4 tangentWS : TEXCOORD2;
@@ -6664,7 +6654,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -6696,11 +6685,13 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -7138,7 +7129,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				if (!viewMaterial)
 				{
-					if (_DebugFullScreenMode == FULLSCREENDEBUGMODE_VALIDATE_DIFFUSE_COLOR || _DebugFullScreenMode == FULLSCREENDEBUGMODE_VALIDATE_SPECULAR_COLOR)
+					if (_DebugFullScreenMode == multi_compile _ DOTS_INSTANCING_ONMODE_VALIDATE_DIFFUSE_COLOR || _DebugFullScreenMode == FULLSCREENDEBUGMODE_VALIDATE_SPECULAR_COLOR)
 					{
 						float3 result = float3(0.0, 0.0, 0.0);
 						GetPBRValidatorDebug(surfaceData, result);
@@ -7250,7 +7241,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#define ATTRIBUTES_NEED_NORMAL
 			#define ATTRIBUTES_NEED_TANGENT
@@ -7358,8 +7349,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			{
 				float3 positionOS : POSITION;
 				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
-				/*ase_vdata:p=p;n=n;t=t*/
+				/*ase_vdata:p=p;n=n*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
 
@@ -7367,8 +7357,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			{
 				float4 positionCS : SV_POSITION;
 				float3 normalWS : TEXCOORD0;
-				float4 tangentWS : TEXCOORD1;
-				/*ase_interp(2,):sp=sp.xyzw;wn=tc0;wt=tc1*/
+				/*ase_interp(2,):sp=sp.xyzw;wn=tc0*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
@@ -7448,7 +7437,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
                 builtinData.opacity = surfaceDescription.Alpha;
 
                 #if defined(DEBUG_DISPLAY)
-				builtinData.renderingLayers = GetMeshRenderingLightLayer();
+				builtinData.renderingLayers = GetMeshRenderingLayerMask();
                 #endif
 
                 #ifdef _ALPHATEST_ON
@@ -7505,12 +7494,10 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 
 				float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS);
 				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
-				float4 tangentWS = float4(TransformObjectToWorldDir(inputMesh.tangentOS.xyz), inputMesh.tangentOS.w);
-
+				
 				o.positionCS = TransformWorldToHClip(positionRWS);
 				o.normalWS.xyz =  normalWS;
-				o.tangentWS.xyzw =  tangentWS;
-
+				
 				return o;
 			}
 
@@ -7519,7 +7506,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			{
 				float3 positionOS : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
 				/*ase_vcontrol*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
@@ -7537,7 +7523,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				o.positionOS = v.positionOS;
 				o.normalOS = v.normalOS;
-				o.tangentOS = v.tangentOS;
 				/*ase_control_code:v=VertexInput;o=VertexControl*/
 				return o;
 			}
@@ -7582,7 +7567,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				VertexInput o = (VertexInput) 0;
 				o.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
 				o.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
-				o.tangentOS = patch[0].tangentOS * bary.x + patch[1].tangentOS * bary.y + patch[2].tangentOS * bary.z;
 				/*ase_domain_code:patch=VertexControl;o=VertexInput;bary=SV_DomainLocation*/
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
@@ -7613,8 +7597,6 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 				ZERO_INITIALIZE(FragInputs, input);
 				input.tangentToWorld = k_identity3x3;
 				input.positionSS = packedInput.positionCS;
-
-				input.tangentToWorld = BuildTangentToWorld(packedInput.tangentWS.xyzw, packedInput.normalWS.xyz);
 
 				PositionInputs posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, input.positionSS.z, input.positionSS.w, input.positionRWS);
 
@@ -7665,7 +7647,7 @@ Shader /*ase_name*/ "Hidden/HDRP/Lit" /*end*/
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#define ATTRIBUTES_NEED_NORMAL
 			#define ATTRIBUTES_NEED_TANGENT

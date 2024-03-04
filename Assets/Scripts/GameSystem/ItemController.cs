@@ -248,23 +248,36 @@ public class ItemController : MonoBehaviour
 
     public List<bool[]> GetEquips()
     {
+        /*Debug.Log("Getting equips");
+        for (int i = 0; i < invs.Count; i++)
+        {
+            for (int j = 0; j < invs[i].Length; j++)
+            {
+                Debug.Log("Equip i:" + i + ", j: " + j + ": " + equip[i][j]);
+            }
+        }*/
         return (equip);
     }
 
     public void LoadItems(List<GameItem[]> List, List<bool[]> equips)
     {
+        Debug.Log("Loaded inventory");
+
         equip = equips;
         invs = List;
     }
 
     public void SetEquips()
     {
+        Debug.Log("Setting equips");
+        Debug.Log("invs count" + invs.Count);
         for (int i = 0; i < invs.Count; i++)
         {
             currInv = i;
             for (int j = 0; j < invs[i].Length; j++)
             {
                 currhover = j;
+                Debug.Log("Equip i:" + i + ", j: " + j + ": " + equip[i][j]);
                 if (equip[i][j])
                 {
                     Item currItem = items[invs[i][j].itemFileName];
@@ -272,6 +285,9 @@ public class ItemController : MonoBehaviour
                 }
             }
         }
+
+        currInv = 0;
+        currhover = 0;
     }
 
     public void EmptyItems()

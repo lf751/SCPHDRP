@@ -268,10 +268,11 @@ public class GameController : MonoBehaviour
                     }
                 case LoadType.otherworld:
                     {
-                        
+
                         SaveSystem.instance.playData = GlobalValues.worldState;
+
                         Debug.Log("World name = " + worldName + " isCreated? " + SaveSystem.instance.playData.worldsCreateds[(int)worldName]);
-                        if (SaveSystem.instance.playData.worldsCreateds[(int)worldName])
+                        if (SaveSystem.instance.playData.worldsCreateds[(int)worldName] && worldName != Worlds.pocket)
                             spawnHere = false;
                         LoadGame();
                         break;
@@ -324,7 +325,7 @@ public class GameController : MonoBehaviour
 
         if (GlobalValues.debug && mapless)
         {
-            GlobalValues.LoadType = LoadType.mapless;
+            //GlobalValues.LoadType = LoadType.mapless;
             spawnHere = true;
 
             if (GlobalValues.worldState != null)
@@ -411,18 +412,27 @@ public class GameController : MonoBehaviour
         GlobalValues.isNewGame = false;
         GlobalValues.LoadType = LoadType.loadgame;
         SaveSystem.instance.LoadState();
-        if (worldName != SaveSystem.instance.playData.currentWorld)
-            LoadingSystem.instance.LoadLevelHalf(GlobalValues.sceneTable[(int)SaveSystem.instance.playData.currentWorld], true, 1, 0, 0, 0);
 
         MusicPlayer.instance.StopMusic();
         LoadingSystem.instance.FadeOut(0.1f, new Vector3Int(0, 0, 0));
         SCP_UI.instance.ToggleDeath();
+
+        if (worldName != SaveSystem.instance.playData.currentWorld)
+        {
+            LoadingSystem.instance.LoadLevelHalf(GlobalValues.sceneTable[(int)SaveSystem.instance.playData.currentWorld], true, 1, 0, 0, 0);
+            return;
+        }
+
+
 
         Destroy(itemParent);
         Destroy(eventParent);
 
         itemParent = new GameObject("itemParent");
         eventParent = new GameObject("eventParent");
+
+
+
 
         GL_Loading();
 
@@ -847,7 +857,7 @@ public class GameController : MonoBehaviour
 
             if (SCP_Map[xPlayer, yPlayer].items == 1)
             {
-                //Debug.Log("Spawning Items");
+                Debug.Log("Spawning Items @ " + SCP_Map[xPlayer, yPlayer].roomName);
                 rooms[xPlayer, yPlayer].GetComponent<Item_Spawner>().Spawn();
                 SCP_Map[xPlayer, yPlayer].items = 2;
             }
@@ -1201,7 +1211,7 @@ public class GameController : MonoBehaviour
 
     void LoadItems()
     {
-        //Debug.Log("Entrando al loop");
+        Debug.Log("Loading Items");
         for (int i = 0; i < itemData.Length; i++)
         {
             if (itemData[i] != null && itemData[i].item != null)
@@ -1238,7 +1248,20 @@ public class GameController : MonoBehaviour
         playData.worlds[(int)worldName].persState = persTable;
 
         playData.worlds[(int)worldName].playerPos = SeriVector.fromVector3(player.transform.position);
-        playData.equips = ItemController.instance.GetEquips();
+        List<bool[]> equips = ItemController.instance.GetEquips();
+
+        playData.equips = new List<bool[]>();
+
+        for (int i = 0; i < equips.Count; i++)
+        {
+            playData.equips.Add(new bool[10]);
+            for (int j = 0; j < 10; j++)
+            {
+                playData.equips[i][j] = equips[i][j];
+            }
+        }
+
+
         playData.items = ItemController.instance.GetItems();
         playData.worlds[(int)worldName].angle = Camera.main.gameObject.transform.eulerAngles.y;
         if (ShowMap)
@@ -1247,7 +1270,7 @@ public class GameController : MonoBehaviour
             playData.mapX = xPlayer;
             playData.mapY = yPlayer;
             playData.holdRoom = holdRoom;
-            Debug.Log("Saved size = " + mapSize);
+            //Debug.Log("Saved size = " + mapSize);
             playData.savedSize = mapSize;
         }
         playData.globalBools = globalBools;
@@ -1290,6 +1313,7 @@ public class GameController : MonoBehaviour
         {
             if (ShowMap)
             {
+                Debug.Log("Starting mostrarMundo");
                 yield return StartCoroutine(mapCreate.MostrarMundo());
 
                 mapSize = mapCreate.mapSize;
@@ -1367,7 +1391,7 @@ public class GameController : MonoBehaviour
 
     void GL_Loading()
     {
-        if (SaveSystem.instance.playData.worldsCreateds[(int)worldName])
+        if (worldName != Worlds.dontCare && SaveSystem.instance.playData.worldsCreateds[(int)worldName])
         {
             itemData = SaveSystem.instance.playData.worlds[(int)worldName].worldItems;
             doorTable = SaveSystem.instance.playData.worlds[(int)worldName].doorState;
@@ -1396,6 +1420,25 @@ public class GameController : MonoBehaviour
         zoneMusic = -2;
         RoomMusicChange = true;
         currentMusic = -1;
+        Debug.Log("AfterPost function");
+        Debug.Log("ShowMap? " + ShowMap + ", loadtype: " + (GlobalValues.LoadType != LoadType.mapless) + ", worldsCreated[" + (int)worldName + "]: " + (worldName == Worlds.dontCare ? false : SaveSystem.instance.playData.worldsCreateds[(int)worldName]));
+
+        if (GlobalValues.LoadType != LoadType.mapless)
+        {
+            if (worldName != Worlds.dontCare && SaveSystem.instance.playData.worldsCreateds[(int)worldName])
+            {
+                LoadItems();
+                StopTimer = true;
+                if (worldName != Worlds.pocket)
+                    Camera.main.gameObject.transform.rotation = Quaternion.Euler(0, SaveSystem.instance.playData.worlds[(int)worldName].angle, 0);
+                ItemController.instance.SetEquips();
+                Random.state = SaveSystem.instance.playData.seedState;
+            }
+            //Debug.Log("Showing map x" + xPlayer + " y " + yPlayer);
+            //var e = ShowRoom(xPlayer, yPlayer, true);
+            //while (e.MoveNext()) { }
+        }
+
         if (ShowMap)
         {
             if (GlobalValues.LoadType != LoadType.mapless)
@@ -1403,13 +1446,10 @@ public class GameController : MonoBehaviour
                 if (SaveSystem.instance.playData.worldsCreateds[(int)worldName])
                 {
                     doGameplay = true;
-                    StopTimer = true;
-                    LoadItems();
-                    Camera.main.gameObject.transform.rotation = Quaternion.Euler(0, SaveSystem.instance.playData.worlds[(int)worldName].angle, 0);
                     SetMapPos(SaveSystem.instance.playData.mapX, SaveSystem.instance.playData.mapY);
-                    ItemController.instance.SetEquips();
-                    Random.state = SaveSystem.instance.playData.seedState;
                 }
+                else
+                    SetMapPos(0, 10);
                 //Debug.Log("Showing map x" + xPlayer + " y " + yPlayer);
                 //var e = ShowRoom(xPlayer, yPlayer, true);
                 //while (e.MoveNext()) { }
@@ -1502,8 +1542,10 @@ public class GameController : MonoBehaviour
     {
         Vector3 here = playerSpawn.position;
         bool origSpawn = spawnHere;
-        if (worldName != Worlds.dontCare && SaveSystem.instance.playData.worldsCreateds[(int)worldName] && GlobalValues.LoadType != LoadType.mapless)
+        Debug.Log("Spawning rules: worldName is not worldDontCare" + (worldName != Worlds.dontCare) + ", world iscreated: " + SaveSystem.instance.playData.worldsCreateds[(int)worldName] + ", load type is not mapless: " + (GlobalValues.LoadType != LoadType.mapless));
+        if (worldName != Worlds.dontCare && worldName != Worlds.pocket && SaveSystem.instance.playData.worldsCreateds[(int)worldName] && (GlobalValues.LoadType != LoadType.mapless))
         {
+            Debug.Log("Spawned on saved position");
             spawnHere = true;
             here = SaveSystem.instance.playData.worlds[(int)worldName].playerPos.toVector3();
         }
@@ -1523,10 +1565,10 @@ public class GameController : MonoBehaviour
             if (SaveSystem.instance.playData.worldsCreateds[(int)worldName] && ShowMap)
             {
                 nav_Map = SaveSystem.instance.playData.navMap;
-                SetMapPos(SaveSystem.instance.playData.mapX, SaveSystem.instance.playData.mapY);
+                //SetMapPos(SaveSystem.instance.playData.mapX, SaveSystem.instance.playData.mapY);
             }
-            else
-                SetMapPos(0, 10);
+            /*else
+                SetMapPos(0, 10);*/
         }
     }
 

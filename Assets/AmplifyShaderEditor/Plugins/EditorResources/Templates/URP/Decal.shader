@@ -1,3357 +1,1629 @@
-Shader  /*ase_name*/"Hidden/Universal/Decal"/*end*/
+// Made with Amplify Shader Editor v1.9.2
+// Available at the Unity Asset Store - http://u3d.as/y3X 
+Shader "Hidden/Universal/Decal"
 {
 	Properties
     {
-        /*ase_props*/
+		[HideInInspector] _AlphaCutoff("Alpha Cutoff ", Range(0, 1)) = 0.5
+		[HideInInspector] _EmissionColor("Emission Color", Color) = (1,1,1,1)
 
-        [HideInInspector] _DrawOrder("Draw Order", Range(-50, 50)) = 0
-        [HideInInspector][Enum(Depth Bias, 0, View Bias, 1)] _DecalMeshBiasType("DecalMesh BiasType", Float) = 0
-
-        [HideInInspector] _DecalMeshDepthBias("DecalMesh DepthBias", Float) = 0
-        [HideInInspector] _DecalMeshViewBias("DecalMesh ViewBias", Float) = 0
+		[HideInInspector] _DrawOrder("_DrawOrder", Int) = 0
+		[HideInInspector][Enum(Depth Bias, 0, View Bias, 1)] _DecalMeshBiasType("_DecalMeshBiasType", Int) = 0
+		[HideInInspector] _DecalMeshDepthBias("_DecalMeshDepthBias", Float) = 0.0
+		[HideInInspector] _DecalMeshViewBias("_DecalMeshViewBias", Float) = 0.0
+		[HideInInspector] _DecalStencilWriteMask("_DecalStencilWriteMask", Int) = 16
+		[HideInInspector] _DecalStencilRef("_DecalStencilRef", Int) = 16
+		[HideInInspector][ToggleUI] _AffectAlbedo("Boolean", Float) = 1
+		[HideInInspector][ToggleUI] _AffectNormal("Boolean", Float) = 1
+        [HideInInspector][ToggleUI] _AffectAO("Boolean", Float) = 1
+        [HideInInspector][ToggleUI] _AffectMetal("Boolean", Float) = 1
+        [HideInInspector][ToggleUI] _AffectSmoothness("Boolean", Float) = 1
+        [HideInInspector][ToggleUI] _AffectEmission("Boolean", Float) = 1
+		[HideInInspector] _DecalColorMask0("_DecalColorMask0", Int) = 0
+		[HideInInspector] _DecalColorMask1("_DecalColorMask1", Int) = 0
+		[HideInInspector] _DecalColorMask2("_DecalColorMask2", Int) = 0
+		[HideInInspector] _DecalColorMask3("_DecalColorMask3", Int) = 0
 
         [HideInInspector][NoScaleOffset] unity_Lightmaps("unity_Lightmaps", 2DArray) = "" {}
         [HideInInspector][NoScaleOffset] unity_LightmapsInd("unity_LightmapsInd", 2DArray) = "" {}
         [HideInInspector][NoScaleOffset] unity_ShadowMasks("unity_ShadowMasks", 2DArray) = "" {}
 
-        //_DecalAngleFadeSupported("Decal Angle Fade Supported", Float) = 1
-    }
+		[HideInInspector] _DecalBlend("_DecalBlend", Range(0.0, 1.0)) = 0.5
+		[HideInInspector] _NormalBlendSrc("_NormalBlendSrc", Float) = 0.0
+		[HideInInspector] _MaskBlendSrc("_MaskBlendSrc", Float) = 1.0
+		[HideInInspector] _DecalMaskMapBlueScale("_DecalMaskMapBlueScale", Range(0.0, 1.0)) = 1.0
+
+		//[HideInInspector]_Unity_Identify_HDRP_Decal("_Unity_Identify_HDRP_Decal", Float) = 1.0
+	}
 
     SubShader
     {
-		/*ase_subshader_options:Name=Additional Options
-			Option:Affect BaseColor:false,true:true
-				true:SetDefine:_MATERIAL_AFFECTS_ALBEDO 1
-				false:RemoveDefine:_MATERIAL_AFFECTS_ALBEDO 1
-			Option:Affect Normal:false,true:true
-				true:SetDefine:_MATERIAL_AFFECTS_NORMAL 1
-				true:SetPropertyOnPass:DBufferProjector:ColorMask1,true,true,true,true
-				true:SetPropertyOnPass:DecalGBufferProjector:ColorMask2,true,true,true,false
-				true:SetPropertyOnPass:DBufferMesh:ColorMask1,true,true,true,true
-				true:SetPropertyOnPass:DecalGBufferMesh:ColorMask2,true,true,true,false
-				false:RemoveDefine:_MATERIAL_AFFECTS_NORMAL 1
-				false:SetPropertyOnPass:DBufferProjector:ColorMask1,false,false,false,false
-				false:SetPropertyOnPass:DecalGBufferProjector:ColorMask2,false,false,false,false
-				false:SetPropertyOnPass:DBufferMesh:ColorMask1,false,false,false,false
-				false:SetPropertyOnPass:DecalGBufferMesh:ColorMask2,false,false,false,false
-			Option:Blend:false,true:true
-				true:SetDefine:_MATERIAL_AFFECTS_NORMAL_BLEND 1
-				false:RemoveDefine:_MATERIAL_AFFECTS_NORMAL_BLEND 1
-			Option:Affect MAOS:false,true:false
-				true:SetDefine: _MATERIAL_AFFECTS_MAOS 1
-				true:ShowPort:DecalScreenSpaceProjector:Metallic
-				true:ShowPort:DecalScreenSpaceProjector:Occlusion
-				true:ShowPort:DecalScreenSpaceProjector:Smoothness
-				true:ShowPort:DecalScreenSpaceProjector:MAOS Alpha
-				false:RemoveDefine: _MATERIAL_AFFECTS_MAOS 1
-				false:HidePort:DecalScreenSpaceProjector:Metallic
-				false:HidePort:DecalScreenSpaceProjector:Occlusion
-				false:HidePort:DecalScreenSpaceProjector:Smoothness
-				false:HidePort:DecalScreenSpaceProjector:MAOS Alpha
-			Option:Affect Emission:false,true:false
-				true:SetDefine:_MATERIAL_AFFECTS_EMISSION 1
-				true:IncludePass:DecalProjectorForwardEmissive
-				true:IncludePass:DecalMeshForwardEmissive
-				true:ShowPort:DecalScreenSpaceProjector:Emission
-				false:RemoveDefine:_MATERIAL_AFFECTS_EMISSION 1
-				false:ExcludePass:DecalProjectorForwardEmissive
-				false:ExcludePass:DecalMeshForwardEmissive
-				false:HidePort:DecalScreenSpaceProjector:Emission
-			Option:Support LOD CrossFade:false,true:false
-			    true:SetDefine:DBufferMesh:USE_UNITY_CROSSFADE 1
-				true:SetDefine:DecalScreenSpaceMesh:USE_UNITY_CROSSFADE 1
-				true:SetDefine:DecalProjectorForwardEmissive:USE_UNITY_CROSSFADE 1
-				true:SetDefine:DecalGBufferMesh:USE_UNITY_CROSSFADE 1
-				true:SetDefine:DBufferMesh:pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
-				true:SetDefine:DecalScreenSpaceMesh:pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
-				true:SetDefine:DecalProjectorForwardEmissive:pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
-				true:SetDefine:DecalGBufferMesh:pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
-				false:RemoveDefine:DBufferMesh:USE_UNITY_CROSSFADE 1
-				false:RemoveDefine:DecalScreenSpaceMesh:USE_UNITY_CROSSFADE 1
-				false:RemoveDefine:DecalProjectorForwardEmissive:USE_UNITY_CROSSFADE 1
-				false:RemoveDefine:DecalGBufferMesh:USE_UNITY_CROSSFADE 1
-				false:RemoveDefine:DBufferMesh:pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
-				false:RemoveDefine:DecalScreenSpaceMesh:pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
-				false:RemoveDefine:DecalProjectorForwardEmissive:pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
-				false:RemoveDefine:DecalGBufferMesh:pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
-			Option:Angle Fade:false,true:true
-			    true:SetDefine:DBufferProjector:DECAL_ANGLE_FADE 1
-				true:SetDefine:DecalScreenSpaceProjector:DECAL_ANGLE_FADE 1
-				true:SetDefine:DecalProjectorForwardEmissive:DECAL_ANGLE_FADE 1
-				true:SetDefine:DecalGBufferProjector:DECAL_ANGLE_FADE 1
-				true:SetDefine:DBufferProjector:DECAL_ANGLE_FADE 1
-				false:RemoveDefine:DBufferProjector:DECAL_ANGLE_FADE 1
-				false:RemoveDefine:DecalScreenSpaceProjector:DECAL_ANGLE_FADE 1
-				false:RemoveDefine:DecalProjectorForwardEmissive:DECAL_ANGLE_FADE 1
-				false:RemoveDefine:DecalGBufferProjector:DECAL_ANGLE_FADE 1
-				false:RemoveDefine:DBufferProjector:DECAL_ANGLE_FADE 1	
-				true:SetShaderProperty:_DecalAngleFadeSupported,[HideInInspector] _DecalAngleFadeSupported("Decal Angle Fade Supported", Float) = 1
-				false:SetShaderProperty:_DecalAngleFadeSupported,//[HideInInspector] _DecalAngleFadeSupported("Decal Angle Fade Supported", Float) = 1
-		*/
+		LOD 0
 
-		Tags
-        {
-            "RenderPipeline"="UniversalPipeline"
-            "PreviewType"="Plane"
-		    "DisableBatching" = "LODFading"
-            "ShaderGraphShader"="true"
-			"ShaderGraphTargetId" = "UniversalDecalSubTarget"
-        }
+		
+        Tags { "RenderPipeline"="HDRenderPipeline" "RenderType"="Opaque" "Queue"="Geometry" }
 
 		HLSLINCLUDE
-		#pragma target 3.5
-		#pragma prefer_hlslcc gles
-		#pragma exclude_renderers d3d9 // ensure rendering platforms toggle list is visible
+		#pragma target 4.5
+		#pragma exclude_renderers glcore gles gles3 ps4 ps5 
+		#pragma multi_compile_instancing
+		#pragma instancing_options renderinglayer
 
 		#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 		#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
+
+		struct SurfaceDescription
+        {
+            float3 BaseColor;
+            float Alpha;
+            float3 NormalTS;
+            float NormalAlpha;
+            float Metallic;
+            float Occlusion;
+            float Smoothness;
+            float MAOSAlpha;
+			float3 Emission;
+        };
 		ENDHLSL
 
-		/*ase_pass*/
+		
         Pass
-        {
-			/*ase_hide_pass*/
-            Name "DBufferProjector"
-            Tags
+		{
+			
+			Name "DBufferProjector"
+			Tags { "LightMode"="DBufferProjector" }
+
+            Stencil
             {
-                "LightMode" = "DBufferProjector"
+            	Ref [_DecalStencilRef]
+            	WriteMask [_DecalStencilWriteMask]
+            	Comp Always
+            	Pass Replace
             }
 
+
 			Cull Front
+			ZWrite Off
+			ZTest Greater
+
 			Blend 0 SrcAlpha OneMinusSrcAlpha, Zero OneMinusSrcAlpha
 			Blend 1 SrcAlpha OneMinusSrcAlpha, Zero OneMinusSrcAlpha
 			Blend 2 SrcAlpha OneMinusSrcAlpha, Zero OneMinusSrcAlpha
-			ZTest Greater
+			Blend 3 Zero OneMinusSrcColor
+
+			ColorMask[_DecalColorMask0]
+			ColorMask[_DecalColorMask1] 1
+			ColorMask[_DecalColorMask2] 2
+			ColorMask[_DecalColorMask3] 3
+
+			HLSLPROGRAM
+
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_ALBEDO
+            #pragma shader_feature_local_fragment _COLORMAP
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_NORMAL
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_MASKMAP
+            #pragma shader_feature_local_fragment _MASKMAP
+            #define _MATERIAL_AFFECTS_EMISSION
+            #pragma shader_feature_local_fragment _EMISSIVEMAP
+            #pragma multi_compile _ LOD_FADE_CROSSFADE
+            #define ASE_SRP_VERSION 160005
+
+
+            #pragma vertex Vert
+            #pragma fragment Frag
+
+			#pragma multi_compile_fragment DECALS_3RT DECALS_4RT
+			#pragma multi_compile_fragment _ DECAL_SURFACE_GRADIENT
+
+			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/NormalSurfaceGradient.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
+
+			#define SHADERPASS SHADERPASS_DBUFFER_PROJECTOR
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/Decal.hlsl"
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalPrepassBuffer.hlsl"
+
+			
+
+            struct AttributesMesh
+            {
+                float3 positionOS : POSITION;
+                float3 normalOS : NORMAL;
+                float4 tangentOS : TANGENT;
+				
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
+
+      		struct PackedVaryingsToPS
+			{
+				float4 positionCS : SV_POSITION;
+				#if defined(ASE_NEEDS_FRAG_RELATIVE_WORLD_POS)
+				float3 positionRWS : TEXCOORD0;
+				#endif
+				
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+				UNITY_VERTEX_OUTPUT_STEREO
+			};
+
+            CBUFFER_START(UnityPerMaterial)
+                        float _DrawOrder;
+			float _NormalBlendSrc;
+			float _MaskBlendSrc;
+			float _DecalBlend;
+			int   _DecalMeshBiasType;
+            float _DecalMeshDepthBias;
+			float _DecalMeshViewBias;
+            float _DecalStencilWriteMask;
+            float _DecalStencilRef;
+			#ifdef _MATERIAL_AFFECTS_ALBEDO
+            float _AffectAlbedo;
+			#endif
+			#ifdef _MATERIAL_AFFECTS_NORMAL
+            float _AffectNormal;
+			#endif
+            #ifdef _MATERIAL_AFFECTS_MASKMAP
+            float _AffectAO;
+			float _AffectMetal;
+            float _AffectSmoothness;
+			#endif
+			#ifdef _MATERIAL_AFFECTS_EMISSION
+            float _AffectEmission;
+			#endif
+            float _DecalColorMask0;
+            float _DecalColorMask1;
+            float _DecalColorMask2;
+            float _DecalColorMask3;
+            CBUFFER_END
+
+			
+
+            #if (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH)
+            #define ATTRIBUTES_NEED_NORMAL
+            #define ATTRIBUTES_NEED_TANGENT // Always present as we require it also in case of anisotropic lighting
+            #define ATTRIBUTES_NEED_TEXCOORD0
+
+            #define VARYINGS_NEED_POSITION_WS
+            #define VARYINGS_NEED_TANGENT_TO_WORLD
+            #define VARYINGS_NEED_TEXCOORD0
+            #endif
+
+			
+            void GetSurfaceData(SurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, PositionInputs posInput, float angleFadeFactor, out DecalSurfaceData surfaceData)
+            {
+                #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
+                    float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
+                    float fadeFactor = clamp(normalToWorld[0][3], 0.0f, 1.0f) * angleFadeFactor;
+                    float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
+                    float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
+                    fragInputs.texCoord0.xy = fragInputs.texCoord0.xy * scale + offset;
+                    fragInputs.texCoord1.xy = fragInputs.texCoord1.xy * scale + offset;
+                    fragInputs.texCoord2.xy = fragInputs.texCoord2.xy * scale + offset;
+                    fragInputs.texCoord3.xy = fragInputs.texCoord3.xy * scale + offset;
+                    fragInputs.positionRWS = posInput.positionWS;
+                    fragInputs.tangentToWorld[2].xyz = TransformObjectToWorldDir(float3(0, 1, 0));
+                    fragInputs.tangentToWorld[1].xyz = TransformObjectToWorldDir(float3(0, 0, 1));
+                #else
+                    #ifdef LOD_FADE_CROSSFADE
+                    LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+                    #endif
+
+                    float fadeFactor = 1.0;
+                #endif
+
+                ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
+
+                #ifdef _MATERIAL_AFFECTS_EMISSION
+                #endif
+
+                #ifdef _MATERIAL_AFFECTS_ALBEDO
+                    surfaceData.baseColor.xyz = surfaceDescription.BaseColor;
+                    surfaceData.baseColor.w = surfaceDescription.Alpha * fadeFactor;
+                #endif
+
+                #ifdef _MATERIAL_AFFECTS_NORMAL
+                    #ifdef DECAL_SURFACE_GRADIENT
+                        #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
+                            float3x3 tangentToWorld = transpose((float3x3)normalToWorld);
+                        #else
+                            float3x3 tangentToWorld = fragInputs.tangentToWorld;
+                        #endif
+
+                        surfaceData.normalWS.xyz = SurfaceGradientFromTangentSpaceNormalAndFromTBN(surfaceDescription.NormalTS.xyz, tangentToWorld[0], tangentToWorld[1]);
+                    #else
+                        #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR)
+                            surfaceData.normalWS.xyz = mul((float3x3)normalToWorld, surfaceDescription.NormalTS);
+                        #elif (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_PREVIEW)
+
+                            surfaceData.normalWS.xyz = normalize(TransformTangentToWorld(surfaceDescription.NormalTS, fragInputs.tangentToWorld));
+                        #endif
+                    #endif
+
+                    surfaceData.normalWS.w = surfaceDescription.NormalAlpha * fadeFactor;
+                #else
+                    #if (SHADERPASS == SHADERPASS_FORWARD_PREVIEW)
+                        #ifdef DECAL_SURFACE_GRADIENT
+                            surfaceData.normalWS.xyz = float3(0.0, 0.0, 0.0);
+                        #else
+                            surfaceData.normalWS.xyz = normalize(TransformTangentToWorld(float3(0.0, 0.0, 0.1), fragInputs.tangentToWorld));
+                        #endif
+                    #endif
+                #endif
+
+                #ifdef _MATERIAL_AFFECTS_MASKMAP
+                    surfaceData.mask.z = surfaceDescription.Smoothness;
+                    surfaceData.mask.w = surfaceDescription.MAOSAlpha * fadeFactor;
+
+                    #ifdef DECALS_4RT
+                        surfaceData.mask.x = surfaceDescription.Metallic;
+                        surfaceData.mask.y = surfaceDescription.Occlusion;
+                        surfaceData.MAOSBlend.x = surfaceDescription.MAOSAlpha * fadeFactor;
+                        surfaceData.MAOSBlend.y = surfaceDescription.MAOSAlpha * fadeFactor;
+                    #endif
+
+                #endif
+            }
+
+			PackedVaryingsToPS Vert(AttributesMesh inputMesh  )
+			{
+				PackedVaryingsToPS output;
+
+				UNITY_SETUP_INSTANCE_ID(inputMesh);
+				UNITY_TRANSFER_INSTANCE_ID(inputMesh, output);
+				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO( output );
+
+				inputMesh.tangentOS = float4( 1, 0, 0, -1);
+				inputMesh.normalOS = float3( 0, 1, 0 );
+
+				
+
+				inputMesh.normalOS = inputMesh.normalOS;
+				inputMesh.tangentOS = inputMesh.tangentOS;
+
+				float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS);
+				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
+				float4 tangentWS = float4(TransformObjectToWorldDir(inputMesh.tangentOS.xyz), inputMesh.tangentOS.w);
+
+				output.positionCS = TransformWorldToHClip(positionRWS);
+				#if defined(ASE_NEEDS_FRAG_RELATIVE_WORLD_POS)
+				output.positionRWS = positionRWS;
+				#endif
+
+				return output;
+			}
+
+			void Frag( PackedVaryingsToPS packedInput,
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
+				OUTPUT_DBUFFER(outDBuffer)
+			#else
+				out float4 outEmissive : SV_Target0
+			#endif
+			
+			)
+			{
+				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
+				UNITY_SETUP_INSTANCE_ID(packedInput);
+
+				FragInputs input;
+                ZERO_INITIALIZE(FragInputs, input);
+                input.tangentToWorld = k_identity3x3;
+				#if defined(ASE_NEEDS_FRAG_RELATIVE_WORLD_POS)
+				input.positionRWS = packedInput.positionRWS;
+				#endif
+
+                input.positionSS = packedInput.positionCS;
+
+				DecalSurfaceData surfaceData;
+				float clipValue = 1.0;
+				float angleFadeFactor = 1.0;
+
+				PositionInputs posInput;
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
+
+				float depth = LoadCameraDepth(input.positionSS.xy);
+				posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, depth, UNITY_MATRIX_I_VP, UNITY_MATRIX_V);
+
+				DecalPrepassData material;
+				ZERO_INITIALIZE(DecalPrepassData, material);
+				if (_EnableDecalLayers)
+				{
+					uint decalLayerMask = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal).x);
+
+					DecodeFromDecalPrepass(posInput.positionSS, material);
+
+					if ((decalLayerMask & material.renderingLayerMask) == 0)
+						clipValue -= 2.0;
+				}
+
+
+				float3 positionDS = TransformWorldToObject(posInput.positionWS);
+				positionDS = positionDS * float3(1.0, -1.0, 1.0) + float3(0.5, 0.5, 0.5);
+				if (!(all(positionDS.xyz > 0.0f) && all(1.0f - positionDS.xyz > 0.0f)))
+				{
+					clipValue -= 2.0;
+				}
+
+			#ifndef SHADER_API_METAL
+				clip(clipValue);
+			#else
+				if (clipValue > 0.0)
+				{
+			#endif
+
+				float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
+				float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
+				float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
+				positionDS.xz = positionDS.xz * scale + offset;
+
+				input.texCoord0.xy = positionDS.xz;
+				input.texCoord1.xy = positionDS.xz;
+				input.texCoord2.xy = positionDS.xz;
+				input.texCoord3.xy = positionDS.xz;
+
+				float3 V = GetWorldSpaceNormalizeViewDir(posInput.positionWS);
+				if (_EnableDecalLayers)
+				{
+					float2 angleFade = float2(normalToWorld[1][3], normalToWorld[2][3]);
+
+					if (angleFade.x > 0.0f)
+					{
+						float3 decalNormal = float3(normalToWorld[0].z, normalToWorld[1].z, normalToWorld[2].z);
+                        angleFadeFactor = DecodeAngleFade(dot(material.geomNormalWS, decalNormal), angleFade);
+					}
+				}
+
+			#else
+				posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, input.positionSS.z, input.positionSS.w, input.positionRWS.xyz, uint2(0, 0));
+				#if defined(ASE_NEEDS_FRAG_RELATIVE_WORLD_POS)
+					float3 V = GetWorldSpaceNormalizeViewDir(input.positionRWS);
+				#else
+					float3 V = float3(1.0, 1.0, 1.0);
+				#endif
+			#endif
+
+				float3 positionWS = GetAbsolutePositionWS( posInput.positionWS );
+				float3 positionRWS = posInput.positionWS;
+
+				float3 worldTangent = TransformObjectToWorldDir(float3(1, 0, 0));
+				float3 worldNormal = TransformObjectToWorldDir(float3(0, 1, 0));
+				float3 worldBitangent = TransformObjectToWorldDir(float3(0, 0, 1));
+
+				float4 texCoord0 = input.texCoord0;
+				float4 texCoord1 = input.texCoord1;
+				float4 texCoord2 = input.texCoord2;
+				float4 texCoord3 = input.texCoord3;
+
+				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
+
+				
+
+				surfaceDescription.BaseColor = float3( 0.7353569, 0.7353569, 0.7353569 );
+				surfaceDescription.Alpha = 1;
+				surfaceDescription.NormalTS = float3( 0, 0, 1 );
+				surfaceDescription.NormalAlpha = 1;
+				surfaceDescription.Metallic = 0;
+				surfaceDescription.Occlusion = 1;
+				surfaceDescription.Smoothness = 0.5;
+				surfaceDescription.MAOSAlpha = 1;
+				surfaceDescription.Emission = float3( 0, 0, 0 );
+
+				GetSurfaceData(surfaceDescription, input, V, posInput, angleFadeFactor, surfaceData);
+
+			#if ((SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)) && defined(SHADER_API_METAL)
+				} // if (clipValue > 0.0)
+
+				clip(clipValue);
+			#endif
+
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
+				ENCODE_INTO_DBUFFER(surfaceData, outDBuffer);
+			#else
+				// Emissive need to be pre-exposed
+				outEmissive.rgb = surfaceData.emissive * GetCurrentExposureMultiplier();
+				outEmissive.a = 1.0;
+			#endif
+			}
+
+            ENDHLSL
+        }
+
+		
+        Pass
+		{
+			
+			Name "DecalProjectorForwardEmissive"
+			Tags { "LightMode"="DecalProjectorForwardEmissive" }
+
+			Stencil
+			{
+				Ref [_DecalStencilRef]
+				WriteMask [_DecalStencilWriteMask]
+				Comp Always
+				Pass Replace
+			}
+
+
+			Cull Front
 			ZWrite Off
-			ColorMask RGBA
-			ColorMask RGBA 1
-			ColorMask RGBA 2
+			ZTest Greater
+
+			Blend 0 SrcAlpha One
+
+			HLSLPROGRAM
+
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_ALBEDO
+            #pragma shader_feature_local_fragment _COLORMAP
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_NORMAL
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_MASKMAP
+            #pragma shader_feature_local_fragment _MASKMAP
+            #define _MATERIAL_AFFECTS_EMISSION
+            #pragma shader_feature_local_fragment _EMISSIVEMAP
+            #pragma multi_compile _ LOD_FADE_CROSSFADE
+            #define ASE_SRP_VERSION 160005
+
+
+            #pragma vertex Vert
+            #pragma fragment Frag
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/NormalSurfaceGradient.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
+
+			#define SHADERPASS SHADERPASS_FORWARD_EMISSIVE_PROJECTOR
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/Decal.hlsl"
+
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalPrepassBuffer.hlsl"
+
+			
+
+            struct AttributesMesh
+            {
+                float3 positionOS : POSITION;
+                float3 normalOS : NORMAL;
+                float4 tangentOS : TANGENT;
+				
+				UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
+
+      		struct PackedVaryingsToPS
+			{
+				float4 positionCS : SV_POSITION;
+				#if defined(ASE_NEEDS_FRAG_RELATIVE_WORLD_POS)
+				float3 positionRWS : TEXCOORD0;
+				#endif
+				
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+				UNITY_VERTEX_OUTPUT_STEREO
+			};
+
+            CBUFFER_START(UnityPerMaterial)
+						float _DrawOrder;
+			float _NormalBlendSrc;
+			float _MaskBlendSrc;
+			float _DecalBlend;
+			int   _DecalMeshBiasType;
+			float _DecalMeshDepthBias;
+			float _DecalMeshViewBias;
+            float _DecalStencilWriteMask;
+            float _DecalStencilRef;
+            #ifdef _MATERIAL_AFFECTS_ALBEDO
+            float _AffectAlbedo;
+			#endif
+            #ifdef _MATERIAL_AFFECTS_NORMAL
+            float _AffectNormal;
+			#endif
+            #ifdef _MATERIAL_AFFECTS_MASKMAP
+            float _AffectAO;
+			float _AffectMetal;
+            float _AffectSmoothness;
+			#endif
+            #ifdef _MATERIAL_AFFECTS_EMISSION
+            float _AffectEmission;
+			#endif
+            float _DecalColorMask0;
+            float _DecalColorMask1;
+            float _DecalColorMask2;
+            float _DecalColorMask3;
+            CBUFFER_END
+
+			
+
+			
+            void GetSurfaceData(SurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, PositionInputs posInput, float angleFadeFactor, out DecalSurfaceData surfaceData)
+            {
+                #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
+                    float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
+                    float fadeFactor = clamp(normalToWorld[0][3], 0.0f, 1.0f) * angleFadeFactor;
+                    float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
+                    float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
+                    fragInputs.texCoord0.xy = fragInputs.texCoord0.xy * scale + offset;
+                    fragInputs.texCoord1.xy = fragInputs.texCoord1.xy * scale + offset;
+                    fragInputs.texCoord2.xy = fragInputs.texCoord2.xy * scale + offset;
+                    fragInputs.texCoord3.xy = fragInputs.texCoord3.xy * scale + offset;
+                    fragInputs.positionRWS = posInput.positionWS;
+                    fragInputs.tangentToWorld[2].xyz = TransformObjectToWorldDir(float3(0, 1, 0));
+                    fragInputs.tangentToWorld[1].xyz = TransformObjectToWorldDir(float3(0, 0, 1));
+                #else
+                    #ifdef LOD_FADE_CROSSFADE
+                    LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+                    #endif
+
+                    float fadeFactor = 1.0;
+                #endif
+
+                ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
+
+                #ifdef _MATERIAL_AFFECTS_EMISSION
+                    surfaceData.emissive.rgb = surfaceDescription.Emission.rgb * fadeFactor;
+                #endif
+            }
+
+			PackedVaryingsToPS Vert(AttributesMesh inputMesh  )
+			{
+				PackedVaryingsToPS output;
+
+				UNITY_SETUP_INSTANCE_ID(inputMesh);
+				UNITY_TRANSFER_INSTANCE_ID(inputMesh, output);
+				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO( output );
+
+				inputMesh.tangentOS = float4( 1, 0, 0, -1);
+				inputMesh.normalOS = float3( 0, 1, 0 );
+
+				
+
+				inputMesh.normalOS = inputMesh.normalOS;
+				inputMesh.tangentOS = inputMesh.tangentOS;
+
+				float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS);
+				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
+				float4 tangentWS = float4(TransformObjectToWorldDir(inputMesh.tangentOS.xyz), inputMesh.tangentOS.w);
+
+				output.positionCS = TransformWorldToHClip(positionRWS);
+				#if defined(ASE_NEEDS_FRAG_RELATIVE_WORLD_POS)
+				output.positionRWS = positionRWS;
+				#endif
+
+				return output;
+			}
+
+			void Frag( PackedVaryingsToPS packedInput,
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
+				OUTPUT_DBUFFER(outDBuffer)
+			#else
+				out float4 outEmissive : SV_Target0
+			#endif
+			
+			)
+			{
+				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
+				UNITY_SETUP_INSTANCE_ID(packedInput);
+
+				FragInputs input;
+                ZERO_INITIALIZE(FragInputs, input);
+                input.tangentToWorld = k_identity3x3;
+				#if defined(ASE_NEEDS_FRAG_RELATIVE_WORLD_POS)
+				input.positionRWS = packedInput.positionRWS;
+				#endif
+
+                input.positionSS = packedInput.positionCS;
+
+				DecalSurfaceData surfaceData;
+				float clipValue = 1.0;
+				float angleFadeFactor = 1.0;
+
+				PositionInputs posInput;
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
+
+				float depth = LoadCameraDepth(input.positionSS.xy);
+				#if (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) && UNITY_REVERSED_Z
+					depth = IsSky(depth) ? UNITY_NEAR_CLIP_VALUE : depth;
+				#endif
+
+				posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, depth, UNITY_MATRIX_I_VP, UNITY_MATRIX_V);
+
+				DecalPrepassData material;
+				ZERO_INITIALIZE(DecalPrepassData, material);
+				if (_EnableDecalLayers)
+				{
+					uint decalLayerMask = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal).x);
+
+					DecodeFromDecalPrepass(posInput.positionSS, material);
+
+					if ((decalLayerMask & material.renderingLayerMask) == 0)
+						clipValue -= 2.0;
+				}
+
+
+				float3 positionDS = TransformWorldToObject(posInput.positionWS);
+				positionDS = positionDS * float3(1.0, -1.0, 1.0) + float3(0.5, 0.5, 0.5);
+				if (!(all(positionDS.xyz > 0.0f) && all(1.0f - positionDS.xyz > 0.0f)))
+				{
+					clipValue -= 2.0;
+				}
+
+			#ifndef SHADER_API_METAL
+				clip(clipValue);
+			#else
+				if (clipValue > 0.0)
+				{
+			#endif
+
+				float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
+				float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
+				float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
+				positionDS.xz = positionDS.xz * scale + offset;
+
+				input.texCoord0.xy = positionDS.xz;
+				input.texCoord1.xy = positionDS.xz;
+				input.texCoord2.xy = positionDS.xz;
+				input.texCoord3.xy = positionDS.xz;
+
+				float3 V = GetWorldSpaceNormalizeViewDir(posInput.positionWS);
+				if (_EnableDecalLayers)
+				{
+					float2 angleFade = float2(normalToWorld[1][3], normalToWorld[2][3]);
+
+					if (angleFade.x > 0.0f)
+					{
+						float3 decalNormal = float3(normalToWorld[0].z, normalToWorld[1].z, normalToWorld[2].z);
+                        angleFadeFactor = DecodeAngleFade(dot(material.geomNormalWS, decalNormal), angleFade);
+					}
+				}
+
+			#else
+				posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, input.positionSS.z, input.positionSS.w, input.positionRWS.xyz, uint2(0, 0));
+				#if defined(ASE_NEEDS_FRAG_RELATIVE_WORLD_POS)
+					float3 V = GetWorldSpaceNormalizeViewDir(input.positionRWS);
+				#else
+					float3 V = float3(1.0, 1.0, 1.0);
+				#endif
+			#endif
+
+				float3 positionWS = GetAbsolutePositionWS( posInput.positionWS );
+				float3 positionRWS = posInput.positionWS;
+
+				float3 worldTangent = TransformObjectToWorldDir(float3(1, 0, 0));
+				float3 worldNormal = TransformObjectToWorldDir(float3(0, 1, 0));
+				float3 worldBitangent = TransformObjectToWorldDir(float3(0, 0, 1));
+
+				float4 texCoord0 = input.texCoord0;
+				float4 texCoord1 = input.texCoord1;
+				float4 texCoord2 = input.texCoord2;
+				float4 texCoord3 = input.texCoord3;
+
+				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
+
+				
+
+				surfaceDescription.BaseColor = float3( 0.7353569, 0.7353569, 0.7353569 );
+				surfaceDescription.Alpha = 1;
+				surfaceDescription.NormalTS = float3( 0, 0, 1 );
+				surfaceDescription.NormalAlpha = 1;
+				surfaceDescription.Metallic = 0;
+				surfaceDescription.Occlusion = 1;
+				surfaceDescription.Smoothness = 0.5;
+				surfaceDescription.MAOSAlpha = 1;
+				surfaceDescription.Emission = float3( 0, 0, 0 );
+
+				GetSurfaceData(surfaceDescription, input, V, posInput, angleFadeFactor, surfaceData);
+
+			#if ((SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)) && defined(SHADER_API_METAL)
+				}
+
+				clip(clipValue);
+			#endif
+
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
+				ENCODE_INTO_DBUFFER(surfaceData, outDBuffer);
+			#else
+				// Emissive need to be pre-exposed
+				outEmissive.rgb = surfaceData.emissive * GetCurrentExposureMultiplier();
+				outEmissive.a = 1.0;
+			#endif
+			}
+
+            ENDHLSL
+        }
+
+		
+        Pass
+		{
+			
+			Name "DBufferMesh"
+			Tags { "LightMode"="DBufferMesh" }
+
+
+			Stencil
+			{
+				Ref [_DecalStencilRef]
+				WriteMask [_DecalStencilWriteMask]
+				Comp Always
+				Pass Replace
+			}
+
+
+			ZWrite Off
+			ZTest LEqual
+
+			Blend 0 SrcAlpha OneMinusSrcAlpha, Zero OneMinusSrcAlpha
+			Blend 1 SrcAlpha OneMinusSrcAlpha, Zero OneMinusSrcAlpha
+			Blend 2 SrcAlpha OneMinusSrcAlpha, Zero OneMinusSrcAlpha
+			Blend 3 Zero OneMinusSrcColor
+
+			ColorMask[_DecalColorMask0]
+			ColorMask[_DecalColorMask1] 1
+			ColorMask[_DecalColorMask2] 2
+			ColorMask[_DecalColorMask3] 3
 
             HLSLPROGRAM
 
-		    #pragma exclude_renderers gles gles3 glcore
-			#pragma vertex Vert
-			#pragma fragment Frag
-			#pragma multi_compile_instancing
-			#pragma editor_sync_compilation
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_ALBEDO
+            #pragma shader_feature_local_fragment _COLORMAP
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_NORMAL
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_MASKMAP
+            #pragma shader_feature_local_fragment _MASKMAP
+            #define _MATERIAL_AFFECTS_EMISSION
+            #pragma shader_feature_local_fragment _EMISSIVEMAP
+            #pragma multi_compile _ LOD_FADE_CROSSFADE
+            #define ASE_SRP_VERSION 160005
 
-			#pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
-			#pragma multi_compile_fragment _ _FOVEATED_RENDERING_NON_UNIFORM_RASTER
-			#pragma multi_compile _ _DECAL_LAYERS
+
+            #pragma vertex Vert
+            #pragma fragment Frag
+
+			#pragma multi_compile_fragment DECALS_3RT DECALS_4RT
+			#pragma multi_compile_fragment _ DECAL_SURFACE_GRADIENT
 
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/NormalSurfaceGradient.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 
-            #define HAVE_MESH_MODIFICATION
-
-            #define SHADERPASS SHADERPASS_DBUFFER_PROJECTOR
-
-			#ifdef SCENEPICKINGPASS
-			float4 _SelectionID;
-			#endif
-			#if _RENDER_PASS_ENABLED
-			#define GBUFFER3 0
-			#define GBUFFER4 1
-			FRAMEBUFFER_INPUT_HALF(GBUFFER3);
-			FRAMEBUFFER_INPUT_HALF(GBUFFER4);
-			#endif
-
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DecalInput.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderVariablesDecal.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
-			/*ase_pragma*/
+			#define SHADERPASS SHADERPASS_DBUFFER_MESH
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/Decal.hlsl"
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalPrepassBuffer.hlsl"
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/DecalMeshBiasTypeEnum.cs.hlsl"
 
-			struct SurfaceDescription
-			{
-				float3 BaseColor;
-				float Alpha;
-				float3 NormalTS;
-				float NormalAlpha;
-				float Metallic;
-				float Occlusion;
-				float Smoothness;
-				float MAOSAlpha;
-			};
+			
 
-			struct Attributes
-			{
-				float3 positionOS : POSITION;
-				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
-				/*ase_vdata:p=p;n=n;t=t*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-			};
+            struct AttributesMesh
+            {
+                float3 positionOS : POSITION;
+                float3 normalOS : NORMAL;
+                float4 tangentOS : TANGENT;
+                float4 uv0 : TEXCOORD0;
+				
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
 
-			struct PackedVaryings
+			struct PackedVaryingsToPS
 			{
 				float4 positionCS : SV_POSITION;
-				/*ase_interp(0,):sp=sp*/
+                float3 positionRWS : TEXCOORD0;
+                float3 normalWS : TEXCOORD1;
+                float4 tangentWS : TEXCOORD2;
+                float4 uv0 : TEXCOORD3;
+				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
 
             CBUFFER_START(UnityPerMaterial)
-			float _DrawOrder;
-			float _DecalMeshBiasType;
-			float _DecalMeshDepthBias;
+                        float _DrawOrder;
+			float _NormalBlendSrc;
+			float _MaskBlendSrc;
+			float _DecalBlend;
+			int   _DecalMeshBiasType;
+            float _DecalMeshDepthBias;
 			float _DecalMeshViewBias;
-            #if defined(DECAL_ANGLE_FADE)
-			float _DecalAngleFadeSupported;
-            #endif
-			CBUFFER_END
+            float _DecalStencilWriteMask;
+            float _DecalStencilRef;
+            #ifdef _MATERIAL_AFFECTS_ALBEDO
+            float _AffectAlbedo;
+			#endif
+            #ifdef _MATERIAL_AFFECTS_NORMAL
+            float _AffectNormal;
+			#endif
+            #ifdef _MATERIAL_AFFECTS_MASKMAP
+            float _AffectAO;
+			float _AffectMetal;
+            float _AffectSmoothness;
+			#endif
+            #ifdef _MATERIAL_AFFECTS_EMISSION
+            float _AffectEmission;
+			#endif
+            float _DecalColorMask0;
+            float _DecalColorMask1;
+            float _DecalColorMask2;
+            float _DecalColorMask3;
+            CBUFFER_END
 
-			/*ase_globals*/
+	   		
 
-			/*ase_funcs*/
-
-            void GetSurfaceData(SurfaceDescription surfaceDescription, float angleFadeFactor, out DecalSurfaceData surfaceData)
+			
+            void GetSurfaceData(SurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, PositionInputs posInput, float angleFadeFactor, out DecalSurfaceData surfaceData)
             {
-                half4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
-                half fadeFactor = clamp(normalToWorld[0][3], 0.0f, 1.0f) * angleFadeFactor;
-                float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
-                float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
+                #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
+                    float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
+                    float fadeFactor = clamp(normalToWorld[0][3], 0.0f, 1.0f) * angleFadeFactor;
+                    float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
+                    float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
+                    fragInputs.texCoord0.xy = fragInputs.texCoord0.xy * scale + offset;
+                    fragInputs.texCoord1.xy = fragInputs.texCoord1.xy * scale + offset;
+                    fragInputs.texCoord2.xy = fragInputs.texCoord2.xy * scale + offset;
+                    fragInputs.texCoord3.xy = fragInputs.texCoord3.xy * scale + offset;
+                    fragInputs.positionRWS = posInput.positionWS;
+                    fragInputs.tangentToWorld[2].xyz = TransformObjectToWorldDir(float3(0, 1, 0));
+                    fragInputs.tangentToWorld[1].xyz = TransformObjectToWorldDir(float3(0, 0, 1));
+                #else
+                    #ifdef LOD_FADE_CROSSFADE
+                    LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+                    #endif
+
+                    float fadeFactor = 1.0;
+                #endif
 
                 ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
-                surfaceData.occlusion = half(1.0);
-                surfaceData.smoothness = half(0);
+
+                #ifdef _MATERIAL_AFFECTS_EMISSION
+                #endif
+
+                #ifdef _MATERIAL_AFFECTS_ALBEDO
+                    surfaceData.baseColor.xyz = surfaceDescription.BaseColor;
+                    surfaceData.baseColor.w = surfaceDescription.Alpha * fadeFactor;
+                #endif
 
                 #ifdef _MATERIAL_AFFECTS_NORMAL
-                    surfaceData.normalWS.w = half(1.0);
+                    #ifdef DECAL_SURFACE_GRADIENT
+                        #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
+                            float3x3 tangentToWorld = transpose((float3x3)normalToWorld);
+                        #else
+                            float3x3 tangentToWorld = fragInputs.tangentToWorld;
+                        #endif
+
+                        surfaceData.normalWS.xyz = SurfaceGradientFromTangentSpaceNormalAndFromTBN(surfaceDescription.NormalTS.xyz, tangentToWorld[0], tangentToWorld[1]);
+                    #else
+                        #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR)
+                            surfaceData.normalWS.xyz = mul((float3x3)normalToWorld, surfaceDescription.NormalTS);
+                        #elif (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_PREVIEW)
+
+                            surfaceData.normalWS.xyz = normalize(TransformTangentToWorld(surfaceDescription.NormalTS, fragInputs.tangentToWorld));
+                        #endif
+                    #endif
+
+                    surfaceData.normalWS.w = surfaceDescription.NormalAlpha * fadeFactor;
                 #else
-                    surfaceData.normalWS.w = half(0.0);
+                    #if (SHADERPASS == SHADERPASS_FORWARD_PREVIEW)
+                        #ifdef DECAL_SURFACE_GRADIENT
+                            surfaceData.normalWS.xyz = float3(0.0, 0.0, 0.0);
+                        #else
+                            surfaceData.normalWS.xyz = normalize(TransformTangentToWorld(float3(0.0, 0.0, 0.1), fragInputs.tangentToWorld));
+                        #endif
+                    #endif
                 #endif
 
-                surfaceData.baseColor.xyz = half3(surfaceDescription.BaseColor);
-                surfaceData.baseColor.w = half(surfaceDescription.Alpha * fadeFactor);
+                #ifdef _MATERIAL_AFFECTS_MASKMAP
+                    surfaceData.mask.z = surfaceDescription.Smoothness;
+                    surfaceData.mask.w = surfaceDescription.MAOSAlpha * fadeFactor;
 
-                #if defined(_MATERIAL_AFFECTS_NORMAL)
-                    surfaceData.normalWS.xyz = mul((half3x3)normalToWorld, surfaceDescription.NormalTS.xyz);
-                #else
-                    surfaceData.normalWS.xyz = normalToWorld[2].xyz;
+                    #ifdef DECALS_4RT
+                        surfaceData.mask.x = surfaceDescription.Metallic;
+                        surfaceData.mask.y = surfaceDescription.Occlusion;
+                        surfaceData.MAOSBlend.x = surfaceDescription.MAOSAlpha * fadeFactor;
+                        surfaceData.MAOSBlend.y = surfaceDescription.MAOSAlpha * fadeFactor;
+                    #endif
+
                 #endif
-
-                surfaceData.normalWS.w = surfaceDescription.NormalAlpha * fadeFactor;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceData.metallic = half(surfaceDescription.Metallic);
-					surfaceData.occlusion = half(surfaceDescription.Occlusion);
-					surfaceData.smoothness = half(surfaceDescription.Smoothness);
-					surfaceData.MAOSAlpha = half(surfaceDescription.MAOSAlpha * fadeFactor);
-				#endif
             }
 
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR)
-            #define DECAL_PROJECTOR
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_MESH
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
-            #define DECAL_DBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH)
-            #define DECAL_SCREEN_SPACE
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_GBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH)
-            #define DECAL_FORWARD_EMISSIVE
-            #endif
-
-            #if ((!defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_ALBEDO)) || (defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_NORMAL_BLEND))) && (defined(DECAL_SCREEN_SPACE) || defined(DECAL_GBUFFER))
-            #define DECAL_RECONSTRUCT_NORMAL
-            #elif defined(DECAL_ANGLE_FADE)
-            #define DECAL_LOAD_NORMAL
-            #endif
-
-            #ifdef _DECAL_LAYERS
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareRenderingLayerTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_LOAD_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_PROJECTOR) || defined(DECAL_RECONSTRUCT_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
-            #endif
-
-            #ifdef DECAL_MESH
-            #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DecalMeshBiasTypeEnum.cs.hlsl"
-            #endif
-
-            #ifdef DECAL_RECONSTRUCT_NORMAL
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/NormalReconstruction.hlsl"
-            #endif
-
-            #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRendering.hlsl"
-            #endif
-
-			PackedVaryings Vert(Attributes inputMesh /*ase_vert_input*/ )
+			PackedVaryingsToPS Vert(AttributesMesh inputMesh  )
 			{
-				PackedVaryings packedOutput;
-				ZERO_INITIALIZE(PackedVaryings, packedOutput);
+				PackedVaryingsToPS output;
 
 				UNITY_SETUP_INSTANCE_ID(inputMesh);
-				UNITY_TRANSFER_INSTANCE_ID(inputMesh, packedOutput);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(packedOutput);
+				UNITY_TRANSFER_INSTANCE_ID(inputMesh, output);
+				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-				inputMesh.tangentOS = float4( 1, 0, 0, -1 );
+				inputMesh.tangentOS = float4( 1, 0, 0, -1);
 				inputMesh.normalOS = float3( 0, 1, 0 );
 
-				/*ase_vert_code:inputMesh=Attributes;packedOutput=PackedVaryings*/
+				
 
-				VertexPositionInputs vertexInput = GetVertexPositionInputs(inputMesh.positionOS.xyz);
+				inputMesh.normalOS = inputMesh.normalOS;
+				inputMesh.tangentOS = inputMesh.tangentOS;
 
-				float3 positionWS = TransformObjectToWorld(inputMesh.positionOS);
-				packedOutput.positionCS = TransformWorldToHClip(positionWS);
+				float3 worldSpaceBias = 0.0f;
 
-				return packedOutput;
-			}
-
-			void Frag(PackedVaryings packedInput,
-				OUTPUT_DBUFFER(outDBuffer)
-				/*ase_frag_input*/
-			)
-			{
-				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
-				UNITY_SETUP_INSTANCE_ID(packedInput);
-
-				half angleFadeFactor = 1.0;
-
-            #ifdef _DECAL_LAYERS
-            #ifdef _RENDER_PASS_ENABLED
-				uint surfaceRenderingLayer = DecodeMeshRenderingLayer(LOAD_FRAMEBUFFER_INPUT(GBUFFER4, packedInput.positionCS.xy).r);
-            #else
-				uint surfaceRenderingLayer = LoadSceneRenderingLayer(packedInput.positionCS.xy);
-            #endif
-				uint projectorRenderingLayer = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal));
-				clip((surfaceRenderingLayer & projectorRenderingLayer) - 0.1);
-            #endif
-
-
-				#if UNITY_REVERSED_Z
-					float depth = LoadSceneDepth(packedInput.positionCS.xy);
-				#else
-					float depth = lerp(UNITY_NEAR_CLIP_VALUE, 1, LoadSceneDepth(packedInput.positionCS.xy));
-				#endif
-
-				#if defined(DECAL_RECONSTRUCT_NORMAL)
-					#if defined(_DECAL_NORMAL_BLEND_HIGH)
-						half3 normalWS = half3(ReconstructNormalTap9(packedInput.positionCS.xy));
-					#elif defined(_DECAL_NORMAL_BLEND_MEDIUM)
-						half3 normalWS = half3(ReconstructNormalTap5(packedInput.positionCS.xy));
-					#else
-						half3 normalWS = half3(ReconstructNormalDerivative(packedInput.positionCS.xy));
-					#endif
-				#elif defined(DECAL_LOAD_NORMAL)
-					half3 normalWS = half3(LoadSceneNormals(packedInput.positionCS.xy));
-				#endif
-
-				float2 positionSS = packedInput.positionCS.xy * _ScreenSize.zw;
-
-				/*ase_local_var:wp*/float3 positionWS = ComputeWorldSpacePosition(positionSS, depth, UNITY_MATRIX_I_VP);
-
-
-				float3 positionDS = TransformWorldToObject(positionWS);
-				positionDS = positionDS * float3(1.0, -1.0, 1.0);
-
-				float clipValue = 0.5 - Max3(abs(positionDS).x, abs(positionDS).y, abs(positionDS).z);
-				clip(clipValue);
-
-				float2 texCoord = positionDS.xz + float2(0.5, 0.5);
-
-				float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
-				float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
-				float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
-				texCoord.xy = texCoord.xy * scale + offset;
-
-				/*ase_local_var:uv0*/float2 texCoord0 = texCoord;
-				/*ase_local_var:uv1*/float2 texCoord1 = texCoord;
-				/*ase_local_var:uv2*/float2 texCoord2 = texCoord;
-				/*ase_local_var:uv3*/float2 texCoord3 = texCoord;
-
-				/*ase_local_var:wt*/float3 worldTangent = TransformObjectToWorldDir(float3(1, 0, 0));
-				/*ase_local_var:wn*/float3 worldNormal = TransformObjectToWorldDir(float3(0, 1, 0));
-				/*ase_local_var:wbt*/float3 worldBitangent = TransformObjectToWorldDir(float3(0, 0, 1));
-
-				#ifdef DECAL_ANGLE_FADE
-					half2 angleFade = half2(normalToWorld[1][3], normalToWorld[2][3]);
-
-					if (angleFade.y < 0.0f)
-					{
-						half3 decalNormal = half3(normalToWorld[0].z, normalToWorld[1].z, normalToWorld[2].z);
-						half dotAngle = dot(normalWS, decalNormal);
-						angleFadeFactor = saturate(angleFade.x + angleFade.y * (dotAngle * (dotAngle - 2.0)));
-					}
-				#endif
-
-				half3 viewDirectionWS = half3(1.0, 1.0, 1.0);
-				DecalSurfaceData surfaceData;
-
-				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
-
-				/*ase_frag_code:packedInput=PackedVaryings*/
-
-				surfaceDescription.BaseColor = /*ase_frag_out:Base Color;Float3;0;-1;_BaseColor*/IsGammaSpace() ? float3(0.5, 0.5, 0.5) : SRGBToLinear(float3(0.5, 0.5, 0.5))/*end*/;
-				surfaceDescription.Alpha = /*ase_frag_out:Alpha;Float;1;-1;_Alpha*/1/*end*/;
-				surfaceDescription.NormalTS = /*ase_frag_out:Normal;Float3;2;-1;_NormalTS*/float3(0.0f, 0.0f, 1.0f)/*end*/;
-				surfaceDescription.NormalAlpha = /*ase_frag_out:Normal Alpha;Float;3;-1;_NormalAlpha*/1/*end*/;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceDescription.Metallic = /*ase_frag_out:Metallic;Float;4;-1;_Metallic*/0/*end*/;
-					surfaceDescription.Occlusion = /*ase_frag_out:Occlusion;Float;5;-1;_Occlusion*/1/*end*/;
-					surfaceDescription.Smoothness =/*ase_frag_out:Smoothness;Float;6;-1;_Smoothness*/ 0.5/*end*/;
-					surfaceDescription.MAOSAlpha = /*ase_frag_out:MAOS Alpha;Float;7;-1;_MAOSAlpha*/1/*end*/;
-				#endif
-
-				GetSurfaceData(surfaceDescription, angleFadeFactor, surfaceData);
-				ENCODE_INTO_DBUFFER(surfaceData, outDBuffer);
-
-                #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-                positionSS = RemapFoveatedRenderingDistortCS(packedInput.positionCS.xy, true) * _ScreenSize.zw;
-                #endif
-
-			}
-            ENDHLSL
-        }
-
-		/*ase_pass*/
-        Pass
-        {
-			/*ase_hide_pass*/
-            Name "DecalProjectorForwardEmissive"
-            Tags
-            {
-                "LightMode" = "DecalProjectorForwardEmissive"
-            }
-
-			Cull Front
-			Blend 0 SrcAlpha One
-			ZTest Greater
-			ZWrite Off
-
-			HLSLPROGRAM
-
-			#pragma only_renderers gles gles3 glcore d3d11
-			#pragma vertex Vert
-			#pragma fragment Frag
-			#pragma multi_compile_instancing
-			#pragma editor_sync_compilation
-
-			#pragma multi_compile _ _DECAL_LAYERS
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-
-            #define HAVE_MESH_MODIFICATION
-
-            #define SHADERPASS SHADERPASS_FORWARD_EMISSIVE_PROJECTOR
-
-			#ifdef SCENEPICKINGPASS
-			float4 _SelectionID;
-			#endif
-			#if _RENDER_PASS_ENABLED
-			#define GBUFFER3 0
-			#define GBUFFER4 1
-			FRAMEBUFFER_INPUT_HALF(GBUFFER3);
-			FRAMEBUFFER_INPUT_HALF(GBUFFER4);
-			#endif
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DecalInput.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderVariablesDecal.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
-
-			/*ase_pragma*/
-
-			struct SurfaceDescription
-			{
-				float Alpha;
-				float3 Emission;
-			};
-
-			struct Attributes
-			{
-				float3 positionOS : POSITION;
-				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
-				/*ase_vdata:p=p;n=n;t=t*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-			};
-
-			struct PackedVaryings
-			{
-				float4 positionCS : SV_POSITION;
-				/*ase_interp(0,):sp=sp*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-				UNITY_VERTEX_OUTPUT_STEREO
-			};
-
-            CBUFFER_START(UnityPerMaterial)
-			float _DrawOrder;
-			float _DecalMeshBiasType;
-			float _DecalMeshDepthBias;
-			float _DecalMeshViewBias;
-            #if defined(DECAL_ANGLE_FADE)
-			float _DecalAngleFadeSupported;
-            #endif
-			CBUFFER_END
-
-			/*ase_globals*/
-
-			/*ase_funcs*/
-
-            void GetSurfaceData(SurfaceDescription surfaceDescription, float angleFadeFactor, out DecalSurfaceData surfaceData)
-            {
-                half4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
-                half fadeFactor = clamp(normalToWorld[0][3], 0.0f, 1.0f) * angleFadeFactor;
-                float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
-                float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
-
-                ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
-                surfaceData.occlusion = half(1.0);
-                surfaceData.smoothness = half(0);
-
-                #ifdef _MATERIAL_AFFECTS_NORMAL
-                    surfaceData.normalWS.w = half(1.0);
-                #else
-                    surfaceData.normalWS.w = half(0.0);
-                #endif
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-                	surfaceData.emissive.rgb = half3(surfaceDescription.Emission.rgb * fadeFactor);
-				#endif
-
-                surfaceData.baseColor.w = half(surfaceDescription.Alpha * fadeFactor);
-            }
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR)
-            #define DECAL_PROJECTOR
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_MESH
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
-            #define DECAL_DBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH)
-            #define DECAL_SCREEN_SPACE
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_GBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH)
-            #define DECAL_FORWARD_EMISSIVE
-            #endif
-
-            #if ((!defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_ALBEDO)) || (defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_NORMAL_BLEND))) && (defined(DECAL_SCREEN_SPACE) || defined(DECAL_GBUFFER))
-            #define DECAL_RECONSTRUCT_NORMAL
-            #elif defined(DECAL_ANGLE_FADE)
-            #define DECAL_LOAD_NORMAL
-            #endif
-
-            #ifdef _DECAL_LAYERS
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareRenderingLayerTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_LOAD_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_PROJECTOR) || defined(DECAL_RECONSTRUCT_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
-            #endif
-
-            #ifdef DECAL_MESH
-            #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DecalMeshBiasTypeEnum.cs.hlsl"
-            #endif
-
-            #ifdef DECAL_RECONSTRUCT_NORMAL
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/NormalReconstruction.hlsl"
-            #endif
-
-            #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRendering.hlsl"
-            #endif
-
-			PackedVaryings Vert(Attributes inputMesh /*ase_vert_input*/ )
-			{
-				PackedVaryings packedOutput;
-				ZERO_INITIALIZE(PackedVaryings, packedOutput);
-
-				UNITY_SETUP_INSTANCE_ID(inputMesh);
-				UNITY_TRANSFER_INSTANCE_ID(inputMesh, packedOutput);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(packedOutput);
-
-				inputMesh.tangentOS = float4( 1, 0, 0, -1 );
-				inputMesh.normalOS = float3( 0, 1, 0 );
-
-				/*ase_vert_code:inputMesh=Attributes;packedOutput=PackedVaryings*/
-
-				VertexPositionInputs vertexInput = GetVertexPositionInputs(inputMesh.positionOS.xyz);
-				float3 positionWS = TransformObjectToWorld(inputMesh.positionOS);
-				packedOutput.positionCS = TransformWorldToHClip(positionWS);
-
-				return packedOutput;
-			}
-
-			void Frag(PackedVaryings packedInput,
-				out half4 outEmissive : SV_Target0
-				/*ase_frag_input*/
-			)
-			{
-				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
-				UNITY_SETUP_INSTANCE_ID(packedInput);
-
-				half angleFadeFactor = 1.0;
-
-            #ifdef _DECAL_LAYERS
-            #ifdef _RENDER_PASS_ENABLED
-				uint surfaceRenderingLayer = DecodeMeshRenderingLayer(LOAD_FRAMEBUFFER_INPUT(GBUFFER4, packedInput.positionCS.xy).r);
-            #else
-				uint surfaceRenderingLayer = LoadSceneRenderingLayer(packedInput.positionCS.xy);
-            #endif
-				uint projectorRenderingLayer = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal));
-				clip((surfaceRenderingLayer & projectorRenderingLayer) - 0.1);
-            #endif
-
-				#if UNITY_REVERSED_Z
-					float depth = LoadSceneDepth(packedInput.positionCS.xy);
-				#else
-					float depth = lerp(UNITY_NEAR_CLIP_VALUE, 1, LoadSceneDepth(packedInput.positionCS.xy));
-				#endif
-
-				#if defined(DECAL_RECONSTRUCT_NORMAL)
-					#if defined(_DECAL_NORMAL_BLEND_HIGH)
-						half3 normalWS = half3(ReconstructNormalTap9(packedInput.positionCS.xy));
-					#elif defined(_DECAL_NORMAL_BLEND_MEDIUM)
-						half3 normalWS = half3(ReconstructNormalTap5(packedInput.positionCS.xy));
-					#else
-						half3 normalWS = half3(ReconstructNormalDerivative(packedInput.positionCS.xy));
-					#endif
-				#elif defined(DECAL_LOAD_NORMAL)
-					half3 normalWS = half3(LoadSceneNormals(packedInput.positionCS.xy));
-				#endif
-
-				float2 positionSS = packedInput.positionCS.xy * _ScreenSize.zw;
-
-				/*ase_local_var:wp*/float3 positionWS = ComputeWorldSpacePosition(positionSS, depth, UNITY_MATRIX_I_VP);
-
-				float3 positionDS = TransformWorldToObject(positionWS);
-				positionDS = positionDS * float3(1.0, -1.0, 1.0);
-
-				float clipValue = 0.5 - Max3(abs(positionDS).x, abs(positionDS).y, abs(positionDS).z);
-				clip(clipValue);
-
-				float2 texCoord = positionDS.xz + float2(0.5, 0.5);
-
-				float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
-				float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
-				float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
-				texCoord.xy = texCoord.xy * scale + offset;
-
-				#ifdef DECAL_ANGLE_FADE
-					half2 angleFade = half2(normalToWorld[1][3], normalToWorld[2][3]);
-
-					if (angleFade.y < 0.0f)
-					{
-						half3 decalNormal = half3(normalToWorld[0].z, normalToWorld[1].z, normalToWorld[2].z);
-						half dotAngle = dot(normalWS, decalNormal);
-						angleFadeFactor = saturate(angleFade.x + angleFade.y * (dotAngle * (dotAngle - 2.0)));
-					}
-				#endif
-
-				half3 viewDirectionWS = half3(1.0, 1.0, 1.0);
-				DecalSurfaceData surfaceData;
-
-				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
-
-				/*ase_local_var:uv0*/float2 texCoord0 = texCoord;
-				/*ase_local_var:uv1*/float2 texCoord1 = texCoord;
-				/*ase_local_var:uv2*/float2 texCoord2 = texCoord;
-				/*ase_local_var:uv3*/float2 texCoord3 = texCoord;
-
-				/*ase_local_var:wt*/float3 worldTangent = TransformObjectToWorldDir(float3(1, 0, 0));
-				/*ase_local_var:wn*/float3 worldNormal = TransformObjectToWorldDir(float3(0, 1, 0));
-				/*ase_local_var:wbt*/float3 worldBitangent = TransformObjectToWorldDir(float3(0, 0, 1));
-
-				/*ase_frag_code:packedInput=PackedVaryings*/
-
-				surfaceDescription.Alpha = /*ase_frag_out:Alpha;Float;0;-1;_Alpha*/1/*end*/;
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-					surfaceDescription.Emission = /*ase_frag_out:Emission;Float3;1;-1;_Emission*/float3(0, 0, 0)/*end*/;
-				#endif
-
-				GetSurfaceData( surfaceDescription, angleFadeFactor, surfaceData);
-
-				outEmissive.rgb = surfaceData.emissive;
-				outEmissive.a = surfaceData.baseColor.a;
-
-                #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-                positionSS = RemapFoveatedRenderingDistortCS(packedInput.positionCS.xy, true) * _ScreenSize.zw;
-                #endif
-			}
-            ENDHLSL
-        }
-
-		/*ase_pass*/
-        Pass
-        {
-			/*ase_main_pass*/
-            Name "DecalScreenSpaceProjector"
-            Tags
-            {
-                "LightMode" = "DecalScreenSpaceProjector"
-            }
-
-			Cull Front
-			Blend SrcAlpha OneMinusSrcAlpha
-			ZTest Greater
-			ZWrite Off
-
-			HLSLPROGRAM
-
-			#pragma only_renderers gles gles3 glcore d3d11
-			#pragma vertex Vert
-			#pragma fragment Frag
-			#pragma multi_compile_instancing
-			#pragma multi_compile_fog
-			#pragma editor_sync_compilation
-
-			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
-			#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
-			#pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
-			#pragma multi_compile_fragment _ _SHADOWS_SOFT
-			#pragma multi_compile _ _FORWARD_PLUS
-			#pragma multi_compile_fragment _ _FOVEATED_RENDERING_NON_UNIFORM_RASTER
-			#pragma multi_compile _DECAL_NORMAL_BLEND_LOW _DECAL_NORMAL_BLEND_MEDIUM _DECAL_NORMAL_BLEND_HIGH
-			#pragma multi_compile _ _DECAL_LAYERS
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-
-            #define ATTRIBUTES_NEED_NORMAL
-			#define ATTRIBUTES_NEED_TEXCOORD0
-            #define VARYINGS_NEED_NORMAL_WS
-			#define VARYINGS_NEED_TEXCOORD0
-            #define VARYINGS_NEED_VIEWDIRECTION_WS
-            #define VARYINGS_NEED_FOG_AND_VERTEX_LIGHT
-            #define VARYINGS_NEED_SH
-            #define VARYINGS_NEED_STATIC_LIGHTMAP_UV
-            #define VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV
-
-            #define HAVE_MESH_MODIFICATION
-
-            #define SHADERPASS SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR
-
-			#ifdef SCENEPICKINGPASS
-			float4 _SelectionID;
-			#endif
-			#if _RENDER_PASS_ENABLED
-			#define GBUFFER3 0
-			#define GBUFFER4 1
-			FRAMEBUFFER_INPUT_HALF(GBUFFER3);
-			FRAMEBUFFER_INPUT_HALF(GBUFFER4);
-			#endif
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DecalInput.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderVariablesDecal.hlsl"
-
-			/*ase_pragma*/
-
-			struct SurfaceDescription
-			{
-				float3 BaseColor;
-				float Alpha;
-				float3 NormalTS;
-				float NormalAlpha;
-				float Metallic;
-				float Occlusion;
-				float Smoothness;
-				float MAOSAlpha;
-				float3 Emission;
-			};
-
-			struct Attributes
-			{
-				float3 positionOS : POSITION;
-				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
-				/*ase_vdata:p=p;n=n;t=t*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-			};
-
-			struct PackedVaryings
-			{
-				float4 positionCS : SV_POSITION;
-				float3 normalWS : TEXCOORD0;
-				float3 viewDirectionWS : TEXCOORD1;
-				float2 staticLightmapUV : TEXCOORD2;
-				float2 dynamicLightmapUV : TEXCOORD3;
-				float3 sh : TEXCOORD4;
-				float4 fogFactorAndVertexLight : TEXCOORD5;
-				/*ase_interp(6,):sp=sp;wn=tc0;wvd=tc1*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-				UNITY_VERTEX_OUTPUT_STEREO
-			};
-
-            CBUFFER_START(UnityPerMaterial)
-			float _DrawOrder;
-			float _DecalMeshBiasType;
-			float _DecalMeshDepthBias;
-			float _DecalMeshViewBias;
-            #if defined(DECAL_ANGLE_FADE)
-			float _DecalAngleFadeSupported;
-            #endif
-			CBUFFER_END
-
-			/*ase_globals*/
-
-			/*ase_funcs*/
-
-            void GetSurfaceData(SurfaceDescription surfaceDescription, float angleFadeFactor, out DecalSurfaceData surfaceData)
-            {
-                half4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
-                half fadeFactor = clamp(normalToWorld[0][3], 0.0f, 1.0f) * angleFadeFactor;
-                float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
-                float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
-
-                ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
-                surfaceData.occlusion = half(1.0);
-                surfaceData.smoothness = half(0);
-
-                #ifdef _MATERIAL_AFFECTS_NORMAL
-                    surfaceData.normalWS.w = half(1.0);
-                #else
-                    surfaceData.normalWS.w = half(0.0);
-                #endif
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-                	surfaceData.emissive.rgb = half3(surfaceDescription.Emission.rgb * fadeFactor);
-				#endif
-
-                surfaceData.baseColor.xyz = half3(surfaceDescription.BaseColor);
-                surfaceData.baseColor.w = half(surfaceDescription.Alpha * fadeFactor);
-
-                #if defined(_MATERIAL_AFFECTS_NORMAL)
-                    surfaceData.normalWS.xyz = mul((half3x3)normalToWorld, surfaceDescription.NormalTS.xyz);
-                #else
-                    surfaceData.normalWS.xyz = normalToWorld[2].xyz;
-                #endif
-
-                surfaceData.normalWS.w = surfaceDescription.NormalAlpha * fadeFactor;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceData.metallic = half(surfaceDescription.Metallic);
-					surfaceData.occlusion = half(surfaceDescription.Occlusion);
-					surfaceData.smoothness = half(surfaceDescription.Smoothness);
-					surfaceData.MAOSAlpha = half(surfaceDescription.MAOSAlpha * fadeFactor);
-				#endif
-            }
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR)
-            #define DECAL_PROJECTOR
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_MESH
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
-            #define DECAL_DBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH)
-            #define DECAL_SCREEN_SPACE
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_GBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH)
-            #define DECAL_FORWARD_EMISSIVE
-            #endif
-
-            #if ((!defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_ALBEDO)) || (defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_NORMAL_BLEND))) && (defined(DECAL_SCREEN_SPACE) || defined(DECAL_GBUFFER))
-            #define DECAL_RECONSTRUCT_NORMAL
-            #elif defined(DECAL_ANGLE_FADE)
-            #define DECAL_LOAD_NORMAL
-            #endif
-
-            #ifdef _DECAL_LAYERS
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareRenderingLayerTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_LOAD_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_PROJECTOR) || defined(DECAL_RECONSTRUCT_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
-            #endif
-
-            #ifdef DECAL_MESH
-            #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DecalMeshBiasTypeEnum.cs.hlsl"
-            #endif
-
-            #ifdef DECAL_RECONSTRUCT_NORMAL
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/NormalReconstruction.hlsl"
-            #endif
-
-            #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRendering.hlsl"
-            #endif
-
-			void InitializeInputData(PackedVaryings input, float3 positionWS, half3 normalWS, half3 viewDirectionWS, out InputData inputData)
-			{
-				inputData = (InputData)0;
-
-				inputData.positionWS = positionWS;
-				inputData.normalWS = normalWS;
-				inputData.viewDirectionWS = viewDirectionWS;
-				inputData.shadowCoord = float4(0, 0, 0, 0);
-
-				inputData.fogCoord = half(input.fogFactorAndVertexLight.x);
-				inputData.vertexLighting = half3(input.fogFactorAndVertexLight.yzw);
-
-				#if defined(VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV) && defined(DYNAMICLIGHTMAP_ON)
-					inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.dynamicLightmapUV.xy, input.sh, normalWS);
-				#elif defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV)
-					#if (defined(PROBE_VOLUMES_L1) || defined(PROBE_VOLUMES_L2))
-						inputData.bakedGI = SAMPLE_GI(input.sh,
-							GetAbsolutePositionWS(inputData.positionWS),
-							inputData.normalWS,
-							inputData.viewDirectionWS,
-							input.positionCS.xy);
-					#else
-						inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.sh, normalWS);
-					#endif
-				#endif
-
-				#if defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV)
-					inputData.shadowMask = SAMPLE_SHADOWMASK(input.staticLightmapUV);
-				#endif
-
-				#if defined(DEBUG_DISPLAY)
-					#if defined(VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV) && defined(DYNAMICLIGHTMAP_ON)
-						inputData.dynamicLightmapUV = input.dynamicLightmapUV.xy;
-					#endif
-					#if defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV && LIGHTMAP_ON)
-						inputData.staticLightmapUV = input.staticLightmapUV;
-					#elif defined(VARYINGS_NEED_SH)
-						inputData.vertexSH = input.sh;
-					#endif
-				#endif
-
-				inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
-			}
-
-			void GetSurface(DecalSurfaceData decalSurfaceData, inout SurfaceData surfaceData)
-			{
-				surfaceData.albedo = decalSurfaceData.baseColor.rgb;
-				surfaceData.metallic = saturate(decalSurfaceData.metallic);
-				surfaceData.specular = 0;
-				surfaceData.smoothness = saturate(decalSurfaceData.smoothness);
-				surfaceData.occlusion = decalSurfaceData.occlusion;
-				surfaceData.emission = decalSurfaceData.emissive;
-				surfaceData.alpha = saturate(decalSurfaceData.baseColor.w);
-				surfaceData.clearCoatMask = 0;
-				surfaceData.clearCoatSmoothness = 1;
-			}
-
-			PackedVaryings Vert(Attributes inputMesh /*ase_vert_input*/ )
-			{
-				PackedVaryings packedOutput;
-				ZERO_INITIALIZE(PackedVaryings, packedOutput);
-
-				UNITY_SETUP_INSTANCE_ID(inputMesh);
-				UNITY_TRANSFER_INSTANCE_ID(inputMesh, packedOutput);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(packedOutput);
-
-				inputMesh.tangentOS = float4( 1, 0, 0, -1 );
-				inputMesh.normalOS = float3( 0, 1, 0 );
-
-				/*ase_vert_code:inputMesh=Attributes;packedOutput=PackedVaryings*/
-
-				VertexPositionInputs vertexInput = GetVertexPositionInputs(inputMesh.positionOS.xyz);
-				float3 positionWS = TransformObjectToWorld(inputMesh.positionOS);
-
-				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
-
-				packedOutput.positionCS = TransformWorldToHClip(positionWS);
-
-				half fogFactor = 0;
-				#if !defined(_FOG_FRAGMENT)
-					fogFactor = ComputeFogFactor(packedOutput.positionCS.z);
-				#endif
-				half3 vertexLight = VertexLighting(positionWS, normalWS);
-				packedOutput.fogFactorAndVertexLight = half4(fogFactor, vertexLight);
-
-				packedOutput.normalWS.xyz =  normalWS;
-				packedOutput.viewDirectionWS.xyz =  GetWorldSpaceViewDir(positionWS);
-
-				#if defined(LIGHTMAP_ON)
-					OUTPUT_LIGHTMAP_UV(inputMesh.uv1, unity_LightmapST, packedOutput.staticLightmapUV);
-				#endif
-
-				#if defined(DYNAMICLIGHTMAP_ON)
-					packedOutput.dynamicLightmapUV.xy = inputMesh.uv2.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
-				#endif
-
-				#if !defined(LIGHTMAP_ON)
-					packedOutput.sh.xyz =  float3(SampleSHVertex(half3(normalWS)));
-				#endif
-
-				return packedOutput;
-			}
-
-			void Frag(PackedVaryings packedInput,
-				out half4 outColor : SV_Target0
-				/*ase_frag_input*/
-			)
-			{
-				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
-				UNITY_SETUP_INSTANCE_ID(packedInput);
-
-				half angleFadeFactor = 1.0;
-
-            #ifdef _DECAL_LAYERS
-            #ifdef _RENDER_PASS_ENABLED
-				uint surfaceRenderingLayer = DecodeMeshRenderingLayer(LOAD_FRAMEBUFFER_INPUT(GBUFFER4, packedInput.positionCS.xy).r);
-            #else
-				uint surfaceRenderingLayer = LoadSceneRenderingLayer(packedInput.positionCS.xy);
-            #endif
-				uint projectorRenderingLayer = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal));
-				clip((surfaceRenderingLayer & projectorRenderingLayer) - 0.1);
-            #endif
-
-				#if UNITY_REVERSED_Z
-					float depth = LoadSceneDepth(packedInput.positionCS.xy);
-				#else
-					float depth = lerp(UNITY_NEAR_CLIP_VALUE, 1, LoadSceneDepth(packedInput.positionCS.xy));
-				#endif
-
-				#if defined(DECAL_RECONSTRUCT_NORMAL)
-					#if defined(_DECAL_NORMAL_BLEND_HIGH)
-						half3 normalWS = half3(ReconstructNormalTap9(packedInput.positionCS.xy));
-					#elif defined(_DECAL_NORMAL_BLEND_MEDIUM)
-						half3 normalWS = half3(ReconstructNormalTap5(packedInput.positionCS.xy));
-					#else
-						half3 normalWS = half3(ReconstructNormalDerivative(packedInput.positionCS.xy));
-					#endif
-				#elif defined(DECAL_LOAD_NORMAL)
-					half3 normalWS = half3(LoadSceneNormals(packedInput.positionCS.xy));
-				#endif
-
-				float2 positionSS = packedInput.positionCS.xy * _ScreenSize.zw;
-
-				/*ase_local_var:wp*/float3 positionWS = ComputeWorldSpacePosition(positionSS, depth, UNITY_MATRIX_I_VP);
-
-				float3 positionDS = TransformWorldToObject(positionWS);
-				positionDS = positionDS * float3(1.0, -1.0, 1.0);
-
-				float clipValue = 0.5 - Max3(abs(positionDS).x, abs(positionDS).y, abs(positionDS).z);
-				clip(clipValue);
-
-				float2 texCoord = positionDS.xz + float2(0.5, 0.5);
-
-				float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
-				float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
-				float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
-				texCoord.xy = texCoord.xy * scale + offset;
-
-				/*ase_local_var:uv0*/float2 texCoord0 = texCoord;
-				/*ase_local_var:uv1*/float2 texCoord1 = texCoord;
-				/*ase_local_var:uv2*/float2 texCoord2 = texCoord;
-				/*ase_local_var:uv3*/float2 texCoord3 = texCoord;
-
-				/*ase_local_var:wt*/float3 worldTangent = TransformObjectToWorldDir(float3(1, 0, 0));
-				/*ase_local_var:wn*/float3 worldNormal = TransformObjectToWorldDir(float3(0, 1, 0));
-				/*ase_local_var:wbt*/float3 worldBitangent = TransformObjectToWorldDir(float3(0, 0, 1));
-
-				#ifdef DECAL_ANGLE_FADE
-					half2 angleFade = half2(normalToWorld[1][3], normalToWorld[2][3]);
-
-					if (angleFade.y < 0.0f)
-					{
-						half3 decalNormal = half3(normalToWorld[0].z, normalToWorld[1].z, normalToWorld[2].z);
-						half dotAngle = dot(normalWS, decalNormal);
-						angleFadeFactor = saturate(angleFade.x + angleFade.y * (dotAngle * (dotAngle - 2.0)));
-					}
-				#endif
-
-				half3 viewDirectionWS = half3(packedInput.viewDirectionWS);
-
-				DecalSurfaceData surfaceData;
-
-				/*ase_frag_code:packedInput=PackedVaryings*/
-
-				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
-
-				surfaceDescription.BaseColor = /*ase_frag_out:Base Color;Float3;0;-1;_BaseColor*/IsGammaSpace() ? float3(0.5, 0.5, 0.5) : SRGBToLinear(float3(0.5, 0.5, 0.5))/*end*/;
-				surfaceDescription.Alpha = /*ase_frag_out:Alpha;Float;1;-1;_Alpha*/1/*end*/;
-				surfaceDescription.NormalTS = /*ase_frag_out:Normal;Float3;2;-1;_NormalTS*/float3(0.0f, 0.0f, 1.0f)/*end*/;
-				surfaceDescription.NormalAlpha = /*ase_frag_out:Normal Alpha;Float;3;-1;_NormalAlpha*/1/*end*/;
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceDescription.Metallic = /*ase_frag_out:Metallic;Float;4;-1;_Metallic*/0/*end*/;
-					surfaceDescription.Occlusion = /*ase_frag_out:Occlusion;Float;5;-1;_Occlusion*/1/*end*/;
-					surfaceDescription.Smoothness = /*ase_frag_out:Smoothness;Float;6;-1;_Smoothness*/0.5/*end*/;
-					surfaceDescription.MAOSAlpha = /*ase_frag_out:MAOS Alpha;Float;7;-1;_MAOSAlpha*/1/*end*/;
-				#endif
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-					surfaceDescription.Emission = /*ase_frag_out:Emission;Float3;8;-1;_Emission*/float3(0, 0, 0)/*end*/;
-				#endif
-
-				GetSurfaceData( surfaceDescription, angleFadeFactor, surfaceData);
-
-				#ifdef DECAL_RECONSTRUCT_NORMAL
-					surfaceData.normalWS.xyz = normalize(lerp(normalWS.xyz, surfaceData.normalWS.xyz, surfaceData.normalWS.w));
-				#endif
-
-				InputData inputData;
-				InitializeInputData( packedInput, positionWS, surfaceData.normalWS.xyz, viewDirectionWS, inputData);
-
-				SurfaceData surface = (SurfaceData)0;
-				GetSurface(surfaceData, surface);
-
-				half4 color = UniversalFragmentPBR(inputData, surface);
-				color.rgb = MixFog(color.rgb, inputData.fogCoord);
-				outColor = color;
-
-               #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-               positionSS = RemapFoveatedRenderingDistortCS(packedInput.positionCS.xy, true) * _ScreenSize.zw;
-               #endif
-
-			}
-			ENDHLSL
-        }
-
-		/*ase_pass*/
-        Pass
-        {
-            /*ase_hide_pass*/
-			Name "DecalGBufferProjector"
-            Tags
-            {
-                "LightMode" = "DecalGBufferProjector"
-            }
-
-			Cull Front
-			Blend 0 SrcAlpha OneMinusSrcAlpha
-			Blend 1 SrcAlpha OneMinusSrcAlpha
-			Blend 2 SrcAlpha OneMinusSrcAlpha
-			Blend 3 SrcAlpha OneMinusSrcAlpha
-			ZTest Greater
-			ZWrite Off
-			ColorMask RGB
-			ColorMask 0 1
-			ColorMask RGB 2
-			ColorMask RGB 3
-
-			HLSLPROGRAM
-
-			#pragma only_renderers gles gles3 glcore d3d11
-			#pragma vertex Vert
-			#pragma fragment Frag
-			#pragma multi_compile_instancing
-			#pragma multi_compile_fog
-			#pragma editor_sync_compilation
-
-			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
-			#pragma multi_compile_fragment _ _SHADOWS_SOFT
-			#pragma multi_compile _DECAL_NORMAL_BLEND_LOW _DECAL_NORMAL_BLEND_MEDIUM _DECAL_NORMAL_BLEND_HIGH
-			#pragma multi_compile _ _DECAL_LAYERS
-			#pragma multi_compile_fragment _ _GBUFFER_NORMALS_OCT
-			#pragma multi_compile_fragment _ _RENDER_PASS_ENABLED
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-
-            #define ATTRIBUTES_NEED_NORMAL
-			#define ATTRIBUTES_NEED_TEXCOORD0
-			#define VARYINGS_NEED_NORMAL_WS
-			#define VARYINGS_NEED_TEXCOORD0
-            #define VARYINGS_NEED_VIEWDIRECTION_WS
-            #define VARYINGS_NEED_SH
-            #define VARYINGS_NEED_STATIC_LIGHTMAP_UV
-            #define VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV
-
-            #define HAVE_MESH_MODIFICATION
-
-            #define SHADERPASS SHADERPASS_DECAL_GBUFFER_PROJECTOR
-
-			#ifdef SCENEPICKINGPASS
-			float4 _SelectionID;
-			#endif
-			#if _RENDER_PASS_ENABLED
-			#define GBUFFER3 0
-			#define GBUFFER4 1
-			FRAMEBUFFER_INPUT_HALF(GBUFFER3);
-			FRAMEBUFFER_INPUT_HALF(GBUFFER4);
-			#endif
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityGBuffer.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DecalInput.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderVariablesDecal.hlsl"
-
-			/*ase_pragma*/
-
-			struct SurfaceDescription
-			{
-				float3 BaseColor;
-				float Alpha;
-				float3 NormalTS;
-				float NormalAlpha;
-				float Metallic;
-				float Occlusion;
-				float Smoothness;
-				float MAOSAlpha;
-				float3 Emission;
-			};
-
-			struct Attributes
-			{
-				float3 positionOS : POSITION;
-				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
-				/*ase_vdata:p=p;n=n;t=t*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-			};
-
-			struct PackedVaryings
-			{
-				float4 positionCS : SV_POSITION;
-				float3 normalWS : TEXCOORD0;
-				float3 viewDirectionWS : TEXCOORD1;
-				float2 staticLightmapUV : TEXCOORD2;
-				float2 dynamicLightmapUV : TEXCOORD3;
-				float3 sh : TEXCOORD4;
-				/*ase_interp(5,):sp=sp;wn=tc0;wvd=tc1*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-				UNITY_VERTEX_OUTPUT_STEREO
-			};
-
-            CBUFFER_START(UnityPerMaterial)
-			float _DrawOrder;
-			float _DecalMeshBiasType;
-			float _DecalMeshDepthBias;
-			float _DecalMeshViewBias;
-            #if defined(DECAL_ANGLE_FADE)
-			float _DecalAngleFadeSupported;
-            #endif
-			CBUFFER_END
-
-			/*ase_globals*/
-
-			/*ase_funcs*/
-
-            void GetSurfaceData(SurfaceDescription surfaceDescription, float angleFadeFactor, out DecalSurfaceData surfaceData)
-            {
-                half4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
-                half fadeFactor = clamp(normalToWorld[0][3], 0.0f, 1.0f) * angleFadeFactor;
-                float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
-                float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
-
-                ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
-                surfaceData.occlusion = half(1.0);
-                surfaceData.smoothness = half(0);
-
-                #ifdef _MATERIAL_AFFECTS_NORMAL
-                    surfaceData.normalWS.w = half(1.0);
-                #else
-                    surfaceData.normalWS.w = half(0.0);
-                #endif
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-					surfaceData.emissive.rgb = half3(surfaceDescription.Emission.rgb * fadeFactor);
-				#endif
-
-                surfaceData.baseColor.xyz = half3(surfaceDescription.BaseColor);
-                surfaceData.baseColor.w = half(surfaceDescription.Alpha * fadeFactor);
-
-                #if defined(_MATERIAL_AFFECTS_NORMAL)
-                    surfaceData.normalWS.xyz = mul((half3x3)normalToWorld, surfaceDescription.NormalTS.xyz);
-                #else
-                    surfaceData.normalWS.xyz = normalToWorld[2].xyz;
-                #endif
-
-                surfaceData.normalWS.w = surfaceDescription.NormalAlpha * fadeFactor;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceData.metallic = half(surfaceDescription.Metallic);
-					surfaceData.occlusion = half(surfaceDescription.Occlusion);
-					surfaceData.smoothness = half(surfaceDescription.Smoothness);
-					surfaceData.MAOSAlpha = half(surfaceDescription.MAOSAlpha * fadeFactor);
-				#endif
-            }
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR)
-            #define DECAL_PROJECTOR
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_MESH
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
-            #define DECAL_DBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH)
-            #define DECAL_SCREEN_SPACE
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_GBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH)
-            #define DECAL_FORWARD_EMISSIVE
-            #endif
-
-            #if ((!defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_ALBEDO)) || (defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_NORMAL_BLEND))) && (defined(DECAL_SCREEN_SPACE) || defined(DECAL_GBUFFER))
-            #define DECAL_RECONSTRUCT_NORMAL
-            #elif defined(DECAL_ANGLE_FADE)
-            #define DECAL_LOAD_NORMAL
-            #endif
-
-            #ifdef _DECAL_LAYERS
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareRenderingLayerTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_LOAD_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_PROJECTOR) || defined(DECAL_RECONSTRUCT_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
-            #endif
-
-            #ifdef DECAL_MESH
-            #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DecalMeshBiasTypeEnum.cs.hlsl"
-            #endif
-
-            #ifdef DECAL_RECONSTRUCT_NORMAL
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/NormalReconstruction.hlsl"
-            #endif
-
-            #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRendering.hlsl"
-            #endif
-
-			void InitializeInputData(PackedVaryings input, float3 positionWS, half3 normalWS, half3 viewDirectionWS, out InputData inputData)
-			{
-				inputData = (InputData)0;
-
-				inputData.positionWS = positionWS;
-				inputData.normalWS = normalWS;
-				inputData.viewDirectionWS = viewDirectionWS;
-
-				inputData.shadowCoord = float4(0, 0, 0, 0);
-
-				#ifdef VARYINGS_NEED_FOG_AND_VERTEX_LIGHT
-					inputData.fogCoord = float4(input.fogFactorAndVertexLight.x);
-					inputData.vertexLighting = half3(input.fogFactorAndVertexLight.yzw);
-				#endif
-
-				#if defined(VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV) && defined(DYNAMICLIGHTMAP_ON)
-					inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.dynamicLightmapUV.xy, input.sh, normalWS);
-				#elif defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV)
-					#if (defined(PROBE_VOLUMES_L1) || defined(PROBE_VOLUMES_L2))
-						inputData.bakedGI = SAMPLE_GI(input.sh,
-							GetAbsolutePositionWS(inputData.positionWS),
-							inputData.normalWS,
-							inputData.viewDirectionWS,
-							input.positionCS.xy);
-					#else
-						inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.sh, normalWS);
-					#endif
-				#endif
-
-				#if defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV)
-					inputData.shadowMask = SAMPLE_SHADOWMASK(input.staticLightmapUV);
-				#endif
-
-				#if defined(DEBUG_DISPLAY)
-					#if defined(VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV) && defined(DYNAMICLIGHTMAP_ON)
-						inputData.dynamicLightmapUV = input.dynamicLightmapUV.xy;
-					#endif
-					#if defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV && LIGHTMAP_ON)
-						inputData.staticLightmapUV = input.staticLightmapUV;
-					#elif defined(VARYINGS_NEED_SH)
-						inputData.vertexSH = input.sh;
-					#endif
-				#endif
-
-				inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
-			}
-
-			void GetSurface(DecalSurfaceData decalSurfaceData, inout SurfaceData surfaceData)
-			{
-				surfaceData.albedo = decalSurfaceData.baseColor.rgb;
-				surfaceData.metallic = saturate(decalSurfaceData.metallic);
-				surfaceData.specular = 0;
-				surfaceData.smoothness = saturate(decalSurfaceData.smoothness);
-				surfaceData.occlusion = decalSurfaceData.occlusion;
-				surfaceData.emission = decalSurfaceData.emissive;
-				surfaceData.alpha = saturate(decalSurfaceData.baseColor.w);
-				surfaceData.clearCoatMask = 0;
-				surfaceData.clearCoatSmoothness = 1;
-			}
-
-			PackedVaryings Vert(Attributes inputMesh /*ase_vert_input*/ )
-			{
-				PackedVaryings packedOutput;
-				ZERO_INITIALIZE(PackedVaryings, packedOutput);
-
-				UNITY_SETUP_INSTANCE_ID(inputMesh);
-				UNITY_TRANSFER_INSTANCE_ID(inputMesh, packedOutput);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(packedOutput);
-
-				inputMesh.tangentOS = float4( 1, 0, 0, -1 );
-				inputMesh.normalOS = float3( 0, 1, 0 );
-
-				/*ase_vert_code:inputMesh=Attributes;packedOutput=PackedVaryings*/
-
-				float3 positionWS = TransformObjectToWorld(inputMesh.positionOS);
-				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
-
-				packedOutput.positionCS = TransformWorldToHClip(positionWS);
-				packedOutput.normalWS.xyz =  normalWS;
-				packedOutput.viewDirectionWS.xyz =  GetWorldSpaceViewDir(positionWS);
-
-				#if defined(LIGHTMAP_ON)
-					OUTPUT_LIGHTMAP_UV(inputMesh.uv1, unity_LightmapST, packedOutput.staticLightmapUV);
-				#endif
-
-				#if defined(DYNAMICLIGHTMAP_ON)
-					packedOutput.dynamicLightmapUV.xy = inputMesh.uv2.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
-				#endif
-
-				#if !defined(LIGHTMAP_ON)
-					packedOutput.sh = float3(SampleSHVertex(half3(normalWS)));
-				#endif
-
-				return packedOutput;
-			}
-
-			void Frag(PackedVaryings packedInput,
-				out FragmentOutput fragmentOutput
-				/*ase_frag_input*/
-			)
-			{
-				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
-				UNITY_SETUP_INSTANCE_ID(packedInput);
-
-				half angleFadeFactor = 1.0;
-
-            #ifdef _DECAL_LAYERS
-            #ifdef _RENDER_PASS_ENABLED
-				uint surfaceRenderingLayer = DecodeMeshRenderingLayer(LOAD_FRAMEBUFFER_INPUT(GBUFFER4, packedInput.positionCS.xy).r);
-            #else
-				uint surfaceRenderingLayer = LoadSceneRenderingLayer(packedInput.positionCS.xy);
-            #endif
-				uint projectorRenderingLayer = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal));
-				clip((surfaceRenderingLayer & projectorRenderingLayer) - 0.1);
-            #endif
-
-				#if UNITY_REVERSED_Z
-					float depth = LoadSceneDepth(packedInput.positionCS.xy);
-				#else
-					float depth = lerp(UNITY_NEAR_CLIP_VALUE, 1, LoadSceneDepth(packedInput.positionCS.xy));
-				#endif
-
-				#if defined(DECAL_RECONSTRUCT_NORMAL)
-					#if defined(_DECAL_NORMAL_BLEND_HIGH)
-						half3 normalWS = half3(ReconstructNormalTap9(packedInput.positionCS.xy));
-					#elif defined(_DECAL_NORMAL_BLEND_MEDIUM)
-						half3 normalWS = half3(ReconstructNormalTap5(packedInput.positionCS.xy));
-					#else
-						half3 normalWS = half3(ReconstructNormalDerivative(packedInput.positionCS.xy));
-					#endif
-				#elif defined(DECAL_LOAD_NORMAL)
-					half3 normalWS = half3(LoadSceneNormals(packedInput.positionCS.xy));
-				#endif
-
-				float2 positionSS = packedInput.positionCS.xy * _ScreenSize.zw;
-
-				/*ase_local_var:wp*/float3 positionWS = ComputeWorldSpacePosition(positionSS, depth, UNITY_MATRIX_I_VP);
-
-				float3 positionDS = TransformWorldToObject(positionWS);
-				positionDS = positionDS * float3(1.0, -1.0, 1.0);
-
-				float clipValue = 0.5 - Max3(abs(positionDS).x, abs(positionDS).y, abs(positionDS).z);
-				clip(clipValue);
-
-				float2 texCoord = positionDS.xz + float2(0.5, 0.5);
-
-				float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
-				float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
-				float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
-				texCoord.xy = texCoord.xy * scale + offset;
-
-				/*ase_local_var:uv0*/float2 texCoord0 = texCoord;
-				/*ase_local_var:uv1*/float2 texCoord1 = texCoord;
-				/*ase_local_var:uv2*/float2 texCoord2 = texCoord;
-				/*ase_local_var:uv3*/float2 texCoord3 = texCoord;
-
-				/*ase_local_var:wt*/float3 worldTangent = TransformObjectToWorldDir(float3(1, 0, 0));
-				/*ase_local_var:wn*/float3 worldNormal = TransformObjectToWorldDir(float3(0, 1, 0));
-				/*ase_local_var:wbt*/float3 worldBitangent = TransformObjectToWorldDir(float3(0, 0, 1));
-
-				#ifdef DECAL_ANGLE_FADE
-					half2 angleFade = half2(normalToWorld[1][3], normalToWorld[2][3]);
-
-					if (angleFade.y < 0.0f)
-					{
-						half3 decalNormal = half3(normalToWorld[0].z, normalToWorld[1].z, normalToWorld[2].z);
-						half dotAngle = dot(normalWS, decalNormal);
-						angleFadeFactor = saturate(angleFade.x + angleFade.y * (dotAngle * (dotAngle - 2.0)));
-					}
-				#endif
-
-				half3 viewDirectionWS = half3(packedInput.viewDirectionWS);
-				DecalSurfaceData surfaceData;
-
-				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
-
-				/*ase_frag_code:packedInput=PackedVaryings*/
-
-				surfaceDescription.BaseColor = /*ase_frag_out:Base Color;Float3;0;-1;_BaseColor*/IsGammaSpace() ? float3(0.5, 0.5, 0.5) : SRGBToLinear(float3(0.5, 0.5, 0.5))/*end*/;
-				surfaceDescription.Alpha = /*ase_frag_out:Alpha;Float;1;-1;_Alpha*/1/*end*/;
-				surfaceDescription.NormalTS = /*ase_frag_out:Normal;Float3;2;-1;_NormalTS*/float3(0.0f, 0.0f, 1.0f)/*end*/;
-				surfaceDescription.NormalAlpha = /*ase_frag_out:Normal Alpha;Float;3;-1;_NormalAlpha*/1/*end*/;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceDescription.Metallic = /*ase_frag_out:Metallic;Float;4;-1;_Metallic*/0/*end*/;
-					surfaceDescription.Occlusion =/*ase_frag_out:Occlusion;Float;5;-1;_Occlusion*/1/*end*/;
-					surfaceDescription.Smoothness = /*ase_frag_out:Smoothness;Float;6;-1;_Smoothness*/0.5/*end*/;
-					surfaceDescription.MAOSAlpha = /*ase_frag_out:MAOS Alpha;Float;7;-1;_MAOSAlpha*/1/*end*/;
-				#endif
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-					surfaceDescription.Emission = /*ase_frag_out:Emission;Float;8;-1;_Emission*/float3(0, 0, 0)/*end*/;
-				#endif
-
-				GetSurfaceData(surfaceDescription, angleFadeFactor, surfaceData);
-
-				InputData inputData;
-				InitializeInputData(packedInput, positionWS, surfaceData.normalWS.xyz, viewDirectionWS, inputData);
-
-				SurfaceData surface = (SurfaceData)0;
-				GetSurface(surfaceData, surface);
-
-				BRDFData brdfData;
-				InitializeBRDFData(surface.albedo, surface.metallic, 0, surface.smoothness, surface.alpha, brdfData);
-
-				#ifdef _MATERIAL_AFFECTS_ALBEDO
-					#ifdef DECAL_RECONSTRUCT_NORMAL
-						half3 normalGI = normalize(lerp(normalWS.xyz, surfaceData.normalWS.xyz, surfaceData.normalWS.w));
-					#else
-						half3 normalGI = surfaceData.normalWS.xyz;
-					#endif
-
-					Light mainLight = GetMainLight(inputData.shadowCoord, inputData.positionWS, inputData.shadowMask);
-					MixRealtimeAndBakedGI(mainLight, normalGI, inputData.bakedGI, inputData.shadowMask);
-					half3 color = GlobalIllumination(brdfData, inputData.bakedGI, surface.occlusion, normalGI, inputData.viewDirectionWS);
-				#else
-					half3 color = 0;
-				#endif
-
-				half3 packedNormalWS = PackNormal(surfaceData.normalWS.xyz);
-				fragmentOutput.GBuffer0 = half4(surfaceData.baseColor.rgb, surfaceData.baseColor.a);
-				fragmentOutput.GBuffer1 = 0;
-				fragmentOutput.GBuffer2 = half4(packedNormalWS, surfaceData.normalWS.a);
-				fragmentOutput.GBuffer3 = half4(surfaceData.emissive + color, surfaceData.baseColor.a);
-
-				#if OUTPUT_SHADOWMASK
-					fragmentOutput.GBuffer4 = inputData.shadowMask;
-				#endif
-
-                #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-                positionSS = RemapFoveatedRenderingDistortCS(packedInput.positionCS.xy, true) * _ScreenSize.zw;
-                #endif
-
-			}
-            ENDHLSL
-        }
-
-		/*ase_pass*/
-        Pass
-        {
-            /*ase_hide_pass*/
-			Name "DBufferMesh"
-            Tags
-            {
-                "LightMode" = "DBufferMesh"
-            }
-
-			Blend 0 SrcAlpha OneMinusSrcAlpha, Zero OneMinusSrcAlpha
-			Blend 1 SrcAlpha OneMinusSrcAlpha, Zero OneMinusSrcAlpha
-			Blend 2 SrcAlpha OneMinusSrcAlpha, Zero OneMinusSrcAlpha
-			ZTest LEqual
-			ZWrite Off
-			ColorMask RGBA
-			ColorMask RGBA 1
-			ColorMask 0 2
-
-			HLSLPROGRAM
-
-			#pragma only_renderers gles gles3 glcore d3d11
-			#pragma vertex Vert
-			#pragma fragment Frag
-			#pragma multi_compile_instancing
-			#pragma editor_sync_compilation
-
-			#pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
-			#pragma multi_compile _ _DECAL_LAYERS
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-
-            #define ATTRIBUTES_NEED_NORMAL
-            #define ATTRIBUTES_NEED_TANGENT
-            #define ATTRIBUTES_NEED_TEXCOORD0
-            #define ATTRIBUTES_NEED_TEXCOORD1
-            #define ATTRIBUTES_NEED_TEXCOORD2
-            #define VARYINGS_NEED_POSITION_WS
-            #define VARYINGS_NEED_NORMAL_WS
-            #define VARYINGS_NEED_TANGENT_WS
-            #define VARYINGS_NEED_TEXCOORD0
-
-            #define HAVE_MESH_MODIFICATION
-
-            #define SHADERPASS SHADERPASS_DBUFFER_MESH
-
-			#ifdef SCENEPICKINGPASS
-			float4 _SelectionID;
-			#endif
-			#if _RENDER_PASS_ENABLED
-			#define GBUFFER3 0
-			#define GBUFFER4 1
-			FRAMEBUFFER_INPUT_HALF(GBUFFER3);
-			FRAMEBUFFER_INPUT_HALF(GBUFFER4);
-			#endif
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DecalInput.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderVariablesDecal.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
-
-            /*ase_pragma*/
-
-			struct SurfaceDescription
-			{
-				float3 BaseColor;
-				float Alpha;
-				float3 NormalTS;
-				float NormalAlpha;
-				float Metallic;
-				float Occlusion;
-				float Smoothness;
-				float MAOSAlpha;
-			};
-
-			struct Attributes
-			{
-				float3 positionOS : POSITION;
-				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
-				float4 uv0 : TEXCOORD0;
-				float4 uv1 : TEXCOORD1;
-				float4 uv2 : TEXCOORD2;
-				/*ase_vdata:p=p;n=n;t=t;uv0=tc0;uv1=tc1;uv2=tc2*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-			};
-
-			struct PackedVaryings
-			{
-				float4 positionCS : SV_POSITION;
-				float3 positionWS : TEXCOORD0;
-				float3 normalWS : TEXCOORD1;
-				float4 tangentWS : TEXCOORD2;
-				float4 texCoord0 : TEXCOORD3;
-				/*ase_interp(4,):sp=sp;wp=tc0;wn=tc1;wt=tc2;uv0=tc3*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-				UNITY_VERTEX_OUTPUT_STEREO
-			};
-
-            CBUFFER_START(UnityPerMaterial)
-			float _DrawOrder;
-			float _DecalMeshBiasType;
-			float _DecalMeshDepthBias;
-			float _DecalMeshViewBias;
-			CBUFFER_END
-
-			/*ase_globals*/
-
-			/*ase_funcs*/
-
-            void GetSurfaceData(PackedVaryings input, SurfaceDescription surfaceDescription, out DecalSurfaceData surfaceData)
-            {
-                #ifdef LOD_FADE_CROSSFADE
-					LODFadeCrossFade( input.positionCS );
-                #endif
-
-                half fadeFactor = half(1.0);
-
-                ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
-                surfaceData.occlusion = half(1.0);
-                surfaceData.smoothness = half(0);
-
-                #ifdef _MATERIAL_AFFECTS_NORMAL
-                    surfaceData.normalWS.w = half(1.0);
-                #else
-                    surfaceData.normalWS.w = half(0.0);
-                #endif
-
-                surfaceData.baseColor.xyz = half3(surfaceDescription.BaseColor);
-                surfaceData.baseColor.w = half(surfaceDescription.Alpha * fadeFactor);
-
-                #if defined(_MATERIAL_AFFECTS_NORMAL)
-                    float sgn = input.tangentWS.w;
-                    float3 bitangent = sgn * cross(input.normalWS.xyz, input.tangentWS.xyz);
-                    half3x3 tangentToWorld = half3x3(input.tangentWS.xyz, bitangent.xyz, input.normalWS.xyz);
-
-                    surfaceData.normalWS.xyz = normalize(TransformTangentToWorld(surfaceDescription.NormalTS, tangentToWorld));
-                #else
-                    surfaceData.normalWS.xyz = half3(input.normalWS);
-                #endif
-
-                surfaceData.normalWS.w = surfaceDescription.NormalAlpha * fadeFactor;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceData.metallic = half(surfaceDescription.Metallic);
-					surfaceData.occlusion = half(surfaceDescription.Occlusion);
-					surfaceData.smoothness = half(surfaceDescription.Smoothness);
-					surfaceData.MAOSAlpha = half(surfaceDescription.MAOSAlpha * fadeFactor);
-				#endif
-            }
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR)
-            #define DECAL_PROJECTOR
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_MESH
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
-            #define DECAL_DBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH)
-            #define DECAL_SCREEN_SPACE
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_GBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH)
-            #define DECAL_FORWARD_EMISSIVE
-            #endif
-
-            #if ((!defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_ALBEDO)) || (defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_NORMAL_BLEND))) && (defined(DECAL_SCREEN_SPACE) || defined(DECAL_GBUFFER))
-            #define DECAL_RECONSTRUCT_NORMAL
-            #elif defined(DECAL_ANGLE_FADE)
-            #define DECAL_LOAD_NORMAL
-            #endif
-
-            #ifdef _DECAL_LAYERS
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareRenderingLayerTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_LOAD_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_PROJECTOR) || defined(DECAL_RECONSTRUCT_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
-            #endif
-
-            #ifdef DECAL_MESH
-            #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DecalMeshBiasTypeEnum.cs.hlsl"
-            #endif
-
-            #ifdef DECAL_RECONSTRUCT_NORMAL
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/NormalReconstruction.hlsl"
-            #endif
-
-            #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRendering.hlsl"
-            #endif
-
-			void MeshDecalsPositionZBias(inout PackedVaryings input)
-			{
-            #if UNITY_REVERSED_Z
-				input.positionCS.z -= _DecalMeshDepthBias;
-            #else
-				input.positionCS.z += _DecalMeshDepthBias;
-            #endif
-			}
-
-			PackedVaryings Vert(Attributes inputMesh /*ase_vert_input*/ )
-			{
 				if (_DecalMeshBiasType == DECALMESHDEPTHBIASTYPE_VIEW_BIAS)
 				{
-					float3 viewDirectionOS = GetObjectSpaceNormalizeViewDir(inputMesh.positionOS);
-					inputMesh.positionOS += viewDirectionOS * (_DecalMeshViewBias);
+					float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS);
+					float3 V = GetWorldSpaceNormalizeViewDir(positionRWS);
+					worldSpaceBias = V * (_DecalMeshViewBias);
 				}
 
-				PackedVaryings packedOutput;
-				ZERO_INITIALIZE(PackedVaryings, packedOutput);
-
-				UNITY_SETUP_INSTANCE_ID(inputMesh);
-				UNITY_TRANSFER_INSTANCE_ID(inputMesh, packedOutput);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(packedOutput);
-
-				inputMesh.tangentOS = float4( 1, 0, 0, -1 );
-				inputMesh.normalOS = float3( 0, 1, 0 );
-
-				/*ase_vert_code:inputMesh=Attributes;packedOutput=PackedVaryings*/
-
-				VertexPositionInputs vertexInput = GetVertexPositionInputs(inputMesh.positionOS.xyz);
-
-				float3 positionWS = TransformObjectToWorld(inputMesh.positionOS);
-
+				float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS) + worldSpaceBias;
 				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
 				float4 tangentWS = float4(TransformObjectToWorldDir(inputMesh.tangentOS.xyz), inputMesh.tangentOS.w);
 
-				packedOutput.positionWS.xyz =  positionWS;
-				packedOutput.normalWS.xyz =  normalWS;
-				packedOutput.tangentWS.xyzw =  tangentWS;
-				packedOutput.texCoord0.xyzw =  inputMesh.uv0;
-				packedOutput.positionCS = TransformWorldToHClip(positionWS);
+				output.positionRWS.xyz = positionRWS;
+				output.positionCS = TransformWorldToHClip(positionRWS);
+				output.normalWS.xyz = normalWS;
+				output.tangentWS.xyzw = tangentWS;
+				output.uv0.xyzw = inputMesh.uv0;
 
 				if (_DecalMeshBiasType == DECALMESHDEPTHBIASTYPE_DEPTH_BIAS)
 				{
-					MeshDecalsPositionZBias(packedOutput);
+					#if UNITY_REVERSED_Z
+						output.positionCS.z -= _DecalMeshDepthBias;
+					#else
+						output.positionCS.z += _DecalMeshDepthBias;
+					#endif
 				}
 
-				return packedOutput;
+
+				return output;
 			}
 
-			void Frag(PackedVaryings packedInput,
+			void Frag(  PackedVaryingsToPS packedInput,
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
 				OUTPUT_DBUFFER(outDBuffer)
-				/*ase_frag_input*/
+			#else
+				out float4 outEmissive : SV_Target0
+			#endif
+			
 			)
 			{
 				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
 				UNITY_SETUP_INSTANCE_ID(packedInput);
 
-				half angleFadeFactor = 1.0;
+                FragInputs input;
+                ZERO_INITIALIZE(FragInputs, input);
 
-            #ifdef _DECAL_LAYERS
-            #ifdef _RENDER_PASS_ENABLED
-				uint surfaceRenderingLayer = DecodeMeshRenderingLayer(LOAD_FRAMEBUFFER_INPUT(GBUFFER4, packedInput.positionCS.xy).r);
-            #else
-				uint surfaceRenderingLayer = LoadSceneRenderingLayer(packedInput.positionCS.xy);
-            #endif
-				uint projectorRenderingLayer = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal));
-				clip((surfaceRenderingLayer & projectorRenderingLayer) - 0.1);
-            #endif
+                input.tangentToWorld = k_identity3x3;
+                input.positionSS = packedInput.positionCS;
 
-				#if defined(DECAL_RECONSTRUCT_NORMAL)
-					#if defined(_DECAL_NORMAL_BLEND_HIGH)
-						half3 normalWS = half3(ReconstructNormalTap9(packedInput.positionCS.xy));
-					#elif defined(_DECAL_NORMAL_BLEND_MEDIUM)
-						half3 normalWS = half3(ReconstructNormalTap5(packedInput.positionCS.xy));
-					#else
-						half3 normalWS = half3(ReconstructNormalDerivative(packedInput.positionCS.xy));
-					#endif
-				#elif defined(DECAL_LOAD_NORMAL)
-					half3 normalWS = half3(LoadSceneNormals(packedInput.positionCS.xy));
-				#endif
+                input.positionRWS = packedInput.positionRWS.xyz;
 
-				float2 positionSS = packedInput.positionCS.xy * _ScreenSize.zw;
-				float3 positionWS = packedInput.positionWS.xyz;
-				half3 viewDirectionWS = half3(1.0, 1.0, 1.0);
+                input.tangentToWorld = BuildTangentToWorld(packedInput.tangentWS.xyzw, packedInput.normalWS.xyz);
+                input.texCoord0 = packedInput.uv0.xyzw;
 
 				DecalSurfaceData surfaceData;
-				SurfaceDescription surfaceDescription;
+				float clipValue = 1.0;
+				float angleFadeFactor = 1.0;
 
-				/*ase_frag_code:packedInput=PackedVaryings*/
+				PositionInputs posInput;
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
 
-				surfaceDescription.BaseColor = /*ase_frag_out:Base Color;Float3;0;-1;_BaseColor*/IsGammaSpace() ? float3(0.5, 0.5, 0.5) : SRGBToLinear(float3(0.5, 0.5, 0.5))/*end*/;
-				surfaceDescription.Alpha = /*ase_frag_out:Alpha;Float;1;-1;_Alpha*/1/*end*/;
-				surfaceDescription.NormalTS = /*ase_frag_out:Normal;Float3;2;-1;_NormalTS*/float3(0.0f, 0.0f, 1.0f)/*end*/;
-				surfaceDescription.NormalAlpha = /*ase_frag_out:Normal Alpha;Float;3;-1;_NormalAlpha*/1/*end*/;
+				float depth = LoadCameraDepth(input.positionSS.xy);
+				posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, depth, UNITY_MATRIX_I_VP, UNITY_MATRIX_V);
 
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceDescription.Metallic = /*ase_frag_out:Metallic;Float;4;-1;_Metallic*/0/*end*/;
-					surfaceDescription.Occlusion = /*ase_frag_out:Occlusion;Float;5;-1;_Occlusion*/1/*end*/;
-					surfaceDescription.Smoothness = /*ase_frag_out:Smoothness;Float;6;-1;_Smoothness*/0.5/*end*/;
-					surfaceDescription.MAOSAlpha = /*ase_frag_out:MAOS Alpha;Float;7;-1;_MAOSAlpha*/1/*end*/;
-				#endif
+				DecalPrepassData material;
+				ZERO_INITIALIZE(DecalPrepassData, material);
+				if (_EnableDecalLayers)
+				{
+					uint decalLayerMask = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal).x);
 
-				GetSurfaceData(packedInput, surfaceDescription, surfaceData);
+					DecodeFromDecalPrepass(posInput.positionSS, material);
+
+					if ((decalLayerMask & material.renderingLayerMask) == 0)
+						clipValue -= 2.0;
+				}
+
+				float3 positionDS = TransformWorldToObject(posInput.positionWS);
+				positionDS = positionDS * float3(1.0, -1.0, 1.0) + float3(0.5, 0.5, 0.5);
+				if (!(all(positionDS.xyz > 0.0f) && all(1.0f - positionDS.xyz > 0.0f)))
+				{
+					clipValue -= 2.0;
+				}
+
+			#ifndef SHADER_API_METAL
+				clip(clipValue);
+			#else
+				if (clipValue > 0.0)
+				{
+			#endif
+
+				float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
+				float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
+				float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
+				positionDS.xz = positionDS.xz * scale + offset;
+
+				input.texCoord0.xy = positionDS.xz;
+				input.texCoord1.xy = positionDS.xz;
+				input.texCoord2.xy = positionDS.xz;
+				input.texCoord3.xy = positionDS.xz;
+
+				float3 V = GetWorldSpaceNormalizeViewDir(posInput.positionWS);
+
+				if (_EnableDecalLayers)
+				{
+					float2 angleFade = float2(normalToWorld[1][3], normalToWorld[2][3]);
+					if (angleFade.x > 0.0f)
+					{
+						float3 decalNormal = float3(normalToWorld[0].z, normalToWorld[1].z, normalToWorld[2].z);
+                        angleFadeFactor = DecodeAngleFade(dot(material.geomNormalWS, decalNormal), angleFade);
+					}
+				}
+
+			#else
+				posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, input.positionSS.z, input.positionSS.w, input.positionRWS.xyz, uint2(0, 0));
+				float3 V = GetWorldSpaceNormalizeViewDir(input.positionRWS);
+			#endif
+
+				float3 positionWS = GetAbsolutePositionWS( posInput.positionWS );
+				float3 positionRWS = posInput.positionWS;
+
+				float3 worldTangent = TransformObjectToWorldDir(float3(1, 0, 0));
+				float3 worldNormal = TransformObjectToWorldDir(float3(0, 1, 0));
+				float3 worldBitangent = TransformObjectToWorldDir(float3(0, 0, 1));
+
+				float4 texCoord0 = input.texCoord0;
+				float4 texCoord1 = input.texCoord1;
+				float4 texCoord2 = input.texCoord2;
+				float4 texCoord3 = input.texCoord3;
+
+				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
+
+				
+
+				surfaceDescription.BaseColor = float3( 0.7353569, 0.7353569, 0.7353569 );
+				surfaceDescription.Alpha = 1;
+				surfaceDescription.NormalTS = float3( 0, 0, 1 );
+				surfaceDescription.NormalAlpha = 1;
+				surfaceDescription.Metallic = 0;
+				surfaceDescription.Occlusion = 1;
+				surfaceDescription.Smoothness = 0.5;
+				surfaceDescription.MAOSAlpha = 1;
+				surfaceDescription.Emission = float3( 0, 0, 0 );
+
+				GetSurfaceData(surfaceDescription, input, V, posInput, angleFadeFactor, surfaceData);
+
+			#if ((SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)) && defined(SHADER_API_METAL)
+				}
+
+				clip(clipValue);
+			#endif
+
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
 				ENCODE_INTO_DBUFFER(surfaceData, outDBuffer);
-
-                #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-                positionSS = RemapFoveatedRenderingDistortCS(packedInput.positionCS.xy, true) * _ScreenSize.zw;
-                #endif
+			#else
+				outEmissive.rgb = surfaceData.emissive * GetCurrentExposureMultiplier();
+				outEmissive.a = 1.0;
+			#endif
 			}
-
             ENDHLSL
         }
 
-		/*ase_pass*/
+		
         Pass
-        {
-            /*ase_hide_pass*/
+		{
+			
 			Name "DecalMeshForwardEmissive"
-            Tags
-            {
-                "LightMode" = "DecalMeshForwardEmissive"
-            }
+			Tags { "LightMode"="DecalMeshForwardEmissive" }
+
+			Stencil
+			{
+				Ref [_DecalStencilRef]
+				WriteMask [_DecalStencilWriteMask]
+				Comp Always
+				Pass Replace
+			}
+
+
+			ZWrite Off
+			ZTest LEqual
 
 			Blend 0 SrcAlpha One
-			ZTest LEqual
-			ZWrite Off
 
-			HLSLPROGRAM
+            HLSLPROGRAM
 
-			#pragma only_renderers gles gles3 glcore d3d11
-			#pragma vertex Vert
-			#pragma fragment Frag
-			#pragma multi_compile_instancing
-			#pragma editor_sync_compilation
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_ALBEDO
+            #pragma shader_feature_local_fragment _COLORMAP
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_NORMAL
+            #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_MASKMAP
+            #pragma shader_feature_local_fragment _MASKMAP
+            #define _MATERIAL_AFFECTS_EMISSION
+            #pragma shader_feature_local_fragment _EMISSIVEMAP
+            #pragma multi_compile _ LOD_FADE_CROSSFADE
+            #define ASE_SRP_VERSION 160005
 
-			#pragma multi_compile _ _DECAL_LAYERS
+
+            #pragma vertex Vert
+            #pragma fragment Frag
 
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/NormalSurfaceGradient.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 
-            #define ATTRIBUTES_NEED_NORMAL
-            #define ATTRIBUTES_NEED_TANGENT
-            #define ATTRIBUTES_NEED_TEXCOORD0
-            #define ATTRIBUTES_NEED_TEXCOORD1
-            #define ATTRIBUTES_NEED_TEXCOORD2
-            #define VARYINGS_NEED_POSITION_WS
-            #define VARYINGS_NEED_NORMAL_WS
-            #define VARYINGS_NEED_TANGENT_WS
-            #define VARYINGS_NEED_TEXCOORD0
-
-            #define HAVE_MESH_MODIFICATION
-
-            #define SHADERPASS SHADERPASS_FORWARD_EMISSIVE_MESH
-
-			#ifdef SCENEPICKINGPASS
-			float4 _SelectionID;
-			#endif
-			#if _RENDER_PASS_ENABLED
-			#define GBUFFER3 0
-			#define GBUFFER4 1
-			FRAMEBUFFER_INPUT_HALF(GBUFFER3);
-			FRAMEBUFFER_INPUT_HALF(GBUFFER4);
-			#endif
-
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DecalInput.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderVariablesDecal.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
-			/*ase_pragma*/
+			#define SHADERPASS SHADERPASS_FORWARD_EMISSIVE_MESH
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/Decal.hlsl"
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalPrepassBuffer.hlsl"
 
-			struct SurfaceDescription
-			{
-				float3 BaseColor;
-				float Alpha;
-				float3 NormalTS;
-				float NormalAlpha;
-				float Metallic;
-				float Occlusion;
-				float Smoothness;
-				float MAOSAlpha;
-				float3 Emission;
-			};
+			
 
-            struct Attributes
-			{
-				float3 positionOS : POSITION;
-				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
-				float4 uv0 : TEXCOORD0;
-				float4 uv1 : TEXCOORD1;
-				float4 uv2 : TEXCOORD2;
-				/*ase_vdata:p=p;n=n;t=t;uv0=tc0;uv1=tc1;uv2=tc2*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-			};
+            struct AttributesMesh
+            {
+                float3 positionOS : POSITION;
+                float3 normalOS : NORMAL;
+                float4 tangentOS : TANGENT;
+                float4 uv0 : TEXCOORD0;
+				
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
 
-			struct PackedVaryings
+			struct PackedVaryingsToPS
 			{
 				float4 positionCS : SV_POSITION;
-				float3 positionWS : TEXCOORD0;
-				float3 normalWS : TEXCOORD1;
-				float4 tangentWS : TEXCOORD2;
-				float4 texCoord0 : TEXCOORD3;
-				/*ase_interp(4,):sp=sp;wp=tc0;wn=tc1;wt=tc2;uv0=tc3*/
+                float3 positionRWS : TEXCOORD0;
+                float3 normalWS : TEXCOORD1;
+                float4 tangentWS : TEXCOORD2;
+                float4 uv0 : TEXCOORD3;
+				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
 
             CBUFFER_START(UnityPerMaterial)
-			float _DrawOrder;
-			float _DecalMeshBiasType;
-			float _DecalMeshDepthBias;
+                        float _DrawOrder;
+			float _NormalBlendSrc;
+			float _MaskBlendSrc;
+			float _DecalBlend;
+			int   _DecalMeshBiasType;
+            float _DecalMeshDepthBias;
 			float _DecalMeshViewBias;
-			CBUFFER_END
-
-			/*ase_globals*/
-
-			/*ase_funcs*/
-
-            void GetSurfaceData(SurfaceDescription surfaceDescription, float4 positionCS, out DecalSurfaceData surfaceData)
-            {
-                #ifdef LOD_FADE_CROSSFADE
-					LODFadeCrossFade( positionCS );
-                #endif
-
-                half fadeFactor = half(1.0);
-
-                ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
-                surfaceData.occlusion = half(1.0);
-                surfaceData.smoothness = half(0);
-
-                #ifdef _MATERIAL_AFFECTS_NORMAL
-                    surfaceData.normalWS.w = half(1.0);
-                #else
-                    surfaceData.normalWS.w = half(0.0);
-                #endif
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-					surfaceData.emissive.rgb = half3(surfaceDescription.Emission.rgb * fadeFactor);
-				#endif
-
-                surfaceData.baseColor.xyz = half3(surfaceDescription.BaseColor);
-                surfaceData.baseColor.w = half(surfaceDescription.Alpha * fadeFactor);
-
-                surfaceData.normalWS.w = surfaceDescription.NormalAlpha * fadeFactor;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceData.metallic = half(surfaceDescription.Metallic);
-					surfaceData.occlusion = half(surfaceDescription.Occlusion);
-					surfaceData.smoothness = half(surfaceDescription.Smoothness);
-					surfaceData.MAOSAlpha = half(surfaceDescription.MAOSAlpha * fadeFactor);
-				#endif
-            }
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR)
-            #define DECAL_PROJECTOR
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_MESH
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
-            #define DECAL_DBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH)
-            #define DECAL_SCREEN_SPACE
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_GBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH)
-            #define DECAL_FORWARD_EMISSIVE
-            #endif
-
-            #if ((!defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_ALBEDO)) || (defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_NORMAL_BLEND))) && (defined(DECAL_SCREEN_SPACE) || defined(DECAL_GBUFFER))
-            #define DECAL_RECONSTRUCT_NORMAL
-            #elif defined(DECAL_ANGLE_FADE)
-            #define DECAL_LOAD_NORMAL
-            #endif
-
-            #ifdef _DECAL_LAYERS
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareRenderingLayerTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_LOAD_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_PROJECTOR) || defined(DECAL_RECONSTRUCT_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
-            #endif
-
-            #ifdef DECAL_MESH
-            #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DecalMeshBiasTypeEnum.cs.hlsl"
-            #endif
-
-            #ifdef DECAL_RECONSTRUCT_NORMAL
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/NormalReconstruction.hlsl"
-            #endif
-
-            #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRendering.hlsl"
-            #endif
-
-			void MeshDecalsPositionZBias(inout PackedVaryings input)
-			{
-            #if UNITY_REVERSED_Z
-				input.positionCS.z -= _DecalMeshDepthBias;
-            #else
-				input.positionCS.z += _DecalMeshDepthBias;
-            #endif
-			}
-
-			PackedVaryings Vert(Attributes inputMesh /*ase_vert_input*/ )
-			{
-				if (_DecalMeshBiasType == DECALMESHDEPTHBIASTYPE_VIEW_BIAS)
-				{
-					float3 viewDirectionOS = GetObjectSpaceNormalizeViewDir(inputMesh.positionOS);
-					inputMesh.positionOS += viewDirectionOS * (_DecalMeshViewBias);
-				}
-
-				PackedVaryings packedOutput;
-				ZERO_INITIALIZE(PackedVaryings, packedOutput);
-
-				UNITY_SETUP_INSTANCE_ID(inputMesh);
-				UNITY_TRANSFER_INSTANCE_ID(inputMesh, packedOutput);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(packedOutput);
-
-				inputMesh.tangentOS = float4( 1, 0, 0, -1 );
-				inputMesh.normalOS = float3( 0, 1, 0 );
-
-				/*ase_vert_code:inputMesh=Attributes;packedOutput=PackedVaryings*/
-
-				VertexPositionInputs vertexInput = GetVertexPositionInputs(inputMesh.positionOS.xyz);
-
-				float3 positionWS = TransformObjectToWorld(inputMesh.positionOS);
-				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
-				float4 tangentWS = float4(TransformObjectToWorldDir(inputMesh.tangentOS.xyz), inputMesh.tangentOS.w);
-
-				packedOutput.positionCS = TransformWorldToHClip(positionWS);
-
-				if (_DecalMeshBiasType == DECALMESHDEPTHBIASTYPE_DEPTH_BIAS)
-				{
-					MeshDecalsPositionZBias(packedOutput);
-				}
-
-				packedOutput.positionWS.xyz = positionWS;
-				packedOutput.normalWS.xyz =  normalWS;
-				packedOutput.tangentWS.xyzw =  tangentWS;
-				packedOutput.texCoord0.xyzw =  inputMesh.uv0;
-
-				return packedOutput;
-			}
-
-			void Frag(PackedVaryings packedInput,
-				out half4 outEmissive : SV_Target0
-				/*ase_frag_input*/
-			)
-			{
-				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
-				UNITY_SETUP_INSTANCE_ID(packedInput);
-
-				half angleFadeFactor = 1.0;
-
-            #ifdef _DECAL_LAYERS
-            #ifdef _RENDER_PASS_ENABLED
-				uint surfaceRenderingLayer = DecodeMeshRenderingLayer(LOAD_FRAMEBUFFER_INPUT(GBUFFER4, packedInput.positionCS.xy).r);
-            #else
-				uint surfaceRenderingLayer = LoadSceneRenderingLayer(packedInput.positionCS.xy);
-            #endif
-				uint projectorRenderingLayer = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal));
-				clip((surfaceRenderingLayer & projectorRenderingLayer) - 0.1);
-            #endif
-
-				#if defined(DECAL_RECONSTRUCT_NORMAL)
-					#if defined(_DECAL_NORMAL_BLEND_HIGH)
-						half3 normalWS = half3(ReconstructNormalTap9(packedInput.positionCS.xy));
-					#elif defined(_DECAL_NORMAL_BLEND_MEDIUM)
-						half3 normalWS = half3(ReconstructNormalTap5(packedInput.positionCS.xy));
-					#else
-						half3 normalWS = half3(ReconstructNormalDerivative(packedInput.positionCS.xy));
-					#endif
-				#elif defined(DECAL_LOAD_NORMAL)
-					half3 normalWS = half3(LoadSceneNormals(packedInput.positionCS.xy));
-				#endif
-
-				float2 positionSS = packedInput.positionCS.xy * _ScreenSize.zw;
-				float3 positionWS = packedInput.positionWS.xyz;
-				half3 viewDirectionWS = half3(1.0, 1.0, 1.0);
-
-				DecalSurfaceData surfaceData;
-				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
-
-				/*ase_frag_code:packedInput=PackedVaryings*/
-
-				surfaceDescription.BaseColor = /*ase_frag_out:Base Color;Float3;0;-1;_BaseColor*/IsGammaSpace() ? float3(0.5, 0.5, 0.5) : SRGBToLinear(float3(0.5, 0.5, 0.5))/*end*/;
-				surfaceDescription.Alpha = /*ase_frag_out:Alpha;Float;1;-1;_Alpha*/1/*end*/;
-				surfaceDescription.NormalTS = /*ase_frag_out:Normal;Float3;2;-1;_NormalTS*/float3(0.0f, 0.0f, 1.0f)/*end*/;
-				surfaceDescription.NormalAlpha = /*ase_frag_out:Normal Alpha;Float;3;-1;_NormalAlpha*/1/*end*/;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceDescription.Metallic = /*ase_frag_out:Metallic;Float;4;-1;_Metallic*/0/*end*/;
-					surfaceDescription.Occlusion = /*ase_frag_out:Occlusion;Float;5;-1;_Occlusion*/1/*end*/;
-					surfaceDescription.Smoothness = /*ase_frag_out:Smoothness;Float;6;-1;_Smoothness*/0.5/*end*/;
-					surfaceDescription.MAOSAlpha = /*ase_frag_out:MAOS Alpha;Float;7;-1;_MAOSAlpha*/1/*end*/;
-				#endif
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-					surfaceDescription.Emission = /*ase_frag_out:Emission;Float3;8;-1;_Emission*/float3(0, 0, 0)/*end*/;
-				#endif
-
-				GetSurfaceData(surfaceDescription, packedInput.positionCS, surfaceData);
-
-				outEmissive.rgb = surfaceData.emissive;
-				outEmissive.a = surfaceData.baseColor.a;
-
-                #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-                positionSS = RemapFoveatedRenderingDistortCS(packedInput.positionCS.xy, true) * _ScreenSize.zw;
-                #endif
-
-			}
-            ENDHLSL
-        }
-
-		/*ase_pass*/
-        Pass
-        {
-            /*ase_hide_pass*/
-			Name "DecalScreenSpaceMesh"
-            Tags
-            {
-                "LightMode" = "DecalScreenSpaceMesh"
-            }
-
-			Blend SrcAlpha OneMinusSrcAlpha
-			ZTest LEqual
-			ZWrite Off
-
-			HLSLPROGRAM
-
-			#pragma only_renderers gles gles3 glcore d3d11
-			#pragma vertex Vert
-			#pragma fragment Frag
-			#pragma multi_compile_instancing
-			#pragma multi_compile_fog
-			#pragma editor_sync_compilation
-
-			#pragma multi_compile _ LIGHTMAP_ON
-			#pragma multi_compile _ DYNAMICLIGHTMAP_ON
-			#pragma multi_compile _ DIRLIGHTMAP_COMBINED
-			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
-			#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
-			#pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
-			#pragma multi_compile_fragment _ _SHADOWS_SOFT
-			#pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
-			#pragma multi_compile _ SHADOWS_SHADOWMASK
-			#pragma multi_compile _ _FORWARD_PLUS
-			#pragma multi_compile _DECAL_NORMAL_BLEND_LOW _DECAL_NORMAL_BLEND_MEDIUM _DECAL_NORMAL_BLEND_HIGH
-			#pragma multi_compile _ _DECAL_LAYERS
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-
-            #define ATTRIBUTES_NEED_NORMAL
-            #define ATTRIBUTES_NEED_TANGENT
-            #define ATTRIBUTES_NEED_TEXCOORD0
-            #define ATTRIBUTES_NEED_TEXCOORD1
-            #define ATTRIBUTES_NEED_TEXCOORD2
-            #define VARYINGS_NEED_POSITION_WS
-            #define VARYINGS_NEED_NORMAL_WS
-            #define VARYINGS_NEED_VIEWDIRECTION_WS
-            #define VARYINGS_NEED_TANGENT_WS
-            #define VARYINGS_NEED_TEXCOORD0
-            #define VARYINGS_NEED_FOG_AND_VERTEX_LIGHT
-            #define VARYINGS_NEED_SH
-            #define VARYINGS_NEED_STATIC_LIGHTMAP_UV
-            #define VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV
-
-            #define HAVE_MESH_MODIFICATION
-
-            #define SHADERPASS SHADERPASS_DECAL_SCREEN_SPACE_MESH
-
-			#ifdef SCENEPICKINGPASS
-			float4 _SelectionID;
+            float _DecalStencilWriteMask;
+            float _DecalStencilRef;
+            #ifdef _MATERIAL_AFFECTS_ALBEDO
+            float _AffectAlbedo;
 			#endif
-			#if _RENDER_PASS_ENABLED
-			#define GBUFFER3 0
-			#define GBUFFER4 1
-			FRAMEBUFFER_INPUT_HALF(GBUFFER3);
-			FRAMEBUFFER_INPUT_HALF(GBUFFER4);
+            #ifdef _MATERIAL_AFFECTS_NORMAL
+            float _AffectNormal;
 			#endif
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DecalInput.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderVariablesDecal.hlsl"
-
-			/*ase_pragma*/
-
-            struct SurfaceDescription
-			{
-				float3 BaseColor;
-				float Alpha;
-				float3 NormalTS;
-				float NormalAlpha;
-				float Metallic;
-				float Occlusion;
-				float Smoothness;
-				float MAOSAlpha;
-				float3 Emission;
-			};
-
-            struct Attributes
-			{
-				float3 positionOS : POSITION;
-				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
-				float4 uv0 : TEXCOORD0;
-				float4 uv1 : TEXCOORD1;
-				float4 uv2 : TEXCOORD2;
-				/*ase_vdata:p=p;n=n;t=t;uv0=tc0;uv1=tc1;uv2=tc2*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-			};
-
-			struct PackedVaryings
-			{
-				float4 positionCS : SV_POSITION;
-				float3 positionWS : TEXCOORD0;
-				float3 normalWS : TEXCOORD1;
-				float4 tangentWS : TEXCOORD2;
-				float4 texCoord0 : TEXCOORD3;
-				float3 viewDirectionWS : TEXCOORD4;
-				float2 staticLightmapUV : TEXCOORD5;
-				float2 dynamicLightmapUV : TEXCOORD6;
-				float3 sh : TEXCOORD7;
-				float4 fogFactorAndVertexLight : TEXCOORD8;
-				/*ase_interp(9,):sp=sp;wp=tc0;wn=tc1;wt=tc2;uv0=tc3;wvd=tc4*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-				UNITY_VERTEX_OUTPUT_STEREO
-			};
-
-            CBUFFER_START(UnityPerMaterial)
-			float _DrawOrder;
-			float _DecalMeshBiasType;
-			float _DecalMeshDepthBias;
-			float _DecalMeshViewBias;
-			CBUFFER_END
-
-			/*ase_globals*/
-
-			/*ase_funcs*/
-
-            void GetSurfaceData(PackedVaryings input, SurfaceDescription surfaceDescription, out DecalSurfaceData surfaceData)
-            {
-                #ifdef LOD_FADE_CROSSFADE
-                    LODFadeCrossFade( input.positionCS );
-                #endif
-
-                half fadeFactor = half(1.0);
-
-                ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
-                surfaceData.occlusion = half(1.0);
-                surfaceData.smoothness = half(0);
-
-                #ifdef _MATERIAL_AFFECTS_NORMAL
-                    surfaceData.normalWS.w = half(1.0);
-                #else
-                    surfaceData.normalWS.w = half(0.0);
-                #endif
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-					surfaceData.emissive.rgb = half3(surfaceDescription.Emission.rgb * fadeFactor);
-				#endif
-
-                surfaceData.baseColor.xyz = half3(surfaceDescription.BaseColor);
-                surfaceData.baseColor.w = half(surfaceDescription.Alpha * fadeFactor);
-
-                #if defined(_MATERIAL_AFFECTS_NORMAL)
-                    float sgn = input.tangentWS.w;
-                    float3 bitangent = sgn * cross(input.normalWS.xyz, input.tangentWS.xyz);
-                    half3x3 tangentToWorld = half3x3(input.tangentWS.xyz, bitangent.xyz, input.normalWS.xyz);
-
-                    surfaceData.normalWS.xyz = normalize(TransformTangentToWorld(surfaceDescription.NormalTS, tangentToWorld));
-                #else
-                    surfaceData.normalWS.xyz = half3(input.normalWS);
-                #endif
-
-                surfaceData.normalWS.w = surfaceDescription.NormalAlpha * fadeFactor;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceData.metallic = half(surfaceDescription.Metallic);
-					surfaceData.occlusion = half(surfaceDescription.Occlusion);
-					surfaceData.smoothness = half(surfaceDescription.Smoothness);
-					surfaceData.MAOSAlpha = half(surfaceDescription.MAOSAlpha * fadeFactor);
-				#endif
-            }
-
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR)
-            #define DECAL_PROJECTOR
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_MESH
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
-            #define DECAL_DBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH)
-            #define DECAL_SCREEN_SPACE
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_GBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH)
-            #define DECAL_FORWARD_EMISSIVE
-            #endif
-
-            #if ((!defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_ALBEDO)) || (defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_NORMAL_BLEND))) && (defined(DECAL_SCREEN_SPACE) || defined(DECAL_GBUFFER))
-            #define DECAL_RECONSTRUCT_NORMAL
-            #elif defined(DECAL_ANGLE_FADE)
-            #define DECAL_LOAD_NORMAL
-            #endif
-
-            #ifdef _DECAL_LAYERS
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareRenderingLayerTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_LOAD_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_PROJECTOR) || defined(DECAL_RECONSTRUCT_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
-            #endif
-
-            #ifdef DECAL_MESH
-            #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DecalMeshBiasTypeEnum.cs.hlsl"
-            #endif
-
-            #ifdef DECAL_RECONSTRUCT_NORMAL
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/NormalReconstruction.hlsl"
-            #endif
-
-            #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRendering.hlsl"
-            #endif
-
-			void MeshDecalsPositionZBias(inout PackedVaryings input)
-			{
-            #if UNITY_REVERSED_Z
-				input.positionCS.z -= _DecalMeshDepthBias;
-            #else
-				input.positionCS.z += _DecalMeshDepthBias;
-            #endif
-			}
-
-			void InitializeInputData(PackedVaryings input, float3 positionWS, half3 normalWS, half3 viewDirectionWS, out InputData inputData)
-			{
-				inputData = (InputData)0;
-
-				inputData.positionWS = positionWS;
-				inputData.normalWS = normalWS;
-				inputData.viewDirectionWS = viewDirectionWS;
-
-				inputData.shadowCoord = float4(0, 0, 0, 0);
-
-				#ifdef VARYINGS_NEED_FOG_AND_VERTEX_LIGHT
-					inputData.fogCoord = half(input.fogFactorAndVertexLight.x);
-					inputData.vertexLighting = half3(input.fogFactorAndVertexLight.yzw);
-				#endif
-
-				#if defined(VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV) && defined(DYNAMICLIGHTMAP_ON)
-					inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.dynamicLightmapUV.xy, input.sh, normalWS);
-				#elif defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV)
-					#if (defined(PROBE_VOLUMES_L1) || defined(PROBE_VOLUMES_L2))
-						inputData.bakedGI = SAMPLE_GI(input.sh,
-							GetAbsolutePositionWS(inputData.positionWS),
-							inputData.normalWS,
-							inputData.viewDirectionWS,
-							input.positionCS.xy);
-					#else
-						inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.sh, normalWS);
-					#endif
-				#endif
-
-				#if defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV)
-					inputData.shadowMask = SAMPLE_SHADOWMASK(input.staticLightmapUV);
-				#endif
-
-				#if defined(DEBUG_DISPLAY)
-					#if defined(VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV) && defined(DYNAMICLIGHTMAP_ON)
-						inputData.dynamicLightmapUV = input.dynamicLightmapUV.xy;
-					#endif
-					#if defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV && LIGHTMAP_ON)
-						inputData.staticLightmapUV = input.staticLightmapUV;
-					#elif defined(VARYINGS_NEED_SH)
-						inputData.vertexSH = input.sh;
-					#endif
-				#endif
-
-				inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
-			}
-
-			void GetSurface(DecalSurfaceData decalSurfaceData, inout SurfaceData surfaceData)
-			{
-				surfaceData.albedo = decalSurfaceData.baseColor.rgb;
-				surfaceData.metallic = saturate(decalSurfaceData.metallic);
-				surfaceData.specular = 0;
-				surfaceData.smoothness = saturate(decalSurfaceData.smoothness);
-				surfaceData.occlusion = decalSurfaceData.occlusion;
-				surfaceData.emission = decalSurfaceData.emissive;
-				surfaceData.alpha = saturate(decalSurfaceData.baseColor.w);
-				surfaceData.clearCoatMask = 0;
-				surfaceData.clearCoatSmoothness = 1;
-			}
-
-			PackedVaryings Vert(Attributes inputMesh /*ase_vert_input*/ )
-			{
-				if (_DecalMeshBiasType == DECALMESHDEPTHBIASTYPE_VIEW_BIAS)
-				{
-					float3 viewDirectionOS = GetObjectSpaceNormalizeViewDir(inputMesh.positionOS);
-					inputMesh.positionOS += viewDirectionOS * (_DecalMeshViewBias);
-				}
-
-				PackedVaryings packedOutput;
-				ZERO_INITIALIZE(PackedVaryings, packedOutput);
-
-				UNITY_SETUP_INSTANCE_ID(inputMesh);
-				UNITY_TRANSFER_INSTANCE_ID(inputMesh, packedOutput);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(packedOutput);
-
-				inputMesh.tangentOS = float4( 1, 0, 0, -1 );
-				inputMesh.normalOS = float3( 0, 1, 0 );
-
-				/*ase_vert_code:inputMesh=Attributes;packedOutput=PackedVaryings*/
-
-				VertexPositionInputs vertexInput = GetVertexPositionInputs(inputMesh.positionOS.xyz);
-				float3 positionWS = TransformObjectToWorld(inputMesh.positionOS);
-				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
-				float4 tangentWS = float4(TransformObjectToWorldDir(inputMesh.tangentOS.xyz), inputMesh.tangentOS.w);
-
-				packedOutput.positionCS = TransformWorldToHClip(positionWS);
-
-				half fogFactor = 0;
-				#if !defined(_FOG_FRAGMENT)
-					fogFactor = ComputeFogFactor(packedOutput.positionCS.z);
-				#endif
-
-				half3 vertexLight = VertexLighting(positionWS, normalWS);
-				packedOutput.fogFactorAndVertexLight = half4(fogFactor, vertexLight);
-
-				if (_DecalMeshBiasType == DECALMESHDEPTHBIASTYPE_DEPTH_BIAS)
-				{
-					MeshDecalsPositionZBias(packedOutput);
-				}
-
-				packedOutput.positionWS.xyz = positionWS;
-				packedOutput.normalWS.xyz =  normalWS;
-				packedOutput.tangentWS.xyzw =  tangentWS;
-				packedOutput.texCoord0.xyzw =  inputMesh.uv0;
-				packedOutput.viewDirectionWS.xyz =  GetWorldSpaceViewDir(positionWS);
-
-				#if defined(LIGHTMAP_ON)
-					OUTPUT_LIGHTMAP_UV(inputMesh.uv1, unity_LightmapST, packedOutput.staticLightmapUV);
-				#endif
-
-				#if defined(DYNAMICLIGHTMAP_ON)
-					packedOutput.dynamicLightmapUV.xy = inputMesh.uv2.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
-				#endif
-
-				#if !defined(LIGHTMAP_ON)
-					packedOutput.sh = float3(SampleSHVertex(half3(normalWS)));
-				#endif
-
-				return packedOutput;
-			}
-
-			void Frag(PackedVaryings packedInput,
-						out half4 outColor : SV_Target0
-						/*ase_frag_input*/
-					)
-			{
-				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
-				UNITY_SETUP_INSTANCE_ID(packedInput);
-
-				half angleFadeFactor = 1.0;
-
-            #ifdef _DECAL_LAYERS
-            #ifdef _RENDER_PASS_ENABLED
-				uint surfaceRenderingLayer = DecodeMeshRenderingLayer(LOAD_FRAMEBUFFER_INPUT(GBUFFER4, packedInput.positionCS.xy).r);
-            #else
-				uint surfaceRenderingLayer = LoadSceneRenderingLayer(packedInput.positionCS.xy);
-            #endif
-				uint projectorRenderingLayer = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal));
-				clip((surfaceRenderingLayer & projectorRenderingLayer) - 0.1);
-            #endif
-
-				#if defined(DECAL_RECONSTRUCT_NORMAL)
-					#if defined(_DECAL_NORMAL_BLEND_HIGH)
-						half3 normalWS = half3(ReconstructNormalTap9(packedInput.positionCS.xy));
-					#elif defined(_DECAL_NORMAL_BLEND_MEDIUM)
-						half3 normalWS = half3(ReconstructNormalTap5(packedInput.positionCS.xy));
-					#else
-						half3 normalWS = half3(ReconstructNormalDerivative(packedInput.positionCS.xy));
-					#endif
-				#elif defined(DECAL_LOAD_NORMAL)
-					half3 normalWS = half3(LoadSceneNormals(packedInput.positionCS.xy));
-				#endif
-
-				float2 positionSS = packedInput.positionCS.xy * _ScreenSize.zw;
-				float3 positionWS = packedInput.positionWS.xyz;
-				half3 viewDirectionWS = half3(packedInput.viewDirectionWS);
-
-				DecalSurfaceData surfaceData;
-				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
-
-				/*ase_frag_code:packedInput=PackedVaryings*/
-
-				surfaceDescription.BaseColor = /*ase_frag_out:Base Color;Float3;0;-1;_BaseColor*/IsGammaSpace() ? float3(0.5, 0.5, 0.5) : SRGBToLinear(float3(0.5, 0.5, 0.5))/*end*/;
-				surfaceDescription.Alpha = /*ase_frag_out:Alpha;Float;1;-1;_Alpha*/1/*end*/;
-				surfaceDescription.NormalTS = /*ase_frag_out:Normal;Float3;2;-1;_NormalTS*/float3(0.0f, 0.0f, 1.0f)/*end*/;
-				surfaceDescription.NormalAlpha = /*ase_frag_out:Normal Alpha;Float;3;-1;_NormalAlpha*/1/*end*/;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceDescription.Metallic = /*ase_frag_out:Metallic;Float;4;-1;_Metallic*/0/*end*/;
-					surfaceDescription.Occlusion = /*ase_frag_out:Occlusion;Float;5;-1;_Occlusion*/1/*end*/;
-					surfaceDescription.Smoothness = /*ase_frag_out:Smoothness;Float;6;-1;_Smoothness*/0.5/*end*/;
-					surfaceDescription.MAOSAlpha = /*ase_frag_out:MAOS Alpha;Float;7;-1;_MAOSAlpha*/1/*end*/;
-				#endif
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-					surfaceDescription.Emission = /*ase_frag_out:Emission;Float3;8;-1;_Emission*/float3(0, 0, 0)/*end*/;
-				#endif
-
-				GetSurfaceData(packedInput, surfaceDescription, surfaceData);
-
-				#ifdef DECAL_RECONSTRUCT_NORMAL
-					surfaceData.normalWS.xyz = normalize(lerp(normalWS.xyz, surfaceData.normalWS.xyz, surfaceData.normalWS.w));
-				#endif
-
-				InputData inputData;
-				InitializeInputData(packedInput, positionWS, surfaceData.normalWS.xyz, viewDirectionWS, inputData);
-
-				SurfaceData surface = (SurfaceData)0;
-				GetSurface(surfaceData, surface);
-
-				half4 color = UniversalFragmentPBR(inputData, surface);
-				color.rgb = MixFog(color.rgb, inputData.fogCoord);
-				outColor = color;
-
-                #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-                positionSS = RemapFoveatedRenderingDistortCS(packedInput.positionCS.xy, true) * _ScreenSize.zw;
-                #endif
-
-			}
-            ENDHLSL
-        }
-
-		/*ase_pass*/
-        Pass
-        {
-            /*ase_hide_pass*/
-			Name "DecalGBufferMesh"
-            Tags
-            {
-                "LightMode" = "DecalGBufferMesh"
-            }
-
-			Blend 0 SrcAlpha OneMinusSrcAlpha
-			Blend 1 SrcAlpha OneMinusSrcAlpha
-			Blend 2 SrcAlpha OneMinusSrcAlpha
-			Blend 3 SrcAlpha OneMinusSrcAlpha
-			ZWrite Off
-			ColorMask RGB
-			ColorMask 0 1
-			ColorMask RGB 2
-			ColorMask RGB 3
-
-			HLSLPROGRAM
-
-			#pragma only_renderers gles gles3 glcore d3d11
-			#pragma vertex Vert
-			#pragma fragment Frag
-			#pragma multi_compile_instancing
-			#pragma multi_compile_fog
-			#pragma editor_sync_compilation
-
-			#pragma multi_compile _ LIGHTMAP_ON
-			#pragma multi_compile _ DYNAMICLIGHTMAP_ON
-			#pragma multi_compile _ DIRLIGHTMAP_COMBINED
-			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
-			#pragma multi_compile_fragment _ _SHADOWS_SOFT
-			#pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
-			#pragma multi_compile _ _MIXED_LIGHTING_SUBTRACTIVE
-			#pragma multi_compile _DECAL_NORMAL_BLEND_LOW _DECAL_NORMAL_BLEND_MEDIUM _DECAL_NORMAL_BLEND_HIGH
-			#pragma multi_compile _ _DECAL_LAYERS
-			#pragma multi_compile_fragment _ _GBUFFER_NORMALS_OCT
-			#pragma multi_compile_fragment _ _RENDER_PASS_ENABLED
-
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-
-            #define ATTRIBUTES_NEED_NORMAL
-            #define ATTRIBUTES_NEED_TANGENT
-            #define ATTRIBUTES_NEED_TEXCOORD0
-            #define ATTRIBUTES_NEED_TEXCOORD1
-            #define ATTRIBUTES_NEED_TEXCOORD2
-            #define VARYINGS_NEED_POSITION_WS
-            #define VARYINGS_NEED_NORMAL_WS
-            #define VARYINGS_NEED_VIEWDIRECTION_WS
-            #define VARYINGS_NEED_TANGENT_WS
-            #define VARYINGS_NEED_TEXCOORD0
-            #define VARYINGS_NEED_FOG_AND_VERTEX_LIGHT
-            #define VARYINGS_NEED_SH
-            #define VARYINGS_NEED_STATIC_LIGHTMAP_UV
-            #define VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV
-
-            #define HAVE_MESH_MODIFICATION
-
-            #define SHADERPASS SHADERPASS_DECAL_GBUFFER_MESH
-
-			#ifdef SCENEPICKINGPASS
-			float4 _SelectionID;
+            #ifdef _MATERIAL_AFFECTS_MASKMAP
+            float _AffectAO;
+			float _AffectMetal;
+            float _AffectSmoothness;
 			#endif
-			#if _RENDER_PASS_ENABLED
-			#define GBUFFER3 0
-			#define GBUFFER4 1
-			FRAMEBUFFER_INPUT_HALF(GBUFFER3);
-			FRAMEBUFFER_INPUT_HALF(GBUFFER4);
+            #ifdef _MATERIAL_AFFECTS_EMISSION
+            float _AffectEmission;
 			#endif
+            float _DecalColorMask0;
+            float _DecalColorMask1;
+            float _DecalColorMask2;
+            float _DecalColorMask3;
+            CBUFFER_END
 
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityGBuffer.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DecalInput.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderVariablesDecal.hlsl"
+	   		
 
-			/*ase_pragma*/
-
-			struct SurfaceDescription
+			
+			void GetSurfaceData(SurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, PositionInputs posInput, float angleFadeFactor, out DecalSurfaceData surfaceData)
 			{
-				float3 BaseColor;
-				float Alpha;
-				float3 NormalTS;
-				float NormalAlpha;
-				float Metallic;
-				float Occlusion;
-				float Smoothness;
-				float MAOSAlpha;
-				float3 Emission;
-			};
-
-            struct Attributes
-			{
-				float3 positionOS : POSITION;
-				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
-				float4 uv0 : TEXCOORD0;
-				float4 uv1 : TEXCOORD1;
-				float4 uv2 : TEXCOORD2;
-				/*ase_vdata:p=p;n=n;t=t;uv0=tc0;uv1=tc1;uv2=tc2*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-			};
-
-			struct PackedVaryings
-			{
-				float4 positionCS : SV_POSITION;
-				float3 positionWS : TEXCOORD0;
-				float3 normalWS : TEXCOORD1;
-				float4 tangentWS : TEXCOORD2;
-				float4 texCoord0 : TEXCOORD3;
-				float3 viewDirectionWS : TEXCOORD4;
-				float2 staticLightmapUV : TEXCOORD5;
-				float2 dynamicLightmapUV : TEXCOORD6;
-				float3 sh : TEXCOORD7;
-				float4 fogFactorAndVertexLight : TEXCOORD8;
-				/*ase_interp(9,):sp=sp;wp=tc0;wn=tc1;wt=tc2;uv0=tc3;wvd=tc4*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
-				UNITY_VERTEX_OUTPUT_STEREO
-			};
-
-            CBUFFER_START(UnityPerMaterial)
-			float _DrawOrder;
-			float _DecalMeshBiasType;
-			float _DecalMeshDepthBias;
-			float _DecalMeshViewBias;
-			CBUFFER_END
-
-			/*ase_globals*/
-
-			/*ase_funcs*/
-
-            void GetSurfaceData(PackedVaryings input, SurfaceDescription surfaceDescription, out DecalSurfaceData surfaceData)
-            {
-				#ifdef LOD_FADE_CROSSFADE
-                    LODFadeCrossFade( input.positionCS );
-                #endif
-
-                half fadeFactor = half(1.0);
-
-                ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
-                surfaceData.occlusion = half(1.0);
-                surfaceData.smoothness = half(0);
-
-                #ifdef _MATERIAL_AFFECTS_NORMAL
-                    surfaceData.normalWS.w = half(1.0);
-                #else
-                    surfaceData.normalWS.w = half(0.0);
-                #endif
-
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-					surfaceData.emissive.rgb = half3(surfaceDescription.Emission.rgb * fadeFactor);
-				#endif
-
-                surfaceData.baseColor.xyz = half3(surfaceDescription.BaseColor);
-                surfaceData.baseColor.w = half(surfaceDescription.Alpha * fadeFactor);
-
-                #if defined(_MATERIAL_AFFECTS_NORMAL)
-                    float sgn = input.tangentWS.w;
-                    float3 bitangent = sgn * cross(input.normalWS.xyz, input.tangentWS.xyz);
-                    half3x3 tangentToWorld = half3x3(input.tangentWS.xyz, bitangent.xyz, input.normalWS.xyz);
-
-                    surfaceData.normalWS.xyz = normalize(TransformTangentToWorld(surfaceDescription.NormalTS, tangentToWorld));
-                #else
-                    surfaceData.normalWS.xyz = half3(input.normalWS);
-                #endif
-
-                surfaceData.normalWS.w = surfaceDescription.NormalAlpha * fadeFactor;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceData.metallic = half(surfaceDescription.Metallic);
-					surfaceData.occlusion = half(surfaceDescription.Occlusion);
-					surfaceData.smoothness = half(surfaceDescription.Smoothness);
-					surfaceData.MAOSAlpha = half(surfaceDescription.MAOSAlpha * fadeFactor);
-				#endif
-            }
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR)
-            #define DECAL_PROJECTOR
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_MESH
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
-            #define DECAL_DBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH)
-            #define DECAL_SCREEN_SPACE
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_GBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH)
-            #define DECAL_FORWARD_EMISSIVE
-            #endif
-
-            #if ((!defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_ALBEDO)) || (defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_NORMAL_BLEND))) && (defined(DECAL_SCREEN_SPACE) || defined(DECAL_GBUFFER))
-            #define DECAL_RECONSTRUCT_NORMAL
-            #elif defined(DECAL_ANGLE_FADE)
-            #define DECAL_LOAD_NORMAL
-            #endif
-
-            #ifdef _DECAL_LAYERS
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareRenderingLayerTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_LOAD_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_PROJECTOR) || defined(DECAL_RECONSTRUCT_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
-            #endif
-
-            #ifdef DECAL_MESH
-            #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DecalMeshBiasTypeEnum.cs.hlsl"
-            #endif
-
-            #ifdef DECAL_RECONSTRUCT_NORMAL
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/NormalReconstruction.hlsl"
-            #endif
-
-            #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRendering.hlsl"
-            #endif
-
-			void MeshDecalsPositionZBias(inout PackedVaryings input)
-			{
-            #if UNITY_REVERSED_Z
-				input.positionCS.z -= _DecalMeshDepthBias;
-            #else
-				input.positionCS.z += _DecalMeshDepthBias;
-            #endif
-			}
-
-			void InitializeInputData(PackedVaryings input, float3 positionWS, half3 normalWS, half3 viewDirectionWS, out InputData inputData)
-			{
-				inputData = (InputData)0;
-
-				inputData.positionWS = positionWS;
-				inputData.normalWS = normalWS;
-				inputData.viewDirectionWS = viewDirectionWS;
-
-				inputData.shadowCoord = float4(0, 0, 0, 0);
-
-				inputData.fogCoord = half(input.fogFactorAndVertexLight.x);
-				inputData.vertexLighting = half3(input.fogFactorAndVertexLight.yzw);
-
-				#if defined(VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV) && defined(DYNAMICLIGHTMAP_ON)
-					inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.dynamicLightmapUV.xy, input.sh, normalWS);
-				#elif defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV)
-					#if (defined(PROBE_VOLUMES_L1) || defined(PROBE_VOLUMES_L2))
-						inputData.bakedGI = SAMPLE_GI(input.sh,
-							GetAbsolutePositionWS(inputData.positionWS),
-							inputData.normalWS,
-							inputData.viewDirectionWS,
-							input.positionCS.xy);
-					#else
-						inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.sh, normalWS);
-					#endif
-				#endif
-
-				#if defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV)
-					inputData.shadowMask = SAMPLE_SHADOWMASK(input.staticLightmapUV);
-				#endif
-
-				#if defined(DEBUG_DISPLAY)
-					#if defined(VARYINGS_NEED_DYNAMIC_LIGHTMAP_UV) && defined(DYNAMICLIGHTMAP_ON)
-						inputData.dynamicLightmapUV = input.dynamicLightmapUV.xy;
-					#endif
-					#if defined(VARYINGS_NEED_STATIC_LIGHTMAP_UV && LIGHTMAP_ON)
-						inputData.staticLightmapUV = input.staticLightmapUV;
-					#elif defined(VARYINGS_NEED_SH)
-						inputData.vertexSH = input.sh;
-					#endif
-				#endif
-
-				inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
-			}
-
-			void GetSurface(DecalSurfaceData decalSurfaceData, inout SurfaceData surfaceData)
-			{
-				surfaceData.albedo = decalSurfaceData.baseColor.rgb;
-				surfaceData.metallic = saturate(decalSurfaceData.metallic);
-				surfaceData.specular = 0;
-				surfaceData.smoothness = saturate(decalSurfaceData.smoothness);
-				surfaceData.occlusion = decalSurfaceData.occlusion;
-				surfaceData.emission = decalSurfaceData.emissive;
-				surfaceData.alpha = saturate(decalSurfaceData.baseColor.w);
-				surfaceData.clearCoatMask = 0;
-				surfaceData.clearCoatSmoothness = 1;
-			}
-
-			PackedVaryings Vert(Attributes inputMesh /*ase_vert_input*/ )
-			{
-				if (_DecalMeshBiasType == DECALMESHDEPTHBIASTYPE_VIEW_BIAS)
-				{
-					float3 viewDirectionOS = GetObjectSpaceNormalizeViewDir(inputMesh.positionOS);
-					inputMesh.positionOS += viewDirectionOS * (_DecalMeshViewBias);
-				}
-
-				PackedVaryings packedOutput;
-				ZERO_INITIALIZE(PackedVaryings, packedOutput);
-
-				UNITY_SETUP_INSTANCE_ID(inputMesh);
-				UNITY_TRANSFER_INSTANCE_ID(inputMesh, packedOutput);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(packedOutput);
-
-				inputMesh.tangentOS = float4( 1, 0, 0, -1 );
-				inputMesh.normalOS = float3( 0, 1, 0 );
-
-				/*ase_vert_code:inputMesh=Attributes;packedOutput=PackedVaryings*/
-
-				VertexPositionInputs vertexInput = GetVertexPositionInputs(inputMesh.positionOS.xyz);
-
-				float3 positionWS = TransformObjectToWorld(inputMesh.positionOS);
-				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
-				float4 tangentWS = float4(TransformObjectToWorldDir(inputMesh.tangentOS.xyz), inputMesh.tangentOS.w);
-
-				packedOutput.positionCS = TransformWorldToHClip(positionWS);
-
-				if (_DecalMeshBiasType == DECALMESHDEPTHBIASTYPE_DEPTH_BIAS)
-				{
-					MeshDecalsPositionZBias(packedOutput);
-				}
-
-				packedOutput.positionWS.xyz = positionWS;
-				packedOutput.normalWS.xyz =  normalWS;
-				packedOutput.tangentWS.xyzw =  tangentWS;
-				packedOutput.texCoord0.xyzw =  inputMesh.uv0;
-				packedOutput.viewDirectionWS.xyz =  GetWorldSpaceViewDir(positionWS);
-
-				#if defined(LIGHTMAP_ON)
-					OUTPUT_LIGHTMAP_UV(inputMesh.uv1, unity_LightmapST, packedOutput.staticLightmapUV);
-				#endif
-
-				#if defined(DYNAMICLIGHTMAP_ON)
-					packedOutput.dynamicLightmapUV.xy = inputMesh.uv2.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
-				#endif
-
-				#if !defined(LIGHTMAP_ON)
-					packedOutput.sh.xyz =  float3(SampleSHVertex(half3(normalWS)));
-				#endif
-
-				half fogFactor = 0;
-				#if !defined(_FOG_FRAGMENT)
-						fogFactor = ComputeFogFactor(packedOutput.positionCS.z);
-				#endif
-
-				half3 vertexLight = VertexLighting(positionWS, normalWS);
-				packedOutput.fogFactorAndVertexLight = half4(fogFactor, vertexLight);
-
-				return packedOutput;
-			}
-
-			void Frag(PackedVaryings packedInput,
-				out FragmentOutput fragmentOutput
-				/*ase_frag_input*/
-			)
-			{
-				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
-				UNITY_SETUP_INSTANCE_ID(packedInput);
-
-				half angleFadeFactor = 1.0;
-
-            #ifdef _DECAL_LAYERS
-            #ifdef _RENDER_PASS_ENABLED
-				uint surfaceRenderingLayer = DecodeMeshRenderingLayer(LOAD_FRAMEBUFFER_INPUT(GBUFFER4, packedInput.positionCS.xy).r);
-            #else
-				uint surfaceRenderingLayer = LoadSceneRenderingLayer(packedInput.positionCS.xy);
-            #endif
-				uint projectorRenderingLayer = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal));
-				clip((surfaceRenderingLayer & projectorRenderingLayer) - 0.1);
-            #endif
-
-			#if defined(DECAL_RECONSTRUCT_NORMAL)
-				#if defined(_DECAL_NORMAL_BLEND_HIGH)
-					half3 normalWS = half3(ReconstructNormalTap9(packedInput.positionCS.xy));
-				#elif defined(_DECAL_NORMAL_BLEND_MEDIUM)
-					half3 normalWS = half3(ReconstructNormalTap5(packedInput.positionCS.xy));
+				#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
+					float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
+					float fadeFactor = clamp(normalToWorld[0][3], 0.0f, 1.0f) * angleFadeFactor;
+					float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
+					float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
+					fragInputs.texCoord0.xy = fragInputs.texCoord0.xy * scale + offset;
+					fragInputs.texCoord1.xy = fragInputs.texCoord1.xy * scale + offset;
+					fragInputs.texCoord2.xy = fragInputs.texCoord2.xy * scale + offset;
+					fragInputs.texCoord3.xy = fragInputs.texCoord3.xy * scale + offset;
+					fragInputs.positionRWS = posInput.positionWS;
+					fragInputs.tangentToWorld[2].xyz = TransformObjectToWorldDir(float3(0, 1, 0));
+					fragInputs.tangentToWorld[1].xyz = TransformObjectToWorldDir(float3(0, 0, 1));
 				#else
-					half3 normalWS = half3(ReconstructNormalDerivative(packedInput.positionCS.xy));
-				#endif
-			#elif defined(DECAL_LOAD_NORMAL)
-				half3 normalWS = half3(LoadSceneNormals(packedInput.positionCS.xy));
-			#endif
+					#ifdef LOD_FADE_CROSSFADE
+					LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+					#endif
 
-				float2 positionSS = packedInput.positionCS.xy * _ScreenSize.zw;
-				float3 positionWS = packedInput.positionWS.xyz;
-				half3 viewDirectionWS = half3(packedInput.viewDirectionWS);
-
-				DecalSurfaceData surfaceData;
-				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
-
-				/*ase_frag_code:packedInput=PackedVaryings*/
-
-				surfaceDescription.BaseColor = /*ase_frag_out:Base Color;Float3;0;-1;_BaseColor*/IsGammaSpace() ? float3(0.5, 0.5, 0.5) : SRGBToLinear(float3(0.5, 0.5, 0.5))/*end*/;
-				surfaceDescription.Alpha = /*ase_frag_out:Alpha;Float;1;-1;_Alpha*/1/*end*/;
-				surfaceDescription.NormalTS = /*ase_frag_out:Normal;Float3;2;-1;_NormalTS*/float3(0.0f, 0.0f, 1.0f)/*end*/;
-				surfaceDescription.NormalAlpha = /*ase_frag_out:Normal Alpha;Float;3;-1;_NormalAlpha*/1/*end*/;
-
-				#if defined( _MATERIAL_AFFECTS_MAOS )
-					surfaceDescription.Metallic = /*ase_frag_out:Metallic;Float;4;-1;_Metallic*/0/*end*/;
-					surfaceDescription.Occlusion = /*ase_frag_out:Occlusion;Float;5;-1;_Occlusion*/1/*end*/;
-					surfaceDescription.Smoothness = /*ase_frag_out:Smoothness;Float;6;-1;_Smoothness*/0.5/*end*/;
-					surfaceDescription.MAOSAlpha = /*ase_frag_out:MAOS Alpha;Float;7;-1;_ColorP*/1/*end*/;
+					float fadeFactor = 1.0;
 				#endif
 
-				#if defined( _MATERIAL_AFFECTS_EMISSION )
-					surfaceDescription.Emission = /*ase_frag_out:Emission;Float3;8;-1;_Emission*/float3(0, 0, 0)/*end*/;
+				ZERO_INITIALIZE(DecalSurfaceData, surfaceData);
+
+				#ifdef _MATERIAL_AFFECTS_EMISSION
+					surfaceData.emissive.rgb = surfaceDescription.Emission.rgb * fadeFactor;
 				#endif
-
-				GetSurfaceData(packedInput, surfaceDescription, surfaceData);
-
-				InputData inputData;
-				InitializeInputData(packedInput, positionWS, surfaceData.normalWS.xyz, viewDirectionWS, inputData);
-
-				SurfaceData surface = (SurfaceData)0;
-				GetSurface(surfaceData, surface);
-
-				BRDFData brdfData;
-				InitializeBRDFData(surface.albedo, surface.metallic, 0, surface.smoothness, surface.alpha, brdfData);
 
 				#ifdef _MATERIAL_AFFECTS_ALBEDO
-					#ifdef DECAL_RECONSTRUCT_NORMAL
-						half3 normalGI = normalize(lerp(normalWS.xyz, surfaceData.normalWS.xyz, surfaceData.normalWS.w));
+					surfaceData.baseColor.xyz = surfaceDescription.BaseColor;
+					surfaceData.baseColor.w = surfaceDescription.Alpha * fadeFactor;
+				#endif
+
+				#ifdef _MATERIAL_AFFECTS_NORMAL
+					#ifdef DECAL_SURFACE_GRADIENT
+						#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
+							float3x3 tangentToWorld = transpose((float3x3)normalToWorld);
+						#else
+							float3x3 tangentToWorld = fragInputs.tangentToWorld;
+						#endif
+
+						surfaceData.normalWS.xyz = SurfaceGradientFromTangentSpaceNormalAndFromTBN(surfaceDescription.NormalTS.xyz, tangentToWorld[0], tangentToWorld[1]);
 					#else
-						half3 normalGI = surfaceData.normalWS.xyz;
+						#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR)
+							surfaceData.normalWS.xyz = mul((float3x3)normalToWorld, surfaceDescription.NormalTS);
+						#elif (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_PREVIEW)
+							surfaceData.normalWS.xyz = normalize(TransformTangentToWorld(surfaceDescription.NormalTS, fragInputs.tangentToWorld));
+						#endif
 					#endif
 
-					Light mainLight = GetMainLight(inputData.shadowCoord, inputData.positionWS, inputData.shadowMask);
-					MixRealtimeAndBakedGI(mainLight, normalGI, inputData.bakedGI, inputData.shadowMask);
-					half3 color = GlobalIllumination(brdfData, inputData.bakedGI, surface.occlusion, normalGI, inputData.viewDirectionWS);
+					surfaceData.normalWS.w = surfaceDescription.NormalAlpha * fadeFactor;
 				#else
-					half3 color = 0;
+					#if (SHADERPASS == SHADERPASS_FORWARD_PREVIEW)
+						#ifdef DECAL_SURFACE_GRADIENT
+							surfaceData.normalWS.xyz = float3(0.0, 0.0, 0.0);
+						#else
+							surfaceData.normalWS.xyz = normalize(TransformTangentToWorld(float3(0.0, 0.0, 0.1), fragInputs.tangentToWorld));
+						#endif
+					#endif
 				#endif
 
-				half3 packedNormalWS = PackNormal(surfaceData.normalWS.xyz);
-				fragmentOutput.GBuffer0 = half4(surfaceData.baseColor.rgb, surfaceData.baseColor.a);
-				fragmentOutput.GBuffer1 = 0;
-				fragmentOutput.GBuffer2 = half4(packedNormalWS, surfaceData.normalWS.a);
-				fragmentOutput.GBuffer3 = half4(surfaceData.emissive + color, surfaceData.baseColor.a);
+				#ifdef _MATERIAL_AFFECTS_MASKMAP
+					surfaceData.mask.z = surfaceDescription.Smoothness;
+					surfaceData.mask.w = surfaceDescription.MAOSAlpha * fadeFactor;
 
-				#if OUTPUT_SHADOWMASK
-					fragmentOutput.GBuffer4 = inputData.shadowMask;
+					#ifdef DECALS_4RT
+						surfaceData.mask.x = surfaceDescription.Metallic;
+						surfaceData.mask.y = surfaceDescription.Occlusion;
+						surfaceData.MAOSBlend.x = surfaceDescription.MAOSAlpha * fadeFactor;
+						surfaceData.MAOSBlend.y = surfaceDescription.MAOSAlpha * fadeFactor;
+					#endif
+
 				#endif
-
-                #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-                positionSS = RemapFoveatedRenderingDistortCS(packedInput.positionCS.xy, true) * _ScreenSize.zw;
-                #endif
-
 			}
 
+			PackedVaryingsToPS Vert(AttributesMesh inputMesh  )
+			{
+				PackedVaryingsToPS output;
+
+				UNITY_SETUP_INSTANCE_ID(inputMesh);
+				UNITY_TRANSFER_INSTANCE_ID(inputMesh, output);
+				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+				inputMesh.tangentOS = float4( 1, 0, 0, -1);
+				inputMesh.normalOS = float3( 0, 1, 0 );
+
+				
+
+				inputMesh.normalOS = inputMesh.normalOS;
+				inputMesh.tangentOS = inputMesh.tangentOS;
+
+				float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS);
+				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
+				float4 tangentWS = float4(TransformObjectToWorldDir(inputMesh.tangentOS.xyz), inputMesh.tangentOS.w);
+
+				output.positionRWS.xyz = positionRWS;
+				output.positionCS = TransformWorldToHClip(positionRWS);
+				output.normalWS.xyz = normalWS;
+				output.tangentWS.xyzw = tangentWS;
+				output.uv0.xyzw = inputMesh.uv0;
+
+				return output;
+			}
+
+			void Frag(  PackedVaryingsToPS packedInput,
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
+				OUTPUT_DBUFFER(outDBuffer)
+			#else
+				out float4 outEmissive : SV_Target0
+			#endif
+			
+			)
+			{
+				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
+				UNITY_SETUP_INSTANCE_ID(packedInput);
+
+                FragInputs input;
+                ZERO_INITIALIZE(FragInputs, input);
+
+                input.tangentToWorld = k_identity3x3;
+                input.positionSS = packedInput.positionCS;
+
+                input.positionRWS = packedInput.positionRWS.xyz;
+
+                input.tangentToWorld = BuildTangentToWorld(packedInput.tangentWS.xyzw, packedInput.normalWS.xyz);
+                input.texCoord0 = packedInput.uv0.xyzw;
+
+				DecalSurfaceData surfaceData;
+				float clipValue = 1.0;
+				float angleFadeFactor = 1.0;
+
+				PositionInputs posInput;
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)
+
+				float depth = LoadCameraDepth(input.positionSS.xy);
+				posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, depth, UNITY_MATRIX_I_VP, UNITY_MATRIX_V);
+
+				DecalPrepassData material;
+				ZERO_INITIALIZE(DecalPrepassData, material);
+				if (_EnableDecalLayers)
+				{
+					uint decalLayerMask = uint(UNITY_ACCESS_INSTANCED_PROP(Decal, _DecalLayerMaskFromDecal).x);
+
+					DecodeFromDecalPrepass(posInput.positionSS, material);
+
+					if ((decalLayerMask & material.renderingLayerMask) == 0)
+						clipValue -= 2.0;
+				}
+
+				float3 positionDS = TransformWorldToObject(posInput.positionWS);
+				positionDS = positionDS * float3(1.0, -1.0, 1.0) + float3(0.5, 0.5, 0.5);
+				if (!(all(positionDS.xyz > 0.0f) && all(1.0f - positionDS.xyz > 0.0f)))
+				{
+					clipValue -= 2.0;
+				}
+
+			#ifndef SHADER_API_METAL
+				clip(clipValue);
+			#else
+				if (clipValue > 0.0)
+				{
+			#endif
+
+				float4x4 normalToWorld = UNITY_ACCESS_INSTANCED_PROP(Decal, _NormalToWorld);
+				float2 scale = float2(normalToWorld[3][0], normalToWorld[3][1]);
+				float2 offset = float2(normalToWorld[3][2], normalToWorld[3][3]);
+				positionDS.xz = positionDS.xz * scale + offset;
+
+				input.texCoord0.xy = positionDS.xz;
+				input.texCoord1.xy = positionDS.xz;
+				input.texCoord2.xy = positionDS.xz;
+				input.texCoord3.xy = positionDS.xz;
+
+				float3 V = GetWorldSpaceNormalizeViewDir(posInput.positionWS);
+
+				if (_EnableDecalLayers)
+				{
+					float2 angleFade = float2(normalToWorld[1][3], normalToWorld[2][3]);
+					if (angleFade.x > 0.0f)
+					{
+						float3 decalNormal = float3(normalToWorld[0].z, normalToWorld[1].z, normalToWorld[2].z);
+                        angleFadeFactor = DecodeAngleFade(dot(material.geomNormalWS, decalNormal), angleFade);
+					}
+				}
+
+			#else
+				posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, input.positionSS.z, input.positionSS.w, input.positionRWS.xyz, uint2(0, 0));
+				float3 V = GetWorldSpaceNormalizeViewDir(input.positionRWS);
+			#endif
+
+				float3 positionWS = GetAbsolutePositionWS( posInput.positionWS );
+				float3 positionRWS = posInput.positionWS;
+
+				float3 worldTangent = TransformObjectToWorldDir(float3(1, 0, 0));
+				float3 worldNormal = TransformObjectToWorldDir(float3(0, 1, 0));
+				float3 worldBitangent = TransformObjectToWorldDir(float3(0, 0, 1));
+
+				float4 texCoord0 = input.texCoord0;
+				float4 texCoord1 = input.texCoord1;
+				float4 texCoord2 = input.texCoord2;
+				float4 texCoord3 = input.texCoord3;
+
+				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
+
+				
+
+				surfaceDescription.BaseColor = float3( 0.7353569, 0.7353569, 0.7353569 );
+				surfaceDescription.Alpha = 1;
+				surfaceDescription.NormalTS = float3( 0, 0, 1 );
+				surfaceDescription.NormalAlpha = 1;
+				surfaceDescription.Metallic = 0;
+				surfaceDescription.Occlusion = 1;
+				surfaceDescription.Smoothness = 0.5;
+				surfaceDescription.MAOSAlpha = 1;
+				surfaceDescription.Emission = float3( 0, 0, 0 );
+
+				GetSurfaceData(surfaceDescription, input, V, posInput, angleFadeFactor, surfaceData);
+
+			#if ((SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR)) && defined(SHADER_API_METAL)
+				}
+
+				clip(clipValue);
+			#endif
+
+			#if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
+				ENCODE_INTO_DBUFFER(surfaceData, outDBuffer);
+			#else
+				outEmissive.rgb = surfaceData.emissive * GetCurrentExposureMultiplier();
+				outEmissive.a = 1.0;
+			#endif
+			}
             ENDHLSL
         }
 
-		/*ase_pass*/
+		
         Pass
-        {
-            /*ase_hide_pass*/
+		{
+			
 			Name "ScenePickingPass"
-            Tags
-            {
-                "LightMode" = "Picking"
-            }
+			Tags { "LightMode"="Picking" }
 
             Cull Back
 
-			HLSLPROGRAM
+            HLSLPROGRAM
+		    #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_ALBEDO
+		    #pragma shader_feature_local_fragment _COLORMAP
+		    #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_NORMAL
+		    #pragma shader_feature_local_fragment _MATERIAL_AFFECTS_MASKMAP
+		    #pragma shader_feature_local_fragment _MASKMAP
+		    #define _MATERIAL_AFFECTS_EMISSION
+		    #pragma shader_feature_local_fragment _EMISSIVEMAP
+		    #pragma multi_compile _ LOD_FADE_CROSSFADE
+		    #define ASE_SRP_VERSION 160005
 
-			#pragma only_renderers gles gles3 glcore d3d11
-			#pragma multi_compile_instancing
-			#pragma editor_sync_compilation
+		    #pragma exclude_renderers glcore gles gles3 ps4 ps5 
+
+            #define ATTRIBUTES_NEED_NORMAL
+            #define ATTRIBUTES_NEED_TANGENT
+
 			#pragma vertex Vert
 			#pragma fragment Frag
 
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/NormalSurfaceGradient.hlsl"
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 
-            #define HAVE_MESH_MODIFICATION
+			// Require _SelectionID variable
+            float4 _SelectionID;
 
-            #define SHADERPASS SHADERPASS_DEPTHONLY
-			#define SCENEPICKINGPASS 1
+           #define SHADERPASS SHADERPASS_DEPTH_ONLY
+           #define SCENEPICKINGPASS 1
 
-			#ifdef SCENEPICKINGPASS
-			float4 _SelectionID;
-			#endif
-			#if _RENDER_PASS_ENABLED
-			#define GBUFFER3 0
-			#define GBUFFER4 1
-			FRAMEBUFFER_INPUT_HALF(GBUFFER3);
-			FRAMEBUFFER_INPUT_HALF(GBUFFER4);
-			#endif
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl"
+			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
+			#include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/PickingSpaceTransforms.hlsl"
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/Decal.hlsl"
 
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl"
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DecalInput.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderVariablesDecal.hlsl"
+            #pragma editor_sync_compilation
 
-			/*ase_pragma*/
+			
 
-			struct Attributes
+            struct AttributesMesh
 			{
 				float3 positionOS : POSITION;
 				float3 normalOS : NORMAL;
 				float4 tangentOS : TANGENT;
-				/*ase_vdata:p=p;n=n;t=t*/
-				UNITY_VERTEX_INPUT_INSTANCE_ID
+				
+                UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
 
-			struct PackedVaryings
+			struct PackedVaryingsToPS
 			{
 				float4 positionCS : SV_POSITION;
-				/*ase_interp(0,):sp=sp*/
+				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
 
             CBUFFER_START(UnityPerMaterial)
-			float _DrawOrder;
-			float _DecalMeshBiasType;
-			float _DecalMeshDepthBias;
+                        float _DrawOrder;
+			float _NormalBlendSrc;
+			float _MaskBlendSrc;
+			float _DecalBlend;
+			int   _DecalMeshBiasType;
+            float _DecalMeshDepthBias;
 			float _DecalMeshViewBias;
-			CBUFFER_END
+            float _DecalStencilWriteMask;
+            float _DecalStencilRef;
+            #ifdef _MATERIAL_AFFECTS_ALBEDO
+            float _AffectAlbedo;
+			#endif
+            #ifdef _MATERIAL_AFFECTS_NORMAL
+            float _AffectNormal;
+			#endif
+            #ifdef _MATERIAL_AFFECTS_MASKMAP
+            float _AffectAO;
+			float _AffectMetal;
+            float _AffectSmoothness;
+			#endif
+            #ifdef _MATERIAL_AFFECTS_EMISSION
+            float _AffectEmission;
+			#endif
+            float _DecalColorMask0;
+            float _DecalColorMask1;
+            float _DecalColorMask2;
+            float _DecalColorMask3;
+            CBUFFER_END
 
-			/*ase_globals*/
+	   		
 
-			/*ase_funcs*/
+			
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalPrepassBuffer.hlsl"
 
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR)
-            #define DECAL_PROJECTOR
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_MESH) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_MESH
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DBUFFER_MESH)
-            #define DECAL_DBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_SCREEN_SPACE_MESH)
-            #define DECAL_SCREEN_SPACE
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_DECAL_GBUFFER_PROJECTOR) || (SHADERPASS == SHADERPASS_DECAL_GBUFFER_MESH)
-            #define DECAL_GBUFFER
-            #endif
-
-            #if (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_PROJECTOR) || (SHADERPASS == SHADERPASS_FORWARD_EMISSIVE_MESH)
-            #define DECAL_FORWARD_EMISSIVE
-            #endif
-
-            #if ((!defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_ALBEDO)) || (defined(_MATERIAL_AFFECTS_NORMAL) && defined(_MATERIAL_AFFECTS_NORMAL_BLEND))) && (defined(DECAL_SCREEN_SPACE) || defined(DECAL_GBUFFER))
-            #define DECAL_RECONSTRUCT_NORMAL
-            #elif defined(DECAL_ANGLE_FADE)
-            #define DECAL_LOAD_NORMAL
-            #endif
-
-            #ifdef _DECAL_LAYERS
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareRenderingLayerTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_LOAD_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl"
-            #endif
-
-            #if defined(DECAL_PROJECTOR) || defined(DECAL_RECONSTRUCT_NORMAL)
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
-            #endif
-
-            #ifdef DECAL_MESH
-            #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DecalMeshBiasTypeEnum.cs.hlsl"
-            #endif
-
-            #ifdef DECAL_RECONSTRUCT_NORMAL
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/NormalReconstruction.hlsl"
-            #endif
-
-            #if defined(_FOVEATED_RENDERING_NON_UNIFORM_RASTER)
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRendering.hlsl"
-            #endif
-
-			PackedVaryings Vert(Attributes inputMesh /*ase_vert_input*/ )
+			PackedVaryingsToPS Vert(AttributesMesh inputMesh )
 			{
-				PackedVaryings packedOutput;
-				ZERO_INITIALIZE(PackedVaryings, packedOutput);
+				PackedVaryingsToPS output;
 
 				UNITY_SETUP_INSTANCE_ID(inputMesh);
-				UNITY_TRANSFER_INSTANCE_ID(inputMesh, packedOutput);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(packedOutput);
+				UNITY_TRANSFER_INSTANCE_ID(inputMesh, output);
+				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-				inputMesh.tangentOS = float4( 1, 0, 0, -1 );
+				inputMesh.tangentOS = float4( 1, 0, 0, -1);
 				inputMesh.normalOS = float3( 0, 1, 0 );
 
-				/*ase_vert_code:inputMesh=Attributes;packedOutput=PackedVaryings*/
+				
 
-				float3 positionWS = TransformObjectToWorld(inputMesh.positionOS);
-				packedOutput.positionCS = TransformWorldToHClip(positionWS);
+				#ifdef ASE_ABSOLUTE_VERTEX_POS
+				float3 defaultVertexValue = inputMesh.positionOS.xyz;
+				#else
+				float3 defaultVertexValue = float3( 0, 0, 0 );
+				#endif
+				float3 vertexValue = defaultVertexValue;
+				#ifdef ASE_ABSOLUTE_VERTEX_POS
+				inputMesh.positionOS.xyz = vertexValue;
+				#else
+				inputMesh.positionOS.xyz += vertexValue;
+				#endif
 
-				return packedOutput;
+				float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS) ;
+				output.positionCS = TransformWorldToHClip(positionRWS);
+
+				return output;
 			}
 
-			void Frag(PackedVaryings packedInput,
-				out float4 outColor : SV_Target0
-				/*ase_frag_input*/
-			)
+			void Frag(  PackedVaryingsToPS packedInput,
+						out float4 outColor : SV_Target0
+						
+						)
 			{
-				/*ase_frag_code:packedInput=PackedVaryings*/
+				
 
-				float3 BaseColor = /*ase_frag_out:Base Color;Float3;0;-1;_BaseColor*/IsGammaSpace() ? float3(0.5, 0.5, 0.5) : SRGBToLinear(float3(0.5, 0.5, 0.5))/*end*/;
-
+				//This port is needed as templates always require fragment ports to correctly work...this will be discarded by the compiler
+				float3 baseColor = float3( 0,0,0);
 				outColor = _SelectionID;
 			}
-			ENDHLSL
+
+            ENDHLSL
         }
+		
     }
-	CustomEditor "UnityEditor.Rendering.Universal.DecalShaderGraphGUI"
-    FallBack "Hidden/Shader Graph/FallbackError"
+    CustomEditor "Rendering.HighDefinition.DecalShaderGraphGUI"
+	
+	Fallback Off
 }
+/*ASEBEGIN
+Version=19200
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;2;0,0;Float;False;False;-1;2;Rendering.HighDefinition.DecalShaderGraphGUI;0;1;New Amplify Shader;d345501910c196f4a81c9eff8a0a5ad7;True;DecalProjectorForwardEmissive;0;1;DecalProjectorForwardEmissive;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;False;True;8;5;False;;1;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;False;False;False;False;False;False;False;False;False;True;True;0;True;_DecalStencilRef;255;False;;255;True;_DecalStencilWriteMask;7;False;;3;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;2;False;;True;2;False;;False;True;1;LightMode=DecalProjectorForwardEmissive;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;3;0,0;Float;False;False;-1;2;Rendering.HighDefinition.DecalShaderGraphGUI;0;1;New Amplify Shader;d345501910c196f4a81c9eff8a0a5ad7;True;DBufferMesh;0;2;DBufferMesh;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;False;True;2;5;False;;10;False;;1;0;False;;10;False;;False;False;True;2;5;False;;10;False;;1;0;False;;10;False;;False;False;True;2;5;False;;10;False;;1;0;False;;10;False;;False;False;True;1;0;False;;6;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;0;True;_DecalStencilRef;255;False;;255;True;_DecalStencilWriteMask;7;False;;3;False;;0;False;;0;False;;7;False;;3;False;;0;False;;0;False;;False;True;2;False;;True;3;False;;False;True;1;LightMode=DBufferMesh;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;4;0,0;Float;False;False;-1;2;Rendering.HighDefinition.DecalShaderGraphGUI;0;1;New Amplify Shader;d345501910c196f4a81c9eff8a0a5ad7;True;DecalMeshForwardEmissive;0;3;DecalMeshForwardEmissive;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;False;True;8;5;False;;1;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;0;True;_DecalStencilRef;255;False;;255;True;_DecalStencilWriteMask;7;False;;3;False;;0;False;;0;False;;7;False;;3;False;;0;False;;0;False;;False;True;2;False;;True;3;False;;False;True;1;LightMode=DecalMeshForwardEmissive;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;5;0,0;Float;False;False;-1;2;Rendering.HighDefinition.DecalShaderGraphGUI;0;1;New Amplify Shader;d345501910c196f4a81c9eff8a0a5ad7;True;ScenePickingPass;0;4;ScenePickingPass;1;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Picking;False;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.RangedFloatNode;6;-700.6003,-392.8;Inherit;False;Property;_Cutoff;Cutoff;0;0;Create;True;0;0;0;False;0;False;1;1;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.TexturePropertyNode;12;-768.6003,-119.8;Inherit;True;Property;_normalMap;normalMap;2;2;[NoScaleOffset];[Normal];Create;True;0;0;0;False;0;False;None;None;False;bump;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.RangedFloatNode;14;-759.6003,71.19997;Inherit;False;Property;_AlphaMult;AlphaMult;3;0;Create;True;0;0;0;False;0;False;1;0;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.TexturePropertyNode;9;-769.6003,-309.8;Inherit;True;Property;_MainTex;MainTex;1;0;Create;True;0;0;0;False;0;False;None;None;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.TexturePropertyNode;16;-753.6003,149.2;Inherit;True;Property;_metallicMap;metallicMap;4;0;Create;True;0;0;0;False;0;False;None;None;False;black;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.RangedFloatNode;17;-745.6003,339.2;Inherit;False;Property;_normalPower;normalPower;5;0;Create;True;0;0;0;False;0;False;1;1;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.TexturePropertyNode;19;-740.6003,422.2;Inherit;True;Property;_texcoord;texcoord;6;1;[HideInInspector];Create;True;0;0;0;False;0;False;None;None;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.IntNode;21;-736.6003,622.1999;Inherit;False;Property;__dirty;dirty;7;1;[HideInInspector];Create;False;0;0;0;False;0;False;1;0;False;0;1;INT;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;1;60,-66;Float;False;True;-1;2;Rendering.HighDefinition.DecalShaderGraphGUI;0;22;Hidden/Universal/Decal;d345501910c196f4a81c9eff8a0a5ad7;True;DBufferProjector;0;0;DBufferProjector;11;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;False;True;2;5;False;;10;False;;1;0;False;;10;False;;False;False;True;2;5;False;;10;False;;1;0;False;;10;False;;False;False;True;2;5;False;;10;False;;1;0;False;;10;False;;False;False;True;1;0;False;;6;False;;0;1;False;;0;False;;False;False;False;True;1;False;;False;False;False;False;False;False;False;False;False;True;True;0;True;_DecalStencilRef;255;False;;255;True;_DecalStencilWriteMask;7;False;;3;False;;0;False;;0;False;;7;False;;3;False;;0;False;;0;False;;False;True;2;False;;True;2;False;;False;True;1;LightMode=DBufferProjector;False;False;0;;0;0;Standard;7;Affect BaseColor;1;0;Affect Normal;1;0;Affect Metal;1;0;Affect AO;1;0;Affect Smoothness;1;0;Affect Emission;1;0;Support LOD CrossFade;1;0;0;5;True;True;True;True;True;False;;False;0
+ASEEND*/
+//CHKSM=509CF56AFCCED5E0FBB257F0F29BB81CE799A638

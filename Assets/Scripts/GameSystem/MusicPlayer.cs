@@ -9,6 +9,7 @@ public class MusicPlayer : MonoBehaviour
     public AudioSource Music;
     bool changeTrack, changed;
     AudioClip trackTo;
+    float maxVolume = 0.5f;
 
     // Start is called before the first frame update
     private void Awake()
@@ -24,6 +25,12 @@ public class MusicPlayer : MonoBehaviour
 
     }
 
+    void Start()
+    {
+
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -33,17 +40,21 @@ public class MusicPlayer : MonoBehaviour
 
     public void ChangeMusic(AudioClip newMusic)
     {
+        if (newMusic == trackTo) return;
         changeTrack = true;
+        Music.clip = trackTo;
         trackTo = newMusic;
         changed = false;
+        Debug.Log("Changing playing " + newMusic.name);
     }
 
     public void StartMusic(AudioClip newMusic)
     {
         Music.Stop();
-        Music.volume = 1f;
+        Music.volume = maxVolume;
         Music.clip = newMusic;
         Music.Play();
+        Debug.Log("Starting playing " + newMusic.name);
     }
 
     public void StopMusic()
@@ -51,6 +62,7 @@ public class MusicPlayer : MonoBehaviour
         changeTrack = true;
         trackTo = null;
         changed = false;
+        Debug.Log("Stoping music");
     }
 
     void MusicChanging()
@@ -58,17 +70,18 @@ public class MusicPlayer : MonoBehaviour
         if (changed == false)
             Music.volume -= (Time.deltaTime) / 4;
 
-        if (Music.volume <= 0.1 && changed == false && trackTo != null)
+        if (Music.volume <= 0.01 && changed == false && trackTo != null)
         {
             changed = true;
             Music.clip = trackTo;
-            Music.Play();
+            if (trackTo != null)
+                Music.Play();
         }
 
         if (changed == true)
             Music.volume += Time.deltaTime;
 
-        if (Music.volume >= 0.9 && changed == true)
+        if (Music.volume >= maxVolume && changed == true)
         {
             changeTrack = false;
         }

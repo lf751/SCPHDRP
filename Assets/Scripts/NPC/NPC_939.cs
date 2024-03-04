@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-    
+
 public class NPC_939 : Map_NPC
 {
 
@@ -15,7 +15,7 @@ public class NPC_939 : Map_NPC
     Vector3 currentTarget;
     Collider[] CloseSounds;
     public Transform[] patrol;
-    public AudioClip [] Hello;
+    public AudioClip[] Hello;
     public AudioClip[] Heard;
     public AudioClip[] Found;
     public AudioClip[] Attack;
@@ -121,13 +121,13 @@ public class NPC_939 : Map_NPC
                         if (!stateSet)
                         {
                             playerCheck = foundPlayer;
-                            
+
                             Agent.isStopped = true;
                             data.npcvalue[valDestSet] = 0;
                             stateSet = true;
                             Timer = Random.Range(defIdle, defIdle + 3);
                             //if (isDebuggin)
-                                //Debug.Log("Volviendo a Idle");
+                            //Debug.Log("Volviendo a Idle");
                         }
                         break;
                     }
@@ -175,7 +175,7 @@ public class NPC_939 : Map_NPC
                             Timer = Random.Range(defWalk, defWalk + 3);
                             stateSet = true;
                             //if (isDebuggin)
-                                //Debug.Log("Caminata");
+                            //Debug.Log("Caminata");
 
                         }
                         else if (Agent.remainingDistance < 1)
@@ -198,7 +198,7 @@ public class NPC_939 : Map_NPC
                             Agent.SetDestination(currentTarget);
                             data.npcvalue[valDestSet] = 1;
                             //if (isDebuggin)
-                                //Debug.Log(soundlevel + "Corro hacia el!");
+                            //Debug.Log(soundlevel + "Corro hacia el!");
                             PlayVoice(4);
                         }
                         else if (Agent.remainingDistance < 0.5)
@@ -212,7 +212,7 @@ public class NPC_939 : Map_NPC
                     }
                 case state_939.walk:
                     {
-                        playerCheck = foundPlayer*2;
+                        playerCheck = foundPlayer * 2;
                         if (data.npcvalue[valDestSet] == 0)
                         {
                             PlayVoice(3);
@@ -245,7 +245,7 @@ public class NPC_939 : Map_NPC
                             data.npcvalue[valDestSet] = 0;
                             Timer = HearingTimer;
                             //if (isDebuggin)
-                                //Debug.Log(soundlevel + "Escuche algo?");
+                            //Debug.Log(soundlevel + "Escuche algo?");
                             stateSet = true;
                             PlayVoice(1);
                         }
@@ -263,7 +263,7 @@ public class NPC_939 : Map_NPC
                             data.npcvalue[valDestSet] = 0;
                             Timer = Hearing2Timer;
                             //if (isDebuggin)
-                                //Debug.Log(soundlevel + "Si escuche!");
+                            //Debug.Log(soundlevel + "Si escuche!");
                             stateSet = true;
                             PlayVoice(2);
                         }
@@ -283,8 +283,8 @@ public class NPC_939 : Map_NPC
                 {
                     case state_939.idle:
                         {
-                            if(patrol!=null)
-                            state = state_939.patrol;
+                            if (patrol != null)
+                                state = state_939.patrol;
                             break;
                         }
                     case state_939.walk:
@@ -398,17 +398,17 @@ public class NPC_939 : Map_NPC
             }
 
             if (checkPlayer)
-            playerDistance = Vector3.Distance(Player.transform.position, transform.position);
+                playerDistance = Vector3.Distance(Player.transform.position, transform.position);
             lookAt = new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z) - transform.position;
             //if (debugPlayerPos)
-                //Debug.Log("Producto dot " + Vector3.Dot(transform.forward, lookAt.normalized));
+            //Debug.Log("Producto dot " + Vector3.Dot(transform.forward, lookAt.normalized));
 
-            
+
 
             if (playerDistance < playerCheck)
             {
                 bool check = CheckPlayer();
-                if (state != state_939.attack && (Vector3.Dot(transform.forward, lookAt.normalized) > 0.5f||playerDistance<=AttackDistance) && check)
+                if (state != state_939.attack && (Vector3.Dot(transform.forward, lookAt.normalized) > 0.5f || playerDistance <= AttackDistance) && check)
                 {
                     WaitTimer = WaitTimerBase;
                     foundTarget = false;
@@ -429,10 +429,10 @@ public class NPC_939 : Map_NPC
     void PlayVoice(int library)
     {
         Audio.Stop();
-        float delay=0;
+        float delay = 0;
         if (library == 1)
         {
-            Audio.clip = Hello[Random.Range(0,Hello.Length)];
+            Audio.clip = Hello[Random.Range(0, Hello.Length)];
             delay = 0.5f;
             if (playerDistance < 15f)
                 StartCoroutine(playDelayedScript(delay, Audio.clip.name));
@@ -441,7 +441,7 @@ public class NPC_939 : Map_NPC
         {
             Audio.clip = Heard[Random.Range(0, Heard.Length)];
             delay = 2;
-            if(playerDistance < 15f)
+            if (playerDistance < 15f)
                 StartCoroutine(playDelayedScript(delay, Audio.clip.name));
         }
         if (library == 3)
@@ -518,7 +518,7 @@ public class NPC_939 : Map_NPC
 
                     //Debug.Log("Sound heard at: " + Mathf.Sqrt(dis) + "meters");
 
-                    if (currdistance < lastdistance && ((15f*15f)>dis))
+                    if (currdistance < lastdistance && ((15f * 15f) > dis))
                     {
                         currentTarget = CloseSounds[i].gameObject.transform.position;
                         data.npcvalue[valSoundLevel] = currentSoundLevel;
@@ -540,6 +540,7 @@ public class NPC_939 : Map_NPC
             {
                 Animator.SetTrigger("attack" + Random.Range(1, 3));
                 other.gameObject.GetComponent<PlayerControl>().Health -= 25;
+                SubtitleEngine.instance.playSub("playStrings", "play_hit");
                 AttackTimer = AttackCool;
                 Audio.PlayOneShot(Hit);
 

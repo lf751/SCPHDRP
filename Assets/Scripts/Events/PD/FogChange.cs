@@ -22,7 +22,7 @@ public class FogChange : MonoBehaviour
         }
         else
         {
-            RenderSettings.fogEndDistance = Mathf.Lerp(RenderSettings.fogEndDistance, 15, 2 * Time.deltaTime);
+            RenderSettings.fogEndDistance = Mathf.Lerp(RenderSettings.fogEndDistance, 12, 2 * Time.deltaTime);
             camera.farClipPlane = Mathf.Lerp(camera.farClipPlane, 15, 2 * Time.deltaTime);
         }
     }

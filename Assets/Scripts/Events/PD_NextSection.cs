@@ -16,6 +16,7 @@ public class PD_NextSection : MonoBehaviour
     {
         if (trigger.GetState())
         {
+            trigger.Triggered = false;
             PD_Teleports.instance.Teleport();
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoxTrigger : MonoBehaviour
 {
-    bool Triggered;
+    public bool Triggered;
     public bool autoFalse = false;
 
     // Update is called once per frame

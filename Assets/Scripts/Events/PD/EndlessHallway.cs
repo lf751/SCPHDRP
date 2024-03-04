@@ -12,7 +12,8 @@ public class EndlessHallway : MonoBehaviour
     {
         if (Box1.GetState())
         {
-            if (Random.Range(0,100) < 40)
+            Box1.Triggered = true;
+            if (Random.Range(0, 100) < 20)
                 PD_Teleports.instance.Teleport();
             else
                 Switch(Pos1, Pos2);
@@ -20,7 +21,8 @@ public class EndlessHallway : MonoBehaviour
 
         if (Box2.GetState())
         {
-            if (Random.Range(0, 100) < 40)
+            Box2.Triggered = true;
+            if (Random.Range(0, 100) < 20)
                 PD_Teleports.instance.Teleport();
             else
                 Switch(Pos2, Pos1);

@@ -24,12 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5263602277347784443}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5263602277347784441
 MonoBehaviour:
@@ -49,7 +50,7 @@ MonoBehaviour:
   hsize: 0.33
   vsize: 0.25
   position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
+  DecalAtlas: {fileID: 2100000, guid: 839b753bbf7c80b4e8482e4bd180192d, type: 2}
   animate: 0
   frames: []
   framerate: 0

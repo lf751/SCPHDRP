@@ -69,7 +69,7 @@ public class PlayerControl : MonoBehaviour
     RaycastHit WallCheck;
     Vector3 holdCam, fallSpeed, movement, HoldPos, OriPos, totalmove, headPos, forceLook;
     Quaternion toAngle;
-    private CharacterController _controller;
+    public CharacterController _controller;
     bool Grounded = true, isSmoke = false, objectLock = false, fakeBlink, isRunning, isTired = false, isLooking = false, cognitoEffect, onBlink, cameraNextFrame, isCaptive = false;
     [System.NonSerialized]
     public Camera PlayerCam;
@@ -80,6 +80,8 @@ public class PlayerControl : MonoBehaviour
     bool playedCough = false, playerCouch = false;
     const float stepMiddle = (Mathf.PI / 2) * 3;
 
+    float HealthStat = 0f;
+
     [Header("Movement")]
     public float GroundDistance = 0.2f;
     public float Gravity = -9.81f, maxfallspeed, Basespeed = 3, crouchspeed = 2, runSpeed = 4, speedMul = 1, forceWalkSpeed = 1.6f;
@@ -89,6 +91,7 @@ public class PlayerControl : MonoBehaviour
     [Header("Gimmicks")]
     public float BlinkingTimerBase;
     public float ClosedEyes, BaseBlinkMult = 0.75f, AsfixiaTimer, RunningTimerBase, OpenMulti, CollisionSphere, Health = 100, bloodloss = 0, handLength, handSize, zombieVirusMaxTime, zombieVirusFull;
+    public float lifeStatMax = 60f, lifeStatMin = 30f, bloodStatMin = 60f, bloodStatMax = 30f;
     [System.NonSerialized]
     public float zombieTimer, zombieVoiceTimer;
     public LayerMask Ground, InteractiveLayer, Collisionables;
@@ -226,6 +229,7 @@ public class PlayerControl : MonoBehaviour
         //handPos.transform.position = CameraObj.transform.position + (CameraObj.transform.forward * 0.5f);
 
         currentBlinkMult = BaseBlinkMult;
+        HealthStat = Mathf.Lerp(lifeStatMax, lifeStatMin, (Mathf.Max(Health - 50, 0) / 50));
     }
 
     // Update is called once per frame
@@ -611,7 +615,7 @@ public class PlayerControl : MonoBehaviour
 
                 z = (z > 180) ? z - 360 : z;
 
-                if (Health < 80)
+                if (Health < 90)
                 {
                    // if (!GameController.instance.isPocket)
                     CameraObj.transform.rotation = Quaternion.Euler(CameraObj.transform.eulerAngles.x, CameraObj.transform.eulerAngles.y, Mathf.MoveTowards(z, 0 + ((hamplitude * ((101 - Health) / HurtDivisor)) * Mathf.Sin(InternalTimerPain)), 10 * Time.deltaTime));
@@ -956,7 +960,10 @@ public class PlayerControl : MonoBehaviour
                 case 3:
                     {
                         sfx.PlayOneShot(Deaths[cause]);
-                        GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_106_stone");
+                        if (GameController.ins.worldName == Worlds.pocket)
+                            GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_106_stone");
+                        else
+                            GameController.ins.deathmsg = Localization.GetString("deathStrings", "death_fall");
                         break;
                     }
                 case 1:
@@ -1271,6 +1278,21 @@ public class PlayerControl : MonoBehaviour
         if (Health >= 100)
             Health = 100;
 
+        if (Health >= 85f)
+            HealthStat = lifeStatMax;
+
+        HealthStat -= Time.deltaTime;
+
+        if (HealthStat < 0)
+        {
+            HealthStat = Mathf.Lerp(lifeStatMax, lifeStatMin, (Mathf.Max(Health - 50, 0) / 50));
+            if (Health > 49f)
+                SubtitleEngine.instance.playSub("playStrings", "play_hurt");
+            else
+                SubtitleEngine.instance.playSub("playStrings", "play_hurt2");
+        }
+
+
         processEffects(ref headEffects);
         processEffects(ref anyEffects);
         processEffects(ref handEffects);
@@ -1298,7 +1320,7 @@ public class PlayerControl : MonoBehaviour
                 i--;
             }
         }
-        
+
     }
 
     void processEffects(ref List<EfectTable> effects)
@@ -1353,6 +1375,7 @@ public class PlayerControl : MonoBehaviour
                         if (bloodloss > 1)
                             SubtitleEngine.instance.playSub("playStrings", "play_cureblood2");
                         bloodloss -= ail.effect.multiplier;
+                        bloodloss = Mathf.Max(0, bloodloss);
                         ail.effect.multiplier = -1;
                     }
                     else
@@ -1522,7 +1545,7 @@ public class PlayerControl : MonoBehaviour
                 audNormal.TransitionTo(0.2f);
             }
             overlay.sprite = ((Equipable_Wear)ItemController.instance.items[equipment[(int)bodyPart.Head].itemFileName]).Overlay;
-            overlay.color = new Color(255, 255, 255, 0.75f);
+            overlay.color = new Color(255, 255, 255, 1f);
         }
         else
         {
@@ -1577,6 +1600,7 @@ public class PlayerControl : MonoBehaviour
         //cameraNextFrame = true;
         Vector3 rota = CameraObj.GetComponent<PlayerMouseLook>().rotation;
         CameraObj.GetComponent<PlayerMouseLook>().rotation = new Vector3(rota.x, rota.y + rotation, 0);
+        CameraObj.transform.rotation = Quaternion.Euler(CameraObj.GetComponent<PlayerMouseLook>().rotation);
         _controller.enabled = true;
     }
 

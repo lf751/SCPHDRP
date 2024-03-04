@@ -6,5 +6,45 @@
             "code": "EN",
             "unitynumber": 10
         }
-    }
+    },
+    {
+        "Key": 34,
+        "Value": {
+            "name": "Espa\u00f1ol",
+            "code": "ES",
+            "unitynumber": 34
+        }
+    },
+    {
+        "Key": 15,
+        "Value": {
+            "name": "Deutsch",
+            "code": "DE",
+            "unitynumber": 15
+        }
+    },
+    {
+        "Key": 6,
+        "Value": {
+            "name": "\u7b80\u4f53\u4e2d\u6587",
+            "code": "CH",
+            "unitynumber": 6
+        }
+    },
+    {
+        "Key": 40,
+        "Value": {
+            "name": "\u7b80\u4f53\u4e2d\u6587",
+            "code": "CH",
+            "unitynumber": 6
+        }
+    },
+    {
+        "Key": 41,
+        "Value": {
+            "name": "\u7b80\u4f53\u4e2d\u6587",
+            "code": "CH",
+            "unitynumber": 6
+        }
+    },
 ]

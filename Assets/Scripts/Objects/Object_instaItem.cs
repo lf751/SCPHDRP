@@ -25,15 +25,17 @@ public class Object_instaItem : Object_Interact
     {
         item = new GameItem(itemOG.name);
         GameObject model = ItemController.instance.items[item.itemFileName].ItemModel;
-        MeshFilter mesh = ItemController.instance.items[item.itemFileName].ItemModel.GetComponentInChildren<MeshFilter>(true);
-        MeshRenderer renderer = ItemController.instance.items[item.itemFileName].ItemModel.GetComponentInChildren<MeshRenderer>(true);
-        itemFilter = mesh;
+        MeshFilter mesh = model.GetComponentInChildren<MeshFilter>(true);
+        MeshRenderer renderer = model.GetComponentInChildren<MeshRenderer>(true);
         itemMesh = mesh.sharedMesh;
         itemMats = renderer.sharedMaterials;
-        itemRenderer = renderer;
         col.center = ItemController.instance.items[item.itemFileName].colCenter;
         col.size = ItemController.instance.items[item.itemFileName].colSize;
         body.mass = ItemController.instance.items[item.itemFileName].mass;
+        gameObject.AddComponent<MeshFilter>();
+        gameObject.GetComponents<MeshFilter>()[0].mesh = itemMesh;
+        gameObject.AddComponent<MeshRenderer>();
+        gameObject.GetComponents<MeshRenderer>()[0].materials = itemMats;
     }
 
     // Update is called once per frame

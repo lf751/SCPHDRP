@@ -605,7 +605,7 @@
         "duration": 6.0,
         "nextSubtitle": "",
         "character": "CHANGE_THIS",
-        "noFormat": false
+        "noFormat": true
     },
     "scene_012_4": {
         "subtitle": "<i>I-I... have... no... ch-choice!</i>",
@@ -850,6 +850,14 @@
     },
 		"Kidnap2": {
         "subtitle": "I can assure you. My cure is most effective",
+        "delay": 0.0,
+        "duration": 5.0,
+        "nextSubtitle": "",
+        "character": "chara_049",
+        "noFormat": false
+    },
+		"714Equipped": {
+        "subtitle": "Stop resisting. I'm here to cure you",
         "delay": 0.0,
         "duration": 5.0,
         "nextSubtitle": "",

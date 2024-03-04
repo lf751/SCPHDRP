@@ -30,7 +30,7 @@ public class EV_Recursive : Event_Parent
     {
         base.EventUpdate();
 
-        if(rightTrigger.GetState())
+        if (rightTrigger.GetState())
         {
             //doorLeft3.InstantSet(doorLeft2.switchOpen);
             doorLeft1.InstantSet(doorRight1.switchOpen);
@@ -66,7 +66,7 @@ public class EV_Recursive : Event_Parent
 
     void Switch(Transform start, Transform end)
     {
-        GameController.ins.currPly.playerWarp((end.transform.position + ((end.transform.rotation * Quaternion.Inverse(start.transform.rotation)) * (GameController.ins.currPly.transform.position - start.position))), end.transform.eulerAngles.y - start.transform.eulerAngles.y);
-        Debug.Log("Diferencia de Rotacion: " + (end.transform.eulerAngles.y - start.transform.eulerAngles.y));
+        GameController.ins.currPly.playerWarp((end.transform.position + ((end.transform.rotation * Quaternion.Inverse(start.transform.rotation)) * (GameController.ins.currPly.transform.position - start.position))) + (Vector3.up * 0.001f), end.transform.eulerAngles.y - start.transform.eulerAngles.y);
+        //Debug.Log("Diferencia de Rotacion: " + (end.transform.eulerAngles.y - start.transform.eulerAngles.y));
     }
 }

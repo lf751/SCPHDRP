@@ -30,7 +30,7 @@ public static class GlobalValues
     public const string fileExtension = ".scp";
     public const string metaExtension = ".meta";
     static public int sceneReturn = -1;
-    static public string saveFileVer = "0.3.0";
+    static public string saveFileVer = "0.3.1";
 
     static public string getRandomString(int min, int max)
     {

@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChanceTable
 {
     public Item Spawn;
-    public string SpawnName;
     public int Rate;
 }
 
@@ -19,32 +18,32 @@ public class SCP_914 : MonoBehaviour
     public LayerMask items;
     public AudioClip refine;
 
-    Collider [] inItems;
+    Collider[] inItems;
 
     bool Activated;
     float Refining;
 
-    
+
 
     [System.Serializable]
     public class Table914
     {
         public Item Original;
-        public ChanceTable [] _Coarse;
+        public ChanceTable[] _Coarse;
         public ChanceTable[] _Rough;
         public ChanceTable[] _11;
         public ChanceTable[] _Fine;
         public ChanceTable[] _VeryFine;
     }
 
-    public Table914 [] itemtable;
+    public Table914[] itemtable;
 
     public Table914 document;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -89,7 +88,7 @@ public class SCP_914 : MonoBehaviour
 
         if (Activated == true)
         {
-            
+
             if (Refining <= 1)
             {
                 Refine();
@@ -97,7 +96,7 @@ public class SCP_914 : MonoBehaviour
                 door2.DoorSwitch();
                 Activated = false;
             }
-                
+
         }
         Refining -= Time.deltaTime;
 
@@ -112,7 +111,7 @@ public class SCP_914 : MonoBehaviour
 
         if (inItems.Length != 0)
         {
-            for(int i = 0; i < inItems.Length; i++)
+            for (int i = 0; i < inItems.Length; i++)
             {
                 GameObject newItem;
                 newItem = Instantiate(spawner, outake.position, Quaternion.identity);
@@ -127,7 +126,7 @@ public class SCP_914 : MonoBehaviour
 
 
 
-    public GameItem TransformItem (Item item)
+    public GameItem TransformItem(Item item)
     {
         if (item is Document_Equipable)
             return (new GameItem(getItem(document, item).name));

@@ -99,7 +99,6 @@ public class SaveData
     public int mapX, mapY;
     [SerializeReference]
     public List<GameItem[]> items;
-
     public List<bool[]> equips;
 
     public Worlds currentWorld;

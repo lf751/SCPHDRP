@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Rendering.HighDefinition;
 using UnityEngine;
 
 public class ScreenRenderer : MonoBehaviour
@@ -16,27 +17,20 @@ public class ScreenRenderer : MonoBehaviour
     public float timer;
     int currentframe = 0;
     GameObject plane;
-    Mesh mesh;
-    Vector2[] uvs;
+    DecalProjector projector;
 
     void Awake()
     {
-
-        plane = GameObject.CreatePrimitive(PrimitiveType.Quad);
-        plane.transform.position = transform.position;
-        plane.transform.rotation = transform.rotation;
+        plane = new GameObject("DecalPlane");
+        projector = plane.AddComponent<DecalProjector>();
+        plane.transform.SetPositionAndRotation(transform.position, transform.rotation);
         plane.transform.localScale = transform.localScale;
+        projector.scaleMode = DecalScaleMode.InheritFromHierarchy;
     }
 
     void Start()
     {
         plane.transform.parent = transform;
-        
-        Renderer render = plane.GetComponent<Renderer>();
-        Destroy(plane.GetComponent<MeshCollider>());
-        render.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-        mesh = plane.GetComponent<MeshFilter>().mesh;
-        uvs = mesh.uv;
 
         /*
          *UV 0 ESQUINA INFERIOR IZQUIERDA
@@ -53,7 +47,7 @@ public class ScreenRenderer : MonoBehaviour
             Frame(frames[0].x, frames[0].y);
             timer = framerate;
         }
-        render.material = DecalAtlas;
+        projector.material = DecalAtlas;
     }
 
     // Update is called once per frame
@@ -83,12 +77,7 @@ public class ScreenRenderer : MonoBehaviour
     {
         float uvH = hsize * fh;
         float uvV = 1-(vsize * fv);
-
-        uvs[0] = new Vector2(uvH, uvV - vsize);
-        uvs[1] = new Vector2(uvH + hsize, uvV - vsize);
-        uvs[2] = new Vector2(uvH, uvV);
-        uvs[3] = new Vector2(uvH + hsize, uvV);
-
-        mesh.uv = uvs;
+        projector.uvScale = new Vector2(0.35f, 0.25f);
+        projector.uvBias = new Vector2(uvH, uvV - vsize);
     }
 }

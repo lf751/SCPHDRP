@@ -39,7 +39,7 @@ MonoBehaviour:
       min: 0
       value: 0
       multiplier: 0
-  ItemModel: {fileID: 100002, guid: 89ab7a504d47aea42b6e9a8a4a18bbfd, type: 3}
+  ItemModel: {fileID: 919132149155446097, guid: 89ab7a504d47aea42b6e9a8a4a18bbfd, type: 3}
   valueFloat: 0
   valueInt: 0
   SFX: 0
