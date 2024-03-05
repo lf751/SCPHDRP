@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.Rendering.HighDefinition;
 
 [System.Serializable]
 public struct GameDecal
 {
+    public DecalProjector projector;
     public float duration;
     public float startingTime;
     public bool instant;
@@ -22,10 +24,10 @@ public class DecalSystem : MonoBehaviour
     public const int defStaDecals = 512;
     public static DecalSystem instance = null;
     public Action staSpheresUpdate, staCountUpdate, dinCountUpdate;
-
     public Material DecalAtlas;
     public GameDecal[] dinDecals;
     public GameDecal[] staDecals;
+    public DecalProjector projectorDecal;
     public int coluCount = 3;
     public int rowCount = 4;
     int dinCount = 0, staCount = 0, staCap, currIdx = 0;
@@ -38,12 +40,11 @@ public class DecalSystem : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
+        projectorDecal = new DecalProjector();
         dinDecals = new GameDecal[defDecals];
         staDecals = new GameDecal[defStaDecals];
         dinSpheres = new BoundingSphere[defDecals];
         staSpheres = new BoundingSphere[defStaDecals];
-
         dinCount = 0;
         staCount = 0;
         staCap = defStaDecals;
@@ -85,7 +86,6 @@ public class DecalSystem : MonoBehaviour
         dinDecals[currIdx].startingTime = Instant ? 1 : 0;
         dinDecals[currIdx].h = h;
         dinDecals[currIdx].v = v;
-
         currIdx++;
     }
 
@@ -95,7 +95,6 @@ public class DecalSystem : MonoBehaviour
 
         staSpheres[staCount] = new BoundingSphere(here, 2f);
         staDecals[staCount] = new GameDecal();
-
         staDecals[staCount].scale = 2f;
         staDecals[staCount].rotation = Quaternion.identity;
         staDecals[staCount].instant = true;
@@ -126,7 +125,6 @@ public class DecalSystem : MonoBehaviour
         staDecals[staCount].h = h;
         staDecals[staCount].v = v;
         staDecals[staCount].position = position;
-
         staCount++;
         staCountUpdate?.Invoke();
 

@@ -51,4 +51,4 @@ MonoBehaviour:
   h: 2
   v: 0
   position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: 839b753bbf7c80b4e8482e4bd180192d, type: 2}
+  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}

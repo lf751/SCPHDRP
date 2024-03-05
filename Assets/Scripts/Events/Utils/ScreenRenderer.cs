@@ -26,6 +26,7 @@ public class ScreenRenderer : MonoBehaviour
         plane.transform.SetPositionAndRotation(transform.position, transform.rotation);
         plane.transform.localScale = transform.localScale;
         projector.scaleMode = DecalScaleMode.InheritFromHierarchy;
+        projector.drawDistance = 30;
     }
 
     void Start()
@@ -78,6 +79,6 @@ public class ScreenRenderer : MonoBehaviour
         float uvH = hsize * fh;
         float uvV = 1-(vsize * fv);
         projector.uvScale = new Vector2(0.35f, 0.25f);
-        projector.uvBias = new Vector2(uvH, uvV - vsize);
+        projector.uvBias = new Vector2(uvH +hsize, uvV - vsize);
     }
 }

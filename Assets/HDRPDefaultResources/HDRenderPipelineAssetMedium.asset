@@ -152,7 +152,7 @@ MonoBehaviour:
       maxScreenSpaceShadowSlots: 4
       screenSpaceShadowBufferFormat: 48
     decalSettings:
-      drawDistance: 15
+      drawDistance: 20
       atlasWidth: 2048
       atlasHeight: 2048
       transparentTextureResolution:

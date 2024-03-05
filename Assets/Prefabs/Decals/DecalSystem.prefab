@@ -47,5 +47,5 @@ MonoBehaviour:
   DecalAtlas: {fileID: 2100000, guid: 839b753bbf7c80b4e8482e4bd180192d, type: 2}
   dinDecals: []
   staDecals: []
-  coluCount: 3
-  rowCount: 4
+  coluCount: 0
+  rowCount: 0

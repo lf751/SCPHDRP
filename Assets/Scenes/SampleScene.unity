@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3335047, g: 0.49948502, b: 0.83300793, a: 1}
+  m_IndirectSpecularColor: {r: 0.029713754, g: 0.007141057, b: 0.0059396117, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8797,7 +8797,6 @@ GameObject:
   m_Component:
   - component: {fileID: 136262085}
   - component: {fileID: 136262086}
-  - component: {fileID: 136262087}
   m_Layer: 0
   m_Name: 173dirt (2)
   m_TagString: Untagged
@@ -8829,39 +8828,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 136262084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 1
   v: 1
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &136262087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136262084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &136762303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11422,6 +11393,14 @@ PrefabInstance:
     - target: {fileID: 8000249206163526082, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154591446075404756, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: rowCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154591446075404756, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: coluCount
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30254,7 +30233,6 @@ Transform:
   - {fileID: 209877509}
   - {fileID: 2129681036}
   - {fileID: 1134370245}
-  - {fileID: 1121176721}
   - {fileID: 239804607}
   - {fileID: 2036605751}
   - {fileID: 1722966720}
@@ -30277,9 +30255,10 @@ Transform:
   - {fileID: 1846914434}
   - {fileID: 1389094876}
   - {fileID: 1147705022}
-  - {fileID: 790825943}
   - {fileID: 138269190}
   - {fileID: 1200346291}
+  - {fileID: 1121176721}
+  - {fileID: 790825943}
   - {fileID: 136262085}
   - {fileID: 1028966560}
   - {fileID: 1167878678}
@@ -30317,7 +30296,6 @@ GameObject:
   m_Component:
   - component: {fileID: 725992246}
   - component: {fileID: 725992247}
-  - component: {fileID: 725992248}
   m_Layer: 0
   m_Name: 173dirt (8)
   m_TagString: Untagged
@@ -30349,39 +30327,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 725992245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 1
   v: 3
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &725992248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725992245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &727677497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31237,7 +31187,6 @@ GameObject:
   m_Component:
   - component: {fileID: 747839134}
   - component: {fileID: 747839135}
-  - component: {fileID: 747839136}
   m_Layer: 0
   m_Name: 173dirt (12)
   m_TagString: Untagged
@@ -31269,39 +31218,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 747839133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 1
   v: 3
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &747839136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747839133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &748826837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32885,7 +32806,6 @@ GameObject:
   m_Component:
   - component: {fileID: 790825943}
   - component: {fileID: 790825944}
-  - component: {fileID: 790825945}
   m_Layer: 0
   m_Name: 173dirt (1)
   m_TagString: Untagged
@@ -32917,39 +32837,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 790825942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 2
   v: 1
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &790825945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790825942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!4 &790980168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3462724705668693673, guid: 374d263152c07be49be060f80a11245b, type: 3}
@@ -43302,7 +43194,6 @@ GameObject:
   m_Component:
   - component: {fileID: 985448239}
   - component: {fileID: 985448240}
-  - component: {fileID: 985448241}
   m_Layer: 0
   m_Name: 173dirt (9)
   m_TagString: Untagged
@@ -43334,39 +43225,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 985448238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 1
   v: 1
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &985448241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985448238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &986144489
 GameObject:
   m_ObjectHideFlags: 0
@@ -44880,7 +44743,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1028966560}
   - component: {fileID: 1028966561}
-  - component: {fileID: 1028966562}
   m_Layer: 0
   m_Name: 173dirt (3)
   m_TagString: Untagged
@@ -44912,39 +44774,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1028966559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 1
   v: 3
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &1028966562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028966559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &1030461781
 GameObject:
   m_ObjectHideFlags: 0
@@ -48718,7 +48552,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1121176721}
   - component: {fileID: 1121176722}
-  - component: {fileID: 1121176723}
   m_Layer: 0
   m_Name: 173dirt
   m_TagString: Untagged
@@ -48750,39 +48583,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1121176720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 2
   v: 2
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &1121176723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121176720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &1121295708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51753,7 +51558,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1167878678}
   - component: {fileID: 1167878679}
-  - component: {fileID: 1167878680}
   m_Layer: 0
   m_Name: 173dirt (4)
   m_TagString: Untagged
@@ -51785,39 +51589,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1167878677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 1
   v: 0
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &1167878680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167878677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &1168090051
 GameObject:
   m_ObjectHideFlags: 0
@@ -61723,7 +61499,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1296604882}
   - component: {fileID: 1296604883}
-  - component: {fileID: 1296604884}
   m_Layer: 0
   m_Name: 173dirt (10)
   m_TagString: Untagged
@@ -61755,39 +61530,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1296604881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 1
   v: 0
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &1296604884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296604881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &1298096938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72838,7 +72585,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1462033088}
   - component: {fileID: 1462033089}
-  - component: {fileID: 1462033090}
   m_Layer: 0
   m_Name: 173dirt (7)
   m_TagString: Untagged
@@ -72870,39 +72616,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1462033087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 2
   v: 2
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &1462033090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462033087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &1463815620
 GameObject:
   m_ObjectHideFlags: 0
@@ -81508,7 +81226,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1673788278}
   - component: {fileID: 1673788279}
-  - component: {fileID: 1673788280}
   m_Layer: 0
   m_Name: 173dirt (6)
   m_TagString: Untagged
@@ -81540,39 +81257,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1673788277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 1
   v: 1
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &1673788280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673788277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &1676186110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84265,7 +83954,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1745689314}
   - component: {fileID: 1745689315}
-  - component: {fileID: 1745689316}
   m_Layer: 0
   m_Name: 173dirt (5)
   m_TagString: Untagged
@@ -84297,39 +83985,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745689313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 1
   v: 3
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &1745689316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745689313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &1745867507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -92936,7 +92596,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1993581517}
   - component: {fileID: 1993581518}
-  - component: {fileID: 1993581519}
   m_Layer: 0
   m_Name: 173dirt (11)
   m_TagString: Untagged
@@ -92968,39 +92627,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1993581516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf11dc87a4526489dcd98e2932932c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f45c62773f7a3439daa0d03d3cd0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
   h: 2
   v: 2
-  hsize: 0.33
-  vsize: 0.25
-  position: {x: 0, y: 0, z: 0}
-  DecalAtlas: {fileID: 2100000, guid: a95c3f369f9a0fb418f0d66da78e989c, type: 2}
-  animate: 0
-  frames: []
-  framerate: 0
-  timer: 0
---- !u!114 &1993581519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993581516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 1
-  m_GenerateLinks: 1
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &1993656988
 PrefabInstance:
   m_ObjectHideFlags: 0
