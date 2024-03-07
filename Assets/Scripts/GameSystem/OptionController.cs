@@ -90,7 +90,7 @@ public class OptionController : MonoBehaviour
 
         Gamma.value = PlayerPrefs.GetFloat("Gamma", 0);
 
-        fullscreenDropdown.value = PlayerPrefs.GetInt("FullscreenMode", 0);
+        fullscreenDropdown.value = PlayerPrefs.GetInt("FullscreenMode", 1);
 
         anisotropicDropdown.value = PlayerPrefs.GetInt("AnisoMode", 2);
 
@@ -309,7 +309,7 @@ public class OptionController : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
         // Load the saved resolution index
-        int savedResolutionIndex = PlayerPrefs.GetInt("SelectedResolutionIndex", 0);
+        int savedResolutionIndex = PlayerPrefs.GetInt("SelectedResolutionIndex", 1);
         resolutionDropdown.value = savedResolutionIndex;
         resolutionDropdown.RefreshShownValue();
      }
@@ -358,7 +358,7 @@ public class OptionController : MonoBehaviour
     private void ApplySettings()
     {
         SetTextureLevel(PlayerPrefs.GetInt("TextureLevel", 0));
-        SetAnisotropicMode(PlayerPrefs.GetInt("AnisoMode", 1));
+        SetAnisotropicMode(PlayerPrefs.GetInt("AnisoMode", 2));
     }
 
 

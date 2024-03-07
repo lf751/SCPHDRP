@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_StartAngleFade: 180
   m_EndAngleFade: 180
   m_UVScale: {x: 0.35, y: 0.25}
-  m_UVBias: {x: 0, y: 0}
+  m_UVBias: {x: -1.69, y: -0.75}
   m_AffectsTransparency: 0
   m_TransparentTextureResolution:
     m_Override: 256

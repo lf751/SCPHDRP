@@ -40,7 +40,7 @@ public class DecalSystem : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        projectorDecal = new DecalProjector();
+        //projectorDecal = this.gameObject.AddComponent<DecalProjector>();
         dinDecals = new GameDecal[defDecals];
         staDecals = new GameDecal[defStaDecals];
         dinSpheres = new BoundingSphere[defDecals];
