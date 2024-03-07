@@ -260,17 +260,40 @@ public class OptionController : MonoBehaviour
 
     public void SetDynamicResQuality(int dlssquality)
     {
-        
         mainCamera = Camera.main;
         cameraData = mainCamera.GetComponent<HDAdditionalCameraData>();
-        dynamicResolutionQualityDropdown.value = dlssquality;
-        deepLearningSuperSamplingQuality = (uint)dlssquality;
-        cameraData.deepLearningSuperSamplingQuality = deepLearningSuperSamplingQuality;
+        switch (dlssquality)
+        {
+            case 0:
+                cameraData.deepLearningSuperSamplingQuality = 2;
+                break;
+            case 1:
+                cameraData.deepLearningSuperSamplingQuality = 1;
+                break;
+            case 2:
+                cameraData.deepLearningSuperSamplingQuality = 0;
+                break;
+            case 3:
+                cameraData.deepLearningSuperSamplingQuality = 3;
+                break;
+        }
         PlayerPrefs.SetInt("DLSSQualityIndex", dlssquality);
         PlayerPrefs.Save();
     }
 
-    public enum DLSSQuality
+    //public void SetDynamicResQuality(int dlssquality)
+    //{
+        
+    //    mainCamera = Camera.main;
+    //    cameraData = mainCamera.GetComponent<HDAdditionalCameraData>();
+    //    dynamicResolutionQualityDropdown.value = dlssquality;
+    //    deepLearningSuperSamplingQuality = (uint)dlssquality;
+    //    cameraData.deepLearningSuperSamplingQuality = deepLearningSuperSamplingQuality;
+    //    PlayerPrefs.SetInt("DLSSQualityIndex", dlssquality);
+    //    PlayerPrefs.Save();
+    //}
+
+    public enum DLSSQualitySetting
     {
         Ultra,
         High,
