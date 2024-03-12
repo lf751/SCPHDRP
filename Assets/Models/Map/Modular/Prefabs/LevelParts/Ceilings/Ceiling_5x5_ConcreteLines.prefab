@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2480094178586995653}
   - component: {fileID: 1038076228324011767}
   - component: {fileID: 1764794961765118193}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ceiling_5x5_ConcreteLines
   m_TagString: Concrete
   m_Icon: {fileID: 0}

@@ -70,7 +70,7 @@ MonoBehaviour:
     m_Camera:
       bitDatas:
         data1: 73253862655393647
-        data2: 18410717458533908504
+        data2: 18410716908778094616
       lodBias: 1
       lodBiasMode: 0
       lodBiasQualityLevel: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
       materialQuality: 0
     m_CustomOrBakedReflection:
       bitDatas:
-        data1: 135310754214767
+        data1: 135309814690671
         data2: 4539628428684427288
       lodBias: 1
       lodBiasMode: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
       materialQuality: 0
     m_RealtimeReflection:
       bitDatas:
-        data1: 69554782093167
+        data1: 69553842569071
         data2: 13763000465807638544
       lodBias: 1
       lodBiasMode: 0
@@ -173,14 +173,11 @@ MonoBehaviour:
     m_ObsoleteSerializedBakingSets: []
     sceneToBakingSet:
       m_Keys:
-      - a056f3a234ded2248b91a1664df5f63c
       - 7bfb4f43e5ee31644a8321116211c588
       m_Values:
-      - {fileID: 11400000, guid: fd16cb1be93b5f948b504968e6a45cef, type: 2}
       - {fileID: 11400000, guid: 6d7b21973418caa4598e1de3326fe1ef, type: 2}
     bakingSets:
     - {fileID: 11400000, guid: 270518237077f62418812374797bc0fb, type: 2}
-    - {fileID: 11400000, guid: fd16cb1be93b5f948b504968e6a45cef, type: 2}
     - {fileID: 11400000, guid: e8518cdb2aeb38149bfb719200914664, type: 2}
     - {fileID: 11400000, guid: 6d7b21973418caa4598e1de3326fe1ef, type: 2}
     sceneBounds:

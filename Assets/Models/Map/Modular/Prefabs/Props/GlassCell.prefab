@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1072645396515469008}
   - component: {fileID: -2545107579659886462}
   - component: {fileID: -495886817815689300}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlassCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,6 +60,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 1
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:

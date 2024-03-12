@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009825045, g: 0.009825045, b: 0.009825045, a: 1}
+  m_IndirectSpecularColor: {r: 0.009828578, g: 0.009828578, b: 0.009828578, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7125,7 +7125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2368303778754940796, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2381817059094331523, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7141,6 +7141,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5234164899916173741, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234164899916173741, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5433792194398312104, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
@@ -7239,12 +7243,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6418880623888733496, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418880623888733496, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6479524990727039431, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6479524990727039431, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6479524990727039431, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6479524990727039431, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380844028828592535, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380844028828592535, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8920890786220764517, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8920890786220764517, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920890786220764517, guid: 47d346cfa849a6a4992cf7f2295139bf, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9278,7 +9318,7 @@ MonoBehaviour:
         useOcclusionCulling: 1
         cullingMask:
           serializedVersion: 2
-          m_Bits: 4294967295
+          m_Bits: 17408
         sceneCullingMaskOverride: 0
       invertFaceCulling: 0
       flipYMode: 0
@@ -11244,7 +11284,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1678827912}
   m_HandleRect: {fileID: 1678827911}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

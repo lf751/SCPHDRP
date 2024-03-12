@@ -1295,7 +1295,7 @@ MonoBehaviour:
         useOcclusionCulling: 1
         cullingMask:
           serializedVersion: 2
-          m_Bits: 4294967295
+          m_Bits: 4253184
         sceneCullingMaskOverride: 0
       invertFaceCulling: 0
       flipYMode: 0

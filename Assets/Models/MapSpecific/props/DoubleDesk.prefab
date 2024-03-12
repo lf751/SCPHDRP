@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6434585474312374485}
   - component: {fileID: 3289973190193537248}
   - component: {fileID: 2946435761536798089}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoubleDesk
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -615,7 +615,7 @@ MonoBehaviour:
         useOcclusionCulling: 1
         cullingMask:
           serializedVersion: 2
-          m_Bits: 16495927
+          m_Bits: 12641792
         sceneCullingMaskOverride: 0
       invertFaceCulling: 0
       flipYMode: 0
@@ -1266,6 +1266,7 @@ MonoBehaviour:
   Lights: {fileID: 1053887803565864688}
   Probes: {fileID: 1053887804852463266}
   cutsceneReferences: []
+  spawn: {fileID: 0}
 --- !u!1 &8906725384952099025
 GameObject:
   m_ObjectHideFlags: 0

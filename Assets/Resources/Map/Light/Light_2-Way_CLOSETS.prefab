@@ -934,7 +934,7 @@ MonoBehaviour:
         useOcclusionCulling: 1
         cullingMask:
           serializedVersion: 2
-          m_Bits: 16495927
+          m_Bits: 4255232
         sceneCullingMaskOverride: 0
       invertFaceCulling: 0
       flipYMode: 0
@@ -1272,35 +1272,27 @@ MonoBehaviour:
   table:
   - items:
     - Spawn: {fileID: 11400000, guid: b1bb6570acfcbd9438cd204d7b31fe06, type: 2}
-      SpawnName: 
       Rate: 100
   - items:
     - Spawn: {fileID: 11400000, guid: e16c9dbdadb0e244c93660a813deff8a, type: 2}
-      SpawnName: 
       Rate: 100
   - items:
     - Spawn: {fileID: 11400000, guid: 728da1ce7f2a81c4f9babab3cd6fc009, type: 2}
-      SpawnName: 
       Rate: 100
   - items:
     - Spawn: {fileID: 11400000, guid: 30caa0a4dfff0b24db46784dcbb0a316, type: 2}
-      SpawnName: 
       Rate: 100
   - items:
     - Spawn: {fileID: 11400000, guid: 30caa0a4dfff0b24db46784dcbb0a316, type: 2}
-      SpawnName: 
       Rate: 20
   - items:
     - Spawn: {fileID: 11400000, guid: a7325b0b9ed7de54ca7446c16c31f0b2, type: 2}
-      SpawnName: 
       Rate: 100
   - items:
     - Spawn: {fileID: 11400000, guid: a7325b0b9ed7de54ca7446c16c31f0b2, type: 2}
-      SpawnName: 
       Rate: 50
   - items:
     - Spawn: {fileID: 11400000, guid: 11e3960557ce51544b7df97be66ef1a4, type: 2}
-      SpawnName: 
       Rate: 100
   positions:
   - {fileID: 7263721970715404846}
@@ -1637,7 +1629,7 @@ MonoBehaviour:
         useOcclusionCulling: 1
         cullingMask:
           serializedVersion: 2
-          m_Bits: 16495927
+          m_Bits: 4255232
         sceneCullingMaskOverride: 0
       invertFaceCulling: 0
       flipYMode: 0

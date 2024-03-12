@@ -198,7 +198,7 @@ MonoBehaviour:
         useOcclusionCulling: 1
         cullingMask:
           serializedVersion: 2
-          m_Bits: 16495927
+          m_Bits: 12617217
         sceneCullingMaskOverride: 0
       invertFaceCulling: 0
       flipYMode: 0
@@ -955,8 +955,8 @@ MonoBehaviour:
     influence:
       m_Shape: 0
       m_BoxSize: {x: 7.3759665, y: 8.632686, z: 21}
-      m_BoxBlendDistancePositive: {x: 0.125, y: 0.125, z: 0.125}
-      m_BoxBlendDistanceNegative: {x: 0.125, y: 0.125, z: 0.125}
+      m_BoxBlendDistancePositive: {x: 0.25, y: 0.25, z: 0.25}
+      m_BoxBlendDistanceNegative: {x: 0.25, y: 0.25, z: 0.25}
       m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -1056,7 +1056,7 @@ MonoBehaviour:
         useOcclusionCulling: 1
         cullingMask:
           serializedVersion: 2
-          m_Bits: 16495927
+          m_Bits: 12617217
         sceneCullingMaskOverride: 0
       invertFaceCulling: 0
       flipYMode: 0

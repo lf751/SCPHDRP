@@ -1187,7 +1187,7 @@ MonoBehaviour:
     m_Value: 0.15
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 6
+    m_Value: 4
 --- !u!114 &-592654018456798977
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2141,7 +2141,7 @@ MonoBehaviour:
     m_Value: 2
   m_HighQualityFiltering:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   m_PhysicallyBased:
     m_OverrideState: 1
     m_Value: 0
@@ -2262,7 +2262,7 @@ MonoBehaviour:
     m_Value: 2
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 2
   m_Denoise:
     m_OverrideState: 1
     m_Value: 1
