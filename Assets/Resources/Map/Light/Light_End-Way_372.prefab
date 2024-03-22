@@ -675,7 +675,7 @@ MonoBehaviour:
       frustum:
         mode: 0
         aspect: 1
-        farClipPlaneRaw: 25
+        farClipPlaneRaw: 20
         nearClipPlaneRaw: 2
         fieldOfView: 90
         projectionMatrix:

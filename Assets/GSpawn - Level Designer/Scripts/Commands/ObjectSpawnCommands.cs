@@ -1,4 +1,5 @@
 ﻿#if UNITY_EDITOR
+
 namespace GSpawn
 {
     public class ObjectSpawn_EnableModularSnapSpawn : PluginCommand
@@ -109,6 +110,39 @@ namespace GSpawn
                 {
                     var spawnGuide = objectSpawn.activeTool.spawnGuide;
                     if (spawnGuide != null) spawnGuide.syncGridCellSizeToPrefabSize();
+                }
+            }
+        }
+    }
+
+    public class ObjectSpawn_SpawnGuide_ScrollPrefab : PluginCommand
+    {
+        protected override void onEnter()
+        {
+            var toolId = GSpawn.active.levelDesignToolId;
+            if (toolId == LevelDesignToolId.ObjectSpawn)
+            {
+                if ( ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.ModularSnap ||
+                    (ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.Segments && !ObjectSpawn.instance.segmentsObjectSpawn.isBuildingSegments) ||
+                    (ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.Box && !ObjectSpawn.instance.boxObjectSpawn.isBuildingBox) ||
+                     ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.Props)
+                {
+                    ObjectSpawn.instance.activeTool.enableSpawnGuidePrefabScroll = true;
+                }
+            }
+        }
+
+        protected override void onExit()
+        {
+            var toolId = GSpawn.active.levelDesignToolId;
+            if (toolId == LevelDesignToolId.ObjectSpawn)
+            {
+                if (ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.ModularSnap ||
+                    (ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.Segments && !ObjectSpawn.instance.segmentsObjectSpawn.isBuildingSegments) ||
+                    (ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.Box && !ObjectSpawn.instance.boxObjectSpawn.isBuildingBox) ||
+                     ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.Props)
+                {
+                    ObjectSpawn.instance.activeTool.enableSpawnGuidePrefabScroll = false;
                 }
             }
         }

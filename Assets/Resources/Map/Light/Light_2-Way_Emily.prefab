@@ -204,8 +204,8 @@ MonoBehaviour:
   m_NormalBias: 0.75
   m_SlopeBias: 0.5
   m_ShadowUpdateMode: 0
-  m_AlwaysDrawDynamicShadows: 0
-  m_UpdateShadowOnLightMovement: 0
+  m_AlwaysDrawDynamicShadows: 1
+  m_UpdateShadowOnLightMovement: 1
   m_CachedShadowTranslationThreshold: 0.01
   m_CachedShadowAngularThreshold: 0.5
   m_BarnDoorAngle: 90
@@ -578,13 +578,13 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 1
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
       weight: 1
       lightLayer: 1
-      fadeDistance: 10
+      fadeDistance: 15
       rangeCompressionFactor: 1
     influence:
       m_Shape: 0
@@ -1170,8 +1170,8 @@ MonoBehaviour:
   m_NormalBias: 0.75
   m_SlopeBias: 0.5
   m_ShadowUpdateMode: 0
-  m_AlwaysDrawDynamicShadows: 0
-  m_UpdateShadowOnLightMovement: 0
+  m_AlwaysDrawDynamicShadows: 1
+  m_UpdateShadowOnLightMovement: 1
   m_CachedShadowTranslationThreshold: 0.01
   m_CachedShadowAngularThreshold: 0.5
   m_BarnDoorAngle: 90
@@ -1318,13 +1318,13 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 1
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
       weight: 1
       lightLayer: 1
-      fadeDistance: 10
+      fadeDistance: 15
       rangeCompressionFactor: 1
     influence:
       m_Shape: 0
@@ -1941,8 +1941,8 @@ MonoBehaviour:
   m_NormalBias: 0.75
   m_SlopeBias: 0.5
   m_ShadowUpdateMode: 0
-  m_AlwaysDrawDynamicShadows: 0
-  m_UpdateShadowOnLightMovement: 0
+  m_AlwaysDrawDynamicShadows: 1
+  m_UpdateShadowOnLightMovement: 1
   m_CachedShadowTranslationThreshold: 0.01
   m_CachedShadowAngularThreshold: 0.5
   m_BarnDoorAngle: 90
@@ -2231,8 +2231,8 @@ MonoBehaviour:
   m_NormalBias: 0.75
   m_SlopeBias: 0.5
   m_ShadowUpdateMode: 0
-  m_AlwaysDrawDynamicShadows: 0
-  m_UpdateShadowOnLightMovement: 0
+  m_AlwaysDrawDynamicShadows: 1
+  m_UpdateShadowOnLightMovement: 1
   m_CachedShadowTranslationThreshold: 0.01
   m_CachedShadowAngularThreshold: 0.5
   m_BarnDoorAngle: 90
@@ -2348,13 +2348,13 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 1
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1
       weight: 1
       lightLayer: 1
-      fadeDistance: 10
+      fadeDistance: 15
       rangeCompressionFactor: 1
     influence:
       m_Shape: 0
@@ -2977,7 +2977,7 @@ MonoBehaviour:
       viewerScale: 1
     type: 0
     mode: 1
-    realtimeMode: 1
+    realtimeMode: 2
     timeSlicing: 1
     lighting:
       multiplier: 1

@@ -303,14 +303,14 @@ MonoBehaviour:
       Index: 17
       Type: 8
       Channel: height
-    OutputTexture: {fileID: 2800000, guid: 856fe1a0c8ba6ff49bc148ca5b9815e6, type: 3}
+    OutputTexture: {fileID: 0}
     sRGB: 1
     IsVirtual: 0
     IsAlphaAssignable: 1
     AlphaChannel: 
     InvertAssignedAlpha: 0
     Flags: 0
-    MaterialTextureTarget: _HeightMap
+    MaterialTextureTarget: 
   - Index: 18
     VirtualOutputIndex: 0
     Description:

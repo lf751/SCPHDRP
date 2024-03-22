@@ -468,6 +468,10 @@ PrefabInstance:
       propertyPath: m_ShadowResolution.m_Level
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7700583221839228258, guid: fb4ee3a142e84134ebe764f942613a17, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8825825802550110637, guid: fb4ee3a142e84134ebe764f942613a17, type: 3}
       propertyPath: m_IsActive
       value: 0

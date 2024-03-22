@@ -12,6 +12,7 @@ namespace GSpawn
         private ObjectSpawn_Box_BuildShortcutContext            _objectSpawn_Box_BuildShortcutContext           = new ObjectSpawn_Box_BuildShortcutContext();
         private ObjectSpawn_TileRules_ShortcutContext           _objectSpawn_TileRules_ShortcutContext          = new ObjectSpawn_TileRules_ShortcutContext();
         private ObjectSpawn_Curve_ShortcutContext               _objectSpawn_Curve_ShortcutContext              = new ObjectSpawn_Curve_ShortcutContext();
+        private SpawnGuidePrefabScrollContext                   _spawnGuidePrefabScrollContext                  = new SpawnGuidePrefabScrollContext();
 
         private ObjectSelectionShortcutContext                  _objectSelectionContext                         = new ObjectSelectionShortcutContext();
         private ObjectEraseShortcutContext                      _objectEraseContext                             = new ObjectEraseShortcutContext();
@@ -24,12 +25,13 @@ namespace GSpawn
         public ObjectSpawn_Box_BuildShortcutContext             objectSpawn_Box_BuildShortcutContext            { get { return _objectSpawn_Box_BuildShortcutContext; } }
         public ObjectSpawn_TileRules_ShortcutContext            objectSpawn_TileRules_ShortcutContext           { get { return _objectSpawn_TileRules_ShortcutContext; } }
         public ObjectSpawn_Curve_ShortcutContext                objectSpawn_Curve_ShortcutContext               { get { return _objectSpawn_Curve_ShortcutContext; } }
+        public SpawnGuidePrefabScrollContext                    spawnGuidePrefabScrollContext                   { get { return _spawnGuidePrefabScrollContext; } }
 
-        public ObjectSelectionShortcutContext                   objectSelectionContext                      { get { return _objectSelectionContext; } }
-        public ObjectEraseShortcutContext                       objectEraseContext                          { get { return _objectEraseContext; } }
-        public ObjectModularSnapShortcutContext                 objectModularSnapShortcutContext            { get { return _objectModularSnapShortcutContext; } }
-        public ObjectSurfaceSnapShortcutContext                 objectSurfaceSnapShortcutContext            { get { return _objectSurfaceSnapShortcutContext; } }
-        public override bool                                    alwaysActive                                { get { return true; } }
+        public ObjectSelectionShortcutContext                   objectSelectionContext                          { get { return _objectSelectionContext; } }
+        public ObjectEraseShortcutContext                       objectEraseContext                              { get { return _objectEraseContext; } }
+        public ObjectModularSnapShortcutContext                 objectModularSnapShortcutContext                { get { return _objectModularSnapShortcutContext; } }
+        public ObjectSurfaceSnapShortcutContext                 objectSurfaceSnapShortcutContext                { get { return _objectSurfaceSnapShortcutContext; } }
+        public override bool                                    alwaysActive                                    { get { return true; } }
 
         public static GlobalShortcutContext instance
         {
@@ -48,6 +50,7 @@ namespace GSpawn
                     _instance._objectEraseContext.setParentContext(_instance);
                     _instance._objectModularSnapShortcutContext.setParentContext(_instance);
                     _instance._objectSurfaceSnapShortcutContext.setParentContext(_instance);
+                    _instance._spawnGuidePrefabScrollContext.setParentContext(_instance._objectSpawnContext);
                 }
                 return _instance;
             }
@@ -157,6 +160,23 @@ namespace GSpawn
             if (toolId == LevelDesignToolId.ObjectSpawn) return ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.Props;
             else if (toolId == LevelDesignToolId.ObjectSelection) return ObjectSelection.instance.isTransformSessionActive(ObjectTransformSessionType.SurfaceSnap);
             else return false;
+        }
+    }
+
+    public class SpawnGuidePrefabScrollContext : ShortcutContext
+    {
+        protected override bool evaluate() 
+        {
+            var toolId = GSpawn.active.levelDesignToolId;
+            if (toolId == LevelDesignToolId.ObjectSpawn)
+            {
+                return ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.ModularSnap ||
+                        (ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.Segments && !ObjectSpawn.instance.segmentsObjectSpawn.isBuildingSegments) ||
+                        (ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.Box && !ObjectSpawn.instance.boxObjectSpawn.isBuildingBox) ||
+                        ObjectSpawn.instance.activeToolId == ObjectSpawnToolId.Props;
+            }
+
+            return false;
         }
     }
 }

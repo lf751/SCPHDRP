@@ -13,6 +13,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 45021
   packageName: GSpawn - Level Designer
-  packageVersion: 3.2.8.6
+  packageVersion: 3.2.9
   assetPath: Assets/GSpawn - Level Designer/Scripts/Core/PriorityQueue.cs
-  uploadId: 648347
+  uploadId: 650052

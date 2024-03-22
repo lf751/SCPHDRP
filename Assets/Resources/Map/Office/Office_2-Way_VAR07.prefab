@@ -1293,7 +1293,7 @@ MonoBehaviour:
           enableBigTilePrepass: 0
           isFptlEnabled: 0
     roughReflections: 1
-    distanceBasedRoughness: 0
+    distanceBasedRoughness: 1
   m_ProbeSettingsOverride:
     probe: 0
     camera:
@@ -1800,6 +1800,7 @@ MonoBehaviour:
   Lights: {fileID: 3856632830458681333}
   Probes: {fileID: 7440620994662457408}
   cutsceneReferences: []
+  spawn: {fileID: 0}
 --- !u!1 &7677806576584241455
 GameObject:
   m_ObjectHideFlags: 0

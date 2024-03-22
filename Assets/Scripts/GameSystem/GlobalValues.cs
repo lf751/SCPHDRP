@@ -23,7 +23,6 @@ public static class GlobalValues
     static public bool hasSaved = false;
     static public bool playIntro = false;
     static public string pathfile;
-
     static public SaveData worldState;
     public const string folderName = "CBSaves";
     public const string localName = "Language";

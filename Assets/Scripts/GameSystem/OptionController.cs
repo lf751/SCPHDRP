@@ -10,6 +10,7 @@ using Pixelplacement.TweenSystem;
 using System.Drawing.Text;
 using System.Linq;
 using UnityEngine.NVIDIA;
+using static UnityEngine.Rendering.DebugUI;
 
 public class OptionController : MonoBehaviour
 {
@@ -41,7 +42,6 @@ public class OptionController : MonoBehaviour
     public Dropdown fullscreenDropdown;
     public Dropdown quality;
     public Dropdown resolutionDropdown;
-    private Resolution[] resolutions;
     public Dropdown language;
     public Toggle vsync;
     public Toggle frame;
@@ -67,12 +67,18 @@ public class OptionController : MonoBehaviour
     public Toggle debug;
     public Toggle tuto;
 
+    [System.NonSerialized]
+    public bool processChange;
+
+    [System.NonSerialized]
+    public float value_music, value_amb, value_sfx, value_voice, value_master, value_mouseacc, value_gamma, value_fov;
+    public bool value_fullscreen, value_vsync, value_framelimiter, value_subs, value_debug, value_tuto;
+    public int value_qual, value_res, value_lang;
+
     // Start is called before the first frame update
     void Awake()
     {
-        SetResolutions();
         langs = Localization.GetLangs();
-
         language.ClearOptions();
         List<Dropdown.OptionData> options = new List<Dropdown.OptionData>();
 
@@ -90,14 +96,15 @@ public class OptionController : MonoBehaviour
 
         Gamma.value = PlayerPrefs.GetFloat("Gamma", 0);
 
-        fullscreenDropdown.value = PlayerPrefs.GetInt("FullscreenMode", 1);
-
         anisotropicDropdown.value = PlayerPrefs.GetInt("AnisoMode", 2);
 
         textureLevelDropdown.value = PlayerPrefs.GetInt("TextureLevel", 0);
 
-        //resolutionDropdown.value = PlayerPrefs.GetInt("Res", 0);
+        fullscreenDropdown.value = PlayerPrefs.GetInt("FullscreenMode", 1);
 
+        resolutionDropdown.value = PlayerPrefs.GetInt("Res", 0);
+
+        ReSetResolutions();
         vsync.isOn = (PlayerPrefs.GetInt("Vsync", 1) == 1);
         framelimit.text = PlayerPrefs.GetInt("Framerate", 60).ToString();
         frame.isOn = (PlayerPrefs.GetInt("Frame", 1) == 1);
@@ -194,6 +201,10 @@ public class OptionController : MonoBehaviour
         inputtab.SetActive(true);
     }
 
+    /// <summary>
+    /// ////////////////////////////////////////////////////       GRAPHICSSETTINGS
+    /// </summary>
+
     public void OnFullscreenModeChanged(int index)
     {
         switch (index)
@@ -281,18 +292,6 @@ public class OptionController : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    //public void SetDynamicResQuality(int dlssquality)
-    //{
-        
-    //    mainCamera = Camera.main;
-    //    cameraData = mainCamera.GetComponent<HDAdditionalCameraData>();
-    //    dynamicResolutionQualityDropdown.value = dlssquality;
-    //    deepLearningSuperSamplingQuality = (uint)dlssquality;
-    //    cameraData.deepLearningSuperSamplingQuality = deepLearningSuperSamplingQuality;
-    //    PlayerPrefs.SetInt("DLSSQualityIndex", dlssquality);
-    //    PlayerPrefs.Save();
-    //}
-
     public enum DLSSQualitySetting
     {
         Ultra,
@@ -310,73 +309,29 @@ public class OptionController : MonoBehaviour
         PlayerPrefs.SetInt("DResToggle", (hDDynamicResolution ? 1 : 0));
     }
 
-    public void SetResolutions()
+    public void ReSetResolutions()
     {
-        resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
+        List<Dropdown.OptionData> options = new List<Dropdown.OptionData>();
 
-        List<string> options = new List<string>();
-        int currentResolutionIndex = 0;
 
-        for (int i = 0; i < resolutions.Length; i++)
+        foreach (Resolution curres in Screen.resolutions)
         {
-            string option = $"{resolutions[i].width} x {resolutions[i].height}";
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
-            {
-                currentResolutionIndex = i;
-            }
+            options.Add(new Dropdown.OptionData(curres.width + "x" + curres.height + "x" + curres.refreshRate + "hz"));
         }
+
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
-        // Load the saved resolution index
-        int savedResolutionIndex = PlayerPrefs.GetInt("SelectedResolutionIndex", 1);
-        resolutionDropdown.value = savedResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
-     }
-
-    public void SaveResolutionToPlayerPrefs()
-    {
-        int selectedResolutionIndex = resolutionDropdown.value;
-        PlayerPrefs.SetInt("SelectedResolutionIndex", selectedResolutionIndex);
-        PlayerPrefs.Save();
+        resolutionDropdown.value = PlayerPrefs.GetInt("Res", 0);
     }
 
-    public void SetResolution(int resolutionIndex)
+    public void SetResolution(int Value)
     {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, PlayerPrefs.GetInt("FullscreenMode", 0) == 0);
-        SaveResolutionToPlayerPrefs();
+        PlayerPrefs.SetInt("Res", Value);
+        Screen.SetResolution(Screen.resolutions[Value].width, Screen.resolutions[Value].height, (PlayerPrefs.GetInt("FullscreenMode", 0) == 0), Screen.resolutions[Value].refreshRate);
+
+        if (startupdone)
+            player.PlayOneShot(click);
     }
-
-    /// <summary>
-    /// ////////////////////////////////////////////////////       GRAPHICSSETTINGS
-    /// </summary>
-
-    //public void SetRes(int Value)
-    //    {
-    //        PlayerPrefs.SetInt("Res", Value);
-
-    //        Screen.SetResolution(Screen.resolutions[Value].width, Screen.resolutions[Value].height, (PlayerPrefs.GetInt("Fullscreen", 1) == 1), Screen.resolutions[Value].refreshRate);
-
-    //        if (startupdone)
-    //            player.PlayOneShot(click);
-    //    }
-
-    //public void SetFull(bool Value)
-    //{
-    //    Screen.fullScreen = Value;
-
-    //    PlayerPrefs.SetInt("Fullscreen", Value ? 1 : 0);
-
-    //    if (startupdone)
-    //    {
-    //        player.PlayOneShot(click);
-    //        SetResolutions();
-    //    }
-    //}
 
     private void ApplySettings()
     {

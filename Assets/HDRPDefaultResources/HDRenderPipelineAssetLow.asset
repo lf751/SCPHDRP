@@ -117,7 +117,7 @@ MonoBehaviour:
       maxLocalVolumetricFogSize: 32
       maxLocalVolumetricFogOnScreen: 64
     hdShadowInitParams:
-      maxShadowRequests: 32
+      maxShadowRequests: 60
       directionalShadowsDepthBits: 16
       punctualShadowFilteringQuality: 0
       directionalShadowFilteringQuality: 0
@@ -130,19 +130,19 @@ MonoBehaviour:
         shadowAtlasResolution: 1024
         shadowAtlasDepthBits: 16
         useDynamicViewportRescale: 1
-      cachedPunctualLightShadowAtlas: 512
-      cachedAreaLightShadowAtlas: 512
+      cachedPunctualLightShadowAtlas: 1024
+      cachedAreaLightShadowAtlas: 1024
       allowDirectionalMixedCachedShadows: 0
       shadowResolutionDirectional:
         m_Values: 00010000000200000004000000080000
         m_SchemaId:
           m_Id: With4Levels
       shadowResolutionPunctual:
-        m_Values: 00010000000200000004000000080000
+        m_Values: 80000000000100000002000000040000
         m_SchemaId:
           m_Id: With4Levels
       shadowResolutionArea:
-        m_Values: 00010000000200000004000000080000
+        m_Values: 80000000000100000002000000040000
         m_SchemaId:
           m_Id: With4Levels
       maxDirectionalShadowMapResolution: 512

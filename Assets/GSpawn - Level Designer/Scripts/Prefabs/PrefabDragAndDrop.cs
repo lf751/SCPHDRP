@@ -80,8 +80,11 @@ namespace GSpawn
                     PluginProgressDialog.updateItemProgress(prefabAsset.name, (dropObjectIndex + 1) / (float)droppedObjects.Length);
                     foreach (var lib in destLibs)
                     {
-                        PluginPrefab prefab = lib.createPrefab(prefabAsset);
-                        if (prefab != null) _droppedPrefabs.Add(prefab);
+                        if (lib != null)
+                        {
+                            PluginPrefab prefab = lib.createPrefab(prefabAsset);
+                            if (prefab != null) _droppedPrefabs.Add(prefab);
+                        }
                     }
                 }
             }

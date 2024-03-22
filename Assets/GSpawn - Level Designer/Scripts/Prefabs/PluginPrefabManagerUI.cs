@@ -62,6 +62,71 @@ namespace GSpawn
             return dropData.getItem(0).data.prefab;
         }
 
+        private List<PluginPrefab> _scrollSelection_PrefabBuffer = new List<PluginPrefab>();
+        public PluginPrefab scrollVisiblePrefabSelection(int direction)
+        {
+            getVisiblePrefabs(_scrollSelection_PrefabBuffer);
+            if (_scrollSelection_PrefabBuffer.Count == 0) return null;
+
+            if (direction >= 0)
+            {
+                // Find last selected prefab
+                int numVisPrefabs   = _scrollSelection_PrefabBuffer.Count;
+                int lastSelected    = -1;
+                for (int i = 0; i < numVisPrefabs; ++i)
+                {
+                    if (_scrollSelection_PrefabBuffer[i].uiSelected)
+                        lastSelected = i;
+                }
+
+                if (lastSelected < 0)
+                {
+                    _prefabView.setItemSelected(_scrollSelection_PrefabBuffer[0].guid, true, true);
+                    return _scrollSelection_PrefabBuffer[0];
+                }
+
+                int nextSelected = lastSelected + 1;
+                if (nextSelected == numVisPrefabs) return _scrollSelection_PrefabBuffer[lastSelected];
+                else
+                {
+                    PluginPrefab prefab = _scrollSelection_PrefabBuffer[nextSelected];
+                    _prefabView.setAllItemsSelected(false, false, true);
+                    _prefabView.setItemSelected(prefab.guid, true, true);
+                    return prefab;
+                }
+            }
+            else
+            {
+                // Find the first selected prefab
+                int numVisPrefabs = _scrollSelection_PrefabBuffer.Count;
+                int firstSelected = -1;
+                for (int i = 0; i < numVisPrefabs; ++i)
+                {
+                    if (_scrollSelection_PrefabBuffer[i].uiSelected)
+                    {
+                        firstSelected = i;
+                        break;
+                    }
+                }
+
+                if (firstSelected < 0)
+                {
+                    _prefabView.setItemSelected(_scrollSelection_PrefabBuffer[0].guid, true, true);
+                    return _scrollSelection_PrefabBuffer[0];
+                }
+
+                int prevSelected = firstSelected - 1;
+                if (prevSelected < 0) return _scrollSelection_PrefabBuffer[firstSelected];
+                else
+                {
+                    PluginPrefab prefab = _scrollSelection_PrefabBuffer[prevSelected];
+                    _prefabView.setAllItemsSelected(false, false, true);
+                    _prefabView.setItemSelected(prefab.guid, true, true);
+                    return prefab;
+                }
+            }
+        }
+
         public void selectPluginPrefabsAndMakeVisible(List<PluginPrefab> pluginPrefabs, bool updatePrefabFilter)
         {
             if (uiVisibleAndReady)
@@ -159,6 +224,18 @@ namespace GSpawn
             _prefabView.getSelectedItemData(selectedItemData, onlyVisible);
 
             foreach (var itemData in selectedItemData)
+                prefabs.Add(itemData.prefab);
+        }
+
+        public void getVisiblePrefabs(List<PluginPrefab> prefabs)
+        {
+            prefabs.Clear();
+            if (!uiVisibleAndReady) return;
+
+            var visibleItemData = new List<UIPluginPrefabItemData>();
+            _prefabView.getVisibleItemData(visibleItemData);
+
+            foreach (var itemData in visibleItemData)
                 prefabs.Add(itemData.prefab);
         }
 

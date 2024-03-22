@@ -108,7 +108,7 @@ MonoBehaviour:
         m_Bits: 0
       supportFabricConvolution: 0
       maxDirectionalLightsOnScreen: 16
-      maxPunctualLightsOnScreen: 32
+      maxPunctualLightsOnScreen: 24
       maxAreaLightsOnScreen: 24
       maxCubeReflectionOnScreen: 20
       maxPlanarReflectionOnScreen: 15
@@ -117,37 +117,37 @@ MonoBehaviour:
       maxLocalVolumetricFogSize: 64
       maxLocalVolumetricFogOnScreen: 24
     hdShadowInitParams:
-      maxShadowRequests: 164
+      maxShadowRequests: 135
       directionalShadowsDepthBits: 16
-      punctualShadowFilteringQuality: 2
+      punctualShadowFilteringQuality: 1
       directionalShadowFilteringQuality: 1
-      areaShadowFilteringQuality: 1
+      areaShadowFilteringQuality: 0
       punctualLightShadowAtlas:
         shadowAtlasResolution: 4096
-        shadowAtlasDepthBits: 32
+        shadowAtlasDepthBits: 16
         useDynamicViewportRescale: 1
       areaLightShadowAtlas:
         shadowAtlasResolution: 4096
-        shadowAtlasDepthBits: 32
+        shadowAtlasDepthBits: 16
         useDynamicViewportRescale: 1
-      cachedPunctualLightShadowAtlas: 2048
-      cachedAreaLightShadowAtlas: 1024
+      cachedPunctualLightShadowAtlas: 4096
+      cachedAreaLightShadowAtlas: 4096
       allowDirectionalMixedCachedShadows: 1
       shadowResolutionDirectional:
         m_Values: 00020000000400000008000000100000
         m_SchemaId:
           m_Id: With4Levels
       shadowResolutionPunctual:
-        m_Values: 00010000000400000008000000100000
+        m_Values: 00010000000200000004000000080000
         m_SchemaId:
           m_Id: With4Levels
       shadowResolutionArea:
-        m_Values: 00020000000400000008000000100000
+        m_Values: 00010000000200000004000000080000
         m_SchemaId:
           m_Id: With4Levels
       maxDirectionalShadowMapResolution: 4096
-      maxPunctualShadowMapResolution: 4096
-      maxAreaShadowMapResolution: 4096
+      maxPunctualShadowMapResolution: 2048
+      maxAreaShadowMapResolution: 2048
       supportScreenSpaceShadows: 1
       maxScreenSpaceShadowSlots: 6
       screenSpaceShadowBufferFormat: 8

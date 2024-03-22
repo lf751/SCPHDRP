@@ -215,7 +215,7 @@ namespace GSpawn
         public static int       numPlugins                  { get { return PluginInstanceData.instance != null ? PluginInstanceData.instance.numPlugins : 0; } }
         public static string    pluginName                  { get { return "GSpawn"; } }
         public static bool      anyInstanceSelected         { get { return PluginInstanceData.instance.isPlugin(Selection.activeGameObject); } }
-        public static string    currentVersion              { get { return "3.2.8.5"; } }
+        public static string    currentVersion              { get { return "3.2.8.6"; } }
 
         [MenuItem("Tools/GSpawn/Initialize", false, _menuItemPriorityStart_Initialize)]
         public static void initialize()
@@ -285,6 +285,8 @@ namespace GSpawn
         [MenuItem("Tools/GSpawn/Actions/Refresh Data Caches", false, _menuItemPriorityStart_Actions + 2)]
         public static void refresh()
         {
+            if (active == null) return;
+
             PluginProgressDialog.begin("Refreshing Data Caches");
             PluginProgressDialog.updateProgress("Refreshing...", 0.0f);
             GameObjectDataDb.instance.refresh();
@@ -303,6 +305,8 @@ namespace GSpawn
         [MenuItem("Tools/GSpawn/Actions/Refresh Prefab Previews", false, _menuItemPriorityStart_Actions + 3)]
         public static void refreshPrefabPreviews()
         {
+            if (active == null) return;
+
             // Note: Necessary in order to destroy the old render texture and create a new one.
             //       This must be done when the color space changes.
             PrefabPreviewFactory.instance.cleanup();
@@ -683,6 +687,11 @@ namespace GSpawn
                 _version                = currentVersion;
                 EditorUtility.SetDirty(this);
             }
+
+            #if GSPAWN_ALWAYS_UPDATE_DATA_FOLDERS
+            // Update anyway to allow for better integration with tools such as git
+            _updatePluginFolders = true;
+            #endif
 
             gameObject.makeEditorOnly();
             PluginInstanceData.instance.add(this);

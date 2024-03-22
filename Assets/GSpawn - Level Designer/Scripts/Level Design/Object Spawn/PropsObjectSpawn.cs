@@ -113,6 +113,7 @@ namespace GSpawn
         public override void onNoLongerActive()
         {
             spawnGuide.destroyGuide();
+            enableSpawnGuidePrefabScroll = false;
         }
 
         public void executeSurfaceSnapSessionCommand(ObjectSurfaceSnapSessionCommand command)
@@ -135,6 +136,18 @@ namespace GSpawn
                     {
                         setSpawnGuidePrefab(prefabPickResult.pickedPluginPrefab);
                         spawnGuide.setRotationAndScale(prefabPickResult.pickedObject.transform.rotation, prefabPickResult.pickedObject.transform.lossyScale);
+                    }
+                }
+            }
+            else
+            {
+                if (enableSpawnGuidePrefabScroll && e.isScrollWheel)
+                {
+                    PluginPrefab newPrefab = PluginPrefabManagerUI.instance.scrollVisiblePrefabSelection((int)e.getMouseScrollSign());
+                    if (newPrefab != null)
+                    {
+                        setSpawnGuidePrefab(newPrefab);
+                        e.disable();
                     }
                 }
             }

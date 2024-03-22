@@ -43,6 +43,7 @@ namespace GSpawn
     {
         public static string spawnGuide_SyncGridCellSize                { get { return "Spawn Guide/Sync Grid Cell Size"; } }
         public static string spawnGuide_ToggleDecorRules                { get { return "Spawn Guide/Toggle Decor Rules"; } }
+        public static string spawnGuide_ScrollPrefab                    { get { return "Spawn Guide/Scroll Prefab"; } }
         public static string tileRuleSpawn_Paint                        { get { return "Tile Rule Spawn/Paint"; } }
         public static string tileRuleSpawn_Ramp                         { get { return "Tile Rule Spawn/Ramp"; } }
         public static string tileRuleSpawn_Erase                        { get { return "Tile Rule Spawn/Erase"; } }

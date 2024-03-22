@@ -621,6 +621,7 @@ MonoBehaviour:
   Lights: {fileID: 170857923461783770}
   Probes: {fileID: 4826137117712208162}
   cutsceneReferences: []
+  spawn: {fileID: 0}
 --- !u!1 &7660799278226637102
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +758,7 @@ MonoBehaviour:
   m_IESPoint: {fileID: 0}
   m_IESSpot: {fileID: 0}
   m_IncludeForRayTracing: 1
-  m_AreaLightShadowCone: 120
+  m_AreaLightShadowCone: 60
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
@@ -871,7 +872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1941638585142157594
 Transform:
   m_ObjectHideFlags: 0

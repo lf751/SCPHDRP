@@ -124,6 +124,7 @@ namespace GSpawn
             if (FixedShortcuts.ui_Paste(e) && UICopyPaste.initiatorId == PluginPrefabManagerUI.instance.copyPasteInitiatorId) UICopyPaste.paste();
         }
 
+        private List<PrefabLib> _rootLibs_popLibView = new List<PrefabLib>(100);
         private void populateLibView()
         {
             if (_libView == null) return;
@@ -131,10 +132,9 @@ namespace GSpawn
             _libView.onBeginBuild();
 
             _libSearchField.refreshMatchNames();
-            var rootLibs = new List<PrefabLib>();
-            PrefabLibProfileDb.instance.activeProfile.getRootLibs(rootLibs);
+            PrefabLibProfileDb.instance.activeProfile.getRootLibs(_rootLibs_popLibView);
 
-            foreach (var rootLib in rootLibs)
+            foreach (var rootLib in _rootLibs_popLibView)
             {
                 _libView.addItem(rootLib, filterLib(rootLib));
                 createLibItemsRecurse(rootLib);

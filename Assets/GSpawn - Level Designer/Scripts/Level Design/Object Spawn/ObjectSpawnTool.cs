@@ -30,6 +30,7 @@ namespace GSpawn
         public virtual bool                     canChangeSpawnGuideTransform        { get { return true; } }
         public virtual ObjectMirrorGizmo        mirrorGizmo                         { get { return null; } }
         public PluginPrefab                     spawnGuidePrefab                    { get { return requiresSpawnGuide ? spawnGuide.sourcePrefab : null; } }
+        public bool                             enableSpawnGuidePrefabScroll        { get; set; }
 
         public void onSceneGUI()
         {

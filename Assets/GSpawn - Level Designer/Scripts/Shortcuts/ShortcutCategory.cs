@@ -31,22 +31,38 @@ namespace GSpawn
                 sh.clearConflicts();
         }
 
-        public bool executeCommands()
+        public Shortcut executeCommands()
         {
-            bool foundActive = false;
-            foreach (var s in _shortcuts)
-                foundActive |= s.executeCommand();
+            /* bool foundActive = false;
+             foreach (var s in _shortcuts)
+                 foundActive |= s.executeCommand();
 
-            return foundActive;
+             return foundActive;*/
+
+            foreach (var s in _shortcuts)
+            {
+                if (s.executeCommand())
+                    return s;
+            }
+
+            return null;
         }
 
-        public bool executeOrDisableModifierCommands()
+        public Shortcut executeOrDisableModifierCommands()
         {
-            bool foundActive = false;
+            /*bool foundActive = false;
             foreach (var s in _shortcuts)
                 foundActive |= s.executeOrDisableModifierCommand();
 
-            return foundActive;
+            return foundActive;*/
+
+            foreach (var s in _shortcuts)
+            {
+                if (s.executeOrDisableModifierCommand())
+                    return s;
+            }
+
+            return null;
         }
 
         public bool disableCommands()

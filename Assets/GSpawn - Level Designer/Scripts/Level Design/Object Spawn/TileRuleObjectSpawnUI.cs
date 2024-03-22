@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 
 namespace GSpawn
 {
@@ -27,6 +28,8 @@ namespace GSpawn
 
         [NonSerialized]
         private List<TileRuleGrid>      _gridBuffer         = new List<TileRuleGrid>();
+        [NonSerialized]
+        private List<TileRuleGrid>      _visSelectedGrids   = new List<TileRuleGrid>();
         [NonSerialized]
         private List<PluginGuid>        _gridIdBuffer       = new List<PluginGuid>();
         [NonSerialized]
@@ -136,10 +139,10 @@ namespace GSpawn
                 {
                     if (EditorUtility.DisplayDialog("Delete Tile Rule Grids", "This action will remove the selected grids from the scene together with all their children (including object groups). Would you like to continue? (You can Undo this operation).", "Yes", "No"))
                     {
-                        getVisibleSelectedGrids(_gridBuffer);
-                        UITileRuleGridItem.getItemIds(_gridBuffer, _gridIdBuffer);
+                        getVisibleSelectedGrids(_visSelectedGrids);
+                        UITileRuleGridItem.getItemIds(_visSelectedGrids, _gridIdBuffer);
                         _gridView.deleteItems(_gridIdBuffer);
-                        TileRuleGridDb.getGameObjects(_gridBuffer, _gridObjectBuffer);
+                        TileRuleGridDb.getGameObjects(_visSelectedGrids, _gridObjectBuffer);
 
                         // Note: Before destroying the game objects, delete any objects groups which are associated with those objects.
                         //       This will allow object groups to be restored on Undo/Redo.
@@ -150,28 +153,41 @@ namespace GSpawn
                             ObjectGroupDb.instance.deleteObjectGroups(_objectGroupBuffer);
                         }
 
-                        TileRuleGridDb.instance.deleteGrids(_gridBuffer);
+                        TileRuleGridDb.instance.deleteGrids(_visSelectedGrids);
                         UndoEx.destroyGameObjectsImmediate(_gridObjectBuffer);
                     }
                 }
             };
             UI.useDefaultMargins(btn);
 
-            btn = UI.createToolbarButton(TexturePool.instance.fixOverlaps, UI.ButtonStyle.Push, UIValues.smallToolbarButtonSize, toolbar);
+            btn         = UI.createToolbarButton(TexturePool.instance.fixOverlaps, UI.ButtonStyle.Push, UIValues.smallToolbarButtonSize, toolbar);
             btn.tooltip = "Fix overlaps. Traverses all selected grids and disables the renderers of objects that overlap. Useful when dealing " + 
                 "with tiles that have decorations that overlap when the tiles sit next to each other.";
             btn.clicked += () =>
             {
                 if (_gridView != null && TileRuleGridDb.instance.numGrids != 0)
                 {
-                    getVisibleSelectedGrids(_gridBuffer);
-                    foreach(var grid in _gridBuffer)
-                    {
+                    getVisibleSelectedGrids(_visSelectedGrids);
+                    foreach(var grid in _visSelectedGrids)
                         grid.fixObjectOverlaps();
-                    }
                 }
             };
             UI.useDefaultMargins(btn);
+            UI.createFlexGrow(toolbar);
+
+            var b       = new Button();
+            b.text      = "Delete obscured";
+            b.tooltip   = "Deletes obscured tiles from the selected grids.";
+            toolbar.Add(b);
+            b.clicked += () => 
+            {
+                if (_gridView != null && TileRuleGridDb.instance.numGrids != 0)
+                {
+                    getVisibleSelectedGrids(_visSelectedGrids);
+                    foreach (var grid in _visSelectedGrids)
+                        grid.deleteObscuredTiles();
+                }
+            };
         }
 
         private void createGridView(VisualElement parent)
@@ -229,7 +245,7 @@ namespace GSpawn
         private void onSelectedGridItemsWillBeDeleted(ListView<UITileRuleGridItem, TileRuleGrid> listView, List<PluginGuid> itemIds)
         {
             _gridView.getItemData(itemIds, _gridBuffer);
-             TileRuleGridDb.instance.deleteGrids(_gridBuffer);
+            TileRuleGridDb.instance.deleteGrids(_gridBuffer);
         }
 
         private void onSelectionChanged(ListView<UITileRuleGridItem, TileRuleGrid> listView)

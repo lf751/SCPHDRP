@@ -391,6 +391,107 @@ namespace GSpawn
             _tileMap.Clear();
         }
 
+        public void deleteObscuredTiles()
+        {
+            if (_tileMap.Count == 0) return;
+
+            // Note: Undo causes undo stack overflow when too many tiles are deleted.
+            //       It also seems to be a lot faster without undo.
+            UndoEx.saveEnabledState();
+            UndoEx.enabled = false;
+            prepareForTileUpdate();
+            _editData.clear();
+
+            Vector3Int gridMin = new Vector3Int(int.MaxValue, int.MaxValue, int.MaxValue);
+            Vector3Int gridMax = new Vector3Int(int.MinValue, int.MinValue, int.MinValue);
+
+            var tileMapPairs    = _tileMap.ToList();
+            int numTileMapPairs = tileMapPairs.Count;
+
+            PluginProgressDialog.begin("Calculating Grid Bounds");
+            for (int pairIndex = 0; pairIndex < numTileMapPairs; ++pairIndex)
+            {
+                var pair = tileMapPairs[pairIndex];
+                PluginProgressDialog.updateProgress("Tile " + pairIndex, (pairIndex + 1) / (float)(numTileMapPairs));
+
+                gridMin = Vector3Int.Min(gridMin, pair.Key);
+                gridMax = Vector3Int.Max(gridMax, pair.Key);
+            }
+            PluginProgressDialog.end();
+
+            Vector3Int[] neighOffsets = new Vector3Int[]
+            {
+                new Vector3Int(-1, 0, 0), new Vector3Int(1, 0, 0),
+                new Vector3Int(0, 0, -1), new Vector3Int(0, 0, 1),
+                new Vector3Int(0, -1, 0), new Vector3Int(0, 1, 0)
+            };
+            int numNeighOffsets = neighOffsets.Length;
+
+            List<Vector3Int>    open            = new List<Vector3Int>();
+            HashSet<Vector3Int> visited         = new HashSet<Vector3Int>();
+            List<Vector3Int>    eraseCoords     = new List<Vector3Int>();
+
+            _tilePaintParams.clear();
+            _tilePaintParams.paintReason = TilePaintReason.Erase;
+       
+            PluginProgressDialog.begin("Deleting Obscured Tiles");
+            for (int pairIndex = 0; pairIndex < numTileMapPairs; ++pairIndex)
+            {
+                var pair        = tileMapPairs[pairIndex];
+                var tileCoords  = pair.Key;
+                PluginProgressDialog.updateProgress("Tile " + pairIndex, (pairIndex + 1) / (float)(numTileMapPairs));
+
+                open.Clear();
+                open.Add(tileCoords);
+                visited.Clear();
+
+                bool foundPath = false;
+                while (open.Count != 0)
+                {
+                    Vector3Int current = open[open.Count - 1];
+                    open.RemoveAt(open.Count - 1);
+                    visited.Add(current);
+
+                    for (int i = 0; i < numNeighOffsets; ++i)
+                    {
+                        // If this cell is out of bounds, it means we found a path outside.
+                        // In this case, the tile is not obscured.
+                        Vector3Int c = current + neighOffsets[i];
+                        if (c.x < gridMin.x || c.x > gridMax.x ||
+                            c.y < gridMin.y || c.y > gridMax.y ||
+                            c.z < gridMin.z || c.z > gridMax.z)
+                        {
+                            foundPath = true;
+                            break;
+                        }
+
+                        // Add this neighbor to the open list so we can visit it later
+                        if (!_tileMap.ContainsKey(c) && !visited.Contains(c))
+                            open.Add(c);
+                    }
+                    if (foundPath) break;
+                }
+
+                // If no path was found, the tile is obscured and we need to erase it
+                if (!foundPath) eraseCoords.Add(tileCoords);
+            }
+           
+            // Note: Do this in a second pass. Otherwise, tiles will be deleted, and paths will be
+            //       found where there are none.
+            foreach (var c in eraseCoords)
+            {
+                eraseTile(c);
+                updateSurroundingTiles_IgnoreRamps(c);
+            }
+
+            // Note: Commit edit data here. It has to be done this way for Undo/Redo to work.
+            commitEditData();
+
+            PluginProgressDialog.end();
+            ObjectSelection.instance.onSelectedObjectsMightHaveBeenDeleted(true);
+            UndoEx.restoreEnabledState();
+        }
+
         public void refreshTiles()
         {
             prepareForTileUpdate();
@@ -1037,11 +1138,13 @@ namespace GSpawn
 
         [NonSerialized]
         private TilePaintParams _paintParams_UpdateSurrounding = new TilePaintParams();
+        [NonSerialized]
+        private List<Vector3Int> _cellBuffer_UpdateSurrounding = new List<Vector3Int>();
         private void updateSurroundingTiles_IgnoreRamps(Vector3Int tileCoords)
         {
             _paintParams_UpdateSurrounding.paintingRamp = false;
-            getCellsAroundVerticalBorder(tileCoords, (int)settings.tileRuleNeighborRadius, _cellsAroundVertBorder);
-            foreach (var cellCoords in _cellsAroundVertBorder)
+            getCellsAroundVerticalBorder(tileCoords, (int)settings.tileRuleNeighborRadius, _cellBuffer_UpdateSurrounding);
+            foreach (var cellCoords in _cellBuffer_UpdateSurrounding)
             {
                 if ((getTileObject(cellCoords) != null) && !isRamp(cellCoords))
                 {

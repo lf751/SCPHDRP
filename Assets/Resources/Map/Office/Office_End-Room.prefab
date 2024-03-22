@@ -51,6 +51,7 @@ MonoBehaviour:
   Lights: {fileID: 7031432764362258559}
   Probes: {fileID: 4309330623552698255}
   cutsceneReferences: []
+  spawn: {fileID: 0}
 --- !u!1 &219675565739595371
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +70,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &219675565739362891
 Transform:
   m_ObjectHideFlags: 0

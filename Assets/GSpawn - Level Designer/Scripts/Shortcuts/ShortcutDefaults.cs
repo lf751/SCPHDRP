@@ -47,6 +47,7 @@ namespace GSpawn
             // ================================= Object Spawn ================================= //
             _defaultMap.Add(ObjectSpawnShortcutNames.spawnGuide_SyncGridCellSize, new KeyCombo.State() { key = KeyCode.K });
             _defaultMap.Add(ObjectSpawnShortcutNames.spawnGuide_ToggleDecorRules, new KeyCombo.State() { key = KeyCode.V, shift = true });
+            _defaultMap.Add(ObjectSpawnShortcutNames.spawnGuide_ScrollPrefab, new KeyCombo.State() { key = KeyCode.Space, ctrl = true });
             _defaultMap.Add(ObjectSpawnShortcutNames.tileRuleSpawn_Paint, new KeyCombo.State() { key = KeyCode.Q });
             _defaultMap.Add(ObjectSpawnShortcutNames.tileRuleSpawn_Ramp, new KeyCombo.State() { key = KeyCode.W });
             _defaultMap.Add(ObjectSpawnShortcutNames.tileRuleSpawn_Erase, new KeyCombo.State() { key = KeyCode.E });

@@ -1438,6 +1438,7 @@ MonoBehaviour:
   lightsOn: 1
   HorrorVol: {fileID: 8184007457765420645}
   MainVol: {fileID: 4845496047392287814}
+  FpsCounter: {fileID: 0}
   xPlayer: 0
   yPlayer: 0
   plyPrefab: {fileID: 1341638972000247816, guid: 575dd14983cf9b14f8562ccc9c6c9544, type: 3}

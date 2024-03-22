@@ -164,14 +164,14 @@ MonoBehaviour:
       Index: 8
       Type: 8
       Channel: height
-    OutputTexture: {fileID: 2800000, guid: 25024d75881ed5f42a485b553ac5cbe9, type: 3}
+    OutputTexture: {fileID: 0}
     sRGB: 1
     IsVirtual: 0
     IsAlphaAssignable: 1
     AlphaChannel: 
     InvertAssignedAlpha: 0
     Flags: 0
-    MaterialTextureTarget: _HeightMap
+    MaterialTextureTarget: 
   - Index: 9
     VirtualOutputIndex: 9
     Description:

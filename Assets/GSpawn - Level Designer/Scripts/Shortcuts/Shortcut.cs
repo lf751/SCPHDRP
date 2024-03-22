@@ -36,6 +36,13 @@ namespace GSpawn
         public bool                     uiSelected          { get { return _uiSelected; } set { _uiSelected = value; } }
         public CopyPasteMode            uiCopyPasteMode     { get { return _uiCopyPasteMode; } set { _uiCopyPasteMode = value; } }
 
+        public bool isActive()
+        {
+            if ((context != null && !context.active) || !keyCombo.isActive()) return false;
+
+            return true;
+        }
+
         public bool executeCommand()
         {
             if ((context != null && !context.active) || !keyCombo.isActive()) return false;
@@ -101,6 +108,13 @@ namespace GSpawn
         {
             _potentialConflicts.Add(shortcut.shortcutName);
             shortcut._potentialConflicts.Add(shortcutName);
+        }
+
+        public void addPotentialConflicts(ShortcutCategory category)
+        {
+            int numSh = category.numShortcuts;
+            for (int i = 0; i < numSh; ++i)
+                addPotentialConflict(category.getShortcut(i));
         }
 
         public string getConflictsTooltip()

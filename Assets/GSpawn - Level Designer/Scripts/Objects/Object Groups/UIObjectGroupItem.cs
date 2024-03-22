@@ -82,10 +82,17 @@ namespace GSpawn
             button.style.marginRight            = -3.0f;
             button.clicked                      += () => { PluginScene.instance.setObjectGroupChildrenActive(data, false, true); };
 
-             _highlightGroupButton              = UI.createButton(TexturePool.instance.ping, UI.ButtonStyle.Push, UIValues.smallButtonSize, this);
+            _highlightGroupButton               = UI.createButton(TexturePool.instance.ping, UI.ButtonStyle.Push, UIValues.smallButtonSize, this);
             _highlightGroupButton.tooltip       = "Ping object in hierarchy view.";
             _highlightGroupButton.style.marginRight = -3.0f;
             _highlightGroupButton.clicked       += () => { EditorGUIUtility.PingObject(data.gameObject); };
+
+            #if UNITY_EDITOR_OSX
+            button                              = UI.createButton(TexturePool.instance.greenArrowDown, UI.ButtonStyle.Push, UIValues.smallButtonSize, this);
+            button.tooltip                      = "Assign object group to the prefabs that are selected in the prefab manager.";
+            button.style.marginRight            = -3.0f;
+            button.clicked                      += () => { PluginPrefabManagerUI.instance.assignObjectGroupToSelectedVisiblePrefabs(data); };
+            #endif
 
             button                              = UI.createButton(TexturePool.instance.clear, UI.ButtonStyle.Push, UIValues.smallButtonSize, this);
             button.tooltip                      = "Delete immediate children. Note: Only deletes the children that are not object groups.";

@@ -98,7 +98,7 @@ namespace GSpawn
 
         public static bool enableMouseRotateObjects(Event e)
         {
-            return e.shiftStrict() /*&& Mouse.instance.noButtonsDown*/;
+            return e.shiftStrict() && ShortcutProfile.activeShortcut == null; /*&& Mouse.instance.noButtonsDown*/;
         }
 
         public static bool checkMouseRotateDelay()
@@ -108,7 +108,7 @@ namespace GSpawn
 
         public static bool enableMouseScaleObjects(Event e)
         {
-            return e.controlStrict() /*&& Mouse.instance.noButtonsDown*/;
+            return e.controlStrict() && ShortcutProfile.activeShortcut == null; /*&& Mouse.instance.noButtonsDown*/;
         }
 
         public static bool checkMouseScaleDelay()
@@ -118,7 +118,7 @@ namespace GSpawn
 
         public static bool enableMouseOffsetFromSurface(Event e)
         {
-            return e.altStrict() && Mouse.instance.noButtonsDown;
+            return e.altStrict() && Mouse.instance.noButtonsDown && ShortcutProfile.activeShortcut == null;
         }
 
         public static bool checkMouseOffsetFromSurfaceDelay()
@@ -128,7 +128,7 @@ namespace GSpawn
 
         public static bool enableMouseOrbitAroundPoint(Event e)
         {
-            return e.control && e.shift && !e.alt && !e.command && Mouse.instance.noButtonsDown;
+            return e.control && e.shift && !e.alt && !e.command && Mouse.instance.noButtonsDown && ShortcutProfile.activeShortcut == null;
         }
 
         public static bool checkMouseOrbitDelay()
@@ -139,7 +139,7 @@ namespace GSpawn
 
         public static bool enableMouseAdjustAnchor(Event e)
         {
-            return e.control && e.alt && !e.shift && !e.command && Mouse.instance.noButtonsDown;
+            return e.control && e.alt && !e.shift && !e.command && Mouse.instance.noButtonsDown && ShortcutProfile.activeShortcut == null;
         }
 
         public static bool checkMouseAdjustAnchorDelay()
@@ -150,7 +150,7 @@ namespace GSpawn
 
         public static bool enableMouseOffsetFromPoint(Event e)
         {
-            return e.shift && e.alt && !e.control && !e.command && Mouse.instance.noButtonsDown;
+            return e.shift && e.alt && !e.control && !e.command && Mouse.instance.noButtonsDown && ShortcutProfile.activeShortcut == null;
         }
 
         public static bool checkMouseOffsetFromPointDelay()

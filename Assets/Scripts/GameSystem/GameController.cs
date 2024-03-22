@@ -65,11 +65,11 @@ public class GameController : MonoBehaviour
     public float toFog=15;
     public bool doGameplay, spawnPlayer, spawnHere, StopTimer = false, isStart = false, mapless;
     public bool lightsOn = true;
-
     [Header("Volumes")]
     public UnityEngine.Rendering.Volume HorrorVol;
     public UnityEngine.Rendering.Volume MainVol;
     TweenBase HorrorTween;
+    public GameObject FpsCounter;
 
     [HideInInspector]
     public int xPlayer, yPlayer;
@@ -388,7 +388,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-
     void NewGame()
     {
         GL_PreStart();
@@ -541,6 +540,7 @@ public class GameController : MonoBehaviour
         if (SCPInput.instance.playerInput.Gameplay.DebugF1.triggered)
         {
             DebugFlag = !DebugFlag;
+            FpsCounter.SetActive(true);
         }
 
 
@@ -1666,8 +1666,9 @@ public class GameController : MonoBehaviour
                 {
                     HDProbe probe = probes[idx];
                     probe.mode = ProbeSettings.Mode.Realtime;
-                    probe.realtimeMode = ProbeSettings.RealtimeMode.EveryFrame;
+                    probe.realtimeMode = ProbeSettings.RealtimeMode.OnDemand;
                 }
+                StartCoroutine(RenderProbes(probes));
                 hold.Probes.SetActive(true);
                 yield return null;
             }
@@ -1677,6 +1678,28 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+    IEnumerator RenderProbes(HDProbe[] probes)
+    {
+        int frameCount = 0;
+
+        while (true)
+        {
+            foreach (HDProbe probe in probes)
+            {
+                probe.RequestRenderNextUpdate();
+            }
+
+            // Wait for 25 frames
+            frameCount++;
+            if (frameCount >= 25)
+            {
+                frameCount = 0;
+                yield return null;
+            }
+        }
+    }
+
 
     IEnumerator HidAfterProbeRendering()
     {

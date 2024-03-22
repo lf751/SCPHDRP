@@ -7,10 +7,14 @@ namespace GSpawn
 {
     public class ShortcutProfile : Profile
     {
+        static Shortcut                 _activeShortcut         = null;
+
         [SerializeField]
         private List<ShortcutCategory>  _shortcutCategories     = new List<ShortcutCategory>();
 
         public int                      numShortcutCategories   { get { return _shortcutCategories.Count; } }
+
+        public static Shortcut          activeShortcut          { get { return _activeShortcut; } }
 
         public Shortcut findShortcut(string shortcutName)
         {
@@ -116,13 +120,25 @@ namespace GSpawn
 
         public bool processEvent(Event e)
         {
+            //_activeShortcut = null;
+
             GlobalShortcutContext.instance.evaluateHierarchy();
             if (e.type == EventType.KeyDown)
             {
                 if (e.keyCode != KeyCode.None)
                 {
                     foreach (var c in _shortcutCategories)
-                        if (c.executeCommands()) return true;
+                    {
+                        Shortcut sh = c.executeCommands();
+                        if (sh != null)
+                        {
+                            _activeShortcut = sh;
+                            return true;
+                        }
+
+                        // Previously:
+                        // if (c.executeCommands()) return true;
+                    }
                 }
             }
             else
@@ -130,6 +146,9 @@ namespace GSpawn
             {
                 if (e.keyCode != KeyCode.None)
                 {
+                    if (_activeShortcut != null && !_activeShortcut.isActive())
+                        _activeShortcut = null;
+
                     bool disabledCommand = false;
                     foreach (var c in _shortcutCategories)
                         disabledCommand |= c.disableCommands();
@@ -144,7 +163,14 @@ namespace GSpawn
                 //       can use the same modifiers (even if in the same context).
                 bool foundActive = false;
                 foreach (var c in _shortcutCategories)
-                    foundActive |= c.executeOrDisableModifierCommands();
+                {
+                    Shortcut sh = c.executeOrDisableModifierCommands();
+                    if (sh != null)
+                    {
+                        foundActive = true;
+                        _activeShortcut = sh;
+                    }
+                }
 
                 return foundActive;
             }
@@ -241,9 +267,12 @@ namespace GSpawn
             getOrCreateShortcut(category, ObjectTransformSessionsShortcutNames.surfaceSnap_ToggleAxisAlignment, GlobalShortcutContext.instance.objectSurfaceSnapShortcutContext, new ObjectTransformSession_SurfaceSnap_ToggleAxisAlignment());
 
             // ================================= Object Spawn ================================= //
+            var transformSessionsCategory = category;
             category = getOrCreateShortcutCategory(ShortcutCategoryNames.objectSpawn);
             getOrCreateShortcut(category, ObjectSpawnShortcutNames.spawnGuide_SyncGridCellSize, GlobalShortcutContext.instance.objectSpawnContext, new ObjectSpawn_SpawnGuide_SyncGridCellSize());
             getOrCreateShortcut(category, ObjectSpawnShortcutNames.spawnGuide_ToggleDecorRules, GlobalShortcutContext.instance.objectSpawnContext, new ObjectSpawn_SpawnGuide_ToggleDecorRules());
+            var spGuide_scrollPrefab_sh = getOrCreateShortcut(category, ObjectSpawnShortcutNames.spawnGuide_ScrollPrefab, GlobalShortcutContext.instance.spawnGuidePrefabScrollContext, new ObjectSpawn_SpawnGuide_ScrollPrefab());
+            spGuide_scrollPrefab_sh.addPotentialConflicts(transformSessionsCategory);
             getOrCreateShortcut(category, ObjectSpawnShortcutNames.tileRuleSpawn_Paint, GlobalShortcutContext.instance.objectSpawn_TileRules_ShortcutContext, new ObjectSpawn_TileRuleSpawn_EnablePaintMode());
             getOrCreateShortcut(category, ObjectSpawnShortcutNames.tileRuleSpawn_Ramp, GlobalShortcutContext.instance.objectSpawn_TileRules_ShortcutContext, new ObjectSpawn_TileRuleSpawn_EnableRampMode());
             getOrCreateShortcut(category, ObjectSpawnShortcutNames.tileRuleSpawn_Erase, GlobalShortcutContext.instance.objectSpawn_TileRules_ShortcutContext, new ObjectSpawn_TileRuleSpawn_EnableEraseMode());
@@ -258,7 +287,7 @@ namespace GSpawn
             getOrCreateShortcut(category, ObjectSpawnShortcutNames.curveSpawn_MoveGizmo, GlobalShortcutContext.instance.objectSpawn_Curve_ShortcutContext, new ObjectSpawn_CurveSpawn_EnableMoveGizmo());
             getOrCreateShortcut(category, ObjectSpawnShortcutNames.curveSpawn_RotationGizmo, GlobalShortcutContext.instance.objectSpawn_Curve_ShortcutContext, new ObjectSpawn_CurveSpawn_EnableRotationGizmo());
             getOrCreateShortcut(category, ObjectSpawnShortcutNames.curveSpawn_ScaleGizmo, GlobalShortcutContext.instance.objectSpawn_Curve_ShortcutContext, new ObjectSpawn_CurveSpawn_EnableScaleGizmo());
-           
+
             // ================================= Object Selection ================================= //
             category = getOrCreateShortcutCategory(ShortcutCategoryNames.objectSelection);
             getOrCreateShortcut(category, ObjectSelectionShortcutNames.snapAllAxes, GlobalShortcutContext.instance.objectSelectionContext, new ObjectSelection_SnapAllAxes());
