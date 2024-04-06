@@ -1,14 +1,12 @@
-//Do not dynamically load on Android.
+//Do not dynamically load on Android and IOS.
 #if (!UNITY_EDITOR && UNITY_ANDROID)
 #define ALG_SBSARIO_STATIC_LOAD
-//Do not dynamically load on IOS.
 #elif (!UNITY_EDITOR && UNITY_IOS)
 #define ALG_SBSARIO_STATIC_LOAD
-
 #elif (UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX)
 #define ALG_SBSARIO_STATIC_LOAD
 #else
-//Dynamically load on Mac and Linux and Windows.
+//Dynamically load on Mac and Windows.
 #define ALG_SBSARIO_DYNAMIC_LOAD
 #endif
 

@@ -3,6 +3,9 @@ using System.Runtime.InteropServices;
 
 namespace Adobe.Substance
 {
+    /// <summary>
+    /// Native Substance engine.
+    /// </summary>
     public class Engine
     {
         private enum LoadState : uint

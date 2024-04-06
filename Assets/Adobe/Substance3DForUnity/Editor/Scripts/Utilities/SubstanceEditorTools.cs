@@ -1,4 +1,5 @@
 using Adobe.Substance;
+using Adobe.SubstanceEditor.ProjectSettings;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -287,7 +288,20 @@ namespace Adobe.SubstanceEditor
 
             var path = AssetDatabase.GetAssetPath(fileSO);
 
-            string[] guids = AssetDatabase.FindAssets(string.Format("t:{0}", typeof(SubstanceGraphSO)));
+            string[] guids = null;
+
+            if (SubstanceEditorSettingsSO.SearchSubfoldersOnly())
+            {
+                var currentDirectory = Path.GetDirectoryName(path);
+                var subFolders = Directory.GetDirectories(Path.GetDirectoryName(path));
+                var fileName = fileSO.name;
+                var potentialFolders = System.Array.FindAll<string>(subFolders, s => s.Contains(fileName));
+                guids = AssetDatabase.FindAssets(string.Format("t:{0}", typeof(SubstanceGraphSO)), potentialFolders);
+            }
+            else
+            {
+                guids = AssetDatabase.FindAssets(string.Format("t:{0}", typeof(SubstanceGraphSO)));
+            }
 
             for (int i = 0; i < guids.Length; i++)
             {

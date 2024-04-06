@@ -1,8 +1,11 @@
 using Adobe.Substance;
+using Adobe.SubstanceEditor.ProjectSettings;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEditor;
 using UnityEditor.Graphs;
 using UnityEditor.SceneManagement;
@@ -133,7 +136,6 @@ namespace Adobe.SubstanceEditor
             if (_propertiesChanged)
             {
                 SaveTGAFiles();
-                UpdateGraphMaterialLabel();
 
                 AssetDatabase.Refresh();
             }
@@ -174,7 +176,7 @@ namespace Adobe.SubstanceEditor
 
             try
             {
-                if (FirstConfigurePresets() || DrawGraph())
+                if (FirstConfigurePresets() || DrawGraph(serializedObject))
                 {
                     serializedObject.ApplyModifiedProperties();
                     _propertiesChanged = true;
@@ -184,7 +186,7 @@ namespace Adobe.SubstanceEditor
             {
             }
 
-            
+
         }
 
         /// <summary>
@@ -237,7 +239,7 @@ namespace Adobe.SubstanceEditor
 
         #region Draw
 
-        private bool DrawGraph()
+        private bool DrawGraph(SerializedObject serializedObject)
         {
             bool valuesChanged = false;
 
@@ -247,12 +249,19 @@ namespace Adobe.SubstanceEditor
                 valuesChanged = true;
             }
 
-            GUILayout.Space(16);
+            if (DrawResetGraphButton(_target))
+            {
+                valuesChanged = true;
+                serializedObject.ApplyModifiedProperties();
+                GUIUtility.ExitGUI();
+            }
 
             if (DrawPresentExport(_target))
+            {
                 valuesChanged = true;
+            }
 
-            DrawInputs(out bool serializedObject, out bool renderGraph);
+            DrawInputs(out bool serializeObject, out bool renderGraph);
 
             if (renderGraph)
             {
@@ -262,7 +271,7 @@ namespace Adobe.SubstanceEditor
                 valuesChanged = true;
             }
 
-            if (serializedObject)
+            if (serializeObject)
                 valuesChanged = true;
 
             EditorGUILayout.Space();
@@ -287,6 +296,61 @@ namespace Adobe.SubstanceEditor
 
             return valuesChanged;
         }
+
+        #region Reset Button
+
+        private bool DrawResetGraphButton(SubstanceGraphSO graph)
+        {
+            GUILayout.Space(16);
+
+            if (GUILayout.Button("Reset Graph"))
+            {
+                ResetInputs(graph);
+                ResetPresets(graph);
+                ResetPhysicalSize(graph);
+                return true;
+            }
+
+            return false;
+        }
+
+        private void ResetInputs(SubstanceGraphSO graph)
+        {
+            _presetSelectedIndex = 0;
+            HandleApplyPreset(graph);
+        }
+
+        private void ResetPresets(SubstanceGraphSO graph)
+        {
+            for (int i = 0; i < _presetsListProperty.arraySize; i++)
+            {
+                var presetElement = _presetsListProperty.GetArrayElementAtIndex(i);
+
+                var isNative = presetElement.FindPropertyRelative("NativePreset").boolValue;
+
+                if (!isNative)
+                {
+                    _presetsListProperty.DeleteArrayElementAtIndex(i);
+                }
+            }
+        }
+
+        private void ResetPhysicalSize(SubstanceGraphSO graph)
+        {
+            if (!PhysicalSizeExtension.IsSupported())
+                return;
+
+            if (!graph.HasPhysicalSize)
+                return;
+
+            _physicalSizelProperty.vector3Value = _nativeGraph.GetPhysicalSize();
+            _enablePhysicalSizeProperty.boolValue = false;
+
+            MaterialUtils.ApplyPhysicalSize(graph.OutputMaterial, _physicalSizelProperty.vector3Value, _enablePhysicalSizeProperty.boolValue);
+            UpdateGraphMaterialLabel();
+        }
+
+        #endregion
 
         #region Texture Generation Settings
 
@@ -331,12 +395,23 @@ namespace Adobe.SubstanceEditor
         }
 
         private static readonly GUIContent _RuntimeOnlyGUI = new GUIContent("Runtime only", "If checked this instance will not generate TGA texture files");
+        private static readonly GUIContent _RuntimeOnlyGUIDisable = new GUIContent("Runtime only", "This feature is disabled by the Project settings. To enable it, go to the 'Adobe Substance 3D' tab in your project settings and disable the 'Disable support for Runtime only graphs' optimization.");
 
         private bool DrawRuntimeOnlyToggle(SerializedProperty runtimeOnlyProperty)
         {
-            var oldValue = runtimeOnlyProperty.boolValue;
-            runtimeOnlyProperty.boolValue = EditorGUILayout.Toggle(_RuntimeOnlyGUI, runtimeOnlyProperty.boolValue);
-            return oldValue != runtimeOnlyProperty.boolValue;
+            var disableRuntime = SubstanceEditorSettingsSO.DisableRuntimeOnly();
+
+            bool result;
+
+            GUI.enabled = !disableRuntime;
+            {
+                var oldValue = runtimeOnlyProperty.boolValue;
+                runtimeOnlyProperty.boolValue = EditorGUILayout.Toggle(disableRuntime ? _RuntimeOnlyGUIDisable : _RuntimeOnlyGUI, runtimeOnlyProperty.boolValue);
+                result = oldValue != runtimeOnlyProperty.boolValue;
+            }
+            GUI.enabled = true;
+
+            return result;
         }
 
         #endregion Texture Generation Settings
@@ -449,7 +524,7 @@ namespace Adobe.SubstanceEditor
                 {
                     renderGraph = true;
                     serializeObject = true;
-                }              
+                }
             }
         }
 
@@ -772,6 +847,8 @@ namespace Adobe.SubstanceEditor
 
         private bool DrawPresentExport(SubstanceGraphSO graph)
         {
+            GUILayout.Space(16);
+
             var result = false;
 
             int labelWidth = (int)EditorGUIUtility.labelWidth - 15;
@@ -876,7 +953,7 @@ namespace Adobe.SubstanceEditor
 
                                 }
                                 EditorGUILayout.EndHorizontal();
-                            }                           
+                            }
                             if (isNative)
                             {
                                 GUI.enabled = true;
@@ -1116,7 +1193,7 @@ namespace Adobe.SubstanceEditor
         }
 
         private void ShowPresetsRenameField(SubstanceGraphSO graph)
-        {          
+        {
             int labelWidth = ((int)EditorGUIUtility.labelWidth) / 2;
 
             _renamePresetName = GUILayout.TextField(_renamePresetName, GUILayout.Width(labelWidth));
@@ -1158,6 +1235,12 @@ namespace Adobe.SubstanceEditor
                 return true;
 
             var presetElement = _presetsListProperty.GetArrayElementAtIndex(_presetSelectedIndex - 1);
+
+            if (presetElement == null)
+            {
+                return true;
+            }
+
             var isNative = presetElement.FindPropertyRelative("NativePreset").boolValue;
 
             return isNative;

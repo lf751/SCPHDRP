@@ -141,14 +141,14 @@ namespace Adobe.SubstanceEditor.Importer
                 EditorGUILayout.BeginVertical();
                 DrawInstancesListSection();
                 EditorGUILayout.EndVertical();
-                DrawUILine();
+                EditorDrawUtilities.DrawUILine();
 
                 //Draw shader UI.
                 EditorGUILayout.BeginHorizontal();
                 DrawShaderSelectionSection();
                 EditorGUILayout.EndHorizontal();
 
-                DrawUILine();
+                EditorDrawUtilities.DrawUILine();
 
                 //Draw selected instance properties.
                 EditorGUILayout.BeginVertical();
@@ -593,18 +593,6 @@ namespace Adobe.SubstanceEditor.Importer
         private bool TryGetSelectedInstance(out SubstanceGraphSO instance)
         {
             return TryGetInstanceByIndex(_selectedInstance, out instance);
-        }
-
-        private static void DrawUILine()
-        {
-            var rect = EditorGUILayout.BeginVertical();
-            {
-                Handles.color = Color.black;
-                EditorGUILayout.Space(15);
-                Handles.DrawLine(new Vector2(rect.x - 40, rect.y + (rect.height / 2)), new Vector2(rect.width + 20, rect.y + (rect.height / 2)));
-                EditorGUILayout.Space(15);
-            }
-            EditorGUILayout.EndVertical();
         }
 
         private void ResetTempName()

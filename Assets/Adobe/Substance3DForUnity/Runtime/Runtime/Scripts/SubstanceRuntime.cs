@@ -25,7 +25,7 @@ namespace Adobe.Substance.Runtime
                     return _instance;
                 }
 
-                _instance = FindObjectOfType<SubstanceRuntime>();
+                _instance = FindFirstObjectByType<SubstanceRuntime>();
 
                 if (_instance != null)
                 {

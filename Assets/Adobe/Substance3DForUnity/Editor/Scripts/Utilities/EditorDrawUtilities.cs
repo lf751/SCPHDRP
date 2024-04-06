@@ -63,5 +63,17 @@ namespace Adobe.SubstanceEditor
                     return new Vector2Int(8, 8);
             }
         }
+
+        public static void DrawUILine()
+        {
+            var rect = EditorGUILayout.BeginVertical();
+            {
+                Handles.color = Color.black;
+                EditorGUILayout.Space(15);
+                Handles.DrawLine(new Vector2(rect.x - 40, rect.y + (rect.height / 2)), new Vector2(rect.width + 20, rect.y + (rect.height / 2)));
+                EditorGUILayout.Space(15);
+            }
+            EditorGUILayout.EndVertical();
+        }
     }
 }

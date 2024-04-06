@@ -65,6 +65,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 213208
   packageName: Substance 3D for Unity
-  packageVersion: 3.10.1
+  packageVersion: 3.11
   assetPath: Assets/Adobe/Substance3DForUnity/Runtime/Plugins/libsubstance_linker.9.dylib
-  uploadId: 640086
+  uploadId: 654717

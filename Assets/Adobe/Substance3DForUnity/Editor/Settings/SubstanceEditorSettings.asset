@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _generateAllTexture: 0
   _targetResolution: {x: 10, y: 10}
-  _targetTextureEngine: 0
+  _searchSubfoldersOnly: 0
+  _disableRuntimeOnly: 0

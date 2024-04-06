@@ -45,6 +45,10 @@ namespace Adobe.SubstanceEditor
             graph.MaterialShader = graph.OutputMaterial.shader.name;
         }
 
+        /// <summary>
+        /// Updates material properties with information from SubstanceGraphSO object.
+        /// </summary>
+        /// <param name="graph"></param>
         public static void UpdateMeterialAssignment(SubstanceGraphSO graph)
         {
             graph.MaterialShader = graph.OutputMaterial.shader.name;
