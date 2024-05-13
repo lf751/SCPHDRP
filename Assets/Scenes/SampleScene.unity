@@ -10810,6 +10810,10 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6454176666215605442, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
+      propertyPath: m_Text
+      value: High (Ray Tracing)
+      objectReference: {fileID: 0}
     - target: {fileID: 6796208754346675277, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
       propertyPath: 'circles.Array.data[1]'
       value: 
@@ -10928,7 +10932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7986735949425253949, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 12997075
+      value: 13053277
       objectReference: {fileID: 0}
     - target: {fileID: 8000249206163526082, guid: 4df5d5d2c960ca34a8eadf269771f230, type: 3}
       propertyPath: m_AnchorMax.x

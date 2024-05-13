@@ -16,17 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: e50c643728e770d4a84436d09cc7d975
-  m_SerializeEntries:
-  - m_GUID: 28d847b690e26f74da7f953af4af401d
-    m_Address: Assets/Scenes/Lobby/Prefabs/Art/Logos/BLOGO_712txt.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 95fb69e6d562a2d448e549717904839b
-    m_Address: Assets/Scenes/Lobby/Prefabs/Art/Logos/BLOGO_512.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 570689448f7700c4c9e3390420b9f8b9, type: 2}
   m_SchemaSet:
