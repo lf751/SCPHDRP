@@ -92,8 +92,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &8982108261832285214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,14 +113,14 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 600
   m_EnableSpotReflector: 1
+  m_LightUnit: 0
   m_LuxAtDistance: 1
+  m_Intensity: 600
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
   m_VolumetricDimmer: 1
-  m_LightUnit: 0
   m_FadeDistance: 25
   m_VolumetricFadeDistance: 10000
   m_AffectDiffuse: 1
@@ -136,6 +140,7 @@ MonoBehaviour:
   m_IESPoint: {fileID: 0}
   m_IESSpot: {fileID: 0}
   m_IncludeForRayTracing: 1
+  m_IncludeForPathTracing: 1
   m_AreaLightShadowCone: 120
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
@@ -454,6 +459,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -645,6 +651,7 @@ MonoBehaviour:
     realtimeMode: 2
     timeSlicing: 1
     lighting:
+      importance: 1
       multiplier: 1
       weight: 1
       lightLayer: 1
@@ -1188,8 +1195,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &5769943797257754895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,14 +1216,14 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 600
   m_EnableSpotReflector: 1
+  m_LightUnit: 0
   m_LuxAtDistance: 1
+  m_Intensity: 600
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
   m_VolumetricDimmer: 1
-  m_LightUnit: 0
   m_FadeDistance: 25
   m_VolumetricFadeDistance: 10000
   m_AffectDiffuse: 1
@@ -1232,6 +1243,7 @@ MonoBehaviour:
   m_IESPoint: {fileID: 0}
   m_IESSpot: {fileID: 0}
   m_IncludeForRayTracing: 1
+  m_IncludeForPathTracing: 1
   m_AreaLightShadowCone: 120
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
@@ -1407,14 +1419,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smoke_Spawn
       objectReference: {fileID: 0}
+    - target: {fileID: 7831742790670137222, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+      propertyPath: smokeSound
+      value: 
+      objectReference: {fileID: 3714679532617210821}
+    - target: {fileID: 7831742790670137222, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+      propertyPath: smokeEffect
+      value: 
+      objectReference: {fileID: 4827877022614821971}
+    - target: {fileID: 7831742790670137222, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+      propertyPath: smokeCollider
+      value: 
+      objectReference: {fileID: 4923156478035856842}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+--- !u!82 &3714679532617210821 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7126914738027668996, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+  m_PrefabInstance: {fileID: 5866732822490955201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4827877022614821971 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1327087417542877586, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+  m_PrefabInstance: {fileID: 5866732822490955201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4923156477740155225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1529045537598160024, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+  m_PrefabInstance: {fileID: 5866732822490955201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4923156478035856842 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 1529045537336012811, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
   m_PrefabInstance: {fileID: 5866732822490955201}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5866732822609315826
@@ -1493,14 +1532,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smoke_Spawn (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7831742790670137222, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+      propertyPath: smokeSound
+      value: 
+      objectReference: {fileID: 3714679532471607798}
+    - target: {fileID: 7831742790670137222, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+      propertyPath: smokeEffect
+      value: 
+      objectReference: {fileID: 4827877022598981216}
+    - target: {fileID: 7831742790670137222, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+      propertyPath: smokeCollider
+      value: 
+      objectReference: {fileID: 4923156478079006713}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+--- !u!82 &3714679532471607798 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7126914738027668996, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+  m_PrefabInstance: {fileID: 5866732822609315826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4827877022598981216 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1327087417542877586, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+  m_PrefabInstance: {fileID: 5866732822609315826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4923156477821057898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1529045537598160024, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+  m_PrefabInstance: {fileID: 5866732822609315826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4923156478079006713 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 1529045537336012811, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
   m_PrefabInstance: {fileID: 5866732822609315826}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5866732823313301551
@@ -1579,11 +1645,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smoke_Spawn (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7831742790670137222, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+      propertyPath: smokeSound
+      value: 
+      objectReference: {fileID: 3714679533976446507}
+    - target: {fileID: 7831742790670137222, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+      propertyPath: smokeEffect
+      value: 
+      objectReference: {fileID: 4827877023974056381}
+    - target: {fileID: 7831742790670137222, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+      propertyPath: smokeCollider
+      value: 
+      objectReference: {fileID: 4923156478857703460}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+--- !u!82 &3714679533976446507 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7126914738027668996, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+  m_PrefabInstance: {fileID: 5866732823313301551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4827877023974056381 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1327087417542877586, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+  m_PrefabInstance: {fileID: 5866732823313301551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4923156478857703460 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 1529045537336012811, guid: fb733777ff6665c43b966675407dd0b4, type: 3}
+  m_PrefabInstance: {fileID: 5866732823313301551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4923156479065324727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1529045537598160024, guid: fb733777ff6665c43b966675407dd0b4, type: 3}

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5141019757065207757}
   - component: {fileID: -7914254506837867696}
   - component: {fileID: 93403262358632737}
-  - component: {fileID: 8832759959265255317}
   m_Layer: 10
   m_Name: Wall_InsetENDPR
   m_TagString: Untagged
@@ -63,6 +62,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -131,22 +131,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!205 &8832759959265255317
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6654189718471532056}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -2.4999926, y: 2.499999, z: -0.19247581}
-  m_Size: 7
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.09631087
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 5141019757065207757}
-  m_Enabled: 1

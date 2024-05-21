@@ -41,7 +41,7 @@ namespace GSpawn
                 addGameObject(cameraGO);
 
                 #if GSPAWN_HDRP
-                bool hdrp = GraphicsSettings.renderPipelineAsset is HDRenderPipelineAsset;
+                bool hdrp = GraphicsSettings.defaultRenderPipeline is HDRenderPipelineAsset;
                 #endif
 
                 _camera                     = cameraGO.getCamera();

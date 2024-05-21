@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3690759569825193685}
   - component: {fileID: 7527030309781827273}
   - component: {fileID: -3082055111149460859}
-  - component: {fileID: 7989390963536254252}
   m_Layer: 10
   m_Name: L_Wall_RoundCorner
   m_TagString: Concrete
@@ -63,6 +62,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -129,22 +129,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!205 &7989390963536254252
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2898288693496413952}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 7
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.10191037
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 3690759569825193685}
-  m_Enabled: 1

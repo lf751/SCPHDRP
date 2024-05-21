@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8397183857127237471}
   - component: {fileID: 5476181712531430848}
   - component: {fileID: 6985387559006641388}
-  - component: {fileID: 2966508175019216753}
   m_Layer: 10
   m_Name: Half_Wall_45_WhiteWall
   m_TagString: Concrete
@@ -63,6 +62,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -129,22 +129,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!205 &2966508175019216753
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8036733228160714378}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -1.767767, y: 2.5, z: 0.000000069239746}
-  m_Size: 7
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.097696066
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 8397183857127237471}
-  m_Enabled: 1

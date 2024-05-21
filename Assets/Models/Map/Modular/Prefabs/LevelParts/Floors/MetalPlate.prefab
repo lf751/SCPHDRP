@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4261457373895664758}
   - component: {fileID: 2261334894462899074}
   - component: {fileID: 5227874278513747307}
-  - component: {fileID: 6735320486784586492}
   m_Layer: 10
   m_Name: MetalPlate
   m_TagString: Metal
@@ -63,6 +62,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -129,22 +129,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!205 &6735320486784586492
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2315765652598195619}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -2.5, y: 0.0125, z: 1.25}
-  m_Size: 2
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.049924117
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 4261457373895664758}
-  m_Enabled: 1

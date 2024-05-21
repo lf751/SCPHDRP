@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9005923664481788696}
   - component: {fileID: 6566108148793890770}
   - component: {fileID: -176375210891822677}
-  - component: {fileID: 7255583017759720493}
   m_Layer: 10
   m_Name: Ceiling_MetalPanel
   m_TagString: Concrete
@@ -62,6 +61,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -109,22 +109,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4579454407841743219, guid: fd104c5d48b17ef458f6bc37fb2ea4d7, type: 3}
---- !u!205 &7255583017759720493
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4620549055545079303}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 7
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.10476885
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 6566108148793890770}
-  m_Enabled: 1

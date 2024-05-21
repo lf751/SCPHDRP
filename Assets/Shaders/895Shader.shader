@@ -1,4 +1,4 @@
-// Made with Amplify Shader Editor v1.9.2
+// Made with Amplify Shader Editor v1.9.2.2
 // Available at the Unity Asset Store - http://u3d.as/y3X 
 Shader "Custom/895Shader"
 {
@@ -308,14 +308,13 @@ Shader "Custom/895Shader"
             #define _SPECULAR_OCCLUSION_FROM_AO 1
             #pragma multi_compile_instancing
             #pragma instancing_options renderinglayer
-            #define ASE_SRP_VERSION 160005
+            #pragma multi_compile _ DOTS_INSTANCING_ON
+            #define ASE_SRP_VERSION 170003
 
 
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
             #pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 			#pragma multi_compile_fragment _ RENDERING_LAYERS
@@ -337,7 +336,7 @@ Shader "Custom/895Shader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -501,7 +500,7 @@ Shader "Custom/895Shader"
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				float3 normalWS : TEXCOORD1;
 				float4 tangentWS : TEXCOORD2;
@@ -642,7 +641,6 @@ Shader "Custom/895Shader"
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -671,13 +669,14 @@ Shader "Custom/895Shader"
 				surfaceData.perceptualSmoothness = GeometricNormalFiltering( surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[ 2 ], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold );
 				#endif
 
-				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -872,7 +871,7 @@ Shader "Custom/895Shader"
 			void Frag( PackedVaryingsMeshToPS packedInput,
 						OUTPUT_GBUFFER(outGBuffer)
 						#ifdef _DEPTHOFFSET_ON
-						, out float outputDepth : SV_Depth
+						, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 						#endif
 						
 						)
@@ -1023,14 +1022,13 @@ Shader "Custom/895Shader"
 			#define _SPECULAR_OCCLUSION_FROM_AO 1
 			#pragma multi_compile_instancing
 			#pragma instancing_options renderinglayer
-			#define ASE_SRP_VERSION 160005
+			#pragma multi_compile _ DOTS_INSTANCING_ON
+			#define ASE_SRP_VERSION 170003
 
 
 			#pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma shader_feature EDITOR_VISUALIZATION
 
@@ -1044,7 +1042,7 @@ Shader "Custom/895Shader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -1208,7 +1206,7 @@ Shader "Custom/895Shader"
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				#ifdef EDITOR_VISUALIZATION
 				float2 VizUV : TEXCOORD0;
 				float4 LightCoord : TEXCOORD1;
@@ -1344,7 +1342,6 @@ Shader "Custom/895Shader"
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -1375,11 +1372,13 @@ Shader "Custom/895Shader"
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -1698,14 +1697,13 @@ Shader "Custom/895Shader"
 			#define _SPECULAR_OCCLUSION_FROM_AO 1
 			#pragma multi_compile_instancing
 			#pragma instancing_options renderinglayer
-			#define ASE_SRP_VERSION 160005
+			#pragma multi_compile _ DOTS_INSTANCING_ON
+			#define ASE_SRP_VERSION 170003
 
 
 			#pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 
@@ -1720,7 +1718,7 @@ Shader "Custom/895Shader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			//#define USE_LEGACY_UNITY_MATRIX_VARIABLES
 
@@ -1879,7 +1877,7 @@ Shader "Custom/895Shader"
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -1978,7 +1976,6 @@ Shader "Custom/895Shader"
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -1997,11 +1994,13 @@ Shader "Custom/895Shader"
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -2183,7 +2182,7 @@ Shader "Custom/895Shader"
 						#endif
 
 						#if defined(_DEPTHOFFSET_ON) && !defined(SCENEPICKINGPASS)
-						, out float outputDepth : SV_Depth
+						, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 						#endif
 						
 					)
@@ -2281,14 +2280,13 @@ Shader "Custom/895Shader"
             #define _SPECULAR_OCCLUSION_FROM_AO 1
             #pragma multi_compile_instancing
             #pragma instancing_options renderinglayer
-            #define ASE_SRP_VERSION 160005
+            #pragma multi_compile _ DOTS_INSTANCING_ON
+            #define ASE_SRP_VERSION 170003
 
 
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma editor_sync_compilation
 
@@ -2302,7 +2300,7 @@ Shader "Custom/895Shader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -2461,7 +2459,7 @@ Shader "Custom/895Shader"
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -2560,7 +2558,6 @@ Shader "Custom/895Shader"
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -2579,11 +2576,13 @@ Shader "Custom/895Shader"
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -2743,7 +2742,7 @@ Shader "Custom/895Shader"
 			void Frag( PackedVaryingsMeshToPS packedInput
 						, out float4 outColor : SV_Target0
 						#if defined(_DEPTHOFFSET_ON) && !defined(SCENEPICKINGPASS)
-						, out float outputDepth : SV_Depth
+						, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 						#endif
 						
 					)
@@ -2824,14 +2823,13 @@ Shader "Custom/895Shader"
             #define _SPECULAR_OCCLUSION_FROM_AO 1
             #pragma multi_compile_instancing
             #pragma instancing_options renderinglayer
-            #define ASE_SRP_VERSION 160005
+            #pragma multi_compile _ DOTS_INSTANCING_ON
+            #define ASE_SRP_VERSION 170003
 
 
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile _ WRITE_NORMAL_BUFFER
 			#pragma multi_compile_fragment _ WRITE_MSAA_DEPTH
@@ -2847,7 +2845,7 @@ Shader "Custom/895Shader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -3006,7 +3004,7 @@ Shader "Custom/895Shader"
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				float3 normalWS : TEXCOORD1;
 				float4 tangentWS : TEXCOORD2;
@@ -3109,7 +3107,6 @@ Shader "Custom/895Shader"
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -3128,11 +3125,13 @@ Shader "Custom/895Shader"
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -3327,7 +3326,7 @@ Shader "Custom/895Shader"
 						#endif
 
 						#if defined(_DEPTHOFFSET_ON) && !defined(SCENEPICKINGPASS)
-						, out float outputDepth : SV_Depth
+						, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 						#endif
 						
 					)
@@ -3437,14 +3436,13 @@ Shader "Custom/895Shader"
             #define _SPECULAR_OCCLUSION_FROM_AO 1
             #pragma multi_compile_instancing
             #pragma instancing_options renderinglayer
-            #define ASE_SRP_VERSION 160005
+            #pragma multi_compile _ DOTS_INSTANCING_ON
+            #define ASE_SRP_VERSION 170003
 
 
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile _ WRITE_NORMAL_BUFFER
 			#pragma multi_compile_fragment _ WRITE_MSAA_DEPTH
@@ -3464,7 +3462,7 @@ Shader "Custom/895Shader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -3624,7 +3622,7 @@ Shader "Custom/895Shader"
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 vmeshPositionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 vmeshPositionCS : SV_Position;
 				float3 vmeshInterp00 : TEXCOORD0;
 				float3 vpassInterpolators0 : TEXCOORD1; //interpolators0
 				float3 vpassInterpolators1 : TEXCOORD2; //interpolators1
@@ -3726,7 +3724,6 @@ Shader "Custom/895Shader"
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -3745,11 +3742,13 @@ Shader "Custom/895Shader"
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -4007,7 +4006,7 @@ Shader "Custom/895Shader"
 					#endif
 
 					#ifdef _DEPTHOFFSET_ON
-					, out float outputDepth : SV_Depth
+					, out float outputDepth : DEPTH_OFFSET_SEMANTIC
 					#endif
 				
 				)
@@ -4100,11 +4099,11 @@ Shader "Custom/895Shader"
 			Name "Forward"
 			Tags { "LightMode"="Forward" }
 
-            Blend [_SrcBlend] [_DstBlend], [_AlphaSrcBlend] [_AlphaDstBlend]
-            Blend 1 One OneMinusSrcAlpha
-            Blend 2 One [_DstBlend2]
-            Blend 3 One [_DstBlend2]
-            Blend 4 One OneMinusSrcAlpha
+			Blend [_SrcBlend] [_DstBlend], [_AlphaSrcBlend] [_AlphaDstBlend]
+			Blend 1 One OneMinusSrcAlpha
+			Blend 2 One [_DstBlend2]
+			Blend 3 One [_DstBlend2]
+			Blend 4 One OneMinusSrcAlpha
 
 			Cull [_CullModeForward]
 			ZTest [_ZTestDepthEqualForOpaque]
@@ -4127,14 +4126,13 @@ Shader "Custom/895Shader"
             #define _SPECULAR_OCCLUSION_FROM_AO 1
             #pragma multi_compile_instancing
             #pragma instancing_options renderinglayer
-            #define ASE_SRP_VERSION 160005
+            #pragma multi_compile _ DOTS_INSTANCING_ON
+            #define ASE_SRP_VERSION 170003
 
 
             #pragma shader_feature _SURFACE_TYPE_TRANSPARENT
 			#pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC _TRANSPARENT_REFRACTIVE_SORT
 			#pragma shader_feature_local_fragment _ENABLE_FOG_ON_TRANSPARENT
-			#pragma shader_feature_local _DOUBLESIDED_ON
-			#pragma shader_feature_local _ALPHATEST_ON
 
 			#pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 	        #pragma multi_compile_fragment PUNCTUAL_SHADOW_LOW PUNCTUAL_SHADOW_MEDIUM PUNCTUAL_SHADOW_HIGH
@@ -4165,7 +4163,7 @@ Shader "Custom/895Shader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -4338,7 +4336,7 @@ Shader "Custom/895Shader"
 
 			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_Position;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
 				float3 positionRWS : TEXCOORD0;
 				float3 normalWS : TEXCOORD1;
 				float4 tangentWS : TEXCOORD2;
@@ -4481,7 +4479,6 @@ Shader "Custom/895Shader"
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
-					// Both uses and modifies 'surfaceData.normalWS'.
 					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
@@ -4513,11 +4510,13 @@ Shader "Custom/895Shader"
 
 				// debug
 				#if defined(DEBUG_DISPLAY)
+				#if !defined(SHADER_STAGE_RAY_TRACING)
 				if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				{
 					surfaceData.metallic = 0;
 				}
 				ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+				#endif
 				#endif
 			}
 
@@ -4968,7 +4967,7 @@ Shader "Custom/895Shader"
 
 				if (!viewMaterial)
 				{
-					if (_DebugFullScreenMode == FULLSCREENDEBUGMODE_VALIDATE_DIFFUSE_COLOR || _DebugFullScreenMode == FULLSCREENDEBUGMODE_VALIDATE_SPECULAR_COLOR)
+					if (_DebugFullScreenMode == multi_compile _ DOTS_INSTANCING_ONMODE_VALIDATE_DIFFUSE_COLOR || _DebugFullScreenMode == FULLSCREENDEBUGMODE_VALIDATE_SPECULAR_COLOR)
 					{
 						float3 result = float3(0.0, 0.0, 0.0);
 						GetPBRValidatorDebug(surfaceData, result);
@@ -5068,7 +5067,8 @@ Shader "Custom/895Shader"
 			#define _SPECULAR_OCCLUSION_FROM_AO 1
 			#pragma multi_compile_instancing
 			#pragma instancing_options renderinglayer
-			#define ASE_SRP_VERSION 160005
+			#pragma multi_compile _ DOTS_INSTANCING_ON
+			#define ASE_SRP_VERSION 170003
 
 
 			#pragma editor_sync_compilation
@@ -5083,7 +5083,7 @@ Shader "Custom/895Shader"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#define ATTRIBUTES_NEED_NORMAL
 			#define ATTRIBUTES_NEED_TANGENT
@@ -5204,7 +5204,6 @@ Shader "Custom/895Shader"
 			{
 				float3 positionOS : POSITION;
 				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
@@ -5213,7 +5212,6 @@ Shader "Custom/895Shader"
 			{
 				float4 positionCS : SV_POSITION;
 				float3 normalWS : TEXCOORD0;
-				float4 tangentWS : TEXCOORD1;
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
@@ -5293,7 +5291,7 @@ Shader "Custom/895Shader"
                 builtinData.opacity = surfaceDescription.Alpha;
 
                 #if defined(DEBUG_DISPLAY)
-				builtinData.renderingLayers = GetMeshRenderingLightLayer();
+				builtinData.renderingLayers = GetMeshRenderingLayerMask();
                 #endif
 
                 #ifdef _ALPHATEST_ON
@@ -5350,12 +5348,10 @@ Shader "Custom/895Shader"
 
 				float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS);
 				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
-				float4 tangentWS = float4(TransformObjectToWorldDir(inputMesh.tangentOS.xyz), inputMesh.tangentOS.w);
-
+				
 				o.positionCS = TransformWorldToHClip(positionRWS);
 				o.normalWS.xyz =  normalWS;
-				o.tangentWS.xyzw =  tangentWS;
-
+				
 				return o;
 			}
 
@@ -5364,7 +5360,6 @@ Shader "Custom/895Shader"
 			{
 				float3 positionOS : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
-				float4 tangentOS : TANGENT;
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
@@ -5382,7 +5377,6 @@ Shader "Custom/895Shader"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				o.positionOS = v.positionOS;
 				o.normalOS = v.normalOS;
-				o.tangentOS = v.tangentOS;
 				
 				return o;
 			}
@@ -5427,7 +5421,6 @@ Shader "Custom/895Shader"
 				VertexInput o = (VertexInput) 0;
 				o.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
 				o.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
-				o.tangentOS = patch[0].tangentOS * bary.x + patch[1].tangentOS * bary.y + patch[2].tangentOS * bary.z;
 				
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
@@ -5458,8 +5451,6 @@ Shader "Custom/895Shader"
 				ZERO_INITIALIZE(FragInputs, input);
 				input.tangentToWorld = k_identity3x3;
 				input.positionSS = packedInput.positionCS;
-
-				input.tangentToWorld = BuildTangentToWorld(packedInput.tangentWS.xyzw, packedInput.normalWS.xyz);
 
 				PositionInputs posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, input.positionSS.z, input.positionSS.w, input.positionRWS);
 
@@ -5512,7 +5503,7 @@ Shader "Custom/895Shader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphHeader.hlsl"
+            #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
 			#define ATTRIBUTES_NEED_NORMAL
 			#define ATTRIBUTES_NEED_TANGENT
@@ -5755,7 +5746,7 @@ Shader "Custom/895Shader"
 	Fallback Off
 }
 /*ASEBEGIN
-Version=19200
+Version=19202
 Node;AmplifyShaderEditor.CommentaryNode;53;-693.208,664.3696;Inherit;False;228;186.9;uvs.x;1;52;;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode;43;-1578,915;Inherit;False;553;208.95;Time;4;22;26;32;39;;1,1,1,1;0;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;2;158,-69;Float;False;False;-1;2;Rendering.HighDefinition.LightingShaderGraphGUI;0;1;New Amplify Shader;53b46d85872c5b24c8f4f0a1c3fe4c87;True;META;0;1;META;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Meta;False;False;0;;0;0;Standard;0;False;0
@@ -5796,7 +5787,6 @@ Node;AmplifyShaderEditor.SamplerNode;28;12,391;Inherit;True;Property;_TextureSam
 Node;AmplifyShaderEditor.DynamicAppendNode;66;-276.4434,765.3934;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.SimpleRemainderNode;88;1024.673,458.6826;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;2;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;89;1254.673,483.6826;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;1;438,-225;Float;False;True;-1;2;Rendering.HighDefinition.LightingShaderGraphGUI;0;14;Custom/895Shader;53b46d85872c5b24c8f4f0a1c3fe4c87;True;GBuffer;0;0;GBuffer;34;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;0;True;_CullMode;False;False;False;False;False;False;False;False;False;True;True;0;True;_StencilRefGBuffer;255;False;;255;True;_StencilWriteMaskGBuffer;7;False;;3;False;;0;False;;0;False;;7;False;;3;False;;0;False;;0;False;;False;False;True;0;True;_ZTestGBuffer;False;True;1;LightMode=GBuffer;False;False;0;;0;0;Standard;39;Surface Type;0;0;  Rendering Pass;1;0;  Refraction Model;0;0;    Blending Mode;0;0;    Blend Preserves Specular;1;0;  Back Then Front Rendering;0;0;  Transparent Depth Prepass;0;0;  Transparent Depth Postpass;0;0;  ZWrite;0;0;  Z Test;4;0;Double-Sided;0;0;Alpha Clipping;0;0;  Use Shadow Threshold;0;0;Material Type,InvertActionOnDeselection;0;0;  Energy Conserving Specular;1;0;  Transmission,InvertActionOnDeselection;0;0;Forward Only;0;0;Receive Decals;1;0;Receives SSR;1;0;Receive SSR Transparent;0;0;Motion Vectors;1;0;  Add Precomputed Velocity;0;0;Specular AA;0;0;Specular Occlusion Mode;1;0;Override Baked GI;0;0;Depth Offset;0;0;DOTS Instancing;0;0;GPU Instancing;1;0;LOD CrossFade;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Vertex Position;1;0;0;11;True;True;True;True;True;True;False;False;False;True;True;False;;False;0
 Node;AmplifyShaderEditor.TexturePropertyNode;12;-758,-326;Inherit;True;Property;_MainTex;MainTex;0;0;Create;True;0;0;0;False;0;False;None;None;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
 Node;AmplifyShaderEditor.RangedFloatNode;22;-1558,1050;Inherit;False;Property;_GlitchSpeed;Glitch Speed;9;0;Create;True;0;0;0;True;0;False;1;0;0;10;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;26;-1437,974;Inherit;False;Property;_FakeTime;Time;13;0;Create;False;0;0;0;True;0;False;1;0;0;0;0;1;FLOAT;0
@@ -5815,6 +5805,7 @@ Node;AmplifyShaderEditor.SamplerNode;73;7.770386,1032.574;Inherit;True;Property;
 Node;AmplifyShaderEditor.SimpleAddOpNode;86;1078.77,805.574;Inherit;True;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.BlendOpsNode;77;672.7704,731.574;Inherit;False;Screen;True;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;1;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;90;910.9062,839.7451;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;1;1509.201,38.90001;Float;False;True;-1;2;Rendering.HighDefinition.LightingShaderGraphGUI;0;14;Custom/895Shader;53b46d85872c5b24c8f4f0a1c3fe4c87;True;GBuffer;0;0;GBuffer;34;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;0;True;_CullMode;False;False;False;False;False;False;False;False;False;True;True;0;True;_StencilRefGBuffer;255;False;;255;True;_StencilWriteMaskGBuffer;7;False;;3;False;;0;False;;0;False;;7;False;;3;False;;0;False;;0;False;;False;False;True;0;True;_ZTestGBuffer;False;True;1;LightMode=GBuffer;False;False;0;;0;0;Standard;39;Surface Type;0;0;  Rendering Pass;1;0;  Refraction Model;0;0;    Blending Mode;0;0;    Blend Preserves Specular;1;0;  Back Then Front Rendering;0;0;  Transparent Depth Prepass;0;0;  Transparent Depth Postpass;0;0;  ZWrite;0;0;  Z Test;4;0;Double-Sided;0;0;Alpha Clipping;0;0;  Use Shadow Threshold;0;0;Material Type,InvertActionOnDeselection;0;0;  Energy Conserving Specular;1;0;  Transmission,InvertActionOnDeselection;0;0;Forward Only;0;0;Receive Decals;1;0;Receives SSR;1;0;Receive SSR Transparent;0;0;Motion Vectors;1;0;  Add Precomputed Velocity;0;0;Specular AA;0;0;Specular Occlusion Mode;1;0;Override Baked GI;0;0;Depth Offset;0;0;DOTS Instancing;1;638518615701811753;GPU Instancing;1;0;LOD CrossFade;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Vertex Position;1;0;0;11;True;True;True;True;True;True;False;False;False;True;True;False;;False;0
 WireConnection;27;0;12;0
 WireConnection;31;0;27;4
 WireConnection;31;1;17;0
@@ -5852,10 +5843,6 @@ WireConnection;66;1;52;0
 WireConnection;88;0;84;0
 WireConnection;89;0;88;0
 WireConnection;89;1;25;0
-WireConnection;1;0;27;0
-WireConnection;1;4;30;0
-WireConnection;1;6;90;0
-WireConnection;1;7;31;0
 WireConnection;75;0;76;0
 WireConnection;75;1;18;0
 WireConnection;78;0;73;0
@@ -5870,5 +5857,9 @@ WireConnection;77;0;75;0
 WireConnection;77;1;72;0
 WireConnection;90;0;77;0
 WireConnection;90;1;78;0
+WireConnection;1;0;27;0
+WireConnection;1;4;30;0
+WireConnection;1;6;90;0
+WireConnection;1;7;31;0
 ASEEND*/
-//CHKSM=48393EF20DF984C3FE815E15C9B603C40444019A
+//CHKSM=142A5D8B3BE23D14E4F0A5CF37836A7AAC6EBCCF

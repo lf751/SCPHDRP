@@ -60,6 +60,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -98,7 +99,6 @@ GameObject:
   - component: {fileID: 8050562110653224888}
   - component: {fileID: 6939763512672820284}
   - component: {fileID: 328360267424523255}
-  - component: {fileID: 2608625191312365590}
   m_Layer: 10
   m_Name: Wall_Window_Tiles
   m_TagString: Concrete
@@ -149,6 +149,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -216,22 +217,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!205 &2608625191312365590
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8410942782501025389}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -2.5000005, y: 2.5, z: 0.00000003158408}
-  m_Size: 7
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.09631087
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 8050562110653224888}
-  m_Enabled: 1

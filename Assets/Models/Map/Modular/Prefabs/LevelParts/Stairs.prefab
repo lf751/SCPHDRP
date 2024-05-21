@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1168865733727840850}
   - component: {fileID: 7099108497017489787}
   - component: {fileID: 1001417400067455932}
-  - component: {fileID: 2269575206595540711}
   m_Layer: 10
   m_Name: Stairs
   m_TagString: Concrete
@@ -63,6 +62,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -129,22 +129,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!205 &2269575206595540711
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808494269195537287}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 7
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.09631087
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1168865733727840850}
-  m_Enabled: 1

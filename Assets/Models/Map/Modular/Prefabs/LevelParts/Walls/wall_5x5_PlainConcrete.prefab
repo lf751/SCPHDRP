@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4370599497959121463}
   - component: {fileID: 6168693991428552120}
   - component: {fileID: 3884588145713620842}
-  - component: {fileID: 2656300062170470794}
   m_Layer: 10
   m_Name: wall_5x5_PlainConcrete
   m_TagString: Concrete
@@ -63,6 +62,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -129,22 +129,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!205 &2656300062170470794
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2857394765655507938}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -2.5, y: 2.5, z: -0.0000001659019}
-  m_Size: 7
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.09909104
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 4370599497959121463}
-  m_Enabled: 1

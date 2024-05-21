@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1461700911727106621}
   - component: {fileID: -7224151430540881479}
   - component: {fileID: 8478391329285187071}
-  - component: {fileID: 3716704498253063493}
   m_Layer: 10
   m_Name: Wall_Window
   m_TagString: Concrete
@@ -64,6 +63,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -131,25 +131,6 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!205 &3716704498253063493
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101690087499135976}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -2.5000005, y: 2.5, z: 0.00000003158408}
-  m_Size: 7
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.097696066
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1461700911727106621}
-  m_Enabled: 1
 --- !u!1 &3934266792076540713
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +191,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

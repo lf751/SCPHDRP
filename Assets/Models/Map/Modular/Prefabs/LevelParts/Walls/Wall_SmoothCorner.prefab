@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1481140623369633085}
   - component: {fileID: -4896210208162158423}
   - component: {fileID: 2708768068504932719}
-  - component: {fileID: 5585090301634587642}
   m_Layer: 10
   m_Name: Wall_SmoothCorner
   m_TagString: Untagged
@@ -63,6 +62,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -129,22 +129,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!205 &5585090301634587642
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121095026415721704}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -2.5000005, y: 2.5, z: -2.4999936}
-  m_Size: 7
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.100495815
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1481140623369633085}
-  m_Enabled: 1

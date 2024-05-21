@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6620021278113777287}
   - component: {fileID: 8952026924212761165}
   - component: {fileID: -9143459978540815686}
-  - component: {fileID: 6755694401929083245}
   m_Layer: 10
   m_Name: LargeWall_Window
   m_TagString: Concrete
@@ -62,6 +61,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -107,22 +107,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!205 &6755694401929083245
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7438540854299497368}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 7
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.100495815
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 8952026924212761165}
-  m_Enabled: 1

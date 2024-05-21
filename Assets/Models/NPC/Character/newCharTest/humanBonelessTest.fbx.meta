@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: d081696097d3b5741aa277dc275efc89
 ModelImporter:
-  serializedVersion: 22103
+  serializedVersion: 22200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
@@ -29,8 +29,6 @@ ModelImporter:
     optimizeGameObjects: 1
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -56,6 +54,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -92,41 +91,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 4a72e66ceff335543a16cc20804446ea
-  - 0ef2fcd594f579440bcb78bed6c49420
-  - d9230b8a231b12d41b667d4badac9cad
-  - b67891e9ba179d84c9a5ecb9d4a1ee45
-  - d6357e0956b404243bb4712c5aeb3e13
-  - 8d77fbfa4f3b9384aa2e0bf185102801
-  - d39632826c5734d4db47741a2f26738c
-  - d16ebdb8560a9ae47b8e1e972aad6738
-  - c7830e2ced18a06439ff0955ac7360ae
-  - 2a5d6938726b59d4f8c9f69037631ac1
-  - f745ee18d32bc0040965154674d33468
-  - c1a1a6cbd5b06d64191d1c96c1743d67
-  - b9a5e87c8bca6db4f897234a3852d68a
-  - f6493894de247ca4b80378089b9796b8
-  - caee38f6c67515440945c0ef9c4ff43e
-  - bfca42d62bd09f842bfaf4791446441d
-  - e3bfeb5bdc43eee40af2173bbc783c09
-  - 15541190efbfd9546898abe24b7bc574
-  - 75065c548e8b5e742a0ed2e3b1a75e63
-  - 9a8e755edbd91964eabfd1cf9863115b
-  - 42e9d5093eccc594da67cb68534c860c
-  - 1d258f777e6169b469ed0b9e646281ae
-  - 566b3462ac79b68498bb35c2d7927d95
-  - 1c1e958cdde9b4a408bcb4e682ee7f5f
-  - caefc22204c38944784c21872dbc479d
-  - bd9443c69d803c94080032897ee98eae
-  - e8d9c999fd8fddc41a812a0b46e384db
-  - dcfeb99ae4b77274cb42a798cf8b862c
-  - f98f6f377eb3d9745bef527b360b0996
-  - 6ea25fb3e47cda3489ad604cb51276de
-  - 97ccb94c2d4ee5242bea3e98b8bdfda5
-  - bd40c24b19128df42a5da328380956bb
-  - 7aa8a52c15640374b8873f42aea436e6
-  - 81adc24c0385fa14aa30a2979f65787f
+  referencedClips: []
   importAnimation: 0
   humanDescription:
     serializedVersion: 3

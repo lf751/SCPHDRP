@@ -16,7 +16,7 @@ namespace GSpawn
         public Collider2D   addedCollider2D;
         public Collider     addedCollider3D;
 
-        public Vector3      velocity { get { return is2DObject ? rigidBody2D.velocity : rigidBody3D.velocity; } }
+        public Vector3      velocity { get { return is2DObject ? rigidBody2D.velocity : rigidBody3D.linearVelocity; } }
 
         public void onExitSimulation()
         {

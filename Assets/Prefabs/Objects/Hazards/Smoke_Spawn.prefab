@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7341bf620fd9f408308e66c5ee01d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Contains: {fileID: 1529045537336012809}
+  Contains: {fileID: 0}
 --- !u!65 &1529045537598160025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4db70907a5fdfa4884462a8ff868713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   smokeEffect: {fileID: 1327087417542877586}
   smokeCollider: {fileID: 1529045537336012811}
   smokeSound: {fileID: 7126914738027668996}
