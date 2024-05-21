@@ -83,8 +83,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ScreenTex:
         m_Texture: {fileID: 2800000, guid: 323330af20df105478bc35605204c105, type: 3}
-        m_Scale: {x: 1.0222223, y: 1.0183147}
-        m_Offset: {x: 0.020116324, y: -0.015246262}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _StaticTex:
         m_Texture: {fileID: 2800000, guid: ad0603be387f2654b82cc66434639ee6, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -128,8 +128,8 @@ Material:
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _FakeTime: 34.80562
-    - _GlitchAmount: 0.0193693
-    - _GlitchAmountR: 0.0387386
+    - _GlitchAmount: 0
+    - _GlitchAmountR: 0
     - _GlitchSpeed: 2
     - _GlitchWaves: 4
     - _GlossMapScale: 1
@@ -149,7 +149,7 @@ Material:
     - _RequireSplitLighting: 0
     - _RowHeight: 0.05
     - _RowOffset: 0
-    - _ScareA: 0.06723148
+    - _ScareA: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

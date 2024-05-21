@@ -167,7 +167,7 @@ MonoBehaviour:
     dynamicResolutionSettings:
       enabled: 1
       useMipBias: 0
-      advancedUpscalersByPriority: 00
+      advancedUpscalersByPriority: 0001
       DLSSPerfQualitySetting: 2
       DLSSInjectionPoint: 2
       DLSSUseOptimalSettings: 1
@@ -308,7 +308,7 @@ MonoBehaviour:
       - 0.5
     gpuResidentDrawerSettings:
       mode: 1
-      smallMeshScreenPercentage: 0
+      smallMeshScreenPercentage: 2
       enableOcclusionCullingInCameras: 1
       useDepthPrepassForOccluders: 1
     m_ObsoleteLightLayerName0: 
@@ -538,4 +538,4 @@ MonoBehaviour:
   m_ObsoleteShaderVariantLogLevel: 0
   m_ObsoleteLensAttenuation: 0
   m_ObsoleteDiffusionProfileSettingsList: []
-  m_PrefilterUseLegacyLightmaps: 0
+  m_PrefilterUseLegacyLightmaps: 1
