@@ -50,7 +50,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _JumpTex:
-        m_Texture: {fileID: 2800000, guid: 69cdcf40f3d8e414ba003612d0e4fa3b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9e9d128c680801a44bce6011957772f9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _JumpscareTex:
@@ -127,7 +127,7 @@ Material:
     - _DstBlend2: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _FakeTime: 34.80562
+    - _FakeTime: 205.85762
     - _GlitchAmount: 0
     - _GlitchAmountR: 0
     - _GlitchSpeed: 2

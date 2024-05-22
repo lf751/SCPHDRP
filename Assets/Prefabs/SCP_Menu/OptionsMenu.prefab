@@ -11607,7 +11607,7 @@ Canvas:
   m_GameObject: {fileID: 5433792194975670010}
   m_Enabled: 0
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -11682,6 +11682,15 @@ MonoBehaviour:
   acc: {fileID: 5433792195760466429}
   debug: {fileID: 5433792194567941401}
   tuto: {fileID: 4245103160605970749}
+  value_fullscreen: 0
+  value_vsync: 0
+  value_framelimiter: 0
+  value_subs: 0
+  value_debug: 0
+  value_tuto: 0
+  value_qual: 0
+  value_res: 0
+  value_lang: 0
 --- !u!114 &3632139982189123715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11704,7 +11713,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &5433792194979976462
 GameObject:
   m_ObjectHideFlags: 0

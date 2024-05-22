@@ -154,7 +154,7 @@ MonoBehaviour:
     decalSettings:
       drawDistance: 20
       atlasWidth: 1024
-      atlasHeight: 1024
+      atlasHeight: 2048
       transparentTextureResolution:
         m_Values: 000100000002000000040000
         m_SchemaId:
@@ -172,9 +172,9 @@ MonoBehaviour:
       DLSSInjectionPoint: 2
       DLSSUseOptimalSettings: 1
       DLSSSharpness: 0.5
-      FSR2EnableSharpness: 0
-      FSR2Sharpness: 0
-      FSR2UseOptimalSettings: 0
+      FSR2EnableSharpness: 1
+      FSR2Sharpness: 0.5
+      FSR2UseOptimalSettings: 1
       FSR2QualitySetting: 0
       FSR2InjectionPoint: 0
       fsrOverrideSharpness: 0

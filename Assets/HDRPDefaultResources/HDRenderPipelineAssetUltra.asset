@@ -112,7 +112,7 @@ MonoBehaviour:
       maxAreaLightsOnScreen: 24
       maxCubeReflectionOnScreen: 20
       maxPlanarReflectionOnScreen: 15
-      maxDecalsOnScreen: 32
+      maxDecalsOnScreen: 24
       maxLightsPerClusterCell: 8
       maxLocalVolumetricFogSize: 64
       maxLocalVolumetricFogOnScreen: 24
@@ -153,8 +153,8 @@ MonoBehaviour:
       screenSpaceShadowBufferFormat: 8
     decalSettings:
       drawDistance: 30
-      atlasWidth: 2048
-      atlasHeight: 2048
+      atlasWidth: 4096
+      atlasHeight: 4096
       transparentTextureResolution:
         m_Values: 000100000002000000040000
         m_SchemaId:
@@ -172,9 +172,9 @@ MonoBehaviour:
       DLSSInjectionPoint: 0
       DLSSUseOptimalSettings: 1
       DLSSSharpness: 0.5
-      FSR2EnableSharpness: 0
-      FSR2Sharpness: 0
-      FSR2UseOptimalSettings: 0
+      FSR2EnableSharpness: 1
+      FSR2Sharpness: 0.5
+      FSR2UseOptimalSettings: 1
       FSR2QualitySetting: 0
       FSR2InjectionPoint: 0
       fsrOverrideSharpness: 0
